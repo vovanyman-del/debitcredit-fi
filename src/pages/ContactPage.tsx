@@ -5,17 +5,34 @@ import { company } from '../data/pricing';
 export default function ContactPage() {
   const { t } = useI18n();
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError('');
+    setIsSubmitting(true);
+
     const form = e.currentTarget;
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' },
-    }).then(res => {
-      if (res.ok) setSubmitted(true);
-    });
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(t.contact.form.error);
+      }
+    } catch {
+      setError(t.contact.form.error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -39,7 +56,9 @@ export default function ContactPage() {
                 <p className="text-lg font-semibold text-warm-900">{t.contact.form.success}</p>
               </div>
             ) : (
-              <form action="https://formspree.io/f/FORM_ID" method="POST" onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Honeypot — hidden from humans, bots fill it */}
+                <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                 <div>
                   <label className="block text-sm font-medium text-warm-700 mb-1.5">{t.contact.form.name}</label>
                   <input name="name" type="text" required className="w-full px-4 py-2.5 border border-warm-300 rounded-xl text-warm-800 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-shadow" />
@@ -60,11 +79,15 @@ export default function ContactPage() {
                   <label className="block text-sm font-medium text-warm-700 mb-1.5">{t.contact.form.message}</label>
                   <textarea name="message" rows={5} required className="w-full px-4 py-2.5 border border-warm-300 rounded-xl text-warm-800 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-shadow resize-none" />
                 </div>
+                {error && (
+                  <p className="text-red-600 text-sm">{error}</p>
+                )}
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto px-8 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {t.contact.form.submit}
+                  {isSubmitting ? '...' : t.contact.form.submit}
                 </button>
               </form>
             )}

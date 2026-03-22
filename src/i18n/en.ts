@@ -320,6 +320,7 @@ export const en = {
       message: 'Message',
       submit: 'Send message',
       success: 'Thank you for your message! We will get back to you soon.',
+      error: 'Failed to send message. Please try again or contact us directly by email.',
     },
     info: {
       phone: 'Phone',

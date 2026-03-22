@@ -320,6 +320,7 @@ export const fi = {
       message: 'Viesti',
       submit: 'Lähetä viesti',
       success: 'Kiitos viestistäsi! Otamme yhteyttä pian.',
+      error: 'Viestin lähetys epäonnistui. Yritä uudelleen tai ota yhteyttä suoraan sähköpostilla.',
     },
     info: {
       phone: 'Puhelin',

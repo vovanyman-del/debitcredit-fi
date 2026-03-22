@@ -320,6 +320,7 @@ export const et = {
       message: 'Sõnum',
       submit: 'Saada sõnum',
       success: 'Täname sõnumi eest! Võtame sinuga peagi ühendust.',
+      error: 'Sõnumi saatmine ebaõnnestus. Proovi uuesti või kirjuta meile otse e-postiga.',
     },
     info: {
       phone: 'Telefon',
