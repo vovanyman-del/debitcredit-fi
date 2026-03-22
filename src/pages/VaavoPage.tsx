@@ -1,6 +1,8 @@
-import { type ReactNode } from 'react';
+import { type ReactNode, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
+
+const VaavoDemo = lazy(() => import('../components/VaavoDemo'));
 
 const featureIcons: Record<string, ReactNode> = {
   ai: <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
@@ -29,6 +31,15 @@ export default function VaavoPage() {
           </div>
         </div>
       </section>
+
+      {/* Interactive demo */}
+      <div className="bg-warm-50 border-b border-warm-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <Suspense fallback={<div className="h-[560px]" />}>
+            <VaavoDemo />
+          </Suspense>
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Feature grid */}

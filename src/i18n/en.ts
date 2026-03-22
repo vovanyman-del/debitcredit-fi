@@ -289,6 +289,14 @@ export const en = {
       analytics: { title: 'Analytics & Reports', desc: 'Expense analysis, profit trends and vendor comparisons as visual charts.' },
       aiHelper: { title: 'AI Assistant', desc: 'Ask financial questions in Finnish, English or Russian — AI responds based on your company data.' },
     },
+    demo: {
+      step1: { title: 'Log in securely', desc: 'Personal credentials — only your company data' },
+      step2: { title: 'See everything at a glance', desc: 'Bank balance, VAT status, accountant messages' },
+      step3: { title: 'Snap a receipt — done', desc: 'Receipt is automatically sent to your accountant' },
+      step4: { title: 'Track bank transactions', desc: 'PSD2 bank connection — transactions update automatically' },
+      step5: { title: 'Ask your accountant', desc: 'Message directly — no need to call or email' },
+      step6: { title: 'In your language', desc: 'Finnish, Russian, English, Estonian, Ukrainian — choose yours' },
+    },
   },
   about: {
     title: 'About Us',

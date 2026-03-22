@@ -289,6 +289,14 @@ export const fi = {
       analytics: { title: 'Analytiikka ja raportit', desc: 'Kuluanalyysi, tuloskehitys ja toimittajavertailut visuaalisina kaavioina.' },
       aiHelper: { title: 'AI-avustaja', desc: 'Kysy talousasioista suomeksi, englanniksi tai venäjäksi — tekoäly vastaa yrityksesi tietojen perusteella.' },
     },
+    demo: {
+      step1: { title: 'Kirjaudu turvallisesti', desc: 'Henkilökohtaiset tunnukset — vain sinun yrityksesi tiedot' },
+      step2: { title: 'Näe tilanne yhdellä silmäyksellä', desc: 'Pankkisaldo, ALV-tilanne, kirjanpitäjän viestit' },
+      step3: { title: 'Kuvaa kuitti — valmis', desc: 'Kuitti siirtyy automaattisesti kirjanpitäjälle käsiteltäväksi' },
+      step4: { title: 'Seuraa pankkitapahtumia', desc: 'PSD2-yhteys pankkiin — tapahtumat päivittyvät automaattisesti' },
+      step5: { title: 'Kysy kirjanpitäjältä', desc: 'Viesti suoraan — ei tarvitse soittaa tai lähettää sähköpostia' },
+      step6: { title: 'Omalla kielelläsi', desc: 'Suomi, venäjä, englanti, viro, ukraina — valitse itsellesi sopiva' },
+    },
   },
   about: {
     title: 'Meistä',

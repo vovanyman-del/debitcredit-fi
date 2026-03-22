@@ -289,6 +289,14 @@ export const et = {
       analytics: { title: 'Analüütika ja aruanded', desc: 'Kuluanalüüs, kasumi trendid ja tarnijate võrdlused visuaalsete graafikutena.' },
       aiHelper: { title: 'AI assistent', desc: 'Küsi rahandusküsimusi soome, inglise või vene keeles — AI vastab sinu ettevõtte andmete põhjal.' },
     },
+    demo: {
+      step1: { title: 'Logi turvaliselt sisse', desc: 'Isiklikud andmed — ainult teie ettevõtte andmed' },
+      step2: { title: 'Näe kõike ühe pilguga', desc: 'Pangasaldo, käibemaksu seis, raamatupidaja sõnumid' },
+      step3: { title: 'Pildista tšekk — valmis', desc: 'Tšekk saadetakse automaatselt raamatupidajale' },
+      step4: { title: 'Jälgi pangatehinguid', desc: 'PSD2 pangaühendus — tehingud uuenevad automaatselt' },
+      step5: { title: 'Küsi raamatupidajalt', desc: 'Kirjuta otse — pole vaja helistada ega meili saata' },
+      step6: { title: 'Sinu keeles', desc: 'Soome, vene, inglise, eesti, ukraina — vali endale sobiv' },
+    },
   },
   about: {
     title: 'Meist',
