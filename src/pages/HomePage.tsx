@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
-import { packages, company } from '../data/pricing';
+import { packages } from '../data/pricing';
 
 const serviceIcons = [
   <svg key="book" className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>,
@@ -44,14 +44,12 @@ export default function HomePage() {
               >
                 {t.home.hero.cta}
               </Link>
-              <a
-                href={company.vaavo.app}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to={localePath('/vaavo')}
                 className="inline-flex justify-center items-center px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors"
               >
                 {t.home.hero.ctaSecondary}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

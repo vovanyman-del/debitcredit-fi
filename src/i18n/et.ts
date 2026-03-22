@@ -277,7 +277,7 @@ export const et = {
     free: 'Tasuta meie klientidele',
     techHighlight: 'Vaavo ühendab pangaandmed, dokumendihalduse ja sõnumid ühte kohta. Tehisintellekt aitab kviitungite tuvastamisel ja raamatupidamise automatiseerimisel. Reaalajas ülevaade rahaasjadest — igal ajal, igalt poolt.',
     cta: 'Soovid näha Vaavot tegevuses?',
-    ctaButton: 'Ava Vaavo',
+    ctaButton: 'Võta ühendust',
     features: {
       ai: { title: 'AI kviitungite töötlus', desc: 'Tehisintellekt tuvastab automaatselt kviitungid ja arved, soovitab kategooriat ja seob need pangatehnigutega.' },
       bank: { title: 'Pangaühendus', desc: 'Reaalajas pangaandmete sünkroniseerimine. Tulud, kulud ja saldod ühe pilguga.' },
@@ -464,5 +464,8 @@ export const et = {
     contactUs: 'Võta ühendust',
     learnMore: 'Loe lähemalt',
     allRightsReserved: 'Kõik õigused kaitstud.',
+    notFoundTitle: 'Lehte ei leitud',
+    notFoundDesc: 'Otsitud lehte ei eksisteeri. Kontrollige aadressi või minge tagasi avalehele.',
+    backToHome: 'Tagasi avalehele',
   },
 };

@@ -13,42 +13,92 @@
   </url>
   <url>
     <loc>https://debitcredit.fi/palvelut</loc>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://debitcredit.fi/palvelut"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://debitcredit.fi/en/palvelut"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://debitcredit.fi/ru/palvelut"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://debitcredit.fi/et/palvelut"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://debitcredit.fi/uk/palvelut"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://debitcredit.fi/hinnasto</loc>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://debitcredit.fi/hinnasto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://debitcredit.fi/en/hinnasto"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://debitcredit.fi/ru/hinnasto"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://debitcredit.fi/et/hinnasto"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://debitcredit.fi/uk/hinnasto"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://debitcredit.fi/vaavo</loc>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://debitcredit.fi/vaavo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://debitcredit.fi/en/vaavo"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://debitcredit.fi/ru/vaavo"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://debitcredit.fi/et/vaavo"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://debitcredit.fi/uk/vaavo"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://debitcredit.fi/meista</loc>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://debitcredit.fi/meista"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://debitcredit.fi/en/meista"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://debitcredit.fi/ru/meista"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://debitcredit.fi/et/meista"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://debitcredit.fi/uk/meista"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://debitcredit.fi/yhteystiedot</loc>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://debitcredit.fi/yhteystiedot"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://debitcredit.fi/en/yhteystiedot"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://debitcredit.fi/ru/yhteystiedot"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://debitcredit.fi/et/yhteystiedot"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://debitcredit.fi/uk/yhteystiedot"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://debitcredit.fi/yrittajaksi</loc>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://debitcredit.fi/yrittajaksi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://debitcredit.fi/en/yrittajaksi"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://debitcredit.fi/ru/yrittajaksi"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://debitcredit.fi/et/yrittajaksi"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://debitcredit.fi/uk/yrittajaksi"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://debitcredit.fi/vaihda-tilitoimistoa</loc>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://debitcredit.fi/vaihda-tilitoimistoa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://debitcredit.fi/en/vaihda-tilitoimistoa"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://debitcredit.fi/ru/vaihda-tilitoimistoa"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://debitcredit.fi/et/vaihda-tilitoimistoa"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://debitcredit.fi/uk/vaihda-tilitoimistoa"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://debitcredit.fi/tilitoimistoille</loc>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://debitcredit.fi/tilitoimistoille"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://debitcredit.fi/en/tilitoimistoille"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://debitcredit.fi/ru/tilitoimistoille"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://debitcredit.fi/et/tilitoimistoille"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://debitcredit.fi/uk/tilitoimistoille"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://debitcredit.fi/tietosuoja</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://debitcredit.fi/kayttoehdot</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

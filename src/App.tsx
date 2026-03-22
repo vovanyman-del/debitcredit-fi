@@ -1,19 +1,24 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { I18nProvider } from './i18n/context';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+// Eagerly loaded (above the fold)
 import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicesPage';
-import PricingPage from './pages/PricingPage';
-import VaavoPage from './pages/VaavoPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import ForAccountantsPage from './pages/ForAccountantsPage';
-import EntrepreneurGuidePage from './pages/EntrepreneurGuidePage';
-import SwitchAccountantPage from './pages/SwitchAccountantPage';
-import PrivacyPage from './pages/PrivacyPage';
-import TermsPage from './pages/TermsPage';
+
+// Lazy-loaded pages
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const PricingPage = lazy(() => import('./pages/PricingPage'));
+const VaavoPage = lazy(() => import('./pages/VaavoPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const ForAccountantsPage = lazy(() => import('./pages/ForAccountantsPage'));
+const EntrepreneurGuidePage = lazy(() => import('./pages/EntrepreneurGuidePage'));
+const SwitchAccountantPage = lazy(() => import('./pages/SwitchAccountantPage'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -35,6 +40,7 @@ function AppRoutes() {
       <Route path="vaihda-tilitoimistoa" element={<SwitchAccountantPage />} />
       <Route path="tietosuoja" element={<PrivacyPage />} />
       <Route path="kayttoehdot" element={<TermsPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </>
   );
 }
@@ -46,11 +52,13 @@ function Layout() {
         <Header />
         <main className="flex-1">
           <ScrollToTop />
-          <Routes>
-            <Route path="/*">
-              {AppRoutes()}
-            </Route>
-          </Routes>
+          <Suspense fallback={<div className="flex-1" />}>
+            <Routes>
+              <Route path="/*">
+                {AppRoutes()}
+              </Route>
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>
@@ -61,7 +69,10 @@ function Layout() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/:lang/*" element={<Layout />} />
+      <Route path="/en/*" element={<Layout />} />
+      <Route path="/ru/*" element={<Layout />} />
+      <Route path="/et/*" element={<Layout />} />
+      <Route path="/uk/*" element={<Layout />} />
       <Route path="/*" element={<Layout />} />
     </Routes>
   );

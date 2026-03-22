@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, type ReactNode } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { fi } from './fi';
 import { en } from './en';
 import { ru } from './ru';
@@ -10,6 +10,7 @@ export type Locale = 'fi' | 'en' | 'ru' | 'et' | 'uk';
 export type Translations = typeof fi;
 
 const translations: Record<Locale, Translations> = { fi, en, ru, et, uk };
+const LANG_CODES = new Set<string>(['en', 'ru', 'et', 'uk']);
 
 export const locales: { code: Locale; label: string; flag: string }[] = [
   { code: 'fi', label: 'Suomi', flag: '\ud83c\uddeb\ud83c\uddee' },
@@ -28,14 +29,16 @@ interface I18nContextType {
 
 const I18nContext = createContext<I18nContextType>(null!);
 
+function detectLocale(pathname: string): Locale {
+  const seg = pathname.split('/')[1];
+  return LANG_CODES.has(seg) ? (seg as Locale) : 'fi';
+}
+
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const params = useParams<{ lang?: string }>();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const locale: Locale = (params.lang && params.lang in translations)
-    ? params.lang as Locale
-    : 'fi';
+  const locale: Locale = detectLocale(location.pathname);
 
   const t = translations[locale];
 

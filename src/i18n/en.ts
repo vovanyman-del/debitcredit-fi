@@ -277,7 +277,7 @@ export const en = {
     free: 'Free for our clients',
     techHighlight: 'Vaavo combines bank data, document management and messaging in one place. AI helps with receipt recognition and bookkeeping automation. Real-time view of your finances — anytime, anywhere.',
     cta: 'Want to see Vaavo in action?',
-    ctaButton: 'Open Vaavo',
+    ctaButton: 'Get in touch',
     features: {
       ai: { title: 'AI Receipt Processing', desc: 'AI automatically recognises receipts and invoices, suggests categorisation and matches them to the correct bank transactions.' },
       bank: { title: 'Bank Connection', desc: 'Real-time bank data synchronisation. See income, expenses and balances at a glance.' },
@@ -464,5 +464,8 @@ export const en = {
     contactUs: 'Get in touch',
     learnMore: 'Learn more',
     allRightsReserved: 'All rights reserved.',
+    notFoundTitle: 'Page not found',
+    notFoundDesc: 'The page you are looking for does not exist. Check the URL or go back to the home page.',
+    backToHome: 'Back to home page',
   },
 };

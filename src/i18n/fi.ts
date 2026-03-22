@@ -277,7 +277,7 @@ export const fi = {
     free: 'Ilmainen asiakkaillemme',
     techHighlight: 'Vaavo yhdistää pankkitiedot, dokumenttihallinnan ja viestinnän yhteen paikkaan. Tekoäly auttaa tositteiden tunnistamisessa ja kirjanpidon automatisoinnissa. Reaaliaikainen näkymä talouteesi — milloin tahansa, mistä tahansa.',
     cta: 'Haluatko nähdä Vaavon toiminnassa?',
-    ctaButton: 'Avaa Vaavo',
+    ctaButton: 'Ota yhteyttä',
     features: {
       ai: { title: 'AI-tositteiden käsittely', desc: 'Tekoäly tunnistaa kuitit ja laskut automaattisesti, ehdottaa kirjauskategoriaa ja liittää ne oikeisiin pankkitapahtumiin.' },
       bank: { title: 'Pankkiyhteys', desc: 'Reaaliaikainen pankkidatan synkronointi. Näe tulot, menot ja saldot yhdellä silmäyksellä.' },
@@ -464,5 +464,8 @@ export const fi = {
     contactUs: 'Ota yhteyttä',
     learnMore: 'Lisätietoja',
     allRightsReserved: 'Kaikki oikeudet pidätetään.',
+    notFoundTitle: 'Sivua ei löytynyt',
+    notFoundDesc: 'Etsimääsi sivua ei löytynyt. Tarkista osoite tai palaa etusivulle.',
+    backToHome: 'Takaisin etusivulle',
   },
 };
