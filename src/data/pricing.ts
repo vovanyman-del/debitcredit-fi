@@ -18,9 +18,9 @@ export interface AdditionalService {
 export const packages: Package[] = [
   {
     id: 'micro',
-    price: 28,
+    price: 34.90,
     period: 'month',
-    extraVoucherPrice: 1.31,
+    extraVoucherPrice: 1.64,
     vouchers: '1\u201310',
     target: 'Toiminimi (simplified reporting)',
     features: [
@@ -32,9 +32,9 @@ export const packages: Package[] = [
   },
   {
     id: 'mini',
-    price: 44,
+    price: 55.00,
     period: 'month',
-    extraVoucherPrice: 2.53,
+    extraVoucherPrice: 3.17,
     vouchers: '1\u201310',
     target: 'Toiminimi (double-entry) / small Oy',
     features: [
@@ -48,9 +48,9 @@ export const packages: Package[] = [
   },
   {
     id: 'basic',
-    price: 75,
+    price: 93.50,
     period: 'month',
-    extraVoucherPrice: 1.99,
+    extraVoucherPrice: 2.50,
     vouchers: '10\u201320',
     target: 'Toiminimi / small Oy with invoicing + 1 salary',
     features: [
@@ -65,9 +65,9 @@ export const packages: Package[] = [
   },
   {
     id: 'medium',
-    price: 132,
+    price: 165.00,
     period: 'month',
-    extraVoucherPrice: 1.69,
+    extraVoucherPrice: 2.12,
     vouchers: '20\u201350',
     target: 'Toiminimi / small-medium Oy (5\u201315 invoices/month, 2\u20134 salaries)',
     features: [
@@ -81,9 +81,9 @@ export const packages: Package[] = [
   },
   {
     id: 'large',
-    price: 237,
+    price: 297.00,
     period: 'month',
-    extraVoucherPrice: 1.64,
+    extraVoucherPrice: 2.06,
     vouchers: '50\u2013100',
     target: 'Medium Oy (20\u201340 invoices/month, 30\u201350 expenses, ~5 salaries)',
     features: [
@@ -97,9 +97,9 @@ export const packages: Package[] = [
   },
   {
     id: 'maxi',
-    price: 434,
+    price: 544.50,
     period: 'month',
-    extraVoucherPrice: 1.48,
+    extraVoucherPrice: 1.86,
     vouchers: '100\u2013200',
     target: 'Medium-large Oy (30\u201380 invoices, 70\u2013100 expenses, ~10 salaries)',
     features: [
@@ -122,39 +122,39 @@ export const packages: Package[] = [
 
 export const additionalServices = {
   accounting: [
-    { name: 'Invoice creation', price: 7.09, unit: 'per invoice', note: 'creation, recording, email delivery' },
-    { name: 'Bill payment', price: 7.09, unit: 'per bill', note: 'payment and recording' },
-    { name: 'Employment contract (basic)', price: 8.69, unit: 'per contract' },
-    { name: 'Employment contract (complex)', price: 52, unit: 'per hour', note: 'with deep Finnish employment law analysis' },
-    { name: 'Salary calculation', price: 11.87, unit: 'per salary', note: 'monthly/hourly/piecework, all authority reports (Tulorekisteri)' },
-    { name: 'Travel expense report', price: 8.69, unit: 'per report' },
-    { name: 'Employment certificate', price: 8.69, unit: 'per certificate', note: 'for authorities or termination' },
-    { name: 'Salary certificate', price: 8.69, unit: 'per certificate' },
-    { name: 'Valttikortti (tax card)', price: 8.69, unit: 'per card' },
-    { name: 'Valttikortti for other companies', price: 44, unit: 'per card' },
-    { name: 'Shareholder meeting minutes', price: 13.07, unit: 'per document' },
-    { name: 'Board meeting minutes', price: 13.07, unit: 'per document' },
-    { name: 'One-time tax report', price: 30.60, unit: 'per report', note: 'monthly/quarterly/annual' },
-    { name: 'Other accounting work', price: 52, unit: 'per hour' },
-    { name: 'Explanatory work', price: 0.87, unit: 'per minute' },
-    { name: 'Additional voucher', price: 2.63, unit: 'per voucher' },
+    { name: 'Invoice creation', price: 8.90, unit: 'per invoice', note: 'creation, recording, email delivery' },
+    { name: 'Bill payment', price: 8.90, unit: 'per bill', note: 'payment and recording' },
+    { name: 'Employment contract (basic)', price: 10.90, unit: 'per contract' },
+    { name: 'Employment contract (complex)', price: 65.00, unit: 'per hour', note: 'with deep Finnish employment law analysis' },
+    { name: 'Salary calculation', price: 14.90, unit: 'per salary', note: 'monthly/hourly/piecework, all authority reports (Tulorekisteri)' },
+    { name: 'Travel expense report', price: 10.90, unit: 'per report' },
+    { name: 'Employment certificate', price: 10.90, unit: 'per certificate', note: 'for authorities or termination' },
+    { name: 'Salary certificate', price: 10.90, unit: 'per certificate' },
+    { name: 'Valttikortti (tax card)', price: 10.90, unit: 'per card' },
+    { name: 'Valttikortti for other companies', price: 55.00, unit: 'per card' },
+    { name: 'Shareholder meeting minutes', price: 16.40, unit: 'per document' },
+    { name: 'Board meeting minutes', price: 16.40, unit: 'per document' },
+    { name: 'One-time tax report', price: 38.40, unit: 'per report', note: 'monthly/quarterly/annual' },
+    { name: 'Other accounting work', price: 65.00, unit: 'per hour' },
+    { name: 'Explanatory work', price: 1.09, unit: 'per minute' },
+    { name: 'Additional voucher', price: 3.30, unit: 'per voucher' },
   ],
   annualReports: [
-    { name: 'Annual report \u2014 Toiminimi', price: 66, unit: 'from', note: 'financial statements + tax return' },
-    { name: 'Annual report \u2014 Oy', price: 69, unit: 'per hour', note: 'financial statements + shareholder meeting minutes + tax return + pension/insurance forms + annual salary report' },
-    { name: 'Annual report \u2014 Ry/Ky/Osuuskunta', price: 52, unit: 'per hour' },
+    { name: 'Annual report \u2014 Toiminimi', price: 82.50, unit: 'from', note: 'financial statements + tax return' },
+    { name: 'Annual report \u2014 Oy', price: 86.90, unit: 'per hour', note: 'financial statements + shareholder meeting minutes + tax return + pension/insurance forms + annual salary report' },
+    { name: 'Annual report \u2014 Ry/Ky/Osuuskunta', price: 65.00, unit: 'per hour' },
   ],
   companyFormation: [
-    { name: 'Register Toiminimi (sole trader)', price: 66, unit: 'from', note: 'registration form + PRH filing + tax/pension/employer registers' },
-    { name: 'Register Oy (limited company)', price: 158, unit: 'from', note: 'name selection + articles of association + board minutes + registration + all registers + bank documents' },
-    { name: 'Register Ry/Ky/Osuuskunta', price: 52, unit: 'per hour' },
+    { name: 'Register Toiminimi (sole trader)', price: 82.50, unit: 'from', note: 'registration form + PRH filing + tax/pension/employer registers' },
+    { name: 'Register Oy (limited company)', price: 198.00, unit: 'from', note: 'name selection + articles of association + board minutes + registration + all registers + bank documents' },
+    { name: 'Register Ry/Ky/Osuuskunta', price: 65.00, unit: 'per hour' },
   ],
   consulting: [
-    { name: 'Business plan', price: 69, unit: 'per hour' },
-    { name: 'Business plan (Finnvera/Business Finland)', price: 69, unit: 'per hour' },
-    { name: 'Business consulting', price: 69, unit: 'per hour', note: 'growth strategy, cost optimization, company analysis' },
-    { name: 'Tax consulting', price: 69, unit: 'per hour', note: 'legal tax optimization, salary/dividend planning' },
-    { name: 'Interpreter/translator', price: 52, unit: 'per hour', note: 'assistance at authorities, document translation, phone calls' },
+    { name: 'Business plan', price: 86.90, unit: 'per hour' },
+    { name: 'Business plan (Finnvera/Business Finland)', price: 86.90, unit: 'per hour' },
+    { name: 'Business consulting', price: 86.90, unit: 'per hour', note: 'growth strategy, cost optimization, company analysis' },
+    { name: 'Tax consulting', price: 86.90, unit: 'per hour', note: 'legal tax optimization, salary/dividend planning' },
+    { name: 'Interpreter/translator', price: 65.00, unit: 'per hour', note: 'assistance at authorities, document translation, phone calls' },
   ],
 };
 

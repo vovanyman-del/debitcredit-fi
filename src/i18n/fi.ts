@@ -132,13 +132,13 @@ export const fi = {
   },
   pricing: {
     title: 'Hinnasto',
-    subtitle: 'Selkeät ja ennustettavat kuukausihinnat. Hinnat eivät sisällä ALV:tä (25,5 %).',
+    subtitle: 'Selkeät ja ennustettavat kuukausihinnat. Kaikki hinnat sisältävät ALV 25,5 %.',
     packages: 'Kuukausipaketit',
     perMonth: ' / kk',
     vouchers: 'tositetta / kk',
     extraVoucher: 'Lisätosite',
     additional: 'Lisäpalvelut',
-    note: 'Hinnat eivät sisällä ALV:tä (25,5 %). Pakettihinnat ovat kuukausihintoja.',
+    note: 'Kaikki hinnat sisältävät ALV 25,5 %. Pakettihinnat ovat kuukausihintoja.',
     customTitle: 'Räätälöity ratkaisu',
     requestQuote: 'Pyydä tarjous',
     sections: {
@@ -472,7 +472,7 @@ export const fi = {
     sections: [
       { title: 'Palvelun tarjoaja', content: 'Tilitoimisto Debit Credit (Y-tunnus 3512702-8) tarjoaa kirjanpito- ja taloushallinnon palveluja.' },
       { title: 'Palvelun kuvaus', content: 'Palvelumme sisältävät kirjanpidon, palkanlaskennan, verotuksen, yrityksen perustamisen ja konsultoinnin. Vaavo-alusta tarjoaa asiakkaille pääsyn taloustietoihinsa.' },
-      { title: 'Hinnoittelu', content: 'Kuukausipaketit laskutetaan kuukausittain etukäteen. Lisäpalvelut laskutetaan käytön mukaan. Hinnat eivät sisällä ALV:tä (25,5 %).' },
+      { title: 'Hinnoittelu', content: 'Kuukausipaketit laskutetaan kuukausittain etukäteen. Lisäpalvelut laskutetaan käytön mukaan. Kaikki hinnat sisältävät ALV 25,5 %.' },
       { title: 'Irtisanominen', content: 'Palvelun voi irtisanoa kuukauden irtisanomisajalla. Irtisanomisen jälkeen toimitamme kaikki kirjanpitoaineistot asiakkaalle.' },
       { title: 'Vastuunrajoitus', content: 'Vastuumme rajoittuu maksettujen palvelumaksujen määrään. Emme vastaa välillisistä vahingoista.' },
       { title: 'Sovellettava laki', content: 'Näihin ehtoihin sovelletaan Suomen lakia. Riitatilanteissa toimivaltainen tuomioistuin on Helsingin käräjäoikeus.' },
