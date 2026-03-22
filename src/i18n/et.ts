@@ -58,6 +58,9 @@ export const et = {
       desc: 'Tasuta platvorm meie klientidele, mis ühendab pangaandmed, kviitungite halduse ja suhtluse raamatupidajaga.',
       cta: 'Tutvu Vaavoga',
     },
+    partners: {
+      title: 'Usaldusväärsed partnerid',
+    },
     howItWorks: {
       title: 'Kuidas alustada',
       step1: { title: 'Võta ühendust', desc: 'Räägi oma vajadustest ja saa pakkumine samal päeval.' },
@@ -307,6 +310,13 @@ export const et = {
       title: 'Asutaja',
       name: 'Vladimir Nyman',
       desc: 'Raamatupidaja ja ettevõtja, kes asutas Debit Crediti, et pakkuda paremat teenust väikeettevõtjatele Soomes.',
+    },
+    partners: {
+      title: 'Partnerid',
+      fennia: 'Fennia — ärikindlustus. Aitame klientidel valida õiget kindlustust ettevõtte kaitseks.',
+      if: 'If — ärikindlustus. Kõikehõlmav kindlustuskaitse teie ettevõttele koos Soome juhtiva kindlustajaga.',
+      lahitapiola: 'LähiTapiola — kindlustus ja varahaldus. Kohalik ja usaldusväärne partner ettevõtte riskijuhtimiseks.',
+      wamo: 'Wamo — äripangandus. Kaasaegne ärikonto, kiire avamine ja lihtne integratsioon raamatupidamisega Vaavo kaudu.',
     },
   },
   contact: {

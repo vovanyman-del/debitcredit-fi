@@ -58,6 +58,9 @@ export const en = {
       desc: 'A free platform for our clients that connects bank data, receipt management and communication with your accountant.',
       cta: 'Discover Vaavo',
     },
+    partners: {
+      title: 'Trusted Partners',
+    },
     howItWorks: {
       title: 'How to get started',
       step1: { title: 'Get in touch', desc: 'Tell us about your needs and receive a quote the same day.' },
@@ -307,6 +310,13 @@ export const en = {
       title: 'Founder',
       name: 'Vladimir Nyman',
       desc: 'Accountant and entrepreneur who founded Debit Credit to provide better service to small business owners in Finland.',
+    },
+    partners: {
+      title: 'Partners',
+      fennia: 'Fennia — business insurance. We help our clients choose the right insurance to protect their business.',
+      if: 'If — business insurance. Comprehensive coverage for your business with one of Finland\'s leading insurers.',
+      lahitapiola: 'LähiTapiola — insurance and wealth management. A local and trusted partner for business risk management.',
+      wamo: 'Wamo — business banking. Modern business account, fast opening and easy integration with bookkeeping via Vaavo.',
     },
   },
   contact: {

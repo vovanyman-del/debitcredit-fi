@@ -56,6 +56,24 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Partners */}
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold text-warm-900 text-center mb-10">{t.about.partners.title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {([
+              { name: 'Fennia', desc: t.about.partners.fennia, color: 'text-[#00529B]' },
+              { name: 'If', desc: t.about.partners.if, color: 'text-[#0054A0]' },
+              { name: 'LähiTapiola', desc: t.about.partners.lahitapiola, color: 'text-[#00A651]' },
+              { name: 'Wamo', desc: t.about.partners.wamo, color: 'text-[#6C5CE7]' },
+            ] as const).map(p => (
+              <div key={p.name} className="rounded-2xl border border-warm-200 bg-white p-6 hover:border-primary-200 hover:shadow-md transition-all">
+                <h3 className={`text-lg font-bold mb-2 ${p.color}`}>{p.name}</h3>
+                <p className="text-sm text-warm-500 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="text-center mt-12">
           <Link
             to={localePath('/yhteystiedot')}

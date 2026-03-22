@@ -58,6 +58,9 @@ export const fi = {
       desc: 'Asiakkaillemme ilmainen alusta, joka yhdistää pankkitiedot, tositteenhallinnan ja viestinnän kirjanpitäjän kanssa.',
       cta: 'Tutustu Vaavoon',
     },
+    partners: {
+      title: 'Luotetut yhteistyökumppanit',
+    },
     howItWorks: {
       title: 'Näin pääset alkuun',
       step1: { title: 'Ota yhteyttä', desc: 'Kerro tarpeistasi ja saat tarjouksen samana päivänä.' },
@@ -307,6 +310,13 @@ export const fi = {
       title: 'Perustaja',
       name: 'Vladimir Nyman',
       desc: 'Kirjanpitäjä ja yrittäjä, joka perusti Debit Creditin tarjotakseen parempaa palvelua pienyrittäjille Suomessa.',
+    },
+    partners: {
+      title: 'Yhteistyökumppanit',
+      fennia: 'Fennia — yritysvakuutukset. Autamme asiakkaitamme valitsemaan oikeat vakuutukset yritystoiminnan suojaksi.',
+      if: 'If — yritysvakuutukset. Kattava vakuutusturva yrityksellesi yhteistyössä Suomen johtavan vakuuttajan kanssa.',
+      lahitapiola: 'LähiTapiola — vakuutukset ja varainhoito. Paikallinen ja luotettava kumppani yrityksen riskienhallintaan.',
+      wamo: 'Wamo — yrityspankkipalvelut. Moderni yritystili, nopea avaus ja helppo integraatio kirjanpitoon Vaavon kautta.',
     },
   },
   contact: {

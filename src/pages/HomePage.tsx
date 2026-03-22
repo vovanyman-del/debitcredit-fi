@@ -125,6 +125,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Partners */}
+      <section className="py-12 border-b border-warm-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-lg font-medium text-warm-400 mb-8">{t.home.partners.title}</h2>
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
+            <span className="text-2xl font-bold text-warm-300 hover:text-[#00529B] transition-colors cursor-default">Fennia</span>
+            <span className="text-2xl font-bold text-warm-300 hover:text-[#0054A0] transition-colors cursor-default">If</span>
+            <span className="text-2xl font-bold text-warm-300 hover:text-[#00A651] transition-colors cursor-default">LähiTapiola</span>
+            <span className="text-2xl font-bold text-warm-300 hover:text-[#6C5CE7] transition-colors cursor-default">Wamo</span>
+          </div>
+        </div>
+      </section>
+
       {/* Vaavo teaser */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="bg-gradient-to-br from-accent-600 to-accent-700 rounded-3xl p-8 sm:p-12 lg:p-16 text-white">
