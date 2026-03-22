@@ -132,13 +132,13 @@ export const en = {
   },
   pricing: {
     title: 'Pricing',
-    subtitle: 'Clear and predictable monthly prices. All prices include VAT 25.5%.',
+    subtitle: 'Clear and predictable monthly prices. All prices are exclusive of VAT (25.5%).',
     packages: 'Monthly Packages',
     perMonth: ' / mo',
     vouchers: 'vouchers / mo',
     extraVoucher: 'Extra voucher',
     additional: 'Additional Services',
-    note: 'All prices include VAT 25.5%. Package prices are monthly fees.',
+    note: 'All prices are exclusive of VAT (25.5%). Package prices are monthly fees.',
     customTitle: 'Custom solution',
     requestQuote: 'Request a quote',
     sections: {
@@ -472,7 +472,7 @@ export const en = {
     sections: [
       { title: 'Service Provider', content: 'Tilitoimisto Debit Credit (Business ID 3512702-8) provides bookkeeping and financial management services.' },
       { title: 'Service Description', content: 'Our services include bookkeeping, payroll, taxation, company formation and consulting. The Vaavo platform provides clients with access to their financial data.' },
-      { title: 'Pricing', content: 'Monthly packages are billed monthly in advance. Additional services are billed based on usage. All prices include VAT 25.5%.' },
+      { title: 'Pricing', content: 'Monthly packages are billed monthly in advance. Additional services are billed based on usage. All prices are exclusive of VAT (25.5%).' },
       { title: 'Termination', content: 'The service can be terminated with one month\'s notice. After termination, we deliver all bookkeeping materials to the client.' },
       { title: 'Limitation of Liability', content: 'Our liability is limited to the amount of service fees paid. We are not liable for indirect damages.' },
       { title: 'Applicable Law', content: 'These terms are governed by Finnish law. In case of disputes, the competent court is the Helsinki District Court.' },

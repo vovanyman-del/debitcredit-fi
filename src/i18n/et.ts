@@ -132,13 +132,13 @@ export const et = {
   },
   pricing: {
     title: 'Hinnakiri',
-    subtitle: 'Selged ja prognoositavad kuuhinnad. Kõik hinnad sisaldavad käibemaksu 25,5%.',
+    subtitle: 'Selged ja prognoositavad kuuhinnad. Hinnad ei sisalda käibemaksu (25,5%).',
     packages: 'Kuupaketid',
     perMonth: ' / kuu',
     vouchers: 'kannet / kuu',
     extraVoucher: 'Lisakanne',
     additional: 'Lisateenused',
-    note: 'Kõik hinnad sisaldavad käibemaksu 25,5%. Pakettihinnad on kuutasud.',
+    note: 'Hinnad ei sisalda käibemaksu (25,5%). Pakettihinnad on kuutasud.',
     customTitle: 'Kohandatud lahendus',
     requestQuote: 'Küsi pakkumist',
     sections: {
@@ -472,7 +472,7 @@ export const et = {
     sections: [
       { title: 'Teenuse osutaja', content: 'Tilitoimisto Debit Credit (Y-tunnus 3512702-8) osutab raamatupidamis- ja finantsjuhtimise teenuseid.' },
       { title: 'Teenuse kirjeldus', content: 'Meie teenused hõlmavad raamatupidamist, palgaarvestust, maksundust, ettevõtte asutamist ja nõustamist. Vaavo platvorm pakub klientidele juurdepääsu finantsandmetele.' },
-      { title: 'Hinnakujundus', content: 'Kuupakette arveldatakse igakuiselt ettemaksuna. Lisateenuseid arveldatakse kasutuse järgi. Kõik hinnad sisaldavad käibemaksu 25,5%.' },
+      { title: 'Hinnakujundus', content: 'Kuupakette arveldatakse igakuiselt ettemaksuna. Lisateenuseid arveldatakse kasutuse järgi. Hinnad ei sisalda käibemaksu (25,5%).' },
       { title: 'Lepingu lõpetamine', content: 'Teenuse saab lõpetada ühe kuu etteteatamisega. Pärast lõpetamist edastame kõik raamatupidamismaterjalid kliendile.' },
       { title: 'Vastutuse piiramine', content: 'Meie vastutus on piiratud tasutud teenustasude summaga. Me ei vastuta kaudsete kahjude eest.' },
       { title: 'Kohaldatav õigus', content: 'Nendele tingimustele kohaldatakse Soome seadust. Vaidluste korral on pädev kohus Helsingi ringkonnakohus.' },
