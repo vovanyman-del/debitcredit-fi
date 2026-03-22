@@ -287,7 +287,7 @@ export const et = {
       files: { title: 'Dokumendihaldus', desc: 'Kviitungid, lepingud ja aruanded turvaliselt ühes kohas. Korrastatud arhiiv kuude kaupa.' },
       messages: { title: 'Sõnumid', desc: 'Otsesuhtlus raamatupidajaga rakenduse sees. Enam ei pea e-kirju otsima.' },
       analytics: { title: 'Analüütika ja aruanded', desc: 'Kuluanalüüs, kasumi trendid ja tarnijate võrdlused visuaalsete graafikutena.' },
-      aiHelper: { title: 'AI assistent', desc: 'Küsi rahandusküsimusi soome, inglise või vene keeles — AI vastab sinu ettevõtte andmete põhjal.' },
+      aiHelper: { title: 'AI assistent', desc: 'Küsi rahandusküsimusi soome, inglise, vene, eesti või ukraina keeles — AI vastab sinu ettevõtte andmete põhjal.' },
     },
     demo: {
       step1: { title: 'Logi turvaliselt sisse', desc: 'Isiklikud andmed — ainult teie ettevõtte andmed' },

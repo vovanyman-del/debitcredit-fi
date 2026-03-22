@@ -287,7 +287,7 @@ export const fi = {
       files: { title: 'Dokumenttihallinta', desc: 'Tositteet, sopimukset ja raportit turvallisesti yhdessä paikassa. Järjestelmällinen arkisto kuukausittain.' },
       messages: { title: 'Viestintä', desc: 'Suorat viestit kirjanpitäjän kanssa sovelluksen sisällä. Ei enää sähköpostin etsimistä.' },
       analytics: { title: 'Analytiikka ja raportit', desc: 'Kuluanalyysi, tuloskehitys ja toimittajavertailut visuaalisina kaavioina.' },
-      aiHelper: { title: 'AI-avustaja', desc: 'Kysy talousasioista suomeksi, englanniksi tai venäjäksi — tekoäly vastaa yrityksesi tietojen perusteella.' },
+      aiHelper: { title: 'AI-avustaja', desc: 'Kysy talousasioista suomeksi, englanniksi, venäjäksi, viroksi tai ukrainaksi — tekoäly vastaa yrityksesi tietojen perusteella.' },
     },
     demo: {
       step1: { title: 'Kirjaudu turvallisesti', desc: 'Henkilökohtaiset tunnukset — vain sinun yrityksesi tiedot' },

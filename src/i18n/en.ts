@@ -287,7 +287,7 @@ export const en = {
       files: { title: 'Document Management', desc: 'Receipts, contracts and reports securely in one place. Organised archive by month.' },
       messages: { title: 'Messaging', desc: 'Direct messages with your accountant inside the app. No more searching through emails.' },
       analytics: { title: 'Analytics & Reports', desc: 'Expense analysis, profit trends and vendor comparisons as visual charts.' },
-      aiHelper: { title: 'AI Assistant', desc: 'Ask financial questions in Finnish, English or Russian — AI responds based on your company data.' },
+      aiHelper: { title: 'AI Assistant', desc: 'Ask financial questions in Finnish, English, Russian, Estonian or Ukrainian — AI responds based on your company data.' },
     },
     demo: {
       step1: { title: 'Log in securely', desc: 'Personal credentials — only your company data' },
