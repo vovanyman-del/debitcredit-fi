@@ -1,48 +1,42 @@
-import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
+import PageHeader from '../components/PageHeader';
+import CtaBand from '../components/CtaBand';
+
+const stroke = (d: string) => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
+    <path strokeLinecap="round" strokeLinejoin="round" d={d} />
+  </svg>
+);
 
 export default function ForAccountantsPage() {
-  const { t, localePath } = useI18n();
+  const { t } = useI18n();
 
   const features = [
-    { ...t.forAccountants.features.ai, icon: '🤖' },
-    { ...t.forAccountants.features.bank, icon: '🏦' },
-    { ...t.forAccountants.features.workspace, icon: '📁' },
-    { ...t.forAccountants.features.messaging, icon: '💬' },
+    { ...t.forAccountants.features.ai, icon: stroke('M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z') },
+    { ...t.forAccountants.features.bank, icon: stroke('M3 10l9-5 9 5M5 10v8m4-8v8m6-8v8m4-8v8M3 21h18') },
+    { ...t.forAccountants.features.workspace, icon: stroke('M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z') },
+    { ...t.forAccountants.features.messaging, icon: stroke('M21 12a8 8 0 01-11.6 7.1L4 20l.9-5.4A8 8 0 1121 12z') },
   ];
 
   return (
-    <div>
-      <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{t.forAccountants.title}</h1>
-          <p className="mt-4 text-lg text-primary-200 max-w-2xl">{t.forAccountants.subtitle}</p>
-        </div>
-      </section>
+    <div className="bg-canvas text-ink-900">
+      <PageHeader eyebrow={t.nav.forAccountants} title={t.forAccountants.title} subtitle={t.forAccountants.subtitle} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <p className="text-lg text-warm-600 max-w-3xl mb-12">{t.forAccountants.intro}</p>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+        <p className="text-lg text-ink-700/80 max-w-3xl mb-12 leading-relaxed">{t.forAccountants.intro}</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {features.map((feat, i) => (
-            <div key={i} className="rounded-2xl border border-warm-200 bg-white p-6 sm:p-8">
-              <span className="text-3xl">{feat.icon}</span>
-              <h3 className="text-xl font-semibold text-warm-900 mt-4 mb-2">{feat.title}</h3>
-              <p className="text-warm-500 leading-relaxed">{feat.desc}</p>
+            <div key={i} className="rounded-2xl border border-ink-900/10 bg-white p-6 sm:p-8">
+              <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">{feat.icon}</div>
+              <h3 className="mt-5 text-lg font-bold text-ink-900">{feat.title}</h3>
+              <p className="mt-2 text-ink-700/70 leading-relaxed">{feat.desc}</p>
             </div>
           ))}
         </div>
-
-        <div className="mt-16 bg-primary-50 rounded-2xl p-8 sm:p-10 text-center border border-primary-100">
-          <p className="text-lg text-warm-700 mb-6">{t.forAccountants.cta}</p>
-          <Link
-            to={localePath('/yhteystiedot')}
-            className="inline-flex items-center px-8 py-3.5 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors"
-          >
-            {t.forAccountants.ctaButton}
-          </Link>
-        </div>
       </div>
+
+      <CtaBand />
     </div>
   );
 }
