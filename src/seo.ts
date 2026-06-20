@@ -10,7 +10,7 @@ import { en } from './i18n/en';
 import { ru } from './i18n/ru';
 import { et } from './i18n/et';
 import { uk } from './i18n/uk';
-import { company } from './data/pricing';
+import { company, packages } from './data/pricing';
 
 type Translations = typeof fi;
 
@@ -133,12 +133,35 @@ function postalAddress() {
   };
 }
 
-/** JSON-LD for home + contact only (Organization + LocalBusiness). '' otherwise. */
-function jsonLd(locale: Locale, basePath: string): string {
-  if (basePath !== '/' && basePath !== '/yhteystiedot') return '';
-  const t = translations[locale];
+/** Clean (un-branded) localized page title, used for JSON-LD names + breadcrumbs. */
+function shortTitle(t: Translations, basePath: string): string {
+  switch (basePath) {
+    case '/palvelut':
+      return t.services.title;
+    case '/hinnasto':
+      return t.pricing.title;
+    case '/vaavo':
+      return t.vaavo.title;
+    case '/meista':
+      return t.about.title;
+    case '/tilitoimistoille':
+      return t.forAccountants.title;
+    case '/yrittajaksi':
+      return t.guide.title;
+    case '/vaihda-tilitoimistoa':
+      return t.switchAccountant.title;
+    case '/tietosuoja':
+      return t.privacy.title;
+    case '/kayttoehdot':
+      return t.terms.title;
+    default:
+      return t.meta.title;
+  }
+}
 
-  const organization = {
+/** The Organization node (referenced by @id from every page's graph). */
+function organizationNode(t: Translations) {
+  return {
     '@type': 'Organization',
     '@id': `${SITE}/#organization`,
     name: company.name,
@@ -151,25 +174,181 @@ function jsonLd(locale: Locale, basePath: string): string {
     description: t.meta.description,
     address: postalAddress(),
   };
+}
 
-  const localBusiness = {
-    '@type': ['LocalBusiness', 'AccountingService'],
-    '@id': `${SITE}/#localbusiness`,
-    name: company.name,
+/** The site-wide WebSite node (referenced by isPartOf from each page). */
+function websiteNode(locale: Locale) {
+  return {
+    '@type': 'WebSite',
+    '@id': `${SITE}/#website`,
     url: `${SITE}/`,
-    image: `${SITE}/favicon.svg`,
-    email: company.email,
-    telephone: company.phone,
-    priceRange: '€€',
-    address: postalAddress(),
-    areaServed: { '@type': 'City', name: 'Helsinki' },
-    openingHours: 'Mo-Fr 09:00-17:00',
-    parentOrganization: { '@id': `${SITE}/#organization` },
+    name: BRAND,
+    inLanguage: locale,
+    publisher: { '@id': `${SITE}/#organization` },
   };
+}
 
-  const graph = { '@context': 'https://schema.org', '@graph': [organization, localBusiness] };
-  // Escape "<" so the JSON can never break out of the <script> element.
-  const json = JSON.stringify(graph).replace(/</g, '\\u003c');
+/** Breadcrumb: localized "Home → this page". */
+function breadcrumbNode(t: Translations, locale: Locale, pageUrl: string, pageName: string) {
+  return {
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: t.nav.home, item: urlFor(locale, '/') },
+      { '@type': 'ListItem', position: 2, name: pageName, item: pageUrl },
+    ],
+  };
+}
+
+/** Page-type-specific node (Service / SoftwareApplication / …) appended to the graph. */
+function typeNode(t: Translations, locale: Locale, basePath: string, pageUrl: string) {
+  const provider = { '@id': `${SITE}/#organization` };
+  const areaServed = { '@type': 'Country', name: 'Finland' };
+
+  switch (basePath) {
+    case '/palvelut': {
+      const cats = [
+        t.services.bookkeeping,
+        t.services.tax,
+        t.services.payroll,
+        t.services.formation,
+        t.services.consulting,
+      ];
+      return {
+        '@type': 'Service',
+        '@id': `${pageUrl}#service`,
+        serviceType: 'Accounting',
+        name: t.services.title,
+        description: t.services.subtitle,
+        provider,
+        areaServed,
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: t.services.title,
+          itemListElement: cats.map((c) => ({
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: c.title },
+          })),
+        },
+      };
+    }
+    case '/tilitoimistoille':
+      return {
+        '@type': 'Service',
+        '@id': `${pageUrl}#service`,
+        serviceType: 'Accounting software platform',
+        name: t.forAccountants.title,
+        description: t.forAccountants.subtitle,
+        provider,
+        areaServed,
+        audience: { '@type': 'BusinessAudience', name: t.nav.forAccountants },
+      };
+    case '/hinnasto': {
+      const names = t.pricing.packageNames as Record<string, string>;
+      const targets = t.pricing.packageTargets as Record<string, string>;
+      const offers = packages
+        .filter((p) => p.price > 0)
+        .map((p) => ({
+          '@type': 'Offer',
+          name: names[p.id] ?? p.id,
+          description: targets[p.id] ?? p.target,
+          price: p.price.toFixed(2),
+          priceCurrency: 'EUR',
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: p.price.toFixed(2),
+            priceCurrency: 'EUR',
+            unitCode: 'MON', // per month (UN/CEFACT)
+            valueAddedTaxIncluded: false,
+          },
+        }));
+      return {
+        '@type': 'Service',
+        '@id': `${pageUrl}#service`,
+        serviceType: 'Accounting',
+        name: t.pricing.title,
+        description: t.pricing.subtitle,
+        provider,
+        areaServed,
+        offers,
+      };
+    }
+    case '/vaavo':
+      return {
+        '@type': 'SoftwareApplication',
+        '@id': `${pageUrl}#software`,
+        name: 'Vaavo',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web, iOS, Android',
+        description: t.vaavo.subtitle,
+        url: company.vaavo.web,
+        inLanguage: locale,
+        publisher: { '@id': `${SITE}/#organization` },
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }, // free for clients
+      };
+    default:
+      return null;
+  }
+}
+
+/** Per-page JSON-LD. Home + contact keep the Organization + LocalBusiness graph. */
+function jsonLd(locale: Locale, basePath: string): string {
+  const t = translations[locale];
+
+  if (basePath === '/' || basePath === '/yhteystiedot') {
+    const localBusiness = {
+      '@type': ['LocalBusiness', 'AccountingService'],
+      '@id': `${SITE}/#localbusiness`,
+      name: company.name,
+      url: `${SITE}/`,
+      image: `${SITE}/favicon.svg`,
+      email: company.email,
+      telephone: company.phone,
+      priceRange: '€€',
+      address: postalAddress(),
+      areaServed: { '@type': 'City', name: 'Helsinki' },
+      openingHours: 'Mo-Fr 09:00-17:00',
+      parentOrganization: { '@id': `${SITE}/#organization` },
+    };
+    return serializeLd([organizationNode(t), localBusiness]);
+  }
+
+  const pageUrl = urlFor(locale, basePath);
+  const name = shortTitle(t, basePath);
+  const { description } = pageMeta(t, basePath);
+
+  // /meista is an AboutPage; everything else is a generic WebPage.
+  const isAbout = basePath === '/meista';
+  const pageNode: Record<string, unknown> = {
+    '@type': isAbout ? 'AboutPage' : 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name,
+    description,
+    inLanguage: locale,
+    isPartOf: { '@id': `${SITE}/#website` },
+    breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
+    publisher: { '@id': `${SITE}/#organization` },
+  };
+  if (isAbout) pageNode.mainEntity = { '@id': `${SITE}/#organization` };
+
+  const graph: unknown[] = [
+    pageNode,
+    breadcrumbNode(t, locale, pageUrl, name),
+    websiteNode(locale),
+    organizationNode(t),
+  ];
+
+  const extra = typeNode(t, locale, basePath, pageUrl);
+  if (extra) graph.push(extra);
+
+  return serializeLd(graph);
+}
+
+/** Wrap a JSON-LD @graph in a <script>, escaping "<" so it can't break out. */
+function serializeLd(graph: unknown[]): string {
+  const doc = { '@context': 'https://schema.org', '@graph': graph };
+  const json = JSON.stringify(doc).replace(/</g, '\\u003c');
   return `    <script type="application/ld+json">${json}</script>`;
 }
 

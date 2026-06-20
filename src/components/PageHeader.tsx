@@ -19,7 +19,7 @@ export default function PageHeader({
         {eyebrow && (
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] text-brand-600">{eyebrow}</p>
         )}
-        <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] text-ink-900">{title}</h1>
+        <h1 className="mt-4 text-[clamp(1.75rem,7vw,2.25rem)] sm:text-5xl font-extrabold tracking-tight leading-[1.1] sm:leading-[1.05] text-ink-900">{title}</h1>
         {subtitle && <p className="mt-5 text-lg text-ink-700/80 max-w-2xl leading-relaxed">{subtitle}</p>}
         {children && <div className="mt-6">{children}</div>}
       </div>
