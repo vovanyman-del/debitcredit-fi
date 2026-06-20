@@ -222,7 +222,6 @@ function typeNode(t: Translations, locale: Locale, basePath: string, pageUrl: st
         description: t.services.subtitle,
         provider,
         areaServed,
-        inLanguage: locale,
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: t.services.title,
@@ -243,7 +242,6 @@ function typeNode(t: Translations, locale: Locale, basePath: string, pageUrl: st
         provider,
         areaServed,
         audience: { '@type': 'BusinessAudience', name: t.nav.forAccountants },
-        inLanguage: locale,
       };
     case '/hinnasto': {
       const names = t.pricing.packageNames as Record<string, string>;
@@ -272,7 +270,6 @@ function typeNode(t: Translations, locale: Locale, basePath: string, pageUrl: st
         description: t.pricing.subtitle,
         provider,
         areaServed,
-        inLanguage: locale,
         offers,
       };
     }
