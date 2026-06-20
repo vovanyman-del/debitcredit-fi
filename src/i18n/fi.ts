@@ -350,6 +350,16 @@ export const fi = {
   about: {
     title: 'Meistä',
     subtitle: 'Tilitoimisto Debit Credit — luotettava kumppani yrityksesi taloushallintoon.',
+    facts: {
+      years: '10',
+      yearsLabel: 'vuotta Suomen markkinoilla',
+      served: '300+',
+      servedLabel: 'yritystä tänä aikana',
+      current: '70+',
+      currentLabel: 'asiakasta nyt',
+    },
+    lifecycle: 'Olemme mukana koko matkan — perustamisesta ja kasvusta aina tarvittaessa hallittuun lopettamiseen asti.',
+    languages: 'Palvelemme: RU · UK · ET · FI · EN',
     story: {
       title: 'Tarinamme',
       p1: 'Tilitoimisto Debit Credit perustettiin Helsingissä tavoitteena tarjota modernia ja läpinäkyvää kirjanpitoa erityisesti pienille ja keskisuurille yrityksille.',

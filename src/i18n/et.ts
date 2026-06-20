@@ -350,6 +350,16 @@ export const et = {
   about: {
     title: 'Meist',
     subtitle: 'Debit Credit — usaldusväärne partner sinu ettevõtte finantsjuhtimises.',
+    facts: {
+      years: '10',
+      yearsLabel: 'aastat Soome turul',
+      served: '300+',
+      servedLabel: 'ettevõtet selle ajaga',
+      current: '70+',
+      currentLabel: 'klienti praegu',
+    },
+    lifecycle: 'Oleme kogu teekonna kõrval — asutamisest ja kasvust kuni vajadusel korrektse lõpetamiseni.',
+    languages: 'Räägime: RU · UK · ET · FI · EN',
     story: {
       title: 'Meie lugu',
       p1: 'Raamatupidamisbüroo Debit Credit asutati Helsingis eesmärgiga pakkuda kaasaegset ja läbipaistvat raamatupidamist, eriti väikestele ja keskmise suurusega ettevõtetele.',

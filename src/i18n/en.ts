@@ -350,6 +350,16 @@ export const en = {
   about: {
     title: 'About Us',
     subtitle: 'Debit Credit — a reliable partner for your business financial management.',
+    facts: {
+      years: '10',
+      yearsLabel: 'years on the Finnish market',
+      served: '300+',
+      servedLabel: 'companies over this time',
+      current: '70+',
+      currentLabel: 'clients today',
+    },
+    lifecycle: 'We walk the whole journey with you — from registration and growth to, when needed, an orderly wind-down.',
+    languages: 'We speak: RU · UK · ET · FI · EN',
     story: {
       title: 'Our Story',
       p1: 'Debit Credit was founded in Helsinki with the goal of providing modern and transparent bookkeeping, especially for small and medium-sized businesses.',
