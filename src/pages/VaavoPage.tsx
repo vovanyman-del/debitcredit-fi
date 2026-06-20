@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 import { useI18n } from '../i18n/context';
 import PageHeader from '../components/PageHeader';
+import VaavoDemo from '../components/VaavoDemo';
 import CtaBand from '../components/CtaBand';
 
 const featureIcons: Record<string, ReactNode> = {
@@ -20,6 +21,9 @@ export default function VaavoPage() {
   return (
     <div className="bg-canvas text-ink-900">
       <PageHeader eyebrow={t.vaavo.free} title={t.vaavo.title} subtitle={t.vaavo.subtitle} />
+
+      {/* Interactive "how it works" demo — snap → recognised → booked → visible */}
+      <VaavoDemo />
 
       {/* Invisible → visible (dark, live panel like home) */}
       <section className="bg-ink-900 text-white">
