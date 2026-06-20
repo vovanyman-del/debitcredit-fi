@@ -2,27 +2,32 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
 import { packages, additionalServices } from '../data/pricing';
+import PageHeader from '../components/PageHeader';
+import CtaBand from '../components/CtaBand';
+
+const eur = (n: number) => n.toFixed(2).replace('.', ',');
 
 function AccordionSection({ title, children }: { title: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-warm-200 rounded-xl overflow-hidden">
+    <div className="border border-ink-900/10 rounded-2xl overflow-hidden bg-white">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-4 bg-warm-50 hover:bg-warm-100 transition-colors text-left"
+        className="w-full flex items-center justify-between px-6 py-4 hover:bg-ink-900/[0.02] transition-colors text-left"
       >
-        <span className="font-semibold text-warm-900">{title}</span>
-        <svg className={`w-5 h-5 text-warm-400 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <span className="font-semibold text-ink-900">{title}</span>
+        <svg className={`w-5 h-5 text-ink-700/40 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      {open && <div className="px-6 py-4">{children}</div>}
+      {open && <div className="px-6 py-4 border-t border-ink-900/8">{children}</div>}
     </div>
   );
 }
 
 export default function PricingPage() {
   const { t, localePath } = useI18n();
+  const hp = t.home.packages;
 
   const sectionData: { key: keyof typeof additionalServices; label: string }[] = [
     { key: 'accounting', label: t.pricing.sections.accounting },
@@ -32,69 +37,73 @@ export default function PricingPage() {
   ];
 
   return (
-    <div>
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{t.pricing.title}</h1>
-          <p className="mt-4 text-lg text-primary-100 max-w-2xl">{t.pricing.subtitle}</p>
-        </div>
-      </section>
+    <div className="bg-canvas text-ink-900">
+      <PageHeader eyebrow={hp.eyebrow} title={t.pricing.title} subtitle={t.pricing.subtitle} />
 
-      {/* Packages */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <h2 className="text-2xl font-bold text-warm-900 mb-8">{t.pricing.packages}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {packages.map(pkg => {
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+        {/* All packages */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {packages.map((pkg) => {
+            const popular = pkg.id === 'basic';
+            const isCustom = pkg.id === 'custom';
             const name = t.pricing.packageNames[pkg.id as keyof typeof t.pricing.packageNames];
             const target = t.pricing.packageTargets[pkg.id as keyof typeof t.pricing.packageTargets];
             const features = t.pricing.packageFeatures[pkg.id as keyof typeof t.pricing.packageFeatures] || [];
-            const isCustom = pkg.id === 'custom';
-
             return (
-              <div key={pkg.id} className="rounded-2xl border border-warm-200 bg-white p-6 flex flex-col">
-                <h3 className="text-xl font-bold text-warm-900">{name}</h3>
+              <div
+                key={pkg.id}
+                className={`relative rounded-2xl p-6 flex flex-col ${popular ? 'bg-ink-900 text-white shadow-xl' : 'bg-white text-ink-900 border border-ink-900/10'}`}
+              >
+                {popular && (
+                  <div className="absolute -top-3 left-6 bg-brand-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    {hp.popular}
+                  </div>
+                )}
+                <h3 className={`text-lg font-bold ${popular ? 'text-white' : 'text-ink-900'}`}>{name}</h3>
                 {!isCustom ? (
-                  <div className="mt-2">
-                    <span className="text-3xl font-bold text-warm-900">{pkg.price.toFixed(2).replace('.', ',')} &euro;</span>
-                    <span className="text-warm-500 text-sm">{t.pricing.perMonth}</span>
+                  <div className="mt-3 flex items-baseline gap-1">
+                    <span className="text-3xl font-extrabold font-mono tracking-tight">{eur(pkg.price)}&nbsp;€</span>
+                    <span className={`text-sm ${popular ? 'text-white/50' : 'text-ink-700/50'}`}>{t.pricing.perMonth}</span>
                   </div>
                 ) : (
-                  <div className="mt-2 text-lg font-semibold text-primary-600">{t.pricing.customTitle}</div>
+                  <div className="mt-3 text-lg font-semibold text-brand-600">{t.pricing.customTitle}</div>
                 )}
-                <p className="mt-2 text-xs text-warm-400">{target}</p>
+                <p className={`mt-2 text-xs ${popular ? 'text-white/50' : 'text-ink-700/50'}`}>{target}</p>
                 {pkg.vouchers && (
-                  <p className="mt-1 text-xs text-warm-400">{pkg.vouchers} {t.pricing.vouchers}</p>
+                  <p className={`mt-1 text-xs font-mono ${popular ? 'text-brand-400' : 'text-brand-600'}`}>{pkg.vouchers} {t.pricing.vouchers}</p>
                 )}
                 {pkg.extraVoucherPrice && (
-                  <p className="mt-1 text-xs text-warm-400">{t.pricing.extraVoucher}: {pkg.extraVoucherPrice.toFixed(2).replace('.', ',')} &euro;</p>
+                  <p className={`mt-1 text-xs ${popular ? 'text-white/40' : 'text-ink-700/40'}`}>{t.pricing.extraVoucher}: {eur(pkg.extraVoucherPrice)} €</p>
                 )}
                 <ul className="mt-4 space-y-2 flex-1">
                   {features.map((feat, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-warm-600">
-                      <svg className="w-4 h-4 text-accent-600 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <li key={j} className={`flex items-start gap-2 text-sm ${popular ? 'text-white/80' : 'text-ink-700/80'}`}>
+                      <svg className="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      {feat}
+                      <span>{feat}</span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   to={localePath('/yhteystiedot')}
-                  className="mt-5 block text-center py-2.5 rounded-lg text-sm font-semibold bg-primary-600 text-white hover:bg-primary-700 transition-colors"
+                  className={`mt-5 block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${popular ? 'bg-brand-500 text-white hover:bg-brand-600' : 'bg-ink-900/5 text-ink-900 hover:bg-ink-900/10'}`}
                 >
-                  {isCustom ? t.pricing.requestQuote : t.pricing.requestQuote}
+                  {t.pricing.requestQuote}
                 </Link>
               </div>
             );
           })}
         </div>
 
+        <p className="mt-6 text-sm text-ink-700/50">{t.pricing.note}</p>
+
         {/* Additional services */}
-        <h2 className="text-2xl font-bold text-warm-900 mt-16 mb-6">{t.pricing.additional}</h2>
-        <div className="space-y-4">
+        <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 mt-16 mb-6">{t.pricing.additional}</h2>
+        <div className="space-y-3">
           {sectionData.map(({ key, label }) => (
             <AccordionSection key={key} title={label}>
-              <div className="divide-y divide-warm-100">
+              <div className="divide-y divide-ink-900/8">
                 {additionalServices[key].map((svc, i) => {
                   const name = t.pricing.serviceNames[svc.name as keyof typeof t.pricing.serviceNames] || svc.name;
                   const unit = t.pricing.serviceUnits[svc.unit as keyof typeof t.pricing.serviceUnits] || svc.unit;
@@ -102,11 +111,11 @@ export default function PricingPage() {
                   return (
                     <div key={i} className="flex items-start justify-between py-3 gap-4">
                       <div className="flex-1 min-w-0">
-                        <div className="text-sm font-medium text-warm-800">{name}</div>
-                        {note && <div className="text-xs text-warm-400 mt-0.5">{note}</div>}
+                        <div className="text-sm font-medium text-ink-900">{name}</div>
+                        {note && <div className="text-xs text-ink-700/50 mt-0.5">{note}</div>}
                       </div>
-                      <div className="text-sm font-semibold text-warm-900 whitespace-nowrap">
-                        {svc.price.toFixed(2).replace('.', ',')} &euro; {unit}
+                      <div className="text-sm font-semibold text-ink-900 whitespace-nowrap font-mono">
+                        {eur(svc.price)} € <span className="text-ink-700/50 font-sans">{unit}</span>
                       </div>
                     </div>
                   );
@@ -116,8 +125,16 @@ export default function PricingPage() {
           ))}
         </div>
 
-        <p className="mt-8 text-sm text-warm-400 text-center">{t.pricing.note}</p>
+        {/* Soft CTA */}
+        <div className="mt-10 rounded-2xl border border-brand-100 bg-brand-50/60 p-6 text-center">
+          <p className="text-ink-900 font-medium">{hp.note}</p>
+          <Link to={localePath('/yhteystiedot')} className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-600">
+            {t.pricing.requestQuote} <span aria-hidden>→</span>
+          </Link>
+        </div>
       </div>
+
+      <CtaBand />
     </div>
   );
 }
