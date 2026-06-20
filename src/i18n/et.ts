@@ -53,7 +53,7 @@ export const et = {
     invisible: {
       eyebrow: 'Mida sa saad',
       title: 'Vaavo lihtsate sõnadega',
-      lead: 'See, mis teistel on paberites peidus, on sinul ekraanil. Elav vaade raamatupidaja tööle.',
+      lead: 'See, mis teistel on paberites peidus, on sinul ekraanil. Elav vaade raamatupidaja töösse.',
       bank: { title: 'Pank, maksud ja aruanded — internetis', desc: 'Igal ajal, ilma aruannet küsimata ja ootamata.' },
       photo: { title: 'Kviitungi foto telefonist — kohe arvestusse', desc: 'Pilt jõuab ise raamatupidamisse — kviitungikarpe pole vaja.' },
       language: { title: 'Küsimus sinu keeles — selge vastus', desc: 'Küsi vene, ukraina, eesti, soome või inglise keeles.' },
@@ -354,11 +354,11 @@ export const et = {
       years: '10',
       yearsLabel: 'aastat Soome turul',
       served: '300+',
-      servedLabel: 'ettevõtet selle ajaga',
+      servedLabel: 'ettevõtet selle aja jooksul',
       current: '70+',
       currentLabel: 'klienti praegu',
     },
-    lifecycle: 'Oleme kogu teekonna kõrval — asutamisest ja kasvust kuni vajadusel korrektse lõpetamiseni.',
+    lifecycle: 'Oleme sinuga kogu teekonna — asutamisest ja kasvust kuni vajadusel korrektse lõpetamiseni.',
     languages: 'Räägime: RU · UK · ET · FI · EN',
     story: {
       title: 'Meie lugu',
