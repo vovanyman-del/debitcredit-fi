@@ -53,3 +53,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Headings must never push horizontal scroll on narrow screens (390px and
+   below). Long single words — FI compounds, RU/UK words like
+   "конфиденциальности" — wrap mid-word as a last resort instead of overflowing.
+   overflow-wrap:anywhere only breaks when a word would otherwise overflow, so
+   normal wrapping is unaffected on wider viewports. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}

@@ -54,7 +54,7 @@ export default function HomePage() {
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] text-brand-600">
             — {h.hero.eyebrow}
           </p>
-          <h1 className="mt-5 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.04] text-ink-900">
+          <h1 className="mt-5 text-[clamp(1.875rem,8vw,2.5rem)] sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] sm:leading-[1.04] text-ink-900">
             {h.hero.title}
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-ink-700/80 leading-relaxed max-w-2xl mx-auto">
