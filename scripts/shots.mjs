@@ -2,27 +2,35 @@ import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
 
 const BASE = process.env.BASE || 'http://localhost:4180';
-const OUT = 'design-reference/preview';
+const LOCALE = process.env.LOCALE || 'ru'; // prefix; '' for fi
+const OUT = `design-reference/preview${LOCALE ? '-' + LOCALE : ''}`;
 mkdirSync(OUT, { recursive: true });
 
-const targets = [
-  { path: '/', label: 'fi-desktop', w: 1280, h: 900 },
-  { path: '/', label: 'fi-mobile', w: 390, h: 844 },
-  { path: '/ru', label: 'ru-desktop', w: 1280, h: 900 },
-  { path: '/ru', label: 'ru-mobile', w: 390, h: 844 },
+const pages = [
+  ['home', '/'],
+  ['palvelut', '/palvelut'],
+  ['hinnasto', '/hinnasto'],
+  ['vaavo', '/vaavo'],
+  ['meista', '/meista'],
+  ['yhteystiedot', '/yhteystiedot'],
+  ['tilitoimistoille', '/tilitoimistoille'],
+  ['yrittajaksi', '/yrittajaksi'],
+  ['vaihda-tilitoimistoa', '/vaihda-tilitoimistoa'],
+  ['tietosuoja', '/tietosuoja'],
+  ['kayttoehdot', '/kayttoehdot'],
 ];
+const pfx = (p) => (LOCALE ? `/${LOCALE}${p === '/' ? '' : p}` : p);
 
 const browser = await chromium.launch();
-for (const t of targets) {
-  const page = await browser.newPage({ viewport: { width: t.w, height: t.h }, deviceScaleFactor: 2 });
-  const errs = [];
-  page.on('pageerror', (e) => errs.push(e.message.split('\n')[0]));
-  await page.goto(BASE + t.path, { waitUntil: 'networkidle' });
-  await page.waitForTimeout(600);
-  await page.screenshot({ path: `${OUT}/${t.label}.png`, fullPage: true });
-  const headers = await page.evaluate(() => document.querySelectorAll('header').length);
-  console.log(`${t.label.padEnd(12)} ${t.path.padEnd(5)} headers=${headers} pageerrors=${errs.length}${errs[0] ? ' :: ' + errs[0].slice(0, 90) : ''}`);
-  await page.close();
+for (const [name, path] of pages) {
+  for (const [dev, w, h] of [['desktop', 1280, 900], ['mobile', 390, 844]]) {
+    const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 1 });
+    await page.goto(BASE + pfx(path), { waitUntil: 'networkidle' });
+    await page.waitForTimeout(400);
+    await page.screenshot({ path: `${OUT}/${name}-${dev}.png`, fullPage: true });
+    await page.close();
+  }
+  console.log(`shot ${name}`);
 }
 await browser.close();
 console.log('shots written to', OUT);

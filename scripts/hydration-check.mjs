@@ -5,7 +5,9 @@
 import { chromium } from 'playwright';
 
 const BASE = process.env.BASE || 'http://localhost:4180';
-const ROUTES = ['/', '/hinnasto', '/palvelut', '/vaavo', '/meista'];
+const ROUTES = process.env.ROUTES
+  ? process.env.ROUTES.split(',')
+  : ['/', '/hinnasto', '/palvelut', '/vaavo', '/meista'];
 
 const browser = await chromium.launch();
 let anyProblem = false;

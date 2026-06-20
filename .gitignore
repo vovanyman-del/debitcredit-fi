@@ -26,4 +26,4 @@ dist-ssr
 .env*.local
 
 # Local preview screenshots (regenerable)
-design-reference/preview/
+design-reference/preview*/

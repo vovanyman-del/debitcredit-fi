@@ -1,24 +1,25 @@
 import { useI18n } from '../i18n/context';
+import PageHeader from '../components/PageHeader';
 
 export default function TermsPage() {
   const { t } = useI18n();
 
   return (
-    <div>
-      <section className="bg-warm-50 border-b border-warm-200 py-12 sm:py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-warm-900">{t.terms.title}</h1>
-          <p className="mt-2 text-sm text-warm-400">{t.terms.lastUpdated}</p>
-        </div>
-      </section>
+    <div className="bg-canvas text-ink-900">
+      <PageHeader title={t.terms.title}>
+        <p className="text-sm text-ink-700/50">{t.terms.lastUpdated}</p>
+      </PageHeader>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="space-y-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+        <div className="space-y-10">
           {t.terms.sections.map((section, i) => (
-            <div key={i}>
-              <h2 className="text-xl font-semibold text-warm-900 mb-3">{section.title}</h2>
-              <p className="text-warm-600 leading-relaxed">{section.content}</p>
-            </div>
+            <section key={i}>
+              <h2 className="flex items-baseline gap-3 text-xl font-bold text-ink-900 mb-3">
+                <span className="text-sm font-mono text-brand-600">{String(i + 1).padStart(2, '0')}</span>
+                {section.title}
+              </h2>
+              <p className="text-ink-700/80 leading-relaxed pl-9">{section.content}</p>
+            </section>
           ))}
         </div>
       </div>
