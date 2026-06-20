@@ -6,7 +6,7 @@ export default function Footer() {
   const { t, localePath } = useI18n();
 
   return (
-    <footer className="bg-warm-900 text-warm-300">
+    <footer className="bg-ink-900 text-warm-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-warm-700 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-warm-500">&copy; {new Date().getFullYear()} {company.name}. {t.common.allRightsReserved}</p>
           <div className="flex gap-6">
             <Link to={localePath('/tietosuoja')} className="text-xs text-warm-500 hover:text-warm-300 transition-colors">{t.nav.privacy}</Link>

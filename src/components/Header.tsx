@@ -20,7 +20,7 @@ export default function Header() {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-warm-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to={localePath('/')} className="flex items-center gap-2 font-semibold text-lg text-primary-600 hover:text-primary-700 transition-colors">
+          <Link to={localePath('/')} className="flex items-center gap-2 font-semibold text-lg text-brand-600 hover:text-brand-700 transition-colors">
             <span className="text-2xl font-bold tracking-tight">DC</span>
             <span className="hidden sm:inline text-warm-800">Debit Credit</span>
           </Link>
@@ -31,7 +31,7 @@ export default function Header() {
               <Link
                 key={link.to}
                 to={localePath(link.to)}
-                className="px-3 py-2 text-sm font-medium text-warm-600 hover:text-primary-600 rounded-lg hover:bg-primary-50 transition-colors"
+                className="px-3 py-2 text-sm font-medium text-warm-600 hover:text-brand-600 rounded-lg hover:bg-brand-50 transition-colors"
               >
                 {link.label}
               </Link>
@@ -42,7 +42,7 @@ export default function Header() {
             <LanguageSwitcher />
             <Link
               to={localePath('/yhteystiedot')}
-              className="hidden sm:inline-flex items-center px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors"
+              className="hidden sm:inline-flex items-center px-4 py-2 bg-brand-500 text-white text-sm font-medium rounded-lg hover:bg-brand-600 transition-colors"
             >
               {t.home.hero.cta}
             </Link>
@@ -74,7 +74,7 @@ export default function Header() {
                 key={link.to}
                 to={localePath(link.to)}
                 onClick={() => setMenuOpen(false)}
-                className="block px-3 py-2.5 text-sm font-medium text-warm-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+                className="block px-3 py-2.5 text-sm font-medium text-warm-700 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors"
               >
                 {link.label}
               </Link>
@@ -83,21 +83,21 @@ export default function Header() {
               <Link
                 to={localePath('/yrittajaksi')}
                 onClick={() => setMenuOpen(false)}
-                className="block px-3 py-2.5 text-sm text-warm-500 hover:text-primary-600"
+                className="block px-3 py-2.5 text-sm text-warm-500 hover:text-brand-600"
               >
                 {t.nav.guide}
               </Link>
               <Link
                 to={localePath('/vaihda-tilitoimistoa')}
                 onClick={() => setMenuOpen(false)}
-                className="block px-3 py-2.5 text-sm text-warm-500 hover:text-primary-600"
+                className="block px-3 py-2.5 text-sm text-warm-500 hover:text-brand-600"
               >
                 {t.nav.switchAccountant}
               </Link>
               <Link
                 to={localePath('/tilitoimistoille')}
                 onClick={() => setMenuOpen(false)}
-                className="block px-3 py-2.5 text-sm text-warm-500 hover:text-primary-600"
+                className="block px-3 py-2.5 text-sm text-warm-500 hover:text-brand-600"
               >
                 {t.nav.forAccountants}
               </Link>
