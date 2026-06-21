@@ -4,6 +4,7 @@ export const en = {
     description: 'Bookkeeping, taxation, payroll and company formation. Over 70 clients in Helsinki. We serve in Finnish, English, Russian, Estonian and Ukrainian.',
   },
   nav: {
+    guides: "Guides",
     menu: "Menu",
     home: 'Home',
     services: 'Services',
@@ -533,6 +534,17 @@ export const en = {
       { title: 'Limitation of Liability', content: 'Our liability is limited to the amount of service fees paid. We are not liable for indirect damages.' },
       { title: 'Applicable Law', content: 'These terms are governed by Finnish law. In case of disputes, the competent court is the Helsinki District Court.' },
     ],
+  },
+  guides: {
+    eyebrow: "Guides",
+    hubTitle: "Guides for entrepreneurs",
+    hubSubtitle: "Clear guides to starting a business, taxes and bookkeeping — in your language.",
+    read: "Read guide",
+    updated: "Updated",
+    faqTitle: "Frequently asked questions",
+    backToHub: "All guides",
+    ctaTitle: "Need help?",
+    ctaText: "We help with setting up your business, taxes and bookkeeping — in five languages.",
   },
   common: {
     contactUs: 'Get in touch',

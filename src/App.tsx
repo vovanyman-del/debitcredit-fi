@@ -20,6 +20,8 @@ import EntrepreneurGuidePage from './pages/EntrepreneurGuidePage';
 import SwitchAccountantPage from './pages/SwitchAccountantPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
+import GuideHubPage from './pages/GuideHubPage';
+import GuidePage from './pages/GuidePage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function ScrollToTop() {
@@ -42,6 +44,8 @@ function AppRoutes() {
       <Route path="vaihda-tilitoimistoa" element={<SwitchAccountantPage />} />
       <Route path="tietosuoja" element={<PrivacyPage />} />
       <Route path="kayttoehdot" element={<TermsPage />} />
+      <Route path="opas" element={<GuideHubPage />} />
+      <Route path="opas/:slug" element={<GuidePage />} />
       <Route path="*" element={<NotFoundPage />} />
     </>
   );

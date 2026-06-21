@@ -4,6 +4,7 @@ export const fi = {
     description: 'Kirjanpito, verotus, palkanlaskenta ja yrityksen perustaminen. Yli 70 asiakasta Helsingissä. Palvelemme suomeksi, englanniksi, venäjäksi, viroksi ja ukrainaksi.',
   },
   nav: {
+    guides: "Oppaat",
     menu: "Valikko",
     home: 'Etusivu',
     services: 'Palvelut',
@@ -533,6 +534,17 @@ export const fi = {
       { title: 'Vastuunrajoitus', content: 'Vastuumme rajoittuu maksettujen palvelumaksujen määrään. Emme vastaa välillisistä vahingoista.' },
       { title: 'Sovellettava laki', content: 'Näihin ehtoihin sovelletaan Suomen lakia. Riitatilanteissa toimivaltainen tuomioistuin on Helsingin käräjäoikeus.' },
     ],
+  },
+  guides: {
+    eyebrow: "Oppaat",
+    hubTitle: "Oppaat yrittäjälle",
+    hubSubtitle: "Selkeät oppaat yrityksen perustamiseen, verotukseen ja kirjanpitoon — omalla kielelläsi.",
+    read: "Lue opas",
+    updated: "Päivitetty",
+    faqTitle: "Usein kysytyt kysymykset",
+    backToHub: "Kaikki oppaat",
+    ctaTitle: "Tarvitsetko apua?",
+    ctaText: "Autamme yrityksesi perustamisessa, verotuksessa ja kirjanpidossa — viidellä kielellä.",
   },
   common: {
     contactUs: 'Ota yhteyttä',

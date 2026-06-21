@@ -12,6 +12,7 @@ export default function Header() {
     { to: '/palvelut', label: t.nav.services },
     { to: '/hinnasto', label: t.nav.pricing },
     { to: '/vaavo', label: t.nav.vaavo },
+    { to: '/opas', label: t.nav.guides },
     { to: '/meista', label: t.nav.about },
     { to: '/yhteystiedot', label: t.nav.contact },
   ];
