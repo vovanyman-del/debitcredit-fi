@@ -1,0 +1,211 @@
+import type { Guide } from './types';
+
+// Facts verified June 2026 (vero.fi): standard ALV 25.5 %; reduced 13.5 % (food,
+// restaurants, books, medicine, passenger transport, accommodation, culture/
+// sports — lowered from 14 % on 1.1.2026); 10 % (newspapers/magazines); 0 %
+// (exports). VAT registration threshold 20 000 €/calendar year (raised from
+// 15 000 € on 1.1.2026, law 448/2024); small-business relief (alarajahuojennus)
+// removed 1.1.2025. Filing frequency by turnover: monthly default, quarterly
+// ≤ 100 000 €, annually ≤ 30 000 €.
+export const alvOpas: Guide = {
+  slug: 'alv-opas',
+  datePublished: '2026-06-21',
+  dateModified: '2026-06-21',
+  content: {
+    fi: {
+      title: 'ALV-opas yrittäjälle: arvonlisävero selkeästi (2026)',
+      description:
+        'Mikä on ALV ja milloin se on pakollinen? ALV-kannat 2026, 20 000 euron alaraja, vähennykset ja ilmoittaminen — selkeä opas yrittäjälle.',
+      lead: 'Arvonlisävero (ALV) on kulutusvero, jonka yritys lisää myyntiinsä ja tilittää valtiolle. Käymme läpi ALV-kannat, milloin rekisteröinti on pakollinen ja miten ALV ilmoitetaan.',
+      body: [
+        { t: 'h2', x: 'Mikä on arvonlisävero?' },
+        { t: 'p', x: 'ALV on kulutusvero: lisäät sen myyntihintoihisi, veloitat sen asiakkaalta ja tilität valtiolle. Ostoihisi sisältyvän ALV:n saat vähentää, joten maksat käytännössä vain myynnin ja ostojen ALV:n erotuksen.' },
+        { t: 'h2', x: 'ALV-kannat 2026' },
+        { t: 'ul', items: [
+          '25,5 % — yleinen kanta (useimmat tavarat ja palvelut).',
+          '13,5 % — mm. elintarvikkeet, ravintola- ja ateriapalvelut, kirjat, lääkkeet, henkilökuljetus, majoitus, liikunta ja kulttuuri (laski 14 %:sta 1.1.2026).',
+          '10 % — sanoma- ja aikakauslehdet.',
+          '0 % — mm. EU:n ulkopuolinen vienti.',
+        ] },
+        { t: 'h2', x: 'Milloin ALV-rekisteröinti on pakollinen?' },
+        { t: 'p', x: 'Rekisteröidyt ALV-velvolliseksi, kun liikevaihtosi ylittää 20 000 € kalenterivuodessa (raja nousi 15 000 eurosta 1.1.2026). Rajaa tarkastellaan sekä kuluvalta että edelliseltä kalenterivuodelta. Jos jäät rajan alle, voit silti rekisteröityä vapaaehtoisesti.' },
+        { t: 'note', x: 'Alarajahuojennus poistui 1.1.2025. Käytä lukuja suuntaa-antavina ja varmista oma tilanteesi kirjanpitäjältä.' },
+        { t: 'h2', x: 'Kannattaako rekisteröityä vapaaehtoisesti?' },
+        { t: 'p', x: 'Jos asiakkaasi ovat yrityksiä tai teet alkuvaiheessa isoja hankintoja, vapaaehtoinen rekisteröinti kannattaa usein: saat vähentää ostojesi ALV:n. Jos myyt suoraan kuluttajille, ALV nostaa hintojasi — punnitse hyödyt tapauskohtaisesti.' },
+        { t: 'h2', x: 'Miten ALV ilmoitetaan?' },
+        { t: 'p', x: 'ALV ilmoitetaan ja maksetaan OmaVerossa. Ilmoitusjakso määräytyy liikevaihdon mukaan: kuukausittain (oletus), neljännesvuosittain jos liikevaihto on enintään 100 000 €, tai vuosittain jos enintään 30 000 €. Ilmoitus on tehtävä myös silloin, kun ALV:a ei ole maksettavaa.' },
+        { t: 'h2', x: 'Yleisimmät virheet' },
+        { t: 'ul', items: [
+          'Väärä verokanta (esim. ravintola tai kirja 25,5 %:lla 13,5 %:n sijaan).',
+          'Vähennysten unohtaminen ostoista.',
+          'Myöhästyneet ilmoitukset ja maksut (myöhästymismaksu ja korko).',
+          'EU- ja ulkomaankaupan väärä käsittely (käännetty verovelvollisuus, OSS).',
+        ] },
+        { t: 'h2', x: 'Apua ALV-asioihin' },
+        { t: 'p', x: 'Hoidamme ALV-ilmoitukset puolestasi ja neuvomme oikeat kannat sekä rekisteröinnin — omalla kielelläsi. Näin vältät virheet ja myöhästymismaksut.' },
+      ],
+      faq: [
+        { q: 'Pitääkö minun rekisteröityä ALV-velvolliseksi?', a: 'Kyllä, jos liikevaihtosi ylittää 20 000 € kalenterivuodessa (2026). Rajan alle jäädessä rekisteröinti on vapaaehtoinen.' },
+        { q: 'Mikä ALV-kanta minua koskee?', a: 'Useimpia palveluita ja tavaroita koskee 25,5 %. Alennettuja kantoja sovelletaan mm. elintarvikkeisiin, ravintoloihin, kirjoihin ja majoitukseen (13,5 %) sekä lehtiin (10 %).' },
+        { q: 'Kuinka usein ALV ilmoitetaan?', a: 'Oletuksena kuukausittain. Neljännesvuosittain, jos liikevaihto on enintään 100 000 €, ja vuosittain, jos enintään 30 000 €.' },
+        { q: 'Voinko vähentää ostojen ALV:n?', a: 'Kyllä, kun olet ALV-rekisterissä ja ostot liittyvät verolliseen liiketoimintaan. Säilytä kuitit ja laskut.' },
+      ],
+    },
+    ru: {
+      title: 'ALV (НДС) в Финляндии: гид для предпринимателя (2026)',
+      description:
+        'Что такое ALV и когда он обязателен? Ставки ALV 2026, порог 20 000 €, вычеты и подача деклараций — понятный гид для предпринимателя.',
+      lead: 'ALV (НДС) — налог на потребление, который компания добавляет к продажам и перечисляет государству. Разбираем ставки ALV, когда регистрация обязательна и как подавать декларации.',
+      body: [
+        { t: 'h2', x: 'Что такое ALV?' },
+        { t: 'p', x: 'ALV — налог на потребление: вы добавляете его к ценам продаж, берёте с клиента и перечисляете государству. ALV в ваших покупках можно вычесть, поэтому фактически вы платите только разницу между ALV продаж и покупок.' },
+        { t: 'h2', x: 'Ставки ALV 2026' },
+        { t: 'ul', items: [
+          '25,5 % — общая ставка (большинство товаров и услуг).',
+          '13,5 % — напр. продукты, рестораны и питание, книги, лекарства, пассажирский транспорт, проживание, спорт и культура (снижена с 14 % с 1.1.2026).',
+          '10 % — газеты и журналы.',
+          '0 % — напр. экспорт за пределы ЕС.',
+        ] },
+        { t: 'h2', x: 'Когда регистрация ALV обязательна?' },
+        { t: 'p', x: 'Вы становитесь плательщиком ALV, когда оборот превышает 20 000 € за календарный год (порог повышен с 15 000 € с 1.1.2026). Порог проверяется за текущий и предыдущий календарный год. Если вы ниже порога, можно зарегистрироваться добровольно.' },
+        { t: 'note', x: 'Льгота по нижнему пределу (alarajahuojennus) отменена с 1.1.2025. Используйте цифры как ориентир и уточняйте свою ситуацию у бухгалтера.' },
+        { t: 'h2', x: 'Стоит ли регистрироваться добровольно?' },
+        { t: 'p', x: 'Если ваши клиенты — компании или вы делаете крупные стартовые покупки, добровольная регистрация часто выгодна: вы сможете вычесть ALV покупок. Если продаёте напрямую потребителям, ALV повышает ваши цены — взвешивайте в каждом случае.' },
+        { t: 'h2', x: 'Как подаётся декларация ALV?' },
+        { t: 'p', x: 'ALV декларируется и платится в OmaVero. Период подачи зависит от оборота: ежемесячно (по умолчанию), ежеквартально при обороте до 100 000 €, или ежегодно при обороте до 30 000 €. Декларацию подают и тогда, когда ALV платить не нужно.' },
+        { t: 'h2', x: 'Частые ошибки' },
+        { t: 'ul', items: [
+          'Неверная ставка (напр. ресторан или книга по 25,5 % вместо 13,5 %).',
+          'Забытые вычеты по покупкам.',
+          'Просроченные декларации и платежи (штраф и пени).',
+          'Неверная обработка торговли с ЕС и за рубежом (обратное начисление, OSS).',
+        ] },
+        { t: 'h2', x: 'Помощь по ALV' },
+        { t: 'p', x: 'Подаём декларации ALV за вас и подсказываем правильные ставки и регистрацию — на вашем языке. Так вы избегаете ошибок и штрафов за просрочку.' },
+      ],
+      faq: [
+        { q: 'Нужно ли мне регистрироваться плательщиком ALV?', a: 'Да, если оборот превышает 20 000 € за календарный год (2026). Ниже порога регистрация добровольная.' },
+        { q: 'Какая ставка ALV меня касается?', a: 'Большинство услуг и товаров — 25,5 %. Сниженные ставки применяются, напр., к продуктам, ресторанам, книгам и проживанию (13,5 %) и к прессе (10 %).' },
+        { q: 'Как часто подаётся ALV?', a: 'По умолчанию ежемесячно. Ежеквартально при обороте до 100 000 € и ежегодно при обороте до 30 000 €.' },
+        { q: 'Могу ли я вычесть ALV покупок?', a: 'Да, если вы в реестре ALV и покупки связаны с облагаемой деятельностью. Храните чеки и счета.' },
+      ],
+    },
+    en: {
+      title: 'VAT (ALV) guide for entrepreneurs in Finland (2026)',
+      description:
+        'What is ALV and when is it mandatory? 2026 VAT rates, the €20,000 threshold, deductions and filing — a clear guide for entrepreneurs.',
+      lead: 'VAT (ALV) is a consumption tax that a business adds to its sales and remits to the state. We go through the VAT rates, when registration is mandatory and how VAT is reported.',
+      body: [
+        { t: 'h2', x: 'What is VAT?' },
+        { t: 'p', x: 'VAT is a consumption tax: you add it to your sales prices, charge it to the customer and remit it to the state. You can deduct the VAT included in your purchases, so in practice you pay only the difference between sales VAT and purchase VAT.' },
+        { t: 'h2', x: 'VAT rates 2026' },
+        { t: 'ul', items: [
+          '25.5% — standard rate (most goods and services).',
+          '13.5% — e.g. groceries, restaurant and catering services, books, medicines, passenger transport, accommodation, sports and culture (lowered from 14% on 1 Jan 2026).',
+          '10% — newspapers and magazines.',
+          '0% — e.g. exports outside the EU.',
+        ] },
+        { t: 'h2', x: 'When is VAT registration mandatory?' },
+        { t: 'p', x: 'You must register for VAT when your turnover exceeds €20,000 in a calendar year (the threshold rose from €15,000 on 1 Jan 2026). The limit is assessed for both the current and the previous calendar year. If you stay below it, you can still register voluntarily.' },
+        { t: 'note', x: 'The small-business relief (alarajahuojennus) was removed on 1 Jan 2025. Use the figures as a guide and confirm your situation with an accountant.' },
+        { t: 'h2', x: 'Is voluntary registration worth it?' },
+        { t: 'p', x: 'If your clients are businesses or you make large purchases early on, voluntary registration is often worthwhile: you can deduct the VAT on your purchases. If you sell directly to consumers, VAT raises your prices — weigh the benefits case by case.' },
+        { t: 'h2', x: 'How is VAT reported?' },
+        { t: 'p', x: 'VAT is reported and paid in OmaVero. The reporting period depends on turnover: monthly (default), quarterly if turnover is at most €100,000, or annually if at most €30,000. A return must be filed even when there is no VAT to pay.' },
+        { t: 'h2', x: 'The most common mistakes' },
+        { t: 'ul', items: [
+          'The wrong rate (e.g. a restaurant or book at 25.5% instead of 13.5%).',
+          'Forgetting deductions on purchases.',
+          'Late returns and payments (late fee and interest).',
+          'Mishandling EU and foreign trade (reverse charge, OSS).',
+        ] },
+        { t: 'h2', x: 'Help with VAT' },
+        { t: 'p', x: 'We handle your VAT returns and advise on the correct rates and registration — in your language. That way you avoid mistakes and late-payment fees.' },
+      ],
+      faq: [
+        { q: 'Do I have to register for VAT?', a: 'Yes, if your turnover exceeds €20,000 in a calendar year (2026). Below the threshold, registration is voluntary.' },
+        { q: 'Which VAT rate applies to me?', a: 'Most services and goods are 25.5%. Reduced rates apply e.g. to groceries, restaurants, books and accommodation (13.5%) and to the press (10%).' },
+        { q: 'How often is VAT reported?', a: 'Monthly by default. Quarterly if turnover is at most €100,000, and annually if at most €30,000.' },
+        { q: 'Can I deduct VAT on purchases?', a: 'Yes, when you are in the VAT register and the purchases relate to taxable business. Keep your receipts and invoices.' },
+      ],
+    },
+    et: {
+      title: 'ALV (käibemaks) juhend ettevõtjale Soomes (2026)',
+      description:
+        'Mis on ALV ja millal see on kohustuslik? ALV-määrad 2026, 20 000 € piir, mahaarvamised ja deklareerimine — selge juhend ettevõtjale.',
+      lead: 'ALV (käibemaks) on tarbimismaks, mille ettevõte lisab müügile ja kannab riigile. Vaatame läbi ALV-määrad, millal registreerimine on kohustuslik ja kuidas ALV deklareeritakse.',
+      body: [
+        { t: 'h2', x: 'Mis on käibemaks?' },
+        { t: 'p', x: 'ALV on tarbimismaks: lisad selle müügihindadele, võtad kliendilt ja kannad riigile. Ostudes sisalduva ALV saad maha arvata, nii et praktikas maksad vaid müügi- ja ostu-ALV vahe.' },
+        { t: 'h2', x: 'ALV-määrad 2026' },
+        { t: 'ul', items: [
+          '25,5 % — üldmäär (enamik kaupu ja teenuseid).',
+          '13,5 % — nt toidukaubad, restorani- ja toitlustusteenused, raamatud, ravimid, reisijavedu, majutus, sport ja kultuur (langes 14 %-lt 1.1.2026).',
+          '10 % — ajalehed ja ajakirjad.',
+          '0 % — nt eksport väljapoole ELi.',
+        ] },
+        { t: 'h2', x: 'Millal on ALV-registreerimine kohustuslik?' },
+        { t: 'p', x: 'Pead registreeruma ALV-kohustuslaseks, kui käive ületab 20 000 € kalendriaastas (piir tõusis 15 000 €-lt 1.1.2026). Piiri vaadatakse nii jooksval kui ka eelmisel kalendriaastal. Kui jääd alla piiri, saad siiski vabatahtlikult registreeruda.' },
+        { t: 'note', x: 'Väikeettevõtja soodustus (alarajahuojennus) kaotati 1.1.2025. Kasuta numbreid orientiirina ja kontrolli oma olukord raamatupidajaga.' },
+        { t: 'h2', x: 'Kas vabatahtlik registreerimine tasub end ära?' },
+        { t: 'p', x: 'Kui su kliendid on ettevõtted või teed alguses suuri oste, on vabatahtlik registreerimine sageli kasulik: saad maha arvata ostude ALV. Kui müüd otse tarbijatele, tõstab ALV su hindu — kaalu kasu juhtumipõhiselt.' },
+        { t: 'h2', x: 'Kuidas ALV deklareeritakse?' },
+        { t: 'p', x: 'ALV deklareeritakse ja makstakse OmaVeros. Deklareerimisperiood sõltub käibest: igakuiselt (vaikimisi), kvartalis kui käive on kuni 100 000 €, või aastas kui kuni 30 000 €. Deklaratsioon tuleb esitada ka siis, kui ALV-d pole maksta.' },
+        { t: 'h2', x: 'Levinumad vead' },
+        { t: 'ul', items: [
+          'Vale määr (nt restoran või raamat 25,5 %-ga 13,5 % asemel).',
+          'Ostude mahaarvamiste unustamine.',
+          'Hilinenud deklaratsioonid ja maksed (viivis ja intress).',
+          'ELi- ja väliskaubanduse vale käsitlus (pöördmaksustamine, OSS).',
+        ] },
+        { t: 'h2', x: 'Abi ALV-küsimustes' },
+        { t: 'p', x: 'Korraldame ALV-deklaratsioonid sinu eest ja anname nõu õigete määrade ja registreerimise osas — sinu keeles. Nii väldid vigu ja viivistasusid.' },
+      ],
+      faq: [
+        { q: 'Kas pean registreeruma ALV-kohustuslaseks?', a: 'Jah, kui käive ületab 20 000 € kalendriaastas (2026). Alla piiri on registreerimine vabatahtlik.' },
+        { q: 'Milline ALV-määr mind puudutab?', a: 'Enamik teenuseid ja kaupu on 25,5 %. Vähendatud määrasid kohaldatakse nt toidule, restoranidele, raamatutele ja majutusele (13,5 %) ning ajakirjandusele (10 %).' },
+        { q: 'Kui sageli ALV deklareeritakse?', a: 'Vaikimisi igakuiselt. Kvartalis, kui käive on kuni 100 000 €, ja aastas, kui kuni 30 000 €.' },
+        { q: 'Kas saan ostude ALV maha arvata?', a: 'Jah, kui oled ALV-registris ja ostud on seotud maksustatava äriga. Säilita tšekid ja arved.' },
+      ],
+    },
+    uk: {
+      title: 'ALV (ПДВ) у Фінляндії: гід для підприємця (2026)',
+      description:
+        'Що таке ALV і коли він обовʼязковий? Ставки ALV 2026, поріг 20 000 €, вирахування та подання декларацій — зрозумілий гід для підприємця.',
+      lead: 'ALV (ПДВ) — податок на споживання, який компанія додає до продажів і перераховує державі. Розбираємо ставки ALV, коли реєстрація обовʼязкова і як подавати декларації.',
+      body: [
+        { t: 'h2', x: 'Що таке ALV?' },
+        { t: 'p', x: 'ALV — податок на споживання: ви додаєте його до цін продажів, берете з клієнта і перераховуєте державі. ALV у ваших покупках можна вирахувати, тож фактично ви платите лише різницю між ALV продажів і покупок.' },
+        { t: 'h2', x: 'Ставки ALV 2026' },
+        { t: 'ul', items: [
+          '25,5 % — загальна ставка (більшість товарів і послуг).',
+          '13,5 % — напр. продукти, ресторани та харчування, книги, ліки, пасажирський транспорт, проживання, спорт і культура (знижена з 14 % з 1.1.2026).',
+          '10 % — газети та журнали.',
+          '0 % — напр. експорт за межі ЄС.',
+        ] },
+        { t: 'h2', x: 'Коли реєстрація ALV обовʼязкова?' },
+        { t: 'p', x: 'Ви стаєте платником ALV, коли оборот перевищує 20 000 € за календарний рік (поріг підвищено з 15 000 € з 1.1.2026). Поріг перевіряється за поточний і попередній календарний рік. Якщо ви нижче порога, можна зареєструватися добровільно.' },
+        { t: 'note', x: 'Пільгу за нижньою межею (alarajahuojennus) скасовано з 1.1.2025. Використовуйте цифри як орієнтир і уточнюйте свою ситуацію в бухгалтера.' },
+        { t: 'h2', x: 'Чи варто реєструватися добровільно?' },
+        { t: 'p', x: 'Якщо ваші клієнти — компанії або ви робите великі стартові покупки, добровільна реєстрація часто вигідна: ви зможете вирахувати ALV покупок. Якщо продаєте напряму споживачам, ALV підвищує ваші ціни — зважуйте в кожному випадку.' },
+        { t: 'h2', x: 'Як подається декларація ALV?' },
+        { t: 'p', x: 'ALV декларується і сплачується в OmaVero. Період подання залежить від обороту: щомісяця (за замовчуванням), щокварталу при обороті до 100 000 €, або щороку при обороті до 30 000 €. Декларацію подають і тоді, коли ALV платити не треба.' },
+        { t: 'h2', x: 'Найпоширеніші помилки' },
+        { t: 'ul', items: [
+          'Невірна ставка (напр. ресторан чи книга за 25,5 % замість 13,5 %).',
+          'Забуті вирахування з покупок.',
+          'Прострочені декларації та платежі (штраф і пеня).',
+          'Невірна обробка торгівлі з ЄС і за кордоном (зворотне нарахування, OSS).',
+        ] },
+        { t: 'h2', x: 'Допомога з ALV' },
+        { t: 'p', x: 'Готуємо декларації ALV за вас і підказуємо правильні ставки та реєстрацію — вашою мовою. Так ви уникаєте помилок і штрафів за прострочення.' },
+      ],
+      faq: [
+        { q: 'Чи потрібно мені реєструватися платником ALV?', a: 'Так, якщо оборот перевищує 20 000 € за календарний рік (2026). Нижче порога реєстрація добровільна.' },
+        { q: 'Яка ставка ALV мене стосується?', a: 'Більшість послуг і товарів — 25,5 %. Знижені ставки застосовуються, напр., до продуктів, ресторанів, книг і проживання (13,5 %) та до преси (10 %).' },
+        { q: 'Як часто подається ALV?', a: 'За замовчуванням щомісяця. Щокварталу при обороті до 100 000 € і щороку при обороті до 30 000 €.' },
+        { q: 'Чи можу я вирахувати ALV покупок?', a: 'Так, якщо ви в реєстрі ALV і покупки повʼязані з оподатковуваною діяльністю. Зберігайте чеки та рахунки.' },
+      ],
+    },
+  },
+};

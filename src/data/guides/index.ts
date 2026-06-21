@@ -1,10 +1,13 @@
 import type { Guide } from './types';
 import { toiminimiVaiOy } from './toiminimi-vai-oy';
+import { kirjanpidonHinta } from './kirjanpidon-hinta';
+import { alvOpas } from './alv-opas';
+import { toiminimenVerotus } from './toiminimen-verotus';
 
 export * from './types';
 
-// Ordered newest-first; drives the hub list, routing, prerender and sitemap.
-export const guides: Guide[] = [toiminimiVaiOy];
+// Order shown on the hub; drives routing, prerender and the sitemap.
+export const guides: Guide[] = [toiminimiVaiOy, kirjanpidonHinta, alvOpas, toiminimenVerotus];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
 

@@ -1,10 +1,9 @@
 import type { Guide } from './types';
 
-// NOTE (fact-check): Finnish thresholds/tax rates change. Key facts used here:
-// Oy minimum share capital 0 € since July 2019; corporate tax 20 %; toiminimi =
-// unlimited personal liability, profit taxed as the owner's personal income
-// (capital-income portion ~20 % of net assets, rest earned income). Vladimir to
-// verify exact rates before publish.
+// Facts verified June 2026 (sources: vero.fi, PRH/YTJ, valtioneuvosto.fi): Oy
+// minimum share capital 0 € (since 7/2019); corporate tax 20 % in 2026 (proposed
+// cut to 18 % from 2027); PRH guided e-registration ~275 €; toiminimi profit taxed
+// as personal income (capital-income part 20 % of net-asset return, taxed 30/34 %).
 export const toiminimiVaiOy: Guide = {
   slug: 'toiminimi-vai-oy',
   datePublished: '2026-06-21',
@@ -33,7 +32,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'h2', x: 'Verotus — miten ne eroavat?' },
         { t: 'p', x: 'Toiminimen tulos verotetaan yrittäjän henkilökohtaisena tulona. Osa jaetaan pääomatulona (oletuksena 20 % nettovarallisuuden tuotosta, verokanta 30/34 %) ja loppu ansiotulona progressiivisen veroasteikon mukaan. Et maksa itsellesi palkkaa vaan nostat varoja yksityisottoina.' },
         { t: 'p', x: 'Osakeyhtiö maksaa voitostaan 20 % yhteisöveroa. Tämän jälkeen nostat rahat itsellesi palkkana (verotetaan ansiotulona) ja/tai osinkona. Listaamattomasta yhtiöstä osinkoa voi tiettyyn rajaan asti nostaa kevyemmällä verotuksella, mikä tekee Oy:stä usein verotuksellisesti edullisen, kun voitto on riittävän suuri.' },
-        { t: 'note', x: 'Verokannat ja rajat muuttuvat vuosittain. Käytä näitä suuntaa-antavina ja varmista oma tilanteesi kirjanpitäjältä.' },
+        { t: 'note', x: 'Verokannat ja rajat muuttuvat vuosittain. Käytä näitä suuntaa-antavina ja varmista oma tilanteesi kirjanpitäjältä. Yhteisövero on 20 % (2026); sitä on esitetty laskettavaksi 18 %:iin vuodesta 2027.' },
         { t: 'h2', x: 'Kumpi kannattaa valita?' },
         { t: 'p', x: 'Toiminimi sopii, kun aloitat, tulot ovat pienet tai vaihtelevat, riski on matala ja haluat yksinkertaisuutta. Se on usein paras valinta ensimmäiseen vuoteen tai sivutoimiseen yrittäjyyteen.' },
         { t: 'p', x: 'Osakeyhtiö kannattaa, kun voitto on vakaasti suurempi (usein noin 30 000–40 000 €/v ylittyessä verohyöty kasvaa), haluat rajata vastuusi, aiot kasvaa, palkata tai ottaa sijoittajia, tai tarvitset uskottavuutta isompien asiakkaiden kanssa.' },
@@ -41,7 +40,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Kyllä. Monet aloittavat toiminimellä ja muuttavat sen osakeyhtiöksi liiketoiminnan kasvaessa. Muutos voidaan tietyin edellytyksin tehdä verotuksellisesti neutraalisti (jatkuvuusperiaate). Suunnittele muutos kirjanpitäjän kanssa.' },
       ],
       faq: [
-        { q: 'Paljonko osakeyhtiön perustaminen maksaa?', a: 'Vähimmäisosakepääomaa ei tarvita (0 € vuodesta 2019). PRH:n käsittelymaksu sähköisesti on noin 240 €. Kirjanpitäjän avustamana perustaminen sujuu kerralla oikein.' },
+        { q: 'Paljonko osakeyhtiön perustaminen maksaa?', a: 'Vähimmäisosakepääomaa ei tarvita (0 € vuodesta 2019). PRH:n käsittelymaksu sähköisesti on noin 275 €. Kirjanpitäjän avustamana perustaminen sujuu kerralla oikein.' },
         { q: 'Onko toiminimellä rajoitettu vastuu?', a: 'Ei. Toiminimiyrittäjä vastaa yrityksen veloista koko henkilökohtaisella omaisuudellaan. Rajoitettua vastuuta varten valitaan osakeyhtiö.' },
         { q: 'Voinko muuttaa toiminimen osakeyhtiöksi?', a: 'Kyllä, ja se on yleistä liiketoiminnan kasvaessa. Muutos voidaan tehdä tietyin edellytyksin verotuksellisesti neutraalisti. Hoidamme muutoksen puolestasi.' },
         { q: 'Tarvitsenko kirjanpitäjän kummassakin?', a: 'Osakeyhtiö vaatii aina kahdenkertaisen kirjanpidon ja tilinpäätöksen. Toiminimellä kirjanpito on kevyempi, mutta kirjanpitäjä varmistaa, että vähennät kaiken oikein ja vältät virheet.' },
@@ -70,7 +69,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'h2', x: 'Налоги — в чём разница?' },
         { t: 'p', x: 'Прибыль toiminimi облагается как личный доход предпринимателя. Часть относится к капитальному доходу (по умолчанию 20 % от доходности чистых активов, ставка 30/34 %), остальное — к заработанному доходу по прогрессивной шкале. Вы не платите себе зарплату, а берёте средства частными изъятиями.' },
         { t: 'p', x: 'Osakeyhtiö платит с прибыли 20 % корпоративного налога. После этого вы выводите деньги зарплатой (облагается как заработанный доход) и/или дивидендами. Из непубличной компании дивиденды до определённого предела можно вывести с пониженным налогом, поэтому Oy часто выгоднее по налогам при достаточно большой прибыли.' },
-        { t: 'note', x: 'Ставки и пороги меняются ежегодно. Используйте их как ориентир и уточняйте свою ситуацию у бухгалтера.' },
+        { t: 'note', x: 'Ставки и пороги меняются ежегодно. Используйте их как ориентир и уточняйте свою ситуацию у бухгалтера. Корпоративный налог — 20 % (2026); предложено снизить его до 18 % с 2027.' },
         { t: 'h2', x: 'Что же выбрать?' },
         { t: 'p', x: 'Toiminimi подходит, когда вы начинаете, доходы небольшие или нестабильные, риск низкий и нужна простота. Часто это лучший выбор на первый год или для подработки.' },
         { t: 'p', x: 'Osakeyhtiö стоит выбирать, когда прибыль стабильно выше (обычно при превышении ~30 000–40 000 €/год налоговая выгода растёт), вы хотите ограничить ответственность, планируете рост, найм или инвесторов, либо нужна солидность в работе с крупными клиентами.' },
@@ -78,7 +77,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Да. Многие начинают с toiminimi и преобразуют его в osakeyhtiö по мере роста бизнеса. При определённых условиях преобразование можно провести налогово-нейтрально (принцип непрерывности). Планируйте изменение вместе с бухгалтером.' },
       ],
       faq: [
-        { q: 'Сколько стоит открыть osakeyhtiö?', a: 'Минимальный уставный капитал не нужен (0 € с 2019). Сбор PRH при электронной подаче — около 240 €. С помощью бухгалтера регистрация проходит сразу правильно.' },
+        { q: 'Сколько стоит открыть osakeyhtiö?', a: 'Минимальный уставный капитал не нужен (0 € с 2019). Сбор PRH при электронной подаче — около 275 €. С помощью бухгалтера регистрация проходит сразу правильно.' },
         { q: 'У toiminimi ограниченная ответственность?', a: 'Нет. Предприниматель-toiminimi отвечает по долгам фирмы всем личным имуществом. Для ограниченной ответственности выбирают osakeyhtiö.' },
         { q: 'Можно ли преобразовать toiminimi в osakeyhtiö?', a: 'Да, это распространено при росте бизнеса. При определённых условиях преобразование делается налогово-нейтрально. Мы оформим всё за вас.' },
         { q: 'Нужен ли бухгалтер в обоих случаях?', a: 'Osakeyhtiö всегда требует двойного учёта и финансовой отчётности. У toiminimi учёт проще, но бухгалтер проследит, чтобы вы вычли всё правильно и избежали ошибок.' },
@@ -107,7 +106,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'h2', x: 'Taxation — how do they differ?' },
         { t: 'p', x: 'A toiminimi’s profit is taxed as the entrepreneur’s personal income. Part is treated as capital income (by default 20% of the return on net assets, taxed at 30/34%) and the rest as earned income on the progressive scale. You don’t pay yourself a salary — you take money out as private withdrawals.' },
         { t: 'p', x: 'A limited company pays 20% corporate tax on its profit. After that, you take money out as salary (taxed as earned income) and/or dividends. From a non-listed company, dividends up to a certain limit can be taken at a lighter tax rate, which often makes an Oy tax-efficient once profit is high enough.' },
-        { t: 'note', x: 'Tax rates and thresholds change every year. Use these as a guide and confirm your own situation with an accountant.' },
+        { t: 'note', x: 'Tax rates and thresholds change every year. Use these as a guide and confirm your own situation with an accountant. Corporate tax is 20% (2026); a cut to 18% has been proposed from 2027.' },
         { t: 'h2', x: 'Which one should you choose?' },
         { t: 'p', x: 'A toiminimi suits you when you are starting out, income is small or variable, risk is low and you want simplicity. It is often the best choice for the first year or for a side business.' },
         { t: 'p', x: 'An Oy is worth it when profit is steadily higher (the tax benefit grows once you pass roughly €30,000–40,000/yr), you want to limit your liability, you plan to grow, hire or take investors, or you need credibility with larger clients.' },
@@ -115,7 +114,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Yes. Many start as a toiminimi and convert to an Oy as the business grows. Under certain conditions the conversion can be done in a tax-neutral way (continuity principle). Plan the change with an accountant.' },
       ],
       faq: [
-        { q: 'How much does it cost to set up an Oy?', a: 'No minimum share capital is required (€0 since 2019). The PRH processing fee online is about €240. With an accountant’s help, the setup is done right the first time.' },
+        { q: 'How much does it cost to set up an Oy?', a: 'No minimum share capital is required (€0 since 2019). The PRH processing fee online is about €275. With an accountant’s help, the setup is done right the first time.' },
         { q: 'Does a toiminimi have limited liability?', a: 'No. A sole trader is liable for the business’s debts with all of their personal assets. For limited liability you choose a limited company (Oy).' },
         { q: 'Can I convert a toiminimi into an Oy?', a: 'Yes, and it is common as a business grows. Under certain conditions the conversion is tax-neutral. We will handle it for you.' },
         { q: 'Do I need an accountant for both?', a: 'An Oy always requires double-entry bookkeeping and financial statements. A toiminimi’s bookkeeping is lighter, but an accountant makes sure you deduct everything correctly and avoid mistakes.' },
@@ -144,7 +143,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'h2', x: 'Maksustamine — mille poolest erinevad?' },
         { t: 'p', x: 'Toiminimi kasum maksustatakse ettevõtja isikliku tuluna. Osa loetakse kapitalituluks (vaikimisi 20 % netovara tootlusest, määr 30/34 %) ja ülejäänu teenitud tuluks progresseeruva skaala järgi. Sa ei maksa endale palka, vaid võtad raha isiklike väljavõtetena.' },
         { t: 'p', x: 'Osaühing maksab kasumilt 20 % ettevõtte tulumaksu. Seejärel võtad raha palgana (maksustatakse teenitud tuluna) ja/või dividendina. Noteerimata ühingust saab dividendi teatud piirini võtta soodsama maksuga, mistõttu Oy on piisavalt suure kasumi korral sageli maksusoodne.' },
-        { t: 'note', x: 'Maksumäärad ja piirid muutuvad igal aastal. Kasuta neid orientiirina ja kontrolli oma olukord raamatupidajaga.' },
+        { t: 'note', x: 'Maksumäärad ja piirid muutuvad igal aastal. Kasuta neid orientiirina ja kontrolli oma olukord raamatupidajaga. Ettevõtte tulumaks on 20 % (2026); on tehtud ettepanek langetada see 18 %-le alates 2027.' },
         { t: 'h2', x: 'Kumb valida?' },
         { t: 'p', x: 'Toiminimi sobib, kui alustad, tulu on väike või kõikuv, risk madal ja soovid lihtsust. Sageli on see parim valik esimeseks aastaks või kõrvaltegevuseks.' },
         { t: 'p', x: 'Osaühing tasub valida, kui kasum on stabiilselt suurem (umbes 30 000–40 000 €/a ületamisel maksueelis kasvab), soovid vastutust piirata, plaanid kasvada, palgata või kaasata investoreid, või vajad usaldusväärsust suuremate klientidega.' },
@@ -152,7 +151,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Jah. Paljud alustavad toiminimi’ga ja muudavad selle osaühinguks äri kasvades. Teatud tingimustel saab muutuse teha maksuneutraalselt (järjepidevuse põhimõte). Planeeri muutus raamatupidajaga.' },
       ],
       faq: [
-        { q: 'Kui palju maksab osaühingu asutamine?', a: 'Miinimumkapitali ei nõuta (0 € alates 2019). PRH elektrooniline menetlustasu on umbes 240 €. Raamatupidaja abiga saab asutamise kohe õigesti tehtud.' },
+        { q: 'Kui palju maksab osaühingu asutamine?', a: 'Miinimumkapitali ei nõuta (0 € alates 2019). PRH elektrooniline menetlustasu on umbes 275 €. Raamatupidaja abiga saab asutamise kohe õigesti tehtud.' },
         { q: 'Kas toiminimi’l on piiratud vastutus?', a: 'Ei. Toiminimi-ettevõtja vastutab ettevõtte võlgade eest kogu isikliku varaga. Piiratud vastutuse jaoks valitakse osaühing.' },
         { q: 'Kas saan toiminimi osaühinguks muuta?', a: 'Jah, see on äri kasvades tavaline. Teatud tingimustel tehakse muutus maksuneutraalselt. Vormistame selle sinu eest.' },
         { q: 'Kas raamatupidajat on vaja mõlemal juhul?', a: 'Osaühing nõuab alati kahekordset raamatupidamist ja aruandlust. Toiminimi raamatupidamine on lihtsam, kuid raamatupidaja tagab, et mahaarvamised on õiged ja vead välditud.' },
@@ -181,7 +180,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'h2', x: 'Податки — у чому різниця?' },
         { t: 'p', x: 'Прибуток toiminimi оподатковується як особистий дохід підприємця. Частина належить до капітального доходу (за замовчуванням 20 % від дохідності чистих активів, ставка 30/34 %), решта — до заробленого доходу за прогресивною шкалою. Ви не платите собі зарплату, а берете кошти особистими вилученнями.' },
         { t: 'p', x: 'Osakeyhtiö платить з прибутку 20 % корпоративного податку. Після цього ви виводите гроші зарплатою (оподатковується як зароблений дохід) та/або дивідендами. З непублічної компанії дивіденди до певної межі можна вивести з нижчим податком, тому Oy часто вигідніший за податками за достатньо великого прибутку.' },
-        { t: 'note', x: 'Ставки та пороги змінюються щороку. Використовуйте їх як орієнтир і уточнюйте свою ситуацію в бухгалтера.' },
+        { t: 'note', x: 'Ставки та пороги змінюються щороку. Використовуйте їх як орієнтир і уточнюйте свою ситуацію в бухгалтера. Корпоративний податок — 20 % (2026); запропоновано знизити його до 18 % з 2027.' },
         { t: 'h2', x: 'Що ж обрати?' },
         { t: 'p', x: 'Toiminimi підходить, коли ви починаєте, доходи невеликі або нестабільні, ризик низький і потрібна простота. Часто це найкращий вибір на перший рік або для підробітку.' },
         { t: 'p', x: 'Osakeyhtiö варто обирати, коли прибуток стабільно вищий (зазвичай при перевищенні ~30 000–40 000 €/рік податкова вигода зростає), ви хочете обмежити відповідальність, плануєте зростання, найм або інвесторів, або потрібна солідність у роботі з великими клієнтами.' },
@@ -189,7 +188,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Так. Багато хто починає з toiminimi і перетворює його на osakeyhtiö у міру зростання бізнесу. За певних умов перетворення можна провести податково-нейтрально (принцип безперервності). Плануйте зміну разом із бухгалтером.' },
       ],
       faq: [
-        { q: 'Скільки коштує відкрити osakeyhtiö?', a: 'Мінімальний статутний капітал не потрібен (0 € з 2019). Збір PRH при електронній подачі — близько 240 €. З допомогою бухгалтера реєстрація проходить одразу правильно.' },
+        { q: 'Скільки коштує відкрити osakeyhtiö?', a: 'Мінімальний статутний капітал не потрібен (0 € з 2019). Збір PRH при електронній подачі — близько 275 €. З допомогою бухгалтера реєстрація проходить одразу правильно.' },
         { q: 'Чи має toiminimi обмежену відповідальність?', a: 'Ні. Підприємець-toiminimi відповідає за боргами фірми всім особистим майном. Для обмеженої відповідальності обирають osakeyhtiö.' },
         { q: 'Чи можна перетворити toiminimi на osakeyhtiö?', a: 'Так, це поширено при зростанні бізнесу. За певних умов перетворення робиться податково-нейтрально. Ми оформимо все за вас.' },
         { q: 'Чи потрібен бухгалтер в обох випадках?', a: 'Osakeyhtiö завжди потребує подвійного обліку та звітності. У toiminimi облік простіший, але бухгалтер простежить, щоб ви відняли все правильно й уникнули помилок.' },
