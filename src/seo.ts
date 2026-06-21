@@ -68,7 +68,13 @@ function esc(s: string): string {
     .replace(/"/g, '&quot;');
 }
 
-const withBrand = (title: string) => `${title} | ${BRAND}`;
+const SHORT_BRAND = 'Debit Credit';
+// Keep titles from truncating in SERPs (~60 chars): use the full brand when it
+// fits, otherwise the short brand. Avoids over-long localized (RU/UK) titles.
+const withBrand = (title: string) => {
+  const full = `${title} | ${BRAND}`;
+  return full.length <= 60 ? full : `${title} | ${SHORT_BRAND}`;
+};
 
 // Dedicated, SEO-length (~120-160 char) meta descriptions for pages whose
 // visible subtitle is too short or duplicated. Overrides the subtitle-derived
@@ -215,8 +221,15 @@ function organizationNode(t: Translations) {
     founder: { '@type': 'Person', name: company.founder },
     description: t.meta.description,
     address: postalAddress(),
+    logo: `${SITE}/favicon.svg`,
+    image: `${SITE}/og/og-default.png`,
+    sameAs: SOCIAL_SAMEAS,
   };
 }
+
+// Public social profiles for Organization/LocalBusiness sameAs (helps Google
+// connect the entity to its profiles / knowledge panel).
+const SOCIAL_SAMEAS = [company.social.facebook, company.social.linkedin, company.social.telegram];
 
 /** The site-wide WebSite node (referenced by isPartOf from each page). */
 function websiteNode(locale: Locale) {
@@ -343,13 +356,15 @@ function jsonLd(locale: Locale, basePath: string): string {
       '@id': `${SITE}/#localbusiness`,
       name: company.name,
       url: `${SITE}/`,
-      image: `${SITE}/favicon.svg`,
+      image: `${SITE}/og/og-default.png`,
+      logo: `${SITE}/favicon.svg`,
       email: company.email,
       telephone: company.phone,
       priceRange: '€€',
       address: postalAddress(),
       areaServed: { '@type': 'City', name: 'Helsinki' },
       openingHours: 'Mo-Fr 09:00-17:00',
+      sameAs: SOCIAL_SAMEAS,
       parentOrganization: { '@id': `${SITE}/#organization` },
     };
     return serializeLd([organizationNode(t), localBusiness]);
@@ -417,6 +432,7 @@ export function getHead(url: string): HeadData {
 
   const block = [
     `    <link rel="canonical" href="${canonical}" />`,
+    `    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />`,
     ...alternates,
     `    <meta property="og:type" content="website" />`,
     `    <meta property="og:url" content="${canonical}" />`,
@@ -440,8 +456,20 @@ export function getHead(url: string): HeadData {
   return { lang: locale, title: esc(title), description: esc(description), head: block.join('\n') };
 }
 
-/** Full sitemap.xml: one <url> per localized URL (55) with hreflang + x-default. */
-export function buildSitemap(): string {
+/** Head for the static 404.html (served by the host for unknown URLs): noindex,
+ *  no canonical/hreflang. */
+export function get404Head(): HeadData {
+  const t = translations.fi;
+  const title = `404 — ${t.common.notFoundTitle} | ${SHORT_BRAND}`;
+  const head = `    <meta name="robots" content="noindex, follow" />`;
+  return { lang: 'fi', title: esc(title), description: esc(t.common.notFoundDesc), head };
+}
+
+/**
+ * Full sitemap.xml: one <url> per localized URL (55) with hreflang + x-default.
+ * `lastmod` (YYYY-MM-DD, the build/deploy date) is stamped on every URL.
+ */
+export function buildSitemap(lastmod?: string): string {
   const urls: string[] = [];
   for (const locale of LOCALES) {
     for (const basePath of BASE_PATHS) {
@@ -456,6 +484,7 @@ export function buildSitemap(): string {
         `  <url>\n` +
           `    <loc>${urlFor(locale, basePath)}</loc>\n` +
           `${alts.join('\n')}\n` +
+          (lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : '') +
           `    <changefreq>${hint.changefreq}</changefreq>\n` +
           `    <priority>${hint.priority}</priority>\n` +
           `  </url>`,

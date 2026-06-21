@@ -9,7 +9,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-const { render, getHead, buildSitemap } = await import(
+const { render, getHead, get404Head, buildSitemap } = await import(
   pathToFileURL(join(process.cwd(), 'dist-ssr/entry-server.js')).href
 );
 
@@ -77,8 +77,20 @@ for (const url of urls) {
   console.log(`  prerendered ${url}  →  ${outFile}  (lang=${headData.lang})`);
 }
 
-// Regenerate sitemap.xml from the same route table (all 55 localized URLs).
-writeFileSync(join('dist', 'sitemap.xml'), buildSitemap());
-console.log('  wrote dist/sitemap.xml');
+// Static 404 page: the host serves dist/404.html with a real 404 status for any
+// URL that doesn't match a prerendered file (noindex, so junk URLs aren't indexed).
+{
+  const appHtml = await render('/__not-found__');
+  const headData = get404Head();
+  const html = injectHead(template, headData).replace(ROOT_MARKER, `<div id="root">${appHtml}</div>`);
+  writeFileSync(join('dist', '404.html'), html);
+  console.log('  wrote dist/404.html  (noindex)');
+}
+
+// Regenerate sitemap.xml from the same route table (all 55 localized URLs),
+// stamping today's build date as <lastmod>.
+const lastmod = new Date().toISOString().slice(0, 10);
+writeFileSync(join('dist', 'sitemap.xml'), buildSitemap(lastmod));
+console.log(`  wrote dist/sitemap.xml  (lastmod=${lastmod})`);
 
 console.log(`\n✓ Pre-rendered ${count} routes.`);
