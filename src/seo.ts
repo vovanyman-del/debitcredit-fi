@@ -31,6 +31,16 @@ const OG_LOCALE: Record<Locale, string> = {
   uk: 'uk_UA',
 };
 
+// Which self-hosted Inter subset to preload per locale (the one the LCP heading
+// renders in): Latin for fi/en/et, Cyrillic for ru/uk.
+const FONT_SUBSET: Record<Locale, 'latin' | 'cyrillic'> = {
+  fi: 'latin',
+  en: 'latin',
+  et: 'latin',
+  ru: 'cyrillic',
+  uk: 'cyrillic',
+};
+
 // Mirrors the route table in src/App.tsx and prerender.mjs (404 excluded).
 export const BASE_PATHS = [
   '/',
@@ -431,6 +441,7 @@ export function getHead(url: string): HeadData {
   );
 
   const block = [
+    `    <link rel="preload" href="/fonts/inter-${FONT_SUBSET[locale]}.woff2" as="font" type="font/woff2" crossorigin />`,
     `    <link rel="canonical" href="${canonical}" />`,
     `    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />`,
     ...alternates,
