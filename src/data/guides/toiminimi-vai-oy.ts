@@ -2,7 +2,7 @@ import type { Guide } from './types';
 
 // Facts verified June 2026 (sources: vero.fi, PRH/YTJ, valtioneuvosto.fi): Oy
 // minimum share capital 0 € (since 7/2019); corporate tax 20 % in 2026 (proposed
-// cut to 18 % from 2027); PRH guided e-registration ~275 €; toiminimi profit taxed
+// cut to 18 % from 2027); PRH guided e-registration ~300 €; toiminimi profit taxed
 // as personal income (capital-income part 20 % of net-asset return, taxed 30/34 %).
 export const toiminimiVaiOy: Guide = {
   slug: 'toiminimi-vai-oy',
@@ -40,7 +40,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Kyllä. Monet aloittavat toiminimellä ja muuttavat sen osakeyhtiöksi liiketoiminnan kasvaessa. Muutos voidaan tietyin edellytyksin tehdä verotuksellisesti neutraalisti (jatkuvuusperiaate). Suunnittele muutos kirjanpitäjän kanssa.' },
       ],
       faq: [
-        { q: 'Paljonko osakeyhtiön perustaminen maksaa?', a: 'Vähimmäisosakepääomaa ei tarvita (0 € vuodesta 2019). PRH:n käsittelymaksu sähköisesti on noin 275 €. Kirjanpitäjän avustamana perustaminen sujuu kerralla oikein.' },
+        { q: 'Paljonko osakeyhtiön perustaminen maksaa?', a: 'Vähimmäisosakepääomaa ei tarvita (0 € vuodesta 2019). PRH:n käsittelymaksu sähköisesti on noin 300 €. Kirjanpitäjän avustamana perustaminen sujuu kerralla oikein.' },
         { q: 'Onko toiminimellä rajoitettu vastuu?', a: 'Ei. Toiminimiyrittäjä vastaa yrityksen veloista koko henkilökohtaisella omaisuudellaan. Rajoitettua vastuuta varten valitaan osakeyhtiö.' },
         { q: 'Voinko muuttaa toiminimen osakeyhtiöksi?', a: 'Kyllä, ja se on yleistä liiketoiminnan kasvaessa. Muutos voidaan tehdä tietyin edellytyksin verotuksellisesti neutraalisti. Hoidamme muutoksen puolestasi.' },
         { q: 'Tarvitsenko kirjanpitäjän kummassakin?', a: 'Osakeyhtiö vaatii aina kahdenkertaisen kirjanpidon ja tilinpäätöksen. Toiminimellä kirjanpito on kevyempi, mutta kirjanpitäjä varmistaa, että vähennät kaiken oikein ja vältät virheet.' },
@@ -77,7 +77,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Да. Многие начинают с toiminimi и преобразуют его в osakeyhtiö по мере роста бизнеса. При определённых условиях преобразование можно провести налогово-нейтрально (принцип непрерывности). Планируйте изменение вместе с бухгалтером.' },
       ],
       faq: [
-        { q: 'Сколько стоит открыть osakeyhtiö?', a: 'Минимальный уставный капитал не нужен (0 € с 2019). Сбор PRH при электронной подаче — около 275 €. С помощью бухгалтера регистрация проходит сразу правильно.' },
+        { q: 'Сколько стоит открыть osakeyhtiö?', a: 'Минимальный уставный капитал не нужен (0 € с 2019). Сбор PRH при электронной подаче — около 300 €. С помощью бухгалтера регистрация проходит сразу правильно.' },
         { q: 'У toiminimi ограниченная ответственность?', a: 'Нет. Предприниматель-toiminimi отвечает по долгам фирмы всем личным имуществом. Для ограниченной ответственности выбирают osakeyhtiö.' },
         { q: 'Можно ли преобразовать toiminimi в osakeyhtiö?', a: 'Да, это распространено при росте бизнеса. При определённых условиях преобразование делается налогово-нейтрально. Мы оформим всё за вас.' },
         { q: 'Нужен ли бухгалтер в обоих случаях?', a: 'Osakeyhtiö всегда требует двойного учёта и финансовой отчётности. У toiminimi учёт проще, но бухгалтер проследит, чтобы вы вычли всё правильно и избежали ошибок.' },
@@ -114,7 +114,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Yes. Many start as a toiminimi and convert to an Oy as the business grows. Under certain conditions the conversion can be done in a tax-neutral way (continuity principle). Plan the change with an accountant.' },
       ],
       faq: [
-        { q: 'How much does it cost to set up an Oy?', a: 'No minimum share capital is required (€0 since 2019). The PRH processing fee online is about €275. With an accountant’s help, the setup is done right the first time.' },
+        { q: 'How much does it cost to set up an Oy?', a: 'No minimum share capital is required (€0 since 2019). The PRH processing fee online is about €300. With an accountant’s help, the setup is done right the first time.' },
         { q: 'Does a toiminimi have limited liability?', a: 'No. A sole trader is liable for the business’s debts with all of their personal assets. For limited liability you choose a limited company (Oy).' },
         { q: 'Can I convert a toiminimi into an Oy?', a: 'Yes, and it is common as a business grows. Under certain conditions the conversion is tax-neutral. We will handle it for you.' },
         { q: 'Do I need an accountant for both?', a: 'An Oy always requires double-entry bookkeeping and financial statements. A toiminimi’s bookkeeping is lighter, but an accountant makes sure you deduct everything correctly and avoid mistakes.' },
@@ -151,7 +151,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Jah. Paljud alustavad toiminimi’ga ja muudavad selle osaühinguks äri kasvades. Teatud tingimustel saab muutuse teha maksuneutraalselt (järjepidevuse põhimõte). Planeeri muutus raamatupidajaga.' },
       ],
       faq: [
-        { q: 'Kui palju maksab osaühingu asutamine?', a: 'Miinimumkapitali ei nõuta (0 € alates 2019). PRH elektrooniline menetlustasu on umbes 275 €. Raamatupidaja abiga saab asutamise kohe õigesti tehtud.' },
+        { q: 'Kui palju maksab osaühingu asutamine?', a: 'Miinimumkapitali ei nõuta (0 € alates 2019). PRH elektrooniline menetlustasu on umbes 300 €. Raamatupidaja abiga saab asutamise kohe õigesti tehtud.' },
         { q: 'Kas toiminimi’l on piiratud vastutus?', a: 'Ei. Toiminimi-ettevõtja vastutab ettevõtte võlgade eest kogu isikliku varaga. Piiratud vastutuse jaoks valitakse osaühing.' },
         { q: 'Kas saan toiminimi osaühinguks muuta?', a: 'Jah, see on äri kasvades tavaline. Teatud tingimustel tehakse muutus maksuneutraalselt. Vormistame selle sinu eest.' },
         { q: 'Kas raamatupidajat on vaja mõlemal juhul?', a: 'Osaühing nõuab alati kahekordset raamatupidamist ja aruandlust. Toiminimi raamatupidamine on lihtsam, kuid raamatupidaja tagab, et mahaarvamised on õiged ja vead välditud.' },
@@ -188,7 +188,7 @@ export const toiminimiVaiOy: Guide = {
         { t: 'p', x: 'Так. Багато хто починає з toiminimi і перетворює його на osakeyhtiö у міру зростання бізнесу. За певних умов перетворення можна провести податково-нейтрально (принцип безперервності). Плануйте зміну разом із бухгалтером.' },
       ],
       faq: [
-        { q: 'Скільки коштує відкрити osakeyhtiö?', a: 'Мінімальний статутний капітал не потрібен (0 € з 2019). Збір PRH при електронній подачі — близько 275 €. З допомогою бухгалтера реєстрація проходить одразу правильно.' },
+        { q: 'Скільки коштує відкрити osakeyhtiö?', a: 'Мінімальний статутний капітал не потрібен (0 € з 2019). Збір PRH при електронній подачі — близько 300 €. З допомогою бухгалтера реєстрація проходить одразу правильно.' },
         { q: 'Чи має toiminimi обмежену відповідальність?', a: 'Ні. Підприємець-toiminimi відповідає за боргами фірми всім особистим майном. Для обмеженої відповідальності обирають osakeyhtiö.' },
         { q: 'Чи можна перетворити toiminimi на osakeyhtiö?', a: 'Так, це поширено при зростанні бізнесу. За певних умов перетворення робиться податково-нейтрально. Ми оформимо все за вас.' },
         { q: 'Чи потрібен бухгалтер в обох випадках?', a: 'Osakeyhtiö завжди потребує подвійного обліку та звітності. У toiminimi облік простіший, але бухгалтер простежить, щоб ви відняли все правильно й уникнули помилок.' },
