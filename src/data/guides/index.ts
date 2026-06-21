@@ -5,6 +5,7 @@ import { kirjanpidonHinta } from './kirjanpidon-hinta';
 import { alvOpas } from './alv-opas';
 import { toiminimenVerotus } from './toiminimen-verotus';
 import { starttiraha } from './starttiraha';
+import { tilitoimistonVaihto } from './tilitoimiston-vaihto';
 
 export * from './types';
 
@@ -16,6 +17,7 @@ export const guides: Guide[] = [
   toiminimenVerotus,
   alvOpas,
   starttiraha,
+  tilitoimistonVaihto,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);

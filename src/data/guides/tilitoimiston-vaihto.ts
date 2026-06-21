@@ -1,0 +1,197 @@
+import type { Guide } from './types';
+
+// Practical/contractual guide (low statutory-fact risk). Key point: the client's
+// accounting material belongs to the client and is handed over on a switch; a
+// switch is possible at any time, including mid-financial-year.
+export const tilitoimistonVaihto: Guide = {
+  slug: 'tilitoimiston-vaihto',
+  datePublished: '2026-06-21',
+  dateModified: '2026-06-21',
+  content: {
+    fi: {
+      title: 'Näin vaihdat tilitoimistoa — helpommin kuin luulet',
+      description:
+        'Tilitoimiston vaihto on helppoa ja onnistuu kesken tilikaudenkin. Näin vaihto etenee vaihe vaiheelta, mitä aineistolle tapahtuu ja mitä kannattaa huomioida.',
+      lead: 'Moni pysyy huonossa tilitoimistossa, koska luulee vaihtamista hankalaksi. Todellisuudessa vaihto on yksinkertaista ja kirjanpitosi jatkuu keskeytyksettä. Näin se käy.',
+      body: [
+        { t: 'h2', x: 'Milloin kannattaa vaihtaa?' },
+        { t: 'ul', items: [
+          'Viestintä on hidasta tai et saa vastauksia.',
+          'Laskut yllättävät etkä tiedä, mistä maksat.',
+          'Kirjanpidossa tai ALV:ssa on ollut virheitä.',
+          'Et näe talouttasi reaaliajassa.',
+          'Palvelua ei saa omalla kielelläsi.',
+        ] },
+        { t: 'h2', x: 'Onko vaihtaminen vaikeaa?' },
+        { t: 'p', x: 'Ei. Voit vaihtaa tilitoimistoa milloin tahansa, myös kesken tilikauden, ja kirjanpitosi jatkuu keskeytyksettä. Uusi tilitoimisto ja sinä hoidatte siirron yhdessä — käytännössä suurimman työn tekee uusi tilitoimisto.' },
+        { t: 'h2', x: 'Vaihto vaihe vaiheelta' },
+        { t: 'ol', items: [
+          'Valitse uusi tilitoimisto ja pyydä tarjous.',
+          'Tarkista nykyisen sopimuksesi irtisanomisaika.',
+          'Irtisano nykyinen sopimus — autamme tässä.',
+          'Siirrä kirjanpitoaineisto: tositteet, kirjanpito, tilinpäätökset ja saldotiedot.',
+          'Uusi tilitoimisto ottaa kirjanpidon haltuun ja jatkaa siitä, mihin jäätiin.',
+        ] },
+        { t: 'note', x: 'Voit vaihtaa milloin tahansa, mutta usein sujuvin hetki on tilikauden tai tilinpäätöksen vaihtuessa. Varmista, että kaikki aineisto ja alkusaldot siirtyvät.' },
+        { t: 'h2', x: 'Entä kirjanpitoaineistosi?' },
+        { t: 'p', x: 'Kirjanpitoaineistosi on sinun. Edellinen tilitoimisto luovuttaa sen sinulle tai suoraan uudelle tilitoimistolle. Me keräämme aineiston ja alkusaldot puolestasi, jotta mitään ei katoa ja kirjanpito jatkuu saumattomasti.' },
+        { t: 'h2', x: 'Me hoidamme vaihdon puolestasi' },
+        { t: 'p', x: 'Hoidamme irtisanomisen ja aineiston siirron edelliseltä tilitoimistolta — omalla kielelläsi. Kirjanpitosi jatkuu keskeytyksettä, ja näet tilanteesi reaaliajassa Vaavossa.' },
+      ],
+      faq: [
+        { q: 'Voinko vaihtaa tilitoimistoa kesken tilikauden?', a: 'Kyllä. Vaihto onnistuu milloin tahansa, myös kesken tilikauden. Kirjanpito jatkuu keskeytyksettä.' },
+        { q: 'Joudunko tekemään paljon itse?', a: 'Et. Hoidamme nykyisen sopimuksen irtisanomisen ja aineiston siirron edelliseltä tilitoimistolta puolestasi.' },
+        { q: 'Mitä tapahtuu vanhalle kirjanpitoaineistolle?', a: 'Aineisto on sinun. Edellinen tilitoimisto luovuttaa sen, ja me keräämme aineiston ja alkusaldot, jotta kirjanpito jatkuu saumattomasti.' },
+        { q: 'Onko sopimuksessa irtisanomisaika?', a: 'Se riippuu sopimuksestasi — tarkista irtisanomisaika sopimuksesta. Autamme irtisanomisessa ja ajoituksessa.' },
+      ],
+    },
+    ru: {
+      title: 'Как сменить бухгалтерию — проще, чем кажется',
+      description:
+        'Сменить бухгалтерию легко, и это возможно даже посреди отчётного года. Как проходит переход по шагам, что будет с документами и на что обратить внимание.',
+      lead: 'Многие остаются в плохой бухгалтерии, потому что думают, что менять сложно. На деле переход простой, и ваш учёт продолжается без перерывов. Вот как это происходит.',
+      body: [
+        { t: 'h2', x: 'Когда стоит менять?' },
+        { t: 'ul', items: [
+          'Связь медленная или вы не получаете ответов.',
+          'Счета удивляют, и непонятно, за что вы платите.',
+          'В учёте или ALV были ошибки.',
+          'Вы не видите свои финансы в реальном времени.',
+          'Обслуживания нет на вашем языке.',
+        ] },
+        { t: 'h2', x: 'Сложно ли менять?' },
+        { t: 'p', x: 'Нет. Сменить бухгалтерию можно в любой момент, в том числе посреди отчётного года, и ваш учёт продолжается без перерывов. Переход вы делаете вместе с новой бухгалтерией — на практике большую часть работы берёт на себя новая фирма.' },
+        { t: 'h2', x: 'Переход по шагам' },
+        { t: 'ol', items: [
+          'Выберите новую бухгалтерию и запросите предложение.',
+          'Проверьте срок расторжения в текущем договоре.',
+          'Расторгните текущий договор — мы поможем с этим.',
+          'Передайте бухгалтерские материалы: документы, учёт, отчётность и остатки.',
+          'Новая бухгалтерия принимает учёт и продолжает с того места, где остановились.',
+        ] },
+        { t: 'note', x: 'Менять можно в любой момент, но часто удобнее всего на стыке отчётных периодов или после отчётности. Убедитесь, что все материалы и начальные остатки переданы.' },
+        { t: 'h2', x: 'А что с вашими документами?' },
+        { t: 'p', x: 'Ваши бухгалтерские материалы принадлежат вам. Прежняя бухгалтерия передаёт их вам или напрямую новой фирме. Мы соберём материалы и начальные остатки за вас, чтобы ничего не потерялось и учёт продолжился бесшовно.' },
+        { t: 'h2', x: 'Мы сделаем переход за вас' },
+        { t: 'p', x: 'Оформим расторжение и перенос материалов от прежней бухгалтерии — на вашем языке. Ваш учёт продолжится без перерывов, а ситуацию вы видите в реальном времени в Vaavo.' },
+      ],
+      faq: [
+        { q: 'Можно ли сменить бухгалтерию посреди года?', a: 'Да. Переход возможен в любой момент, в том числе посреди отчётного года. Учёт продолжается без перерывов.' },
+        { q: 'Придётся ли мне много делать самому?', a: 'Нет. Мы оформим расторжение текущего договора и перенос материалов от прежней бухгалтерии за вас.' },
+        { q: 'Что будет со старыми материалами?', a: 'Материалы принадлежат вам. Прежняя фирма передаёт их, а мы соберём материалы и остатки, чтобы учёт продолжился бесшовно.' },
+        { q: 'Есть ли срок расторжения в договоре?', a: 'Это зависит от вашего договора — проверьте срок расторжения. Поможем с расторжением и выбором момента.' },
+      ],
+    },
+    en: {
+      title: 'How to switch accounting firms — easier than you think',
+      description:
+        'Switching accounting firms is easy and works even mid-financial-year. How the switch goes step by step, what happens to your records, and what to watch.',
+      lead: 'Many people stay with a poor accounting firm because they think switching is difficult. In reality the switch is simple and your bookkeeping continues without interruption. Here is how it works.',
+      body: [
+        { t: 'h2', x: 'When is it worth switching?' },
+        { t: 'ul', items: [
+          'Communication is slow or you don’t get answers.',
+          'Invoices surprise you and you don’t know what you’re paying for.',
+          'There have been mistakes in the bookkeeping or VAT.',
+          'You can’t see your finances in real time.',
+          'You can’t get service in your own language.',
+        ] },
+        { t: 'h2', x: 'Is switching difficult?' },
+        { t: 'p', x: 'No. You can switch accounting firms at any time, including mid-financial-year, and your bookkeeping continues without interruption. You and the new firm handle the transfer together — in practice the new firm does most of the work.' },
+        { t: 'h2', x: 'The switch, step by step' },
+        { t: 'ol', items: [
+          'Choose a new accounting firm and ask for a quote.',
+          'Check the notice period in your current contract.',
+          'Terminate the current contract — we help with this.',
+          'Transfer the accounting material: vouchers, bookkeeping, financial statements and balances.',
+          'The new firm takes over the bookkeeping and continues from where you left off.',
+        ] },
+        { t: 'note', x: 'You can switch any time, but the smoothest moment is often at the turn of a financial year or after the financial statements. Make sure all material and opening balances are transferred.' },
+        { t: 'h2', x: 'What about your accounting records?' },
+        { t: 'p', x: 'Your accounting material belongs to you. The previous firm hands it over to you or directly to the new firm. We collect the material and opening balances for you, so nothing is lost and the bookkeeping continues seamlessly.' },
+        { t: 'h2', x: 'We handle the switch for you' },
+        { t: 'p', x: 'We handle the termination and the transfer of material from your previous firm — in your language. Your bookkeeping continues without interruption, and you see your situation in real time in Vaavo.' },
+      ],
+      faq: [
+        { q: 'Can I switch accounting firms mid-year?', a: 'Yes. A switch is possible at any time, including mid-financial-year. The bookkeeping continues without interruption.' },
+        { q: 'Do I have to do a lot myself?', a: 'No. We handle the termination of the current contract and the transfer of material from your previous firm for you.' },
+        { q: 'What happens to my old records?', a: 'The material belongs to you. The previous firm hands it over, and we collect the material and balances so the bookkeeping continues seamlessly.' },
+        { q: 'Is there a notice period in the contract?', a: 'It depends on your contract — check the notice period. We help with the termination and the timing.' },
+      ],
+    },
+    et: {
+      title: 'Kuidas vahetada raamatupidamisbürood — lihtsam kui arvad',
+      description:
+        'Raamatupidamisbüroo vahetamine on lihtne ja võimalik ka keset majandusaastat. Kuidas vahetus käib samm-sammult, mis saab materjalidest ja mida tähele panna.',
+      lead: 'Paljud jäävad halba büroosse, sest arvavad, et vahetamine on keeruline. Tegelikult on vahetus lihtne ja sinu raamatupidamine jätkub katkestusteta. Vaata, kuidas see käib.',
+      body: [
+        { t: 'h2', x: 'Millal tasub vahetada?' },
+        { t: 'ul', items: [
+          'Suhtlus on aeglane või sa ei saa vastuseid.',
+          'Arved üllatavad ega tea, mille eest maksad.',
+          'Raamatupidamises või ALV-s on olnud vigu.',
+          'Sa ei näe oma rahaasju reaalajas.',
+          'Teenust ei saa sinu keeles.',
+        ] },
+        { t: 'h2', x: 'Kas vahetamine on keeruline?' },
+        { t: 'p', x: 'Ei. Saad büroo vahetada igal ajal, ka keset majandusaastat, ja sinu raamatupidamine jätkub katkestusteta. Sina ja uus büroo korraldate ülekande koos — praktikas teeb suurema osa tööst uus büroo.' },
+        { t: 'h2', x: 'Vahetus samm-sammult' },
+        { t: 'ol', items: [
+          'Vali uus büroo ja küsi pakkumist.',
+          'Kontrolli praeguse lepingu etteteatamistähtaeg.',
+          'Lõpeta praegune leping — aitame selles.',
+          'Anna üle raamatupidamismaterjal: tšekid, raamatupidamine, aruandlus ja saldod.',
+          'Uus büroo võtab raamatupidamise üle ja jätkab sealt, kus pooleli jäi.',
+        ] },
+        { t: 'note', x: 'Vahetada saab igal ajal, kuid sujuvaim hetk on sageli majandusaasta vahetudes või pärast aruandlust. Veendu, et kogu materjal ja algsaldod kanduvad üle.' },
+        { t: 'h2', x: 'Aga sinu materjalid?' },
+        { t: 'p', x: 'Sinu raamatupidamismaterjal kuulub sulle. Eelmine büroo annab selle sulle või otse uuele büroole. Kogume materjali ja algsaldod sinu eest, et midagi ei kaoks ja raamatupidamine jätkuks sujuvalt.' },
+        { t: 'h2', x: 'Korraldame vahetuse sinu eest' },
+        { t: 'p', x: 'Korraldame lepingu lõpetamise ja materjali ülekande eelmiselt büroolt — sinu keeles. Raamatupidamine jätkub katkestusteta ja oma olukorda näed reaalajas Vaavos.' },
+      ],
+      faq: [
+        { q: 'Kas saan büroo vahetada keset aastat?', a: 'Jah. Vahetus on võimalik igal ajal, ka keset majandusaastat. Raamatupidamine jätkub katkestusteta.' },
+        { q: 'Kas pean ise palju tegema?', a: 'Ei. Korraldame praeguse lepingu lõpetamise ja materjali ülekande eelmiselt büroolt sinu eest.' },
+        { q: 'Mis saab vanast materjalist?', a: 'Materjal kuulub sulle. Eelmine büroo annab selle üle ja meie kogume materjali ja saldod, et raamatupidamine jätkuks sujuvalt.' },
+        { q: 'Kas lepingus on etteteatamistähtaeg?', a: 'See sõltub sinu lepingust — kontrolli etteteatamistähtaeg. Aitame lõpetamise ja ajastusega.' },
+      ],
+    },
+    uk: {
+      title: 'Як змінити бухгалтерію — простіше, ніж здається',
+      description:
+        'Змінити бухгалтерію легко, і це можливо навіть посеред звітного року. Як проходить перехід покроково, що буде з документами і на що звернути увагу.',
+      lead: 'Багато хто залишається в поганій бухгалтерії, бо думає, що змінювати складно. Насправді перехід простий, і ваш облік триває без перерв. Ось як це відбувається.',
+      body: [
+        { t: 'h2', x: 'Коли варто змінювати?' },
+        { t: 'ul', items: [
+          'Звʼязок повільний або ви не отримуєте відповідей.',
+          'Рахунки дивують, і незрозуміло, за що ви платите.',
+          'В обліку або ALV були помилки.',
+          'Ви не бачите свої фінанси в реальному часі.',
+          'Обслуговування немає вашою мовою.',
+        ] },
+        { t: 'h2', x: 'Чи складно змінювати?' },
+        { t: 'p', x: 'Ні. Змінити бухгалтерію можна будь-коли, зокрема посеред звітного року, і ваш облік триває без перерв. Перехід ви робите разом із новою бухгалтерією — на практиці більшу частину роботи бере на себе нова фірма.' },
+        { t: 'h2', x: 'Перехід покроково' },
+        { t: 'ol', items: [
+          'Виберіть нову бухгалтерію та запросіть пропозицію.',
+          'Перевірте термін розірвання у поточному договорі.',
+          'Розірвіть поточний договір — ми допоможемо з цим.',
+          'Передайте бухгалтерські матеріали: документи, облік, звітність і залишки.',
+          'Нова бухгалтерія приймає облік і продовжує з того місця, де зупинилися.',
+        ] },
+        { t: 'note', x: 'Змінювати можна будь-коли, але часто найзручніше на стику звітних періодів або після звітності. Переконайтеся, що всі матеріали та початкові залишки передані.' },
+        { t: 'h2', x: 'А що з вашими документами?' },
+        { t: 'p', x: 'Ваші бухгалтерські матеріали належать вам. Попередня бухгалтерія передає їх вам або напряму новій фірмі. Ми зберемо матеріали та початкові залишки за вас, щоб нічого не загубилося і облік тривав безшовно.' },
+        { t: 'h2', x: 'Ми зробимо перехід за вас' },
+        { t: 'p', x: 'Оформимо розірвання та перенесення матеріалів від попередньої бухгалтерії — вашою мовою. Ваш облік триватиме без перерв, а ситуацію ви бачите в реальному часі у Vaavo.' },
+      ],
+      faq: [
+        { q: 'Чи можна змінити бухгалтерію посеред року?', a: 'Так. Перехід можливий будь-коли, зокрема посеред звітного року. Облік триває без перерв.' },
+        { q: 'Чи доведеться мені багато робити самому?', a: 'Ні. Ми оформимо розірвання поточного договору та перенесення матеріалів від попередньої бухгалтерії за вас.' },
+        { q: 'Що буде зі старими матеріалами?', a: 'Матеріали належать вам. Попередня фірма передає їх, а ми зберемо матеріали та залишки, щоб облік тривав безшовно.' },
+        { q: 'Чи є термін розірвання в договорі?', a: 'Це залежить від вашого договору — перевірте термін розірвання. Допоможемо з розірванням і вибором моменту.' },
+      ],
+    },
+  },
+};
