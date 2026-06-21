@@ -433,7 +433,7 @@ export const en = {
         intro: 'The most common business forms in Finland are:',
         items: [
           { title: 'Sole Trader (Toiminimi / Tmi)', desc: 'The simplest form. Suitable for freelancers and small entrepreneurs. No separate legal entity — the entrepreneur is personally liable.' },
-          { title: 'Limited Company (Oy)', desc: 'The most popular business form. Separate legal entity with limited liability. Minimum share capital €2,500. Suitable for growth.' },
+          { title: 'Limited Company (Oy)', desc: 'The most popular business form. Separate legal entity with limited liability. No minimum share capital (requirement abolished in 2019). Suitable for growth.' },
           { title: 'Limited Partnership (Ky)', desc: 'A partnership with a silent and a general partner. Suitable for small family businesses.' },
           { title: 'Cooperative (Osuuskunta)', desc: 'A democracy-based form. Suitable for community entrepreneurship and cooperative activities.' },
         ],

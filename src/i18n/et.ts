@@ -433,7 +433,7 @@ export const et = {
         intro: 'Levinumad ettevõtlusvormid Soomes on:',
         items: [
           { title: 'Toiminimi / Tmi (FIE)', desc: 'Kõige lihtsam vorm. Sobib vabakutselistele ja väikeettevõtjatele. Eraldi juriidilist isikut ei ole — ettevõtja vastutab isiklikult.' },
-          { title: 'Osakeyhtiö / Oy (osaühing)', desc: 'Populaarseim ettevõtlusvorm. Eraldi juriidiline isik, piiratud vastutus. Minimaalne omakapital 2 500 €. Sobib kasvuks.' },
+          { title: 'Osakeyhtiö / Oy (osaühing)', desc: 'Populaarseim ettevõtlusvorm. Eraldi juriidiline isik, piiratud vastutus. Miinimumkapitali nõuet pole (kaotati 2019). Sobib kasvuks.' },
           { title: 'Kommandiittiyhtiö / Ky (usaldusühing)', desc: 'Äriühing vaikiva ja vastutava partneriga. Sobib väikestele pereettevõtetele.' },
           { title: 'Osuuskunta (ühistu)', desc: 'Demokraatial põhinev vorm. Sobib ühisettevõtluseks ja ühistutegevuseks.' },
         ],

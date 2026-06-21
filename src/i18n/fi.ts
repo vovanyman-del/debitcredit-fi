@@ -433,7 +433,7 @@ export const fi = {
         intro: 'Suomessa yleisimmät yritysmuodot ovat:',
         items: [
           { title: 'Toiminimi (Tmi)', desc: 'Yksinkertaisin muoto. Sopii freelancereille ja pienille yrittäjille. Ei erillistä oikeushenkilöä — yrittäjä vastaa henkilökohtaisesti.' },
-          { title: 'Osakeyhtiö (Oy)', desc: 'Suosituin yritysmuoto. Erillinen oikeushenkilö, rajoitettu vastuu. Minimipääoma 2 500 €. Sopii kasvuun.' },
+          { title: 'Osakeyhtiö (Oy)', desc: 'Suosituin yritysmuoto. Erillinen oikeushenkilö, rajoitettu vastuu. Ei vähimmäisosakepääomaa (vaatimus poistui 2019). Sopii kasvuun.' },
           { title: 'Kommandiittiyhtiö (Ky)', desc: 'Henkilöyhtiö, jossa äänetön ja vastuunalainen yhtiömies. Sopii pienille perheyritysille.' },
           { title: 'Osuuskunta', desc: 'Demokratia-pohjainen muoto. Sopii yhteisölliseen yrittäjyyteen ja osuustoimintaan.' },
         ],
