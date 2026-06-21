@@ -64,10 +64,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-warm-500">&copy; {new Date().getFullYear()} {company.name}. {t.common.allRightsReserved}</p>
+          <p className="text-xs text-warm-400">&copy; {new Date().getFullYear()} {company.name}. {t.common.allRightsReserved}</p>
           <div className="flex gap-6">
-            <Link to={localePath('/tietosuoja')} className="text-xs text-warm-500 hover:text-warm-300 transition-colors">{t.nav.privacy}</Link>
-            <Link to={localePath('/kayttoehdot')} className="text-xs text-warm-500 hover:text-warm-300 transition-colors">{t.nav.terms}</Link>
+            <Link to={localePath('/tietosuoja')} className="text-xs text-warm-400 hover:text-warm-300 transition-colors">{t.nav.privacy}</Link>
+            <Link to={localePath('/kayttoehdot')} className="text-xs text-warm-400 hover:text-warm-300 transition-colors">{t.nav.terms}</Link>
           </div>
         </div>
       </div>

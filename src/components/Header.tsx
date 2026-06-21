@@ -42,21 +42,24 @@ export default function Header() {
             <LanguageSwitcher />
             <Link
               to={localePath('/yhteystiedot')}
-              className="hidden sm:inline-flex items-center px-4 py-2 bg-brand-500 text-white text-sm font-medium rounded-lg hover:bg-brand-600 transition-colors"
+              className="hidden sm:inline-flex items-center px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition-colors"
             >
               {t.home.hero.cta}
             </Link>
             {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden p-2 text-warm-600 hover:text-warm-800 rounded-lg hover:bg-warm-100"
+              aria-label={t.nav.menu}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
+              className="lg:hidden p-2 text-warm-700 hover:text-warm-900 rounded-lg hover:bg-warm-100"
             >
               {menuOpen ? (
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg aria-hidden="true" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
@@ -68,7 +71,7 @@ export default function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="lg:hidden border-t border-warm-100 bg-white">
-          <nav className="max-w-7xl mx-auto px-4 py-3 space-y-1">
+          <nav id="mobile-nav" className="max-w-7xl mx-auto px-4 py-3 space-y-1">
             {navLinks.map(link => (
               <Link
                 key={link.to}

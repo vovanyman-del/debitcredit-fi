@@ -1,4 +1,9 @@
-import { createContext, useContext, useMemo, type ReactNode } from 'react';
+/* eslint-disable react-refresh/only-export-components --
+   This is the shared i18n module: the provider component lives alongside its
+   useI18n hook and the locales list by design (every consumer imports from
+   here). Splitting them only to satisfy Fast Refresh would add churn for no
+   runtime benefit. */
+import { createContext, useContext, useEffect, useMemo, type ReactNode } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { fi } from './fi';
 import { en } from './en';
@@ -39,6 +44,12 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const location = useLocation();
 
   const locale: Locale = detectLocale(location.pathname);
+
+  // Keep <html lang> in sync on client-side navigation / language change
+  // (SSR/prerender sets it correctly on first load).
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const t = translations[locale];
 

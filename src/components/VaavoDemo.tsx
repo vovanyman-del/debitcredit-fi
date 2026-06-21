@@ -111,14 +111,14 @@ function S1({ s }: { s: ScreenStrings }) {
       <div className="text-white text-2xl font-bold mb-0.5 vd-in">Vaavo</div>
       <div className="text-white/60 text-[10px] mb-7 vd-in vd-d1">{s.platform}</div>
       <div className="w-full bg-white/10 rounded-lg p-2.5 mb-2.5 vd-in vd-d2">
-        <div className="text-white/50 text-[9px] mb-0.5">{s.email}</div>
+        <div className="text-white/70 text-[9px] mb-0.5">{s.email}</div>
         <div className="text-white text-xs font-mono vd-type">maria@example.fi</div>
       </div>
       <div className="w-full bg-white/10 rounded-lg p-2.5 mb-4 vd-in vd-d3">
-        <div className="text-white/50 text-[9px] mb-0.5">{s.password}</div>
+        <div className="text-white/70 text-[9px] mb-0.5">{s.password}</div>
         <div className="text-white text-xs tracking-wider">••••••••</div>
       </div>
-      <div className="w-full bg-brand-500 text-white font-semibold py-2 rounded-lg text-xs text-center vd-in vd-d4 vd-press">
+      <div className="w-full bg-brand-600 text-white font-semibold py-2 rounded-lg text-xs text-center vd-in vd-d4 vd-press">
         {s.login}
       </div>
     </div>
@@ -145,7 +145,7 @@ function S2({ s }: { s: ScreenStrings }) {
         {cards.map((c, i) => (
           <div key={i} className={`bg-white rounded-xl p-2.5 shadow-sm border border-ink-900/10 vd-in vd-d${i + 1}`}>
             <div className="flex items-center justify-between">
-              <span className="text-[10px] text-ink-700/60">{c.label}</span>
+              <span className="text-[10px] text-ink-700/75">{c.label}</span>
               <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${c.cls}`}>{c.value}</span>
             </div>
           </div>
@@ -171,13 +171,13 @@ function S3({ s }: { s: ScreenStrings }) {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
         </div>
-        <div className="text-[11px] text-ink-700/40 mb-5 vd-in vd-d2">{s.snapOrChoose}</div>
+        <div className="text-[11px] text-ink-700/75 mb-5 vd-in vd-d2">{s.snapOrChoose}</div>
         <div className="w-full bg-white rounded-xl border border-ink-900/10 p-2.5 shadow-sm vd-in vd-d3">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-11 bg-ink-900/5 rounded flex items-center justify-center text-ink-700/40 text-[9px] shrink-0">JPG</div>
+            <div className="w-9 h-11 bg-ink-900/5 rounded flex items-center justify-center text-ink-700/75 text-[9px] shrink-0">JPG</div>
             <div>
               <div className="text-[11px] font-medium text-ink-900">kuitti_2025_03.jpg</div>
-              <div className="text-[9px] text-ink-700/40">23,45 € · K-Market</div>
+              <div className="text-[9px] text-ink-700/75">23,45 € · K-Market</div>
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@ function S4({ s }: { s: ScreenStrings }) {
   const txns = [
     { name: 'Telia Finland', amount: '−29,90 €', badge: s.booked, bc: 'bg-brand-50 text-brand-700' },
     { name: 'K-Market', amount: '−23,45 €', badge: s.receiptBadge, bc: 'bg-amber-50 text-amber-600' },
-    { name: 'Asiakas Oy', amount: '+2 500,00 €', badge: s.pending, bc: 'bg-ink-900/5 text-ink-700/60', pos: true },
+    { name: 'Asiakas Oy', amount: '+2 500,00 €', badge: s.pending, bc: 'bg-ink-900/5 text-ink-700/75', pos: true },
     { name: 'Wolt', amount: '−12,90 €', badge: s.booked, bc: 'bg-brand-50 text-brand-700' },
   ];
   return (
@@ -207,7 +207,7 @@ function S4({ s }: { s: ScreenStrings }) {
       </div>
       <div className="px-3 py-2.5">
         <div className="bg-white rounded-xl p-3 shadow-sm border border-ink-900/10 mb-2.5 vd-in">
-          <div className="text-[9px] text-ink-700/40">S-Pankki ···4521</div>
+          <div className="text-[9px] text-ink-700/75">S-Pankki ···4521</div>
           <div className="text-base font-bold text-ink-900 mt-0.5">12 450,00 €</div>
         </div>
         <div className="space-y-1.5">
@@ -215,7 +215,7 @@ function S4({ s }: { s: ScreenStrings }) {
             <div key={i} className={`bg-white rounded-lg p-2 border border-ink-900/10 flex items-center justify-between vd-in vd-d${i + 1}`}>
               <div>
                 <div className="text-[11px] font-medium text-ink-900">{tx.name}</div>
-                <div className={`text-[10px] font-semibold mt-0.5 ${tx.pos ? 'text-brand-600' : 'text-ink-700/70'}`}>{tx.amount}</div>
+                <div className={`text-[10px] font-semibold mt-0.5 ${tx.pos ? 'text-brand-600' : 'text-ink-700/75'}`}>{tx.amount}</div>
               </div>
               <span className={`text-[9px] font-medium px-1.5 py-0.5 rounded-full ${tx.bc}`}>{tx.badge}</span>
             </div>
@@ -255,7 +255,7 @@ function S5({ s }: { s: ScreenStrings }) {
         <div className="flex vd-in vd-d5">
           <div className="bg-white rounded-2xl rounded-bl-sm px-3 py-2 max-w-[85%] border border-ink-900/10">
             <p className="text-[11px] text-ink-900">{s.chatA}</p>
-            <p className="text-[8px] text-ink-700/40 mt-0.5">14:33 · {s.accountant}</p>
+            <p className="text-[8px] text-ink-700/75 mt-0.5">14:33 · {s.accountant}</p>
           </div>
         </div>
       </div>
@@ -281,7 +281,7 @@ function S6({ s, locale }: { s: ScreenStrings; locale: Locale }) {
       </div>
       <div className="px-3 py-3">
         <div className="bg-white rounded-xl p-3 border border-ink-900/10 vd-in">
-          <div className="text-[9px] text-ink-700/40 mb-2">{s.language}</div>
+          <div className="text-[9px] text-ink-700/75 mb-2">{s.language}</div>
           <div className="space-y-1">
             {langs.map((l, i) => (
               <div key={l.code} className={`flex items-center justify-between p-1.5 rounded-lg vd-in vd-d${Math.min(i + 1, 5)} ${l.code === locale ? 'bg-brand-50 border border-brand-200' : ''}`}>
@@ -289,7 +289,7 @@ function S6({ s, locale }: { s: ScreenStrings; locale: Locale }) {
                   <span className="text-sm">{l.flag}</span>
                   <span className="text-[11px] font-medium text-ink-900">{l.name}</span>
                 </div>
-                <span className="text-[9px] text-ink-700/40">{l.label}</span>
+                <span className="text-[9px] text-ink-700/75">{l.label}</span>
               </div>
             ))}
           </div>
@@ -324,7 +324,11 @@ export default function VaavoDemo() {
   const [active, setActive] = useState(0);
   const s = SCREEN[locale];
 
+  // Auto-advance like a short video — but honour prefers-reduced-motion (WCAG
+  // 2.2.2): when the user asks for reduced motion, don't auto-cycle; the dots
+  // and step buttons remain fully usable to step through manually.
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const id = setTimeout(() => setActive((p) => (p + 1) % SCREEN_COUNT), DURATIONS[active]);
     return () => clearTimeout(id);
   }, [active]);
@@ -373,11 +377,13 @@ export default function VaavoDemo() {
                 type="button"
                 onClick={() => setActive(i)}
                 className={`w-full text-left p-3 sm:p-4 rounded-xl transition-all duration-300 ${
-                  i === active ? 'bg-brand-50 border-l-4 border-brand-600' : 'opacity-40 hover:opacity-70'
+                  i === active ? 'bg-brand-50 border-l-4 border-brand-600' : 'hover:bg-white/70'
                 }`}
               >
-                <p className="font-semibold text-sm text-ink-900">{step.title}</p>
-                <p className="text-xs text-ink-700/60 mt-0.5">{step.desc}</p>
+                {/* Inactive steps are de-emphasised with muted (AA-passing) text,
+                    not parent opacity, so the labels keep enough contrast. */}
+                <p className={`font-semibold text-sm ${i === active ? 'text-ink-900' : 'text-ink-700'}`}>{step.title}</p>
+                <p className="text-xs text-ink-700/75 mt-0.5">{step.desc}</p>
               </button>
             ))}
           </div>

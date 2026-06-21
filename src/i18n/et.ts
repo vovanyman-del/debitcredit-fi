@@ -4,6 +4,7 @@ export const et = {
     description: 'Raamatupidamine, maksundus, palgaarvestus ja ettevõtte asutamine. Üle 70 kliendi Helsingis. Teenindame soome, inglise, vene, eesti ja ukraina keeles.',
   },
   nav: {
+    menu: "Menüü",
     home: 'Avaleht',
     services: 'Teenused',
     pricing: 'Hinnakiri',
@@ -329,7 +330,6 @@ export const et = {
     free: 'Tasuta meie klientidele',
     techHighlight: 'Vaavo ühendab pangaandmed, dokumendihalduse ja sõnumid ühte kohta. Tehisintellekt aitab kviitungite tuvastamisel ja raamatupidamise automatiseerimisel. Reaalajas ülevaade rahaasjadest — igal ajal, igalt poolt.',
     cta: 'Soovid näha Vaavot tegevuses?',
-    ctaButton: 'Võta ühendust',
     features: {
       ai: { title: 'AI kviitungite töötlus', desc: 'Tehisintellekt tuvastab automaatselt kviitungid ja arved, soovitab kategooriat ja seob need pangatehnigutega.' },
       bank: { title: 'Pangaühendus', desc: 'Reaalajas pangaandmete sünkroniseerimine. Tulud, kulud ja saldod ühe pilguga.' },
@@ -413,7 +413,6 @@ export const et = {
     subtitle: 'Vaavo — platvorm, mis teeb raamatupidaja töö tõhusamaks.',
     intro: 'Vaavo on loodud raamatupidajate vajadusteks. Platvorm automatiseerib rutiinseid ülesandeid, pakub reaalajas pangaandmeid ja lihtsustab kliendisuhtlust.',
     cta: 'Soovid proovida Vaavot oma büroos?',
-    ctaButton: 'Võta ühendust',
     features: {
       ai: { title: 'AI automatiseerimine', desc: 'AI tuvastab kviitungid, soovitab kandeid ja õpib klientide harjumustest. Vähem käsitööd.' },
       bank: { title: 'Pangaühendused', desc: 'Reaalajas pangaandmete sünkroniseerimine kõigile klientidele. Automaatne tehingute sobitamine.' },
@@ -426,7 +425,6 @@ export const et = {
     subtitle: 'Põhjalik juhend ettevõtte asutamiseks Soomes.',
     intro: 'Ettevõtte asutamine Soomes on lihtne, kuid nõuab mitmeid samme. See juhend aitab sul mõista protsessi algusest lõpuni.',
     cta: 'Vajad abi ettevõtte asutamisel?',
-    ctaButton: 'Võta ühendust',
     sections: {
       forms: {
         title: 'Ettevõtlusvormid',
@@ -511,7 +509,6 @@ export const et = {
       ],
     },
     cta: 'Valmis vahetama?',
-    ctaButton: 'Võta ühendust',
   },
   privacy: {
     title: 'Privaatsuspoliitika',

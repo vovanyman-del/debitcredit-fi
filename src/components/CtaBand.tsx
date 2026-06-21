@@ -7,10 +7,10 @@ export default function CtaBand() {
   const { t, localePath } = useI18n();
   const c = t.home.finalCta;
   return (
-    <section className="bg-brand-500">
+    <section className="bg-brand-600">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center text-white">
         <h2 className="text-3xl sm:text-4xl font-bold leading-tight">{c.title}</h2>
-        <p className="mt-3 text-lg text-white/85">{c.subtitle}</p>
+        <p className="mt-3 text-lg text-white">{c.subtitle}</p>
         <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to={localePath('/yhteystiedot')}

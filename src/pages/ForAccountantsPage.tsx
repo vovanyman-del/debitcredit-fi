@@ -30,7 +30,7 @@ export default function ForAccountantsPage() {
             <div key={i} className="rounded-2xl border border-ink-900/10 bg-white p-6 sm:p-8">
               <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">{feat.icon}</div>
               <h3 className="mt-5 text-lg font-bold text-ink-900">{feat.title}</h3>
-              <p className="mt-2 text-ink-700/70 leading-relaxed">{feat.desc}</p>
+              <p className="mt-2 text-ink-700/75 leading-relaxed">{feat.desc}</p>
             </div>
           ))}
         </div>

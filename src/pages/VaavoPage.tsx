@@ -59,7 +59,7 @@ export default function VaavoPage() {
             <div className="mt-5 grid grid-cols-3 gap-3 font-mono">
               {[['48 920 €', t.home.heroCard.turnover], ['12 840 €', 'ALV'], ['1 248 €', t.home.heroCard.result]].map(([v, l], i) => (
                 <div key={i} className="rounded-xl bg-white/5 p-3">
-                  <div className="text-[10px] uppercase tracking-wider text-white/40 font-sans">{l}</div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/70 font-sans">{l}</div>
                   <div className="mt-1 text-sm font-semibold text-white">{v}</div>
                 </div>
               ))}
@@ -75,7 +75,7 @@ export default function VaavoPage() {
             <div key={key} className="rounded-2xl border border-ink-900/10 bg-white p-6 hover:border-brand-400/60 hover:shadow-sm transition-all">
               <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">{featureIcons[key]}</div>
               <h3 className="mt-5 text-base font-bold text-ink-900">{feat.title}</h3>
-              <p className="mt-2 text-sm text-ink-700/70 leading-relaxed">{feat.desc}</p>
+              <p className="mt-2 text-sm text-ink-700/75 leading-relaxed">{feat.desc}</p>
             </div>
           ))}
         </div>
