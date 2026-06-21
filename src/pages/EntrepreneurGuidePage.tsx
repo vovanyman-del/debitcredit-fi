@@ -16,12 +16,12 @@ export default function EntrepreneurGuidePage() {
         {/* Business forms */}
         <section className="mb-14">
           <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 mb-3">{s.forms.title}</h2>
-          <p className="text-ink-700/70 mb-6">{s.forms.intro}</p>
+          <p className="text-ink-700/75 mb-6">{s.forms.intro}</p>
           <div className="space-y-3">
             {s.forms.items.map((item, i) => (
               <div key={i} className="rounded-2xl border border-ink-900/10 bg-white p-5">
                 <h3 className="font-bold text-ink-900 mb-1">{item.title}</h3>
-                <p className="text-sm text-ink-700/70 leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-ink-700/75 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -30,7 +30,7 @@ export default function EntrepreneurGuidePage() {
         {/* Registration */}
         <section className="mb-14">
           <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 mb-3">{s.registration.title}</h2>
-          <p className="text-ink-700/70 mb-6">{s.registration.intro}</p>
+          <p className="text-ink-700/75 mb-6">{s.registration.intro}</p>
           <ol className="space-y-3">
             {s.registration.items.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
@@ -44,12 +44,12 @@ export default function EntrepreneurGuidePage() {
         {/* Taxes */}
         <section className="mb-14">
           <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 mb-3">{s.taxes.title}</h2>
-          <p className="text-ink-700/70 mb-6">{s.taxes.intro}</p>
+          <p className="text-ink-700/75 mb-6">{s.taxes.intro}</p>
           <div className="space-y-3">
             {s.taxes.items.map((item, i) => (
               <div key={i} className="rounded-2xl border border-ink-900/10 bg-white p-5">
                 <h3 className="font-bold text-ink-900 mb-1">{item.title}</h3>
-                <p className="text-sm text-ink-700/70 leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-ink-700/75 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

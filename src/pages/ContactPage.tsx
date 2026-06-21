@@ -51,8 +51,8 @@ export default function ContactPage() {
           {/* Form */}
           <div>
             {submitted ? (
-              <div className="rounded-2xl border border-brand-100 bg-brand-50/60 p-8 text-center">
-                <svg className="w-12 h-12 text-brand-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div role="status" className="rounded-2xl border border-brand-100 bg-brand-50/60 p-8 text-center">
+                <svg aria-hidden="true" className="w-12 h-12 text-brand-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 <p className="text-lg font-semibold text-ink-900">{t.contact.form.success}</p>
@@ -62,30 +62,30 @@ export default function ContactPage() {
                 {/* Honeypot — hidden from humans, bots fill it */}
                 <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                 <div>
-                  <label className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.name}</label>
-                  <input name="name" type="text" required className={inputCls} />
+                  <label htmlFor="contact-name" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.name}</label>
+                  <input id="contact-name" name="name" type="text" autoComplete="name" required className={inputCls} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.email}</label>
-                  <input name="email" type="email" required className={inputCls} />
+                  <label htmlFor="contact-email" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.email}</label>
+                  <input id="contact-email" name="email" type="email" autoComplete="email" required className={inputCls} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.phone}</label>
-                  <input name="phone" type="tel" className={inputCls} />
+                  <label htmlFor="contact-phone" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.phone}</label>
+                  <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className={inputCls} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.company}</label>
-                  <input name="company" type="text" className={inputCls} />
+                  <label htmlFor="contact-company" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.company}</label>
+                  <input id="contact-company" name="company" type="text" autoComplete="organization" className={inputCls} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.message}</label>
-                  <textarea name="message" rows={5} required className={`${inputCls} resize-none`} />
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.message}</label>
+                  <textarea id="contact-message" name="message" rows={5} required className={`${inputCls} resize-none`} />
                 </div>
-                {error && <p className="text-red-600 text-sm">{error}</p>}
+                {error && <p role="alert" className="text-red-700 text-sm">{error}</p>}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto px-8 py-3 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto px-8 py-3 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? '...' : t.contact.form.submit}
                 </button>
@@ -97,24 +97,24 @@ export default function ContactPage() {
           <div className="space-y-5">
             <div className="grid sm:grid-cols-2 gap-5">
               <div className="rounded-2xl border border-ink-900/10 bg-white p-6">
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/50 mb-2">{t.contact.info.phone}</h3>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/75 mb-2">{t.contact.info.phone}</h3>
                 <a href={`tel:${company.phone}`} className="text-brand-600 hover:text-brand-700 font-semibold font-mono">{company.phone}</a>
               </div>
               <div className="rounded-2xl border border-ink-900/10 bg-white p-6">
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/50 mb-2">{t.contact.info.email}</h3>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/75 mb-2">{t.contact.info.email}</h3>
                 <a href={`mailto:${company.email}`} className="text-brand-600 hover:text-brand-700 font-semibold break-all">{company.email}</a>
               </div>
             </div>
             <div className="rounded-2xl border border-ink-900/10 bg-white p-6">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/50 mb-2">{t.contact.info.address}</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/75 mb-2">{t.contact.info.address}</h3>
               <p className="text-ink-900">{company.address}</p>
             </div>
             <div className="rounded-2xl border border-ink-900/10 bg-white p-6">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/50 mb-2">{t.contact.info.hours}</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/75 mb-2">{t.contact.info.hours}</h3>
               <p className="text-ink-900">{t.contact.info.hoursValue}</p>
             </div>
             <div className="rounded-2xl border border-ink-900/10 bg-white p-6">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/50 mb-3">{t.contact.info.social}</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-ink-700/75 mb-3">{t.contact.info.social}</h3>
               <div className="flex flex-wrap gap-2">
                 {social.map((s) => (
                   <a

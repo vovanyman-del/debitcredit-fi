@@ -70,32 +70,74 @@ function esc(s: string): string {
 
 const withBrand = (title: string) => `${title} | ${BRAND}`;
 
+// Dedicated, SEO-length (~120-160 char) meta descriptions for pages whose
+// visible subtitle is too short or duplicated. Overrides the subtitle-derived
+// description in pageMeta() for these routes only.
+const SEO_DESC: Record<Locale, Partial<Record<string, string>>> = {
+  fi: {
+    '/yhteystiedot': 'Ota yhteyttä tilitoimisto Debit Credittiin — vastaamme samana päivänä suomeksi, venäjäksi, englanniksi, viroksi tai ukrainaksi. Puhelin, sähköposti ja WhatsApp.',
+    '/yrittajaksi': 'Yrittäjäksi Suomessa: kattava opas yritysmuodon valintaan, rekisteröintiin, verotukseen ja kirjanpitoon. Käytännön askeleet ja yleisimmät virheet.',
+    '/vaihda-tilitoimistoa': 'Tilitoimiston vaihtaminen on helppoa: hoidamme irtisanomisen ja aineiston siirron edelliseltä kirjanpitäjältä. Kirjanpitosi jatkuu keskeytyksettä.',
+    '/tietosuoja': 'Tietosuojaseloste: miten tilitoimisto Debit Credit kerää, käyttää ja suojaa henkilötietojasi GDPR:n mukaisesti. Oikeutesi ja yhteystiedot.',
+    '/kayttoehdot': 'Käyttöehdot: tilitoimisto Debit Creditin palveluiden ja Vaavo-alustan käytön ehdot, vastuut ja sopimusehdot selkeästi esitettyinä.',
+  },
+  ru: {
+    '/yhteystiedot': 'Свяжитесь с бухгалтерией Debit Credit — отвечаем в тот же день на русском, финском, английском, эстонском или украинском. Телефон, эл. почта и WhatsApp.',
+    '/yrittajaksi': 'Стать предпринимателем в Финляндии: подробный гид по выбору формы бизнеса, регистрации, налогам и бухгалтерии. Практические шаги и частые ошибки.',
+    '/vaihda-tilitoimistoa': 'Сменить бухгалтерию легко: сами оформим расторжение и перенос данных от прежнего бухгалтера. Ваш учёт продолжится без перерывов.',
+    '/tietosuoja': 'Политика конфиденциальности: как бухгалтерия Debit Credit собирает, использует и защищает ваши персональные данные согласно GDPR. Ваши права и контакты.',
+    '/kayttoehdot': 'Условия использования: правила пользования услугами бухгалтерии Debit Credit и платформой Vaavo, ответственность и договорные условия.',
+  },
+  en: {
+    '/yhteystiedot': 'Get in touch with accounting firm Debit Credit — we reply the same day in Finnish, English, Russian, Estonian or Ukrainian. Phone, email and WhatsApp.',
+    '/yrittajaksi': 'Becoming an entrepreneur in Finland: a complete guide to choosing a company form, registration, taxation and bookkeeping. Practical steps and common mistakes.',
+    '/vaihda-tilitoimistoa': 'Switching accounting firms is easy: we handle the termination and data transfer from your previous accountant. Your bookkeeping continues without interruption.',
+    '/tietosuoja': 'Privacy policy: how accounting firm Debit Credit collects, uses and protects your personal data under the GDPR. Your rights and contact details.',
+    '/kayttoehdot': 'Terms of service: the conditions for using accounting firm Debit Credit’s services and the Vaavo platform, responsibilities and contractual terms.',
+  },
+  et: {
+    '/yhteystiedot': 'Võta ühendust raamatupidamisbürooga Debit Credit — vastame samal päeval soome, vene, inglise, eesti või ukraina keeles. Telefon, e-post ja WhatsApp.',
+    '/yrittajaksi': 'Ettevõtjaks Soomes: põhjalik juhend ettevõtlusvormi valimisest, registreerimisest, maksudest ja raamatupidamisest. Praktilised sammud ja levinud vead.',
+    '/vaihda-tilitoimistoa': 'Raamatupidaja vahetamine on lihtne: korraldame lepingu lõpetamise ja andmete ülekande eelmiselt raamatupidajalt. Raamatupidamine jätkub katkestusteta.',
+    '/tietosuoja': 'Privaatsuspoliitika: kuidas raamatupidamisbüroo Debit Credit kogub, kasutab ja kaitseb sinu isikuandmeid vastavalt GDPR-ile. Sinu õigused ja kontaktid.',
+    '/kayttoehdot': 'Kasutustingimused: Debit Crediti teenuste ja Vaavo platvormi kasutamise tingimused, vastutus ja lepingutingimused selgelt esitatuna.',
+  },
+  uk: {
+    '/yhteystiedot': 'Зв’яжіться з бухгалтерією Debit Credit — відповідаємо того ж дня українською, фінською, англійською, російською чи естонською. Телефон, email і WhatsApp.',
+    '/yrittajaksi': 'Стати підприємцем у Фінляндії: повний гід з вибору форми бізнесу, реєстрації, податків і бухгалтерії. Практичні кроки та типові помилки.',
+    '/vaihda-tilitoimistoa': 'Змінити бухгалтерію легко: самі оформимо розірвання та перенесення даних від попереднього бухгалтера. Ваш облік триватиме без перерв.',
+    '/tietosuoja': 'Політика конфіденційності: як бухгалтерія Debit Credit збирає, використовує та захищає ваші персональні дані згідно з GDPR. Ваші права та контакти.',
+    '/kayttoehdot': 'Умови використання: правила користування послугами бухгалтерії Debit Credit і платформою Vaavo, відповідальність і договірні умови.',
+  },
+};
+
 /** Page-specific title + description, derived from localized i18n copy. */
-function pageMeta(t: Translations, basePath: string): { title: string; description: string } {
+function pageMeta(t: Translations, basePath: string, locale: Locale): { title: string; description: string } {
+  // Dedicated SEO description wins over the (sometimes short/duplicate) subtitle.
+  const desc = (fallback: string) => SEO_DESC[locale][basePath] ?? fallback;
   switch (basePath) {
     case '/':
       return { title: t.meta.title, description: t.meta.description };
     case '/palvelut':
-      return { title: withBrand(t.services.title), description: t.services.subtitle };
+      return { title: withBrand(t.services.title), description: desc(t.services.subtitle) };
     case '/hinnasto':
-      return { title: withBrand(t.pricing.title), description: t.pricing.subtitle };
+      return { title: withBrand(t.pricing.title), description: desc(t.pricing.subtitle) };
     case '/vaavo':
-      return { title: withBrand(t.vaavo.title), description: t.vaavo.subtitle };
+      return { title: withBrand(t.vaavo.title), description: desc(t.vaavo.subtitle) };
     case '/meista':
-      return { title: withBrand(t.about.title), description: t.about.subtitle };
+      return { title: withBrand(t.about.title), description: desc(t.about.subtitle) };
     case '/yhteystiedot':
-      return { title: withBrand(t.contact.title), description: t.contact.subtitle };
+      return { title: withBrand(t.contact.title), description: desc(t.contact.subtitle) };
     case '/tilitoimistoille':
-      return { title: withBrand(t.forAccountants.title), description: t.forAccountants.subtitle };
+      return { title: withBrand(t.forAccountants.title), description: desc(t.forAccountants.subtitle) };
     case '/yrittajaksi':
-      return { title: withBrand(t.guide.title), description: t.guide.subtitle };
+      return { title: withBrand(t.guide.title), description: desc(t.guide.subtitle) };
     case '/vaihda-tilitoimistoa':
-      return { title: withBrand(t.switchAccountant.title), description: t.switchAccountant.subtitle };
+      return { title: withBrand(t.switchAccountant.title), description: desc(t.switchAccountant.subtitle) };
     case '/tietosuoja':
-      // No subtitle in i18n → fall back to the localized site description.
-      return { title: withBrand(t.privacy.title), description: t.meta.description };
+      return { title: withBrand(t.privacy.title), description: desc(t.meta.description) };
     case '/kayttoehdot':
-      return { title: withBrand(t.terms.title), description: t.meta.description };
+      return { title: withBrand(t.terms.title), description: desc(t.meta.description) };
     default:
       return { title: t.meta.title, description: t.meta.description };
   }
@@ -315,7 +357,7 @@ function jsonLd(locale: Locale, basePath: string): string {
 
   const pageUrl = urlFor(locale, basePath);
   const name = shortTitle(t, basePath);
-  const { description } = pageMeta(t, basePath);
+  const { description } = pageMeta(t, basePath, locale);
 
   // /meista is an AboutPage; everything else is a generic WebPage.
   const isAbout = basePath === '/meista';
@@ -363,7 +405,7 @@ export interface HeadData {
 export function getHead(url: string): HeadData {
   const { locale, basePath } = parseUrl(url);
   const t = translations[locale];
-  const { title, description } = pageMeta(t, basePath);
+  const { title, description } = pageMeta(t, basePath, locale);
   const canonical = urlFor(locale, basePath);
 
   const alternates = LOCALES.map(
@@ -380,12 +422,16 @@ export function getHead(url: string): HeadData {
     `    <meta property="og:url" content="${canonical}" />`,
     `    <meta property="og:title" content="${esc(title)}" />`,
     `    <meta property="og:description" content="${esc(description)}" />`,
-    `    <meta property="og:image" content="${SITE}/favicon.svg" />`,
+    `    <meta property="og:image" content="${SITE}/og/og-default.png" />`,
+    `    <meta property="og:image:width" content="1200" />`,
+    `    <meta property="og:image:height" content="630" />`,
+    `    <meta property="og:image:alt" content="${esc(BRAND)}" />`,
     `    <meta property="og:locale" content="${OG_LOCALE[locale]}" />`,
     `    <meta property="og:site_name" content="${BRAND}" />`,
-    `    <meta name="twitter:card" content="summary" />`,
+    `    <meta name="twitter:card" content="summary_large_image" />`,
     `    <meta name="twitter:title" content="${esc(title)}" />`,
     `    <meta name="twitter:description" content="${esc(description)}" />`,
+    `    <meta name="twitter:image" content="${SITE}/og/og-default.png" />`,
   ];
 
   const ld = jsonLd(locale, basePath);

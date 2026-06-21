@@ -61,7 +61,7 @@ export default function HomePage() {
             {h.hero.subtitle}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to={localePath('/yhteystiedot')} className="inline-flex justify-center items-center px-7 py-3.5 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-colors shadow-sm shadow-brand-500/20">
+            <Link to={localePath('/yhteystiedot')} className="inline-flex justify-center items-center px-7 py-3.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors shadow-sm shadow-brand-500/20">
               {h.hero.cta}
             </Link>
             <Link to={localePath('/vaavo')} className="inline-flex justify-center items-center px-7 py-3.5 border border-ink-900/15 text-ink-900 font-semibold rounded-xl hover:border-brand-500 hover:text-brand-600 transition-colors">
@@ -85,7 +85,7 @@ export default function HomePage() {
             ].map((s, i) => (
               <div key={i} className="px-2">
                 <div className="text-xl sm:text-2xl font-bold text-ink-900">{s.v}</div>
-                <div className="mt-1 text-xs sm:text-sm text-ink-700/60">{s.l}</div>
+                <div className="mt-1 text-xs sm:text-sm text-ink-700/75">{s.l}</div>
               </div>
             ))}
           </div>
@@ -101,7 +101,7 @@ export default function HomePage() {
             <div key={p.to} className="rounded-2xl border border-ink-900/10 bg-white p-7 flex flex-col">
               <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">{p.icon}</div>
               <h3 className="mt-5 text-lg font-bold text-ink-900">{p.title}</h3>
-              <p className="mt-2 text-sm text-ink-700/70 leading-relaxed flex-1">{p.desc}</p>
+              <p className="mt-2 text-sm text-ink-700/75 leading-relaxed flex-1">{p.desc}</p>
               <Link to={localePath(p.to)} className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700">
                 {p.cta} <span aria-hidden>→</span>
               </Link>
@@ -145,7 +145,7 @@ export default function HomePage() {
             <div key={i} className="rounded-2xl border border-ink-900/10 bg-white p-6 hover:border-brand-400/60 hover:shadow-sm transition-all">
               <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">{svc.icon}</div>
               <h3 className="mt-5 text-base font-bold text-ink-900">{svc.title}</h3>
-              <p className="mt-2 text-sm text-ink-700/70 leading-relaxed">{svc.desc}</p>
+              <p className="mt-2 text-sm text-ink-700/75 leading-relaxed">{svc.desc}</p>
             </div>
           ))}
         </div>
@@ -161,7 +161,7 @@ export default function HomePage() {
               <div key={i} className="rounded-2xl border border-ink-900/10 bg-canvas p-6">
                 <div className="text-sm font-mono font-semibold text-brand-600">#{i + 1}</div>
                 <h3 className="mt-3 text-base font-bold text-ink-900">{step.title}</h3>
-                <p className="mt-2 text-sm text-ink-700/70 leading-relaxed">{step.desc}</p>
+                <p className="mt-2 text-sm text-ink-700/75 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -172,7 +172,7 @@ export default function HomePage() {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-600">{h.packages.eyebrow}</p>
         <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-ink-900">{h.packages.title}</h2>
-        <p className="mt-3 text-ink-700/70 text-lg max-w-2xl">{h.packages.subtitle}</p>
+        <p className="mt-3 text-ink-700/75 text-lg max-w-2xl">{h.packages.subtitle}</p>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
           {featured.map((pkg, i) => {
             const popular = i === 1;
@@ -184,17 +184,17 @@ export default function HomePage() {
                 className={`relative rounded-2xl p-7 ${popular ? 'bg-ink-900 text-white shadow-xl md:-mt-3 md:pb-9' : 'bg-white text-ink-900 border border-ink-900/10'}`}
               >
                 {popular && (
-                  <div className="absolute -top-3 left-7 bg-brand-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  <div className="absolute -top-3 left-7 bg-brand-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
                     {h.packages.popular}
                   </div>
                 )}
                 <h3 className={`text-lg font-bold ${popular ? 'text-white' : 'text-ink-900'}`}>{name}</h3>
-                <p className={`mt-1 text-xs ${popular ? 'text-white/50' : 'text-ink-700/50'}`}>
+                <p className={`mt-1 text-xs ${popular ? 'text-white/70' : 'text-ink-700/75'}`}>
                   {t.pricing.packageTargets[pkg.id as keyof typeof t.pricing.packageTargets]}
                 </p>
                 <div className="mt-5 flex items-baseline gap-1.5">
                   <span className="text-4xl font-extrabold font-mono tracking-tight">{fmt(pkg.price)}&nbsp;€</span>
-                  <span className={`text-sm ${popular ? 'text-white/50' : 'text-ink-700/50'}`}>{h.packages.perMonth}</span>
+                  <span className={`text-sm ${popular ? 'text-white/70' : 'text-ink-700/75'}`}>{h.packages.perMonth}</span>
                 </div>
                 <p className={`mt-1 text-xs font-medium ${popular ? 'text-brand-400' : 'text-brand-600'}`}>{h.packages.vaavoIncluded}</p>
                 <ul className="mt-6 space-y-2.5">
@@ -207,7 +207,7 @@ export default function HomePage() {
                 </ul>
                 <Link
                   to={localePath('/hinnasto')}
-                  className={`mt-7 block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${popular ? 'bg-brand-500 text-white hover:bg-brand-600' : 'bg-ink-900/5 text-ink-900 hover:bg-ink-900/10'}`}
+                  className={`mt-7 block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${popular ? 'bg-brand-600 text-white hover:bg-brand-700' : 'bg-ink-900/5 text-ink-900 hover:bg-ink-900/10'}`}
                 >
                   {h.packages.choose} «{name}»
                 </Link>
@@ -216,7 +216,7 @@ export default function HomePage() {
           })}
         </div>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-sm text-ink-700/60">{h.packages.note}</p>
+          <p className="text-sm text-ink-700/75">{h.packages.note}</p>
           <Link to={localePath('/hinnasto')} className="inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700">
             {h.packages.viewAll} <span aria-hidden>→</span>
           </Link>
@@ -228,7 +228,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-600">{h.team.eyebrow}</p>
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-ink-900 max-w-2xl leading-tight">{h.team.title}</h2>
-          <p className="mt-4 text-lg text-ink-700/70 max-w-2xl">{h.team.subtitle}</p>
+          <p className="mt-4 text-lg text-ink-700/75 max-w-2xl">{h.team.subtitle}</p>
           <div className="mt-10 max-w-xl rounded-2xl border border-ink-900/10 bg-canvas p-7 flex gap-5 items-start">
             <div className="w-16 h-16 rounded-2xl bg-ink-900 text-white flex items-center justify-center text-xl font-bold shrink-0">
               {h.team.name.split(' ').map((w) => w[0]).join('')}
@@ -236,8 +236,8 @@ export default function HomePage() {
             <div>
               <div className="text-lg font-bold text-ink-900">{h.team.name}</div>
               <div className="text-sm text-brand-600 font-medium">{h.team.role}</div>
-              <div className="mt-1 text-xs font-mono text-ink-700/50">{h.team.langs}</div>
-              <p className="mt-3 text-sm text-ink-700/70 leading-relaxed">{h.team.desc}</p>
+              <div className="mt-1 text-xs font-mono text-ink-700/75">{h.team.langs}</div>
+              <p className="mt-3 text-sm text-ink-700/75 leading-relaxed">{h.team.desc}</p>
             </div>
           </div>
         </div>
@@ -255,16 +255,16 @@ export default function HomePage() {
           </div>
           <div>
             <div className="font-semibold text-ink-900">{h.testimonial.author}</div>
-            <div className="text-sm text-ink-700/60">{h.testimonial.company}</div>
+            <div className="text-sm text-ink-700/75">{h.testimonial.company}</div>
           </div>
         </div>
       </section>
 
       {/* ===== 10. FINAL CTA (green band) ===== */}
-      <section className="bg-brand-500">
+      <section className="bg-brand-600">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center text-white">
           <h2 className="text-3xl sm:text-4xl font-bold leading-tight">{h.finalCta.title}</h2>
-          <p className="mt-3 text-lg text-white/85">{h.finalCta.subtitle}</p>
+          <p className="mt-3 text-lg text-white">{h.finalCta.subtitle}</p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Link to={localePath('/yhteystiedot')} className="inline-flex justify-center items-center px-7 py-3.5 bg-white text-brand-700 font-semibold rounded-xl hover:bg-brand-50 transition-colors">
               {h.finalCta.cta}
@@ -288,7 +288,7 @@ function VaavoCard({ h }: { h: Translations['home'] }) {
       <div className="flex items-center justify-between px-5 py-3 border-b border-ink-900/8">
         <div className="flex items-center gap-2 text-sm">
           <span className="font-bold text-ink-900">{c.brand}</span>
-          <span className="text-ink-700/40">· {c.badge} · 2025</span>
+          <span className="text-ink-700/75">· {c.badge} · 2025</span>
         </div>
         <div className="flex items-center gap-1.5 text-xs font-semibold text-brand-600">
           <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" /> {c.live}
@@ -297,7 +297,7 @@ function VaavoCard({ h }: { h: Translations['home'] }) {
       <div className="grid grid-cols-3 gap-px bg-ink-900/8">
         {/* Turnover */}
         <div className="bg-white p-4 sm:p-5">
-          <div className="text-[10px] uppercase tracking-wider text-ink-700/50">{c.turnover}</div>
+          <div className="text-[10px] uppercase tracking-wider text-ink-700/75">{c.turnover}</div>
           <div className="mt-1 text-base sm:text-xl font-bold font-mono text-ink-900">48&nbsp;920,00&nbsp;€</div>
           <div className="mt-2 flex items-end gap-1 h-8">
             {[40, 55, 48, 70, 62, 85].map((v, i) => (
@@ -307,7 +307,7 @@ function VaavoCard({ h }: { h: Translations['home'] }) {
         </div>
         {/* VAT */}
         <div className="bg-white p-4 sm:p-5">
-          <div className="text-[10px] uppercase tracking-wider text-ink-700/50">{c.vat}</div>
+          <div className="text-[10px] uppercase tracking-wider text-ink-700/75">{c.vat}</div>
           <div className="mt-1 text-base sm:text-xl font-bold font-mono text-ink-900">12&nbsp;840&nbsp;€</div>
           <div className="mt-2 flex items-end gap-1 h-8">
             {[30, 45, 38, 52, 60, 48].map((v, i) => (
@@ -317,7 +317,7 @@ function VaavoCard({ h }: { h: Translations['home'] }) {
         </div>
         {/* Result */}
         <div className="bg-brand-50/60 p-4 sm:p-5">
-          <div className="text-[10px] uppercase tracking-wider text-brand-700/70">{c.result}</div>
+          <div className="text-[10px] uppercase tracking-wider text-brand-700">{c.result}</div>
           <div className="mt-1 text-base sm:text-xl font-bold font-mono text-brand-700">1&nbsp;248,00&nbsp;€</div>
           <div className="mt-2 flex items-end gap-1 h-8">
             {[20, 35, 30, 48, 55, 72].map((v, i) => (
@@ -327,7 +327,7 @@ function VaavoCard({ h }: { h: Translations['home'] }) {
         </div>
       </div>
       <div className="flex items-center justify-between gap-3 px-5 py-3 border-t border-ink-900/8 bg-canvas">
-        <p className="text-xs text-ink-700/70 truncate">
+        <p className="text-xs text-ink-700/75 truncate">
           <span className="font-semibold text-ink-900">{c.owner}:</span> «{c.ownerNote}»
         </p>
         <span className="shrink-0 inline-flex items-center gap-1.5 text-xs font-medium text-brand-700 bg-brand-50 border border-brand-100 rounded-full px-3 py-1">
@@ -344,7 +344,7 @@ function DarkPanel({ title }: { title: string }) {
     <div className="rounded-2xl border border-white/10 bg-ink-800 p-6">
       <div className="flex items-center justify-between text-sm">
         <span className="font-semibold text-white">{title}</span>
-        <span className="text-white/40 font-mono text-xs">2025</span>
+        <span className="text-white/70 font-mono text-xs">2025</span>
       </div>
       <div className="mt-6 flex items-end gap-2 h-40">
         {[42, 58, 50, 72, 64, 88, 70, 95].map((v, i) => (
@@ -353,11 +353,11 @@ function DarkPanel({ title }: { title: string }) {
       </div>
       <div className="mt-5 grid grid-cols-2 gap-3">
         <div className="rounded-xl bg-white/5 p-3">
-          <div className="text-[10px] uppercase tracking-wider text-white/40">100 %</div>
+          <div className="text-[10px] uppercase tracking-wider text-white/70">100 %</div>
           <div className="mt-1 text-sm font-semibold text-white">ALV</div>
         </div>
         <div className="rounded-xl bg-white/5 p-3">
-          <div className="text-[10px] uppercase tracking-wider text-white/40">LIVE</div>
+          <div className="text-[10px] uppercase tracking-wider text-white/70">LIVE</div>
           <div className="mt-1 text-sm font-semibold text-brand-400">online</div>
         </div>
       </div>

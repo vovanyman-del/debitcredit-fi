@@ -43,7 +43,7 @@ export default function AboutPage() {
           {facts.map((f, i) => (
             <div key={i} className="rounded-2xl border border-ink-900/10 bg-white p-7">
               <div className="text-4xl font-extrabold font-mono text-brand-600">{f.v}</div>
-              <div className="mt-2 text-sm text-ink-700/70">{f.l}</div>
+              <div className="mt-2 text-sm text-ink-700/75">{f.l}</div>
             </div>
           ))}
         </div>
@@ -70,7 +70,7 @@ export default function AboutPage() {
               <div key={i} className="rounded-2xl border border-ink-900/10 bg-white p-6">
                 <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">{val.icon}</div>
                 <h3 className="mt-5 text-base font-bold text-ink-900">{val.title}</h3>
-                <p className="mt-2 text-sm text-ink-700/70 leading-relaxed">{val.desc}</p>
+                <p className="mt-2 text-sm text-ink-700/75 leading-relaxed">{val.desc}</p>
               </div>
             ))}
           </div>
@@ -81,7 +81,7 @@ export default function AboutPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-400">{a.founder.title}</p>
           <p className="mt-3 text-2xl font-bold">{a.founder.name}</p>
           <p className="mt-3 text-white/70 leading-relaxed">{a.founder.desc}</p>
-          <div className="mt-5 pt-5 border-t border-white/10 text-sm text-white/50">
+          <div className="mt-5 pt-5 border-t border-white/10 text-sm text-white/70">
             {company.name} · {company.address} · Y-tunnus {company.ytunnus}
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function AboutPage() {
             {partners.map((p) => (
               <div key={p.name} className="rounded-2xl border border-ink-900/10 bg-white p-6 hover:border-brand-400/60 hover:shadow-sm transition-all">
                 <h3 className="text-lg font-bold mb-2 text-ink-900">{p.name}</h3>
-                <p className="text-sm text-ink-700/70 leading-relaxed">{p.desc}</p>
+                <p className="text-sm text-ink-700/75 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>

@@ -4,6 +4,7 @@ export const fi = {
     description: 'Kirjanpito, verotus, palkanlaskenta ja yrityksen perustaminen. Yli 70 asiakasta Helsingissä. Palvelemme suomeksi, englanniksi, venäjäksi, viroksi ja ukrainaksi.',
   },
   nav: {
+    menu: "Valikko",
     home: 'Etusivu',
     services: 'Palvelut',
     pricing: 'Hinnasto',
@@ -329,7 +330,6 @@ export const fi = {
     free: 'Ilmainen asiakkaillemme',
     techHighlight: 'Vaavo yhdistää pankkitiedot, dokumenttihallinnan ja viestinnän yhteen paikkaan. Tekoäly auttaa tositteiden tunnistamisessa ja kirjanpidon automatisoinnissa. Reaaliaikainen näkymä talouteesi — milloin tahansa, mistä tahansa.',
     cta: 'Haluatko nähdä Vaavon toiminnassa?',
-    ctaButton: 'Ota yhteyttä',
     features: {
       ai: { title: 'AI-tositteiden käsittely', desc: 'Tekoäly tunnistaa kuitit ja laskut automaattisesti, ehdottaa kirjauskategoriaa ja liittää ne oikeisiin pankkitapahtumiin.' },
       bank: { title: 'Pankkiyhteys', desc: 'Reaaliaikainen pankkidatan synkronointi. Näe tulot, menot ja saldot yhdellä silmäyksellä.' },
@@ -413,7 +413,6 @@ export const fi = {
     subtitle: 'Vaavo — alusta, joka tekee kirjanpitäjän työstä tehokkaampaa.',
     intro: 'Vaavo on kehitetty kirjanpitäjien tarpeisiin. Alusta automatisoi rutiinitehtäviä, tarjoaa reaaliaikaisen pankkidatan ja tehostaa asiakasviestintää.',
     cta: 'Haluatko kokeilla Vaavoa tilitoimistossasi?',
-    ctaButton: 'Ota yhteyttä',
     features: {
       ai: { title: 'AI-automaatio', desc: 'Tekoäly tunnistaa tositteet, ehdottaa kirjauksia ja oppii asiakkaiden tavoista. Vähemmän manuaalista työtä.' },
       bank: { title: 'Pankkiyhteydet', desc: 'Reaaliaikainen pankkidatan synkronointi kaikille asiakkaille. Automaattinen tapahtumien kohdistus.' },
@@ -426,14 +425,13 @@ export const fi = {
     subtitle: 'Kattava opas yrityksen perustamiseen Suomessa.',
     intro: 'Yrityksen perustaminen Suomessa on suoraviivaista, mutta vaatii useita vaiheita. Tämä opas auttaa sinua ymmärtämään prosessin alusta loppuun.',
     cta: 'Haluatko apua yrityksen perustamisessa?',
-    ctaButton: 'Ota yhteyttä',
     sections: {
       forms: {
         title: 'Yritysmuodot',
         intro: 'Suomessa yleisimmät yritysmuodot ovat:',
         items: [
           { title: 'Toiminimi (Tmi)', desc: 'Yksinkertaisin muoto. Sopii freelancereille ja pienille yrittäjille. Ei erillistä oikeushenkilöä — yrittäjä vastaa henkilökohtaisesti.' },
-          { title: 'Osakeyhtiö (Oy)', desc: 'Suosituin yritysmuoto. Erillinen oikeushenkilö, rajoitettu vastuu. Minimipääoma 2 500 €. Sopii kasvuun.' },
+          { title: 'Osakeyhtiö (Oy)', desc: 'Suosituin yritysmuoto. Erillinen oikeushenkilö, rajoitettu vastuu. Ei vähimmäisosakepääomaa (vaatimus poistui 2019). Sopii kasvuun.' },
           { title: 'Kommandiittiyhtiö (Ky)', desc: 'Henkilöyhtiö, jossa äänetön ja vastuunalainen yhtiömies. Sopii pienille perheyritysille.' },
           { title: 'Osuuskunta', desc: 'Demokratia-pohjainen muoto. Sopii yhteisölliseen yrittäjyyteen ja osuustoimintaan.' },
         ],
@@ -511,7 +509,6 @@ export const fi = {
       ],
     },
     cta: 'Valmis vaihtamaan?',
-    ctaButton: 'Ota yhteyttä',
   },
   privacy: {
     title: 'Tietosuojaseloste',

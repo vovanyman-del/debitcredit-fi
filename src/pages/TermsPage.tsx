@@ -7,7 +7,7 @@ export default function TermsPage() {
   return (
     <div className="bg-canvas text-ink-900">
       <PageHeader title={t.terms.title}>
-        <p className="text-sm text-ink-700/50">{t.terms.lastUpdated}</p>
+        <p className="text-sm text-ink-700/75">{t.terms.lastUpdated}</p>
       </PageHeader>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">

@@ -16,7 +16,7 @@ function AccordionSection({ title, children }: { title: string; children: React.
         className="w-full flex items-center justify-between px-6 py-4 hover:bg-ink-900/[0.02] transition-colors text-left"
       >
         <span className="font-semibold text-ink-900">{title}</span>
-        <svg className={`w-5 h-5 text-ink-700/40 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className={`w-5 h-5 text-ink-700/75 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
@@ -55,7 +55,7 @@ export default function PricingPage() {
                 className={`relative rounded-2xl p-6 flex flex-col ${popular ? 'bg-ink-900 text-white shadow-xl' : 'bg-white text-ink-900 border border-ink-900/10'}`}
               >
                 {popular && (
-                  <div className="absolute -top-3 left-6 bg-brand-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  <div className="absolute -top-3 left-6 bg-brand-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
                     {hp.popular}
                   </div>
                 )}
@@ -63,17 +63,17 @@ export default function PricingPage() {
                 {!isCustom ? (
                   <div className="mt-3 flex items-baseline gap-1">
                     <span className="text-3xl font-extrabold font-mono tracking-tight">{eur(pkg.price)}&nbsp;€</span>
-                    <span className={`text-sm ${popular ? 'text-white/50' : 'text-ink-700/50'}`}>{t.pricing.perMonth}</span>
+                    <span className={`text-sm ${popular ? 'text-white/70' : 'text-ink-700/75'}`}>{t.pricing.perMonth}</span>
                   </div>
                 ) : (
                   <div className="mt-3 text-lg font-semibold text-brand-600">{t.pricing.customTitle}</div>
                 )}
-                <p className={`mt-2 text-xs ${popular ? 'text-white/50' : 'text-ink-700/50'}`}>{target}</p>
+                <p className={`mt-2 text-xs ${popular ? 'text-white/70' : 'text-ink-700/75'}`}>{target}</p>
                 {pkg.vouchers && (
                   <p className={`mt-1 text-xs font-mono ${popular ? 'text-brand-400' : 'text-brand-600'}`}>{pkg.vouchers} {t.pricing.vouchers}</p>
                 )}
                 {pkg.extraVoucherPrice && (
-                  <p className={`mt-1 text-xs ${popular ? 'text-white/40' : 'text-ink-700/40'}`}>{t.pricing.extraVoucher}: {eur(pkg.extraVoucherPrice)} €</p>
+                  <p className={`mt-1 text-xs ${popular ? 'text-white/70' : 'text-ink-700/75'}`}>{t.pricing.extraVoucher}: {eur(pkg.extraVoucherPrice)} €</p>
                 )}
                 <ul className="mt-4 space-y-2 flex-1">
                   {features.map((feat, j) => (
@@ -87,7 +87,7 @@ export default function PricingPage() {
                 </ul>
                 <Link
                   to={localePath('/yhteystiedot')}
-                  className={`mt-5 block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${popular ? 'bg-brand-500 text-white hover:bg-brand-600' : 'bg-ink-900/5 text-ink-900 hover:bg-ink-900/10'}`}
+                  className={`mt-5 block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${popular ? 'bg-brand-600 text-white hover:bg-brand-700' : 'bg-ink-900/5 text-ink-900 hover:bg-ink-900/10'}`}
                 >
                   {t.pricing.requestQuote}
                 </Link>
@@ -96,7 +96,7 @@ export default function PricingPage() {
           })}
         </div>
 
-        <p className="mt-6 text-sm text-ink-700/50">{t.pricing.note}</p>
+        <p className="mt-6 text-sm text-ink-700/75">{t.pricing.note}</p>
 
         {/* Additional services */}
         <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 mt-16 mb-6">{t.pricing.additional}</h2>
@@ -112,10 +112,10 @@ export default function PricingPage() {
                     <div key={i} className="flex items-start justify-between py-3 gap-4">
                       <div className="flex-1 min-w-0">
                         <div className="text-sm font-medium text-ink-900">{name}</div>
-                        {note && <div className="text-xs text-ink-700/50 mt-0.5">{note}</div>}
+                        {note && <div className="text-xs text-ink-700/75 mt-0.5">{note}</div>}
                       </div>
                       <div className="text-sm font-semibold text-ink-900 whitespace-nowrap font-mono">
-                        {eur(svc.price)} € <span className="text-ink-700/50 font-sans">{unit}</span>
+                        {eur(svc.price)} € <span className="text-ink-700/75 font-sans">{unit}</span>
                       </div>
                     </div>
                   );

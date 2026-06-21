@@ -22,7 +22,7 @@ export default function SwitchAccountantPage() {
               </div>
               <div>
                 <h3 className="font-bold text-ink-900 mb-1">{step.title}</h3>
-                <p className="text-sm text-ink-700/70 leading-relaxed">{step.desc}</p>
+                <p className="text-sm text-ink-700/75 leading-relaxed">{step.desc}</p>
               </div>
             </div>
           ))}

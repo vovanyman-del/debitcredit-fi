@@ -4,6 +4,7 @@ export const en = {
     description: 'Bookkeeping, taxation, payroll and company formation. Over 70 clients in Helsinki. We serve in Finnish, English, Russian, Estonian and Ukrainian.',
   },
   nav: {
+    menu: "Menu",
     home: 'Home',
     services: 'Services',
     pricing: 'Pricing',
@@ -329,7 +330,6 @@ export const en = {
     free: 'Free for our clients',
     techHighlight: 'Vaavo combines bank data, document management and messaging in one place. AI helps with receipt recognition and bookkeeping automation. Real-time view of your finances — anytime, anywhere.',
     cta: 'Want to see Vaavo in action?',
-    ctaButton: 'Get in touch',
     features: {
       ai: { title: 'AI Receipt Processing', desc: 'AI automatically recognises receipts and invoices, suggests categorisation and matches them to the correct bank transactions.' },
       bank: { title: 'Bank Connection', desc: 'Real-time bank data synchronisation. See income, expenses and balances at a glance.' },
@@ -413,7 +413,6 @@ export const en = {
     subtitle: 'Vaavo — a platform that makes accountants\' work more efficient.',
     intro: 'Vaavo is built for accountants\' needs. The platform automates routine tasks, provides real-time bank data and streamlines client communication.',
     cta: 'Want to try Vaavo at your accounting firm?',
-    ctaButton: 'Get in touch',
     features: {
       ai: { title: 'AI Automation', desc: 'AI recognises receipts, suggests entries and learns from client patterns. Less manual work.' },
       bank: { title: 'Bank Connections', desc: 'Real-time bank data sync for all clients. Automatic transaction matching.' },
@@ -426,14 +425,13 @@ export const en = {
     subtitle: 'A comprehensive guide to setting up a company in Finland.',
     intro: 'Starting a business in Finland is straightforward but requires several steps. This guide helps you understand the process from start to finish.',
     cta: 'Need help setting up your business?',
-    ctaButton: 'Get in touch',
     sections: {
       forms: {
         title: 'Business Forms',
         intro: 'The most common business forms in Finland are:',
         items: [
           { title: 'Sole Trader (Toiminimi / Tmi)', desc: 'The simplest form. Suitable for freelancers and small entrepreneurs. No separate legal entity — the entrepreneur is personally liable.' },
-          { title: 'Limited Company (Oy)', desc: 'The most popular business form. Separate legal entity with limited liability. Minimum share capital €2,500. Suitable for growth.' },
+          { title: 'Limited Company (Oy)', desc: 'The most popular business form. Separate legal entity with limited liability. No minimum share capital (requirement abolished in 2019). Suitable for growth.' },
           { title: 'Limited Partnership (Ky)', desc: 'A partnership with a silent and a general partner. Suitable for small family businesses.' },
           { title: 'Cooperative (Osuuskunta)', desc: 'A democracy-based form. Suitable for community entrepreneurship and cooperative activities.' },
         ],
@@ -511,7 +509,6 @@ export const en = {
       ],
     },
     cta: 'Ready to switch?',
-    ctaButton: 'Get in touch',
   },
   privacy: {
     title: 'Privacy Policy',
