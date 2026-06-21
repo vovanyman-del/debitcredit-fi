@@ -1,24 +1,26 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect } from 'react';
 import { I18nProvider } from './i18n/context';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-// Eagerly loaded (above the fold)
+// Statically imported so the active route renders inline during SSR/prerender —
+// no Suspense boundary, so the prerendered <main> holds the real content (not a
+// JS-revealed hidden template). This keeps the pre-rendered HTML readable
+// without JS and avoids the hydration layout shift. For an 11-page brochure the
+// merged main chunk is small, and in-app navigation becomes instant.
 import HomePage from './pages/HomePage';
-
-// Lazy-loaded pages
-const ServicesPage = lazy(() => import('./pages/ServicesPage'));
-const PricingPage = lazy(() => import('./pages/PricingPage'));
-const VaavoPage = lazy(() => import('./pages/VaavoPage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const ForAccountantsPage = lazy(() => import('./pages/ForAccountantsPage'));
-const EntrepreneurGuidePage = lazy(() => import('./pages/EntrepreneurGuidePage'));
-const SwitchAccountantPage = lazy(() => import('./pages/SwitchAccountantPage'));
-const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
-const TermsPage = lazy(() => import('./pages/TermsPage'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+import ServicesPage from './pages/ServicesPage';
+import PricingPage from './pages/PricingPage';
+import VaavoPage from './pages/VaavoPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import ForAccountantsPage from './pages/ForAccountantsPage';
+import EntrepreneurGuidePage from './pages/EntrepreneurGuidePage';
+import SwitchAccountantPage from './pages/SwitchAccountantPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -52,13 +54,11 @@ function Layout() {
         <Header />
         <main className="flex-1">
           <ScrollToTop />
-          <Suspense fallback={<div className="flex-1" />}>
-            <Routes>
-              <Route path="/*">
-                {AppRoutes()}
-              </Route>
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/*">
+              {AppRoutes()}
+            </Route>
+          </Routes>
         </main>
         <Footer />
       </div>
