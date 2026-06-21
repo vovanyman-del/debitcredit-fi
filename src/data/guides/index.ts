@@ -1,6 +1,7 @@
 import type { Guide } from './types';
 import { toiminimiVaiOy } from './toiminimi-vai-oy';
 import { osakeyhtionPerustaminen } from './osakeyhtion-perustaminen';
+import { osinkoVaiPalkka } from './osinko-vai-palkka';
 import { kirjanpidonHinta } from './kirjanpidon-hinta';
 import { alvOpas } from './alv-opas';
 import { toiminimenVerotus } from './toiminimen-verotus';
@@ -13,6 +14,7 @@ export * from './types';
 export const guides: Guide[] = [
   toiminimiVaiOy,
   osakeyhtionPerustaminen,
+  osinkoVaiPalkka,
   kirjanpidonHinta,
   toiminimenVerotus,
   alvOpas,
