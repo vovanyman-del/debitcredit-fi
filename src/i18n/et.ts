@@ -4,6 +4,7 @@ export const et = {
     description: 'Raamatupidamine, maksundus, palgaarvestus ja ettevõtte asutamine. Üle 70 kliendi Helsingis. Teenindame soome, inglise, vene, eesti ja ukraina keeles.',
   },
   nav: {
+    guides: "Juhendid",
     menu: "Menüü",
     home: 'Avaleht',
     services: 'Teenused',
@@ -533,6 +534,17 @@ export const et = {
       { title: 'Vastutuse piiramine', content: 'Meie vastutus on piiratud tasutud teenustasude summaga. Me ei vastuta kaudsete kahjude eest.' },
       { title: 'Kohaldatav õigus', content: 'Nendele tingimustele kohaldatakse Soome seadust. Vaidluste korral on pädev kohus Helsingi ringkonnakohus.' },
     ],
+  },
+  guides: {
+    eyebrow: "Juhendid",
+    hubTitle: "Juhendid ettevõtjale",
+    hubSubtitle: "Selged juhendid ettevõtte loomiseks, maksudeks ja raamatupidamiseks — sinu keeles.",
+    read: "Loe juhendit",
+    updated: "Uuendatud",
+    faqTitle: "Korduma kippuvad küsimused",
+    backToHub: "Kõik juhendid",
+    ctaTitle: "Vajad abi?",
+    ctaText: "Aitame ettevõtte loomisel, maksudes ja raamatupidamises — viies keeles.",
   },
   common: {
     contactUs: 'Võta ühendust',

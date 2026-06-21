@@ -9,7 +9,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-const { render, getHead, get404Head, buildSitemap } = await import(
+const { render, getHead, get404Head, buildSitemap, ALL_PATHS } = await import(
   pathToFileURL(join(process.cwd(), 'dist-ssr/entry-server.js')).href
 );
 
@@ -32,20 +32,8 @@ function injectHead(html, { lang, title, description, head }) {
     .replace(SEO_MARKER, () => head);
 }
 
-// Mirrors the route table in src/App.tsx (the "*" 404 route is intentionally skipped).
-const basePaths = [
-  '/',
-  '/palvelut',
-  '/hinnasto',
-  '/vaavo',
-  '/meista',
-  '/yhteystiedot',
-  '/tilitoimistoille',
-  '/yrittajaksi',
-  '/vaihda-tilitoimistoa',
-  '/tietosuoja',
-  '/kayttoehdot',
-];
+// Route table from seo.ts (base pages + guide hub/articles); 404 is handled separately.
+const basePaths = ALL_PATHS;
 
 // fi has no prefix; the other locales are path-prefixed (see i18n/context.tsx).
 const localePrefixes = ['', '/en', '/ru', '/et', '/uk'];

@@ -11,6 +11,7 @@ import { ru } from './i18n/ru';
 import { et } from './i18n/et';
 import { uk } from './i18n/uk';
 import { company, packages } from './data/pricing';
+import { guideSlugs, getGuide } from './data/guides';
 
 type Translations = typeof fi;
 
@@ -56,7 +57,14 @@ export const BASE_PATHS = [
   '/kayttoehdot',
 ] as const;
 
+// Guide hub + one path per article (slug shared across locales).
+const GUIDE_PATHS: string[] = ['/opas', ...guideSlugs.map((s) => `/opas/${s}`)];
+
+// Every base path that gets prerendered (× 5 locales) and listed in the sitemap.
+export const ALL_PATHS: string[] = [...BASE_PATHS, ...GUIDE_PATHS];
+
 const SITEMAP_HINTS: Record<string, { priority: string; changefreq: string }> = {
+  '/opas': { priority: '0.7', changefreq: 'weekly' },
   '/': { priority: '1.0', changefreq: 'weekly' },
   '/hinnasto': { priority: '0.9', changefreq: 'monthly' },
   '/palvelut': { priority: '0.8', changefreq: 'monthly' },
@@ -129,6 +137,17 @@ const SEO_DESC: Record<Locale, Partial<Record<string, string>>> = {
 
 /** Page-specific title + description, derived from localized i18n copy. */
 function pageMeta(t: Translations, basePath: string, locale: Locale): { title: string; description: string } {
+  // Guides hub + articles (dynamic slug — handled before the static switch).
+  if (basePath === '/opas') {
+    return { title: withBrand(t.guides.hubTitle), description: t.guides.hubSubtitle };
+  }
+  if (basePath.startsWith('/opas/')) {
+    const guide = getGuide(basePath.slice('/opas/'.length));
+    if (guide) {
+      const c = guide.content[locale];
+      return { title: withBrand(c.title), description: c.description };
+    }
+  }
   // Dedicated SEO description wins over the (sometimes short/duplicate) subtitle.
   const desc = (fallback: string) => SEO_DESC[locale][basePath] ?? fallback;
   switch (basePath) {
@@ -212,6 +231,8 @@ function shortTitle(t: Translations, basePath: string): string {
       return t.privacy.title;
     case '/kayttoehdot':
       return t.terms.title;
+    case '/opas':
+      return t.guides.hubTitle;
     default:
       return t.meta.title;
   }
@@ -380,6 +401,51 @@ function jsonLd(locale: Locale, basePath: string): string {
     return serializeLd([organizationNode(t), localBusiness]);
   }
 
+  // Guide article: Article + FAQPage + BreadcrumbList (Home → Oppaat → Article).
+  if (basePath.startsWith('/opas/')) {
+    const guide = getGuide(basePath.slice('/opas/'.length));
+    if (guide) {
+      const c = guide.content[locale];
+      const pageUrl = urlFor(locale, basePath);
+      const article = {
+        '@type': 'Article',
+        '@id': `${pageUrl}#article`,
+        headline: c.title,
+        description: c.description,
+        inLanguage: locale,
+        datePublished: guide.datePublished,
+        dateModified: guide.dateModified,
+        author: { '@id': `${SITE}/#organization` },
+        publisher: { '@id': `${SITE}/#organization` },
+        image: `${SITE}/og/og-default.png`,
+        isPartOf: { '@id': `${SITE}/#website` },
+        mainEntityOfPage: pageUrl,
+      };
+      const breadcrumb = {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t.nav.home, item: urlFor(locale, '/') },
+          { '@type': 'ListItem', position: 2, name: t.guides.hubTitle, item: urlFor(locale, '/opas') },
+          { '@type': 'ListItem', position: 3, name: c.title, item: pageUrl },
+        ],
+      };
+      const graph: unknown[] = [article, breadcrumb, websiteNode(locale), organizationNode(t)];
+      if (c.faq.length) {
+        graph.push({
+          '@type': 'FAQPage',
+          '@id': `${pageUrl}#faq`,
+          mainEntity: c.faq.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        });
+      }
+      return serializeLd(graph);
+    }
+  }
+
   const pageUrl = urlFor(locale, basePath);
   const name = shortTitle(t, basePath);
   const { description } = pageMeta(t, basePath, locale);
@@ -483,8 +549,8 @@ export function get404Head(): HeadData {
 export function buildSitemap(lastmod?: string): string {
   const urls: string[] = [];
   for (const locale of LOCALES) {
-    for (const basePath of BASE_PATHS) {
-      const hint = SITEMAP_HINTS[basePath];
+    for (const basePath of ALL_PATHS) {
+      const hint = SITEMAP_HINTS[basePath] ?? { priority: '0.6', changefreq: 'monthly' };
       const alts = LOCALES.map(
         (l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${urlFor(l, basePath)}"/>`,
       );
