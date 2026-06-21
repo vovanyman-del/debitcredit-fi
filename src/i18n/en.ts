@@ -543,6 +543,7 @@ export const en = {
     updated: "Updated",
     faqTitle: "Frequently asked questions",
     backToHub: "All guides",
+    relatedTitle: "Read also",
     ctaTitle: "Need help?",
     ctaText: "We help with setting up your business, taxes and bookkeeping — in five languages.",
   },

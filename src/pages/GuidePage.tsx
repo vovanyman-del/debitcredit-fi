@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
-import { getGuide } from '../data/guides';
+import { getGuide, relatedGuides } from '../data/guides';
 import GuideBlocks from '../components/GuideBlocks';
 import NotFoundPage from './NotFoundPage';
 
@@ -13,6 +13,7 @@ export default function GuidePage() {
 
   const g = t.guides;
   const c = guide.content[locale];
+  const related = relatedGuides(guide.slug, 3);
 
   return (
     <div className="bg-canvas text-ink-900">
@@ -72,6 +73,26 @@ export default function GuidePage() {
             </Link>
           </div>
         </div>
+
+        {/* Read also — internal cross-links */}
+        {related.length > 0 && (
+          <section className="mt-14 border-t border-ink-900/10 pt-8">
+            <h2 className="text-lg font-bold text-ink-900">{g.relatedTitle}</h2>
+            <ul className="mt-4 space-y-2">
+              {related.map((r) => (
+                <li key={r.slug}>
+                  <Link
+                    to={localePath(`/opas/${r.slug}`)}
+                    className="group inline-flex items-start gap-2 text-ink-700 hover:text-brand-700"
+                  >
+                    <svg aria-hidden="true" className="mt-1 w-4 h-4 shrink-0 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <span className="font-medium group-hover:underline">{r.content[locale].title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <div className="mt-10">
           <Link to={localePath('/opas')} className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700">

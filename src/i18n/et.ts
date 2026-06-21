@@ -543,6 +543,7 @@ export const et = {
     updated: "Uuendatud",
     faqTitle: "Korduma kippuvad küsimused",
     backToHub: "Kõik juhendid",
+    relatedTitle: "Loe ka",
     ctaTitle: "Vajad abi?",
     ctaText: "Aitame ettevõtte loomisel, maksudes ja raamatupidamises — viies keeles.",
   },
