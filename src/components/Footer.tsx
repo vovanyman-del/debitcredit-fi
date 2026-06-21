@@ -31,6 +31,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">{t.common.learnMore}</h3>
             <ul className="space-y-2.5">
+              <li><Link to={localePath('/opas')} className="text-sm hover:text-white transition-colors">{t.nav.guides}</Link></li>
               <li><Link to={localePath('/yrittajaksi')} className="text-sm hover:text-white transition-colors">{t.nav.guide}</Link></li>
               <li><Link to={localePath('/vaihda-tilitoimistoa')} className="text-sm hover:text-white transition-colors">{t.nav.switchAccountant}</Link></li>
               <li><Link to={localePath('/meista')} className="text-sm hover:text-white transition-colors">{t.nav.about}</Link></li>

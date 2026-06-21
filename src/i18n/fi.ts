@@ -543,6 +543,7 @@ export const fi = {
     updated: "Päivitetty",
     faqTitle: "Usein kysytyt kysymykset",
     backToHub: "Kaikki oppaat",
+    relatedTitle: "Lue myös",
     ctaTitle: "Tarvitsetko apua?",
     ctaText: "Autamme yrityksesi perustamisessa, verotuksessa ja kirjanpidossa — viidellä kielellä.",
   },
