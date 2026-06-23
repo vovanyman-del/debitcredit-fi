@@ -14,6 +14,7 @@ export default function Footer() {
             <div className="text-xl font-bold text-white mb-2">Debit Credit</div>
             <p className="text-sm text-warm-400 mb-4">{company.name}</p>
             <p className="text-sm text-warm-400">Y-tunnus {company.ytunnus}</p>
+            <p className="text-sm text-warm-400 mt-3">{t.common.vaavoLangs}</p>
           </div>
 
           {/* Services */}

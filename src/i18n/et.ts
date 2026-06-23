@@ -1,7 +1,7 @@
 export const et = {
   meta: {
     title: 'Raamatupidamisbüroo Debit Credit — Raamatupidamine Helsingis',
-    description: 'Raamatupidamine, maksundus, palgaarvestus ja ettevõtte asutamine. Üle 70 kliendi Helsingis. Teenindame soome, inglise, vene, eesti ja ukraina keeles.',
+    description: 'Raamatupidamine, maksundus, palgaarvestus ja ettevõtte asutamine Helsingis. Raamatupidajad räägivad soome ja vene keelt, Vaavo kabinet ja tugi viies keeles.',
   },
   nav: {
     guides: "Juhendid",
@@ -20,7 +20,7 @@ export const et = {
   },
   home: {
     hero: {
-      eyebrow: 'Raamatupidamine Helsingis · räägime sinu keelt',
+      eyebrow: 'Raamatupidamine Helsingis · raamatupidajad räägivad soome ja vene keelt',
       title: 'Näed alati, kus sa oled.',
       subtitle: 'Raamatupidamine, maksud ja aruandlus kontrolli all. Vaavo töölaual näed pangakontot, makse ja aruandeid reaalajas — enam mitte «anna paberid ja oota».',
       cta: 'Tasuta konsultatsioon',
@@ -29,10 +29,19 @@ export const et = {
     stats: {
       years: '10 aastat',
       yearsLabel: 'Soome turul',
-      clients: '70+',
-      clientsLabel: 'ettevõtet meiega',
-      langs: 'RU · UK · ET · FI · EN',
-      langsLabel: 'räägime sinu keelt',
+      launches: '100+',
+      launchesLabel: 'ettevõtte asutamist',
+      salaries: '15 000+',
+      salariesLabel: 'arvestatud palka',
+      declarations: '4 000+',
+      declarationsLabel: 'maksudeklaratsiooni',
+    },
+    numbers: {
+      eyebrow: 'Numbrites',
+      title: 'Kümne aasta jälg',
+      subtitle: 'Ligikaudsed arvud sellest, mida oleme klientide heaks kümne aasta jooksul teinud.',
+      reports: '700+',
+      reportsLabel: 'majandusaasta aruannet',
     },
     heroCard: {
       brand: 'Vaavo',
@@ -58,7 +67,7 @@ export const et = {
       lead: 'See, mis teistel on paberites peidus, on sinul ekraanil. Elav vaade raamatupidaja töösse.',
       bank: { title: 'Pank, maksud ja aruanded — internetis', desc: 'Igal ajal, ilma aruannet küsimata ja ootamata.' },
       photo: { title: 'Kviitungi foto telefonist — kohe arvestusse', desc: 'Pilt jõuab ise raamatupidamisse — kviitungikarpe pole vaja.' },
-      language: { title: 'Küsimus sinu keeles — selge vastus', desc: 'Küsi vene, ukraina, eesti, soome või inglise keeles.' },
+      language: { title: 'Küsimus sinu keeles — selge vastus', desc: 'Vaavo töölaual küsid oma keeles (RU, FI, EN, ET, UK) — tehisintellekti assistent mõistab ja vastab samas keeles.' },
       panelTitle: 'Vaavo · Aruanded',
     },
     services: {
@@ -101,11 +110,11 @@ export const et = {
     },
     team: {
       eyebrow: 'Meeskond',
-      title: 'Päris inimesed, kes räägivad sinu keelt',
+      title: 'Päris inimesed, kes tunnevad sinu ettevõtet',
       subtitle: 'Saad nimelise raamatupidaja — mitte musta kasti ega juturoboti.',
       name: 'Vladimir Nyman',
       role: 'Asutaja ja raamatupidaja',
-      langs: 'RU · UK · ET · FI · EN',
+      langs: 'Raamatupidajad räägivad soome ja vene keelt',
       desc: 'Raamatupidaja ja ettevõtja. Asutas Debit Crediti, et pakkuda Soome väikeettevõtjatele selget ja inimlikku teenust.',
     },
     testimonial: {
@@ -115,7 +124,7 @@ export const et = {
     },
     finalCta: {
       title: 'Pole kindel, mida vajad? Lihtsalt räägi meiega.',
-      subtitle: '15 minutit sinu keeles, ilma kohustusteta.',
+      subtitle: '15 minutit soome või vene keeles, ilma kohustusteta.',
       cta: 'Tasuta konsultatsioon',
       whatsapp: 'WhatsApp',
     },
@@ -354,17 +363,17 @@ export const et = {
     facts: {
       years: '10',
       yearsLabel: 'aastat Soome turul',
-      served: '300+',
-      servedLabel: 'ettevõtet selle aja jooksul',
-      current: '70+',
-      currentLabel: 'klienti praegu',
+      served: '100+',
+      servedLabel: 'ettevõtte asutamist',
+      current: '700+',
+      currentLabel: 'majandusaasta aruannet',
     },
     lifecycle: 'Oleme sinuga kogu teekonna — asutamisest ja kasvust kuni vajadusel korrektse lõpetamiseni.',
-    languages: 'Räägime: RU · UK · ET · FI · EN',
+    languages: 'Raamatupidajad räägivad soome ja vene keelt · Vaavo kabinet ja tugi: RU · FI · EN · ET · UK',
     story: {
       title: 'Meie lugu',
       p1: 'Raamatupidamisbüroo Debit Credit asutati Helsingis eesmärgiga pakkuda kaasaegset ja läbipaistvat raamatupidamist, eriti väikestele ja keskmise suurusega ettevõtetele.',
-      p2: 'Teenindame üle 70 kliendi erinevatest valdkondadest. Meie kliendid hindavad selget hinnakujundust, kiiret suhtlust ja tehnoloogiat, mis teeb raamatupidamise lihtsaks.',
+      p2: 'Kümne aasta jooksul oleme asutanud üle 100 ettevõtte, arvestanud üle 15 000 palga ja koostanud sadu majandusaasta aruandeid. Meie kliendid hindavad selget hinnakujundust, kiiret suhtlust ja tehnoloogiat, mis teeb raamatupidamise lihtsaks.',
       p3: 'Arendasime Vaavo platvormi, kuna soovisime anda klientidele reaalajas ülevaate oma rahaasjadest — mitte ainult kuuaruandeid, vaid pidevat ühendust raamatupidamisega.',
     },
     values: {
@@ -372,7 +381,7 @@ export const et = {
       transparency: { title: 'Läbipaistvus', desc: 'Selged hinnad, avatud suhtlus ja reaalajas juurdepääs finantsandmetele.' },
       expertise: { title: 'Asjatundlikkus', desc: 'Sügav teadmine Soome maksuseadusandlusest ja raamatupidamise nõuetest.' },
       technology: { title: 'Tehnoloogia', desc: 'Vaavo platvorm ja AI-tööriistad teevad raamatupidamise tõhusamaks.' },
-      multilingual: { title: 'Mitmekeelsus', desc: 'Teenindame soome, inglise, vene, eesti ja ukraina keeles.' },
+      multilingual: { title: 'Mitmekeelsus', desc: 'Raamatupidajad räägivad soome ja vene keelt. Vaavo kabinet ja tugi kõigis viies keeles: RU, FI, EN, ET, UK.' },
     },
     founder: {
       title: 'Asutaja',
@@ -505,7 +514,7 @@ export const et = {
         'Selged ja prognoositavad kuuhinnad',
         'Vaavo platvorm — reaalajas ülevaade rahaasjadest',
         'Kiire suhtlus — vastame samal päeval',
-        'Mitmekeelne teenus (fi, en, ru, et, uk)',
+        'Raamatupidajad soome ja vene keeles · Vaavo kabinet viies keeles',
         'Kaasaegsed tööriistad ja AI raamatupidamise abiks',
       ],
     },
@@ -548,6 +557,7 @@ export const et = {
     ctaText: "Aitame ettevõtte loomisel, maksudes ja raamatupidamises — viies keeles.",
   },
   common: {
+    vaavoLangs: 'Vaavo kabinet ja tugi: soome, vene, inglise, eesti, ukraina.',
     contactUs: 'Võta ühendust',
     learnMore: 'Loe lähemalt',
     allRightsReserved: 'Kõik õigused kaitstud.',

@@ -1,7 +1,7 @@
 export const fi = {
   meta: {
     title: 'Tilitoimisto Debit Credit — Kirjanpito Helsingissä',
-    description: 'Kirjanpito, verotus, palkanlaskenta ja yrityksen perustaminen. Yli 70 asiakasta Helsingissä. Palvelemme suomeksi, englanniksi, venäjäksi, viroksi ja ukrainaksi.',
+    description: 'Kirjanpito, verotus, palkanlaskenta ja yrityksen perustaminen Helsingissä. Kirjanpitäjät palvelevat suomeksi ja venäjäksi, Vaavo-kabinetti ja tuki viidellä kielellä.',
   },
   nav: {
     guides: "Oppaat",
@@ -20,7 +20,7 @@ export const fi = {
   },
   home: {
     hero: {
-      eyebrow: 'Kirjanpito Helsingissä · palvelemme sinun kielelläsi',
+      eyebrow: 'Kirjanpito Helsingissä · kirjanpitäjät puhuvat suomea ja venäjää',
       title: 'Näet aina, missä menet.',
       subtitle: 'Kirjanpito, verot ja raportointi hallinnassa. Vaavossa näet pankin, verot ja raportit reaaliajassa — ei enää «anna paperit ja odota».',
       cta: 'Ilmainen konsultaatio',
@@ -29,10 +29,19 @@ export const fi = {
     stats: {
       years: '10 vuotta',
       yearsLabel: 'Suomen markkinoilla',
-      clients: '70+',
-      clientsLabel: 'yritystä mukana',
-      langs: 'RU · UK · ET · FI · EN',
-      langsLabel: 'palvelemme kielelläsi',
+      launches: '100+',
+      launchesLabel: 'yrityksen perustamista',
+      salaries: '15 000+',
+      salariesLabel: 'laskettua palkkaa',
+      declarations: '4 000+',
+      declarationsLabel: 'veroilmoitusta',
+    },
+    numbers: {
+      eyebrow: 'Numeroina',
+      title: 'Kymmenen vuoden jälki',
+      subtitle: 'Suuntaa antavia lukuja siitä, mitä olemme kymmenessä vuodessa tehneet asiakkaillemme.',
+      reports: '700+',
+      reportsLabel: 'tilinpäätöstä',
     },
     heroCard: {
       brand: 'Vaavo',
@@ -58,7 +67,7 @@ export const fi = {
       lead: 'Se mikä muilla on piilossa papereissa, on sinulla ruudulla. Elävä näkymä kirjanpitäjän työhön.',
       bank: { title: 'Pankki, verot ja raportit — verkossa', desc: 'Milloin tahansa, ilman erillistä pyyntöä tai odotusta.' },
       photo: { title: 'Kuva kuitista puhelimella — suoraan kirjanpitoon', desc: 'Kuva siirtyy itse kirjanpitoon — kuittilaatikoita ei tarvita.' },
-      language: { title: 'Kysymys omalla kielelläsi — selkeä vastaus', desc: 'Kysy suomeksi, venäjäksi, ukrainaksi, viroksi tai englanniksi.' },
+      language: { title: 'Kysymys omalla kielelläsi — selkeä vastaus', desc: 'Vaavo-kabinetissa kysyt omalla kielelläsi (RU, FI, EN, ET, UK) — tekoälyavustaja ymmärtää ja vastaa samalla kielellä.' },
       panelTitle: 'Vaavo · Raportit',
     },
     services: {
@@ -101,11 +110,11 @@ export const fi = {
     },
     team: {
       eyebrow: 'Tiimi',
-      title: 'Eläviä ihmisiä, jotka puhuvat kieltäsi',
+      title: 'Eläviä ihmisiä, jotka tuntevat yrityksesi',
       subtitle: 'Saat nimetyn kirjanpitäjän — ei mustaa laatikkoa eikä chatbottia.',
       name: 'Vladimir Nyman',
       role: 'Perustaja ja kirjanpitäjä',
-      langs: 'RU · UK · ET · FI · EN',
+      langs: 'Kirjanpitäjät palvelevat suomeksi ja venäjäksi',
       desc: 'Kirjanpitäjä ja yrittäjä, joka perusti Debit Creditin tarjotakseen pienyrittäjille Suomessa selkeää ja inhimillistä palvelua.',
     },
     testimonial: {
@@ -115,7 +124,7 @@ export const fi = {
     },
     finalCta: {
       title: 'Etkö ole varma, mitä tarvitset? Jutellaan vain.',
-      subtitle: '15 minuuttia omalla kielelläsi, ilman sitoumuksia.',
+      subtitle: '15 minuuttia suomeksi tai venäjäksi, ilman sitoumuksia.',
       cta: 'Ilmainen konsultaatio',
       whatsapp: 'WhatsApp',
     },
@@ -354,17 +363,17 @@ export const fi = {
     facts: {
       years: '10',
       yearsLabel: 'vuotta Suomen markkinoilla',
-      served: '300+',
-      servedLabel: 'yritystä tänä aikana',
-      current: '70+',
-      currentLabel: 'asiakasta nyt',
+      served: '100+',
+      servedLabel: 'yrityksen perustamista',
+      current: '700+',
+      currentLabel: 'tilinpäätöstä',
     },
     lifecycle: 'Olemme mukana koko matkan — perustamisesta ja kasvusta aina tarvittaessa hallittuun lopettamiseen asti.',
-    languages: 'Palvelemme: RU · UK · ET · FI · EN',
+    languages: 'Kirjanpitäjät palvelevat suomeksi ja venäjäksi · Vaavo-kabinetti ja tuki: RU · FI · EN · ET · UK',
     story: {
       title: 'Tarinamme',
       p1: 'Tilitoimisto Debit Credit perustettiin Helsingissä tavoitteena tarjota modernia ja läpinäkyvää kirjanpitoa erityisesti pienille ja keskisuurille yrityksille.',
-      p2: 'Palvelemme yli 70 asiakasta eri toimialoilta. Asiakkaamme arvostavat selkeää hinnoittelua, nopeaa viestintää ja teknologiaa, joka tekee kirjanpidosta helppoa.',
+      p2: 'Olemme kymmenen vuoden aikana perustaneet yli 100 yritystä, laskeneet yli 15 000 palkkaa ja laatineet satoja tilinpäätöksiä. Asiakkaamme arvostavat selkeää hinnoittelua, nopeaa viestintää ja teknologiaa, joka tekee kirjanpidosta helppoa.',
       p3: 'Kehitimme Vaavo-alustan, koska halusimme antaa asiakkaillemme reaaliaikaisen näkymän talouteensa — ei pelkkiä kuukausiraportteja, vaan jatkuvan yhteyden kirjanpitoon.',
     },
     values: {
@@ -372,7 +381,7 @@ export const fi = {
       transparency: { title: 'Läpinäkyvyys', desc: 'Selkeät hinnat, avoin viestintä ja reaaliaikainen pääsy taloustietoihin.' },
       expertise: { title: 'Asiantuntemus', desc: 'Syvä osaaminen Suomen verolainsäädännöstä ja kirjanpidon vaatimuksista.' },
       technology: { title: 'Teknologia', desc: 'Vaavo-alusta ja tekoälytyökalut tekevät kirjanpidosta tehokkaampaa.' },
-      multilingual: { title: 'Monikielisyys', desc: 'Palvelemme suomeksi, englanniksi, venäjäksi, viroksi ja ukrainaksi.' },
+      multilingual: { title: 'Monikielisyys', desc: 'Kirjanpitäjät palvelevat suomeksi ja venäjäksi. Vaavo-kabinetti ja tuki kaikilla viidellä kielellä: RU, FI, EN, ET, UK.' },
     },
     founder: {
       title: 'Perustaja',
@@ -505,7 +514,7 @@ export const fi = {
         'Selkeät ja ennustettavat kuukausihinnat',
         'Vaavo-alusta — reaaliaikainen näkymä talouteesi',
         'Nopea viestintä — vastaamme samana päivänä',
-        'Monikielinen palvelu (fi, en, ru, et, uk)',
+        'Kirjanpitäjät suomeksi ja venäjäksi · Vaavo-kabinetti viidellä kielellä',
         'Modernit työkalut ja tekoäly kirjanpidon apuna',
       ],
     },
@@ -548,6 +557,7 @@ export const fi = {
     ctaText: "Autamme yrityksesi perustamisessa, verotuksessa ja kirjanpidossa — viidellä kielellä.",
   },
   common: {
+    vaavoLangs: 'Vaavo-kabinetti ja asiakastuki: suomi, venäjä, englanti, viro, ukraina.',
     contactUs: 'Ota yhteyttä',
     learnMore: 'Lisätietoja',
     allRightsReserved: 'Kaikki oikeudet pidätetään.',

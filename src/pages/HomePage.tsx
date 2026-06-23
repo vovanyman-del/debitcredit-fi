@@ -44,6 +44,13 @@ export default function HomePage() {
     { ...h.personas.switching, icon: IconSwitch, to: '/vaihda-tilitoimistoa' },
     { ...h.personas.blackbox, icon: IconEye, to: '/vaavo' },
   ];
+  const statItems = [
+    { v: h.stats.years, l: h.stats.yearsLabel },
+    { v: h.stats.launches, l: h.stats.launchesLabel },
+    { v: h.stats.salaries, l: h.stats.salariesLabel },
+    { v: h.stats.declarations, l: h.stats.declarationsLabel },
+  ];
+  const numberItems = [...statItems, { v: h.numbers.reports, l: h.numbers.reportsLabel }];
 
   return (
     <div className="bg-canvas text-ink-900">
@@ -77,14 +84,10 @@ export default function HomePage() {
 
         {/* Stats bar */}
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pb-16 sm:pb-20">
-          <div className="grid grid-cols-3 divide-x divide-ink-900/10 text-center">
-            {[
-              { v: h.stats.years, l: h.stats.yearsLabel },
-              { v: h.stats.clients, l: h.stats.clientsLabel },
-              { v: h.stats.langs, l: h.stats.langsLabel },
-            ].map((s, i) => (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 sm:gap-y-0 sm:divide-x divide-ink-900/10 text-center">
+            {statItems.map((s, i) => (
               <div key={i} className="px-2">
-                <div className="text-xl sm:text-2xl font-bold text-ink-900">{s.v}</div>
+                <div className="text-xl sm:text-2xl font-bold text-ink-900 whitespace-nowrap">{s.v}</div>
                 <div className="mt-1 text-xs sm:text-sm text-ink-700/75">{s.l}</div>
               </div>
             ))}
@@ -256,6 +259,23 @@ export default function HomePage() {
           <div>
             <div className="font-semibold text-ink-900">{h.testimonial.author}</div>
             <div className="text-sm text-ink-700/75">{h.testimonial.company}</div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== IN NUMBERS ===== */}
+      <section className="bg-white border-y border-ink-900/5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-600">{h.numbers.eyebrow}</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-ink-900 max-w-2xl leading-tight">{h.numbers.title}</h2>
+          <p className="mt-4 text-lg text-ink-700/75 max-w-2xl">{h.numbers.subtitle}</p>
+          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {numberItems.map((s, i) => (
+              <div key={i} className="rounded-2xl border border-ink-900/10 bg-canvas p-6 text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold font-mono text-brand-600 tracking-tight whitespace-nowrap">{s.v}</div>
+                <div className="mt-2 text-sm text-ink-700/75 leading-snug">{s.l}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
