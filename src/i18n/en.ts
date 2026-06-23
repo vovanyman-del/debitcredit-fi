@@ -1,7 +1,7 @@
 export const en = {
   meta: {
     title: 'Accounting Firm Debit Credit — Bookkeeping in Helsinki',
-    description: 'Bookkeeping, taxation, payroll and company formation. Over 70 clients in Helsinki. We serve in Finnish, English, Russian, Estonian and Ukrainian.',
+    description: 'Bookkeeping, taxation, payroll and company formation in Helsinki. Our accountants speak Finnish and Russian; the Vaavo workspace and support cover five languages.',
   },
   nav: {
     guides: "Guides",
@@ -20,7 +20,7 @@ export const en = {
   },
   home: {
     hero: {
-      eyebrow: 'Accounting in Helsinki · we speak your language',
+      eyebrow: 'Accounting in Helsinki · accountants speak Finnish and Russian',
       title: 'You always see where you stand.',
       subtitle: 'Bookkeeping, taxes and reporting under control. In the Vaavo workspace you see your bank, taxes and reports in real time — no more «hand over the papers and wait».',
       cta: 'Free consultation',
@@ -29,10 +29,19 @@ export const en = {
     stats: {
       years: '10 years',
       yearsLabel: 'on the Finnish market',
-      clients: '70+',
-      clientsLabel: 'companies with us',
-      langs: 'RU · UK · ET · FI · EN',
-      langsLabel: 'we speak your language',
+      launches: '100+',
+      launchesLabel: 'businesses launched',
+      salaries: '15,000+',
+      salariesLabel: 'payrolls run',
+      declarations: '4,000+',
+      declarationsLabel: 'tax returns filed',
+    },
+    numbers: {
+      eyebrow: 'By the numbers',
+      title: 'Ten years of track record',
+      subtitle: 'Indicative figures of what we have done for our clients over ten years.',
+      reports: '700+',
+      reportsLabel: 'annual reports',
     },
     heroCard: {
       brand: 'Vaavo',
@@ -58,7 +67,7 @@ export const en = {
       lead: 'What others hide in paperwork is on your screen. A living view of your accountant’s work.',
       bank: { title: 'Bank, taxes and reports — online', desc: 'Any time, without requesting a report or waiting.' },
       photo: { title: 'A photo of a receipt — straight into the books', desc: 'The snapshot lands in the bookkeeping itself — no boxes of receipts.' },
-      language: { title: 'A question in your language — a clear answer', desc: 'Ask in Russian, Ukrainian, Estonian, Finnish or English.' },
+      language: { title: 'A question in your language — a clear answer', desc: 'In the Vaavo workspace you ask in your own language (RU, FI, EN, ET, UK) — the AI assistant understands and answers in it.' },
       panelTitle: 'Vaavo · Reports',
     },
     services: {
@@ -101,11 +110,11 @@ export const en = {
     },
     team: {
       eyebrow: 'Team',
-      title: 'Real people who speak your language',
+      title: 'Real people who know your business',
       subtitle: 'You get a named accountant — not a black box and not a chatbot.',
       name: 'Vladimir Nyman',
       role: 'Founder and accountant',
-      langs: 'RU · UK · ET · FI · EN',
+      langs: 'Accountants speak Finnish and Russian',
       desc: 'Accountant and entrepreneur. Founded Debit Credit to give small businesses in Finland clear, human service.',
     },
     testimonial: {
@@ -115,7 +124,7 @@ export const en = {
     },
     finalCta: {
       title: 'Not sure what you need? Just talk to us.',
-      subtitle: '15 minutes in your language, no obligations.',
+      subtitle: '15 minutes in Finnish or Russian, no obligations.',
       cta: 'Free consultation',
       whatsapp: 'WhatsApp',
     },
@@ -354,17 +363,17 @@ export const en = {
     facts: {
       years: '10',
       yearsLabel: 'years on the Finnish market',
-      served: '300+',
-      servedLabel: 'companies over this time',
-      current: '70+',
-      currentLabel: 'clients today',
+      served: '100+',
+      servedLabel: 'businesses launched',
+      current: '700+',
+      currentLabel: 'annual reports',
     },
     lifecycle: 'We walk the whole journey with you — from registration and growth to, when needed, an orderly wind-down.',
-    languages: 'We speak: RU · UK · ET · FI · EN',
+    languages: 'Accountants speak Finnish and Russian · Vaavo workspace & support: RU · FI · EN · ET · UK',
     story: {
       title: 'Our Story',
       p1: 'Debit Credit was founded in Helsinki with the goal of providing modern and transparent bookkeeping, especially for small and medium-sized businesses.',
-      p2: 'We serve over 70 clients across various industries. Our clients value clear pricing, fast communication and technology that makes bookkeeping easy.',
+      p2: 'Over ten years we have founded more than 100 companies, run over 15,000 payrolls and prepared hundreds of financial statements. Our clients value clear pricing, fast communication and technology that makes bookkeeping easy.',
       p3: 'We developed the Vaavo platform because we wanted to give our clients a real-time view of their finances — not just monthly reports, but a continuous connection to their bookkeeping.',
     },
     values: {
@@ -372,7 +381,7 @@ export const en = {
       transparency: { title: 'Transparency', desc: 'Clear prices, open communication and real-time access to financial data.' },
       expertise: { title: 'Expertise', desc: 'Deep knowledge of Finnish tax legislation and bookkeeping requirements.' },
       technology: { title: 'Technology', desc: 'The Vaavo platform and AI tools make bookkeeping more efficient.' },
-      multilingual: { title: 'Multilingual', desc: 'We serve in Finnish, English, Russian, Estonian and Ukrainian.' },
+      multilingual: { title: 'Multilingual', desc: 'Our accountants speak Finnish and Russian. The Vaavo workspace and support cover all five languages: RU, FI, EN, ET, UK.' },
     },
     founder: {
       title: 'Founder',
@@ -505,7 +514,7 @@ export const en = {
         'Clear and predictable monthly prices',
         'Vaavo platform — real-time view of your finances',
         'Fast communication — we respond the same day',
-        'Multilingual service (FI, EN, RU, ET, UK)',
+        'Accountants in Finnish & Russian · Vaavo workspace in five languages',
         'Modern tools and AI-assisted bookkeeping',
       ],
     },
@@ -548,6 +557,7 @@ export const en = {
     ctaText: "We help with setting up your business, taxes and bookkeeping — in five languages.",
   },
   common: {
+    vaavoLangs: 'Vaavo workspace & support: Finnish, Russian, English, Estonian, Ukrainian.',
     contactUs: 'Get in touch',
     learnMore: 'Learn more',
     allRightsReserved: 'All rights reserved.',
