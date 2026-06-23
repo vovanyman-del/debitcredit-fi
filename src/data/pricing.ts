@@ -165,7 +165,6 @@ export const company = {
   email: 'vladimir@debitcredit.fi',
   address: 'Haapaniemenkatu 7-9 B, 16. krs, 00530 Helsinki',
   founder: 'Vladimir Nyman',
-  clientCount: '70+',
   vaavo: {
     web: 'https://vaavo.fi',
     app: 'https://vaavo.app',

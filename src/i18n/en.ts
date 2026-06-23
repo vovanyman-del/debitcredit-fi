@@ -39,7 +39,7 @@ export const en = {
     numbers: {
       eyebrow: 'By the numbers',
       title: 'Ten years of track record',
-      subtitle: 'Indicative figures of what we have done for our clients over ten years.',
+      subtitle: 'An indication of what we have done for our clients over ten years.',
       reports: '700+',
       reportsLabel: 'annual reports',
     },
@@ -58,20 +58,20 @@ export const en = {
       eyebrow: 'Why people come to us',
       title: 'Three reasons — and you will recognise yourself in each',
       opening: { title: 'I am starting a business', desc: 'From scratch we pick the company form, register it and explain every step — without the accounting jargon.', cta: 'Start with a chat' },
-      switching: { title: 'I want to switch accountant', desc: 'Switching is easy: we collect everything from your previous accountant with no downtime.', cta: 'Switch calmly' },
+      switching: { title: 'I want to switch accountant', desc: 'Switching is easy: we collect everything from your previous accountant with no downtime.', cta: 'Switch with ease' },
       blackbox: { title: 'Tired of the black box', desc: 'You want transparency. In Vaavo you see every month where the money goes.', cta: 'See everything' },
     },
     invisible: {
       eyebrow: 'What you get',
-      title: 'Vaavo in plain words',
-      lead: 'What others hide in paperwork is on your screen. A living view of your accountant’s work.',
+      title: 'Vaavo, in plain words',
+      lead: 'What others hide in paperwork is on your screen — a live view of your accountant’s work.',
       bank: { title: 'Bank, taxes and reports — online', desc: 'Any time, without requesting a report or waiting.' },
       photo: { title: 'A photo of a receipt — straight into the books', desc: 'The snapshot lands in the bookkeeping itself — no boxes of receipts.' },
       language: { title: 'A question in your language — a clear answer', desc: 'In the Vaavo workspace you ask in your own language (RU, FI, EN, ET, UK) — the AI assistant understands and answers in it.' },
       panelTitle: 'Vaavo · Reports',
     },
     services: {
-      title: 'Full bookkeeping, turnkey',
+      title: 'Full-service bookkeeping, done for you',
       bookkeeping: {
         title: 'Bookkeeping',
         desc: 'Simplified and double-entry bookkeeping, monthly reports, VAT returns and financial statements.',
@@ -91,7 +91,7 @@ export const en = {
     },
     howItWorks: {
       eyebrow: 'How you start',
-      title: 'How to get started — it begins with a chat',
+      title: 'Getting started — it begins with a chat',
       step1: { title: 'Get in touch', desc: 'Tell us about your needs and receive a quote the same day.' },
       step2: { title: 'Choose a package', desc: 'We select the right package for your business together.' },
       step3: { title: 'Connect your bank', desc: 'Vaavo fetches transactions automatically.' },
@@ -139,7 +139,7 @@ export const en = {
         'Double-entry bookkeeping',
         'Monthly VAT returns',
         'Monthly financial reports',
-        'Bank transaction matching',
+        'Matching payments to bank transactions',
         'Bill payments and recording',
         'Invoice creation and delivery',
         'Financial statements and tax returns',
@@ -192,13 +192,13 @@ export const en = {
   },
   pricing: {
     title: 'Pricing',
-    subtitle: 'Clear and predictable monthly prices. All prices are exclusive of VAT (25.5%).',
+    subtitle: 'Clear and predictable monthly prices. All prices exclude VAT (25.5%).',
     packages: 'Monthly Packages',
     perMonth: ' / mo',
     vouchers: 'vouchers / mo',
     extraVoucher: 'Extra voucher',
     additional: 'Additional Services',
-    note: 'All prices are exclusive of VAT (25.5%). Package prices are monthly fees.',
+    note: 'All prices exclude VAT (25.5%). Package prices are monthly fees.',
     customTitle: 'Custom solution',
     requestQuote: 'Request a quote',
     sections: {
@@ -346,7 +346,7 @@ export const en = {
       files: { title: 'Document Management', desc: 'Receipts, contracts and reports securely in one place. Organised archive by month.' },
       messages: { title: 'Messaging', desc: 'Direct messages with your accountant inside the app. No more searching through emails.' },
       analytics: { title: 'Analytics & Reports', desc: 'Expense analysis, profit trends and vendor comparisons as visual charts.' },
-      aiHelper: { title: 'AI Assistant', desc: 'Ask financial questions in Finnish, English, Russian, Estonian or Ukrainian — AI responds based on your company data.' },
+      aiHelper: { title: 'AI Assistant', desc: 'Ask financial questions in Finnish, Russian, English, Estonian or Ukrainian — AI responds based on your company data.' },
     },
     demo: {
       step1: { title: 'Log in securely', desc: 'Personal credentials — only your company data' },
@@ -359,7 +359,7 @@ export const en = {
   },
   about: {
     title: 'About Us',
-    subtitle: 'Debit Credit — a reliable partner for your business financial management.',
+    subtitle: 'Debit Credit — a reliable partner for managing your business finances.',
     facts: {
       years: '10',
       yearsLabel: 'years on the Finnish market',
@@ -368,11 +368,11 @@ export const en = {
       current: '700+',
       currentLabel: 'annual reports',
     },
-    lifecycle: 'We walk the whole journey with you — from registration and growth to, when needed, an orderly wind-down.',
+    lifecycle: 'We’re with you for the whole journey — from registration and growth to an orderly wind-down when the time comes.',
     languages: 'Accountants speak Finnish and Russian · Vaavo workspace & support: RU · FI · EN · ET · UK',
     story: {
       title: 'Our Story',
-      p1: 'Debit Credit was founded in Helsinki with the goal of providing modern and transparent bookkeeping, especially for small and medium-sized businesses.',
+      p1: 'Debit Credit was founded in Helsinki to provide modern, transparent bookkeeping — especially for small and medium-sized businesses.',
       p2: 'Over ten years we have founded more than 100 companies, run over 15,000 payrolls and prepared hundreds of financial statements. Our clients value clear pricing, fast communication and technology that makes bookkeeping easy.',
       p3: 'We developed the Vaavo platform because we wanted to give our clients a real-time view of their finances — not just monthly reports, but a continuous connection to their bookkeeping.',
     },
@@ -391,7 +391,7 @@ export const en = {
     partners: {
       title: 'Partners',
       fennia: 'Fennia — business insurance. We help our clients choose the right insurance to protect their business.',
-      if: 'If — business insurance. Comprehensive coverage for your business with one of Finland\'s leading insurers.',
+      if: 'If — business insurance. Comprehensive coverage for your business with one of Finland’s leading insurers.',
       lahitapiola: 'LähiTapiola — insurance and wealth management. A local and trusted partner for business risk management.',
       wamo: 'Wamo — business banking. Modern business account, fast opening and easy integration with bookkeeping via Vaavo.',
     },
@@ -420,8 +420,8 @@ export const en = {
   },
   forAccountants: {
     title: 'For Accounting Firms',
-    subtitle: 'Vaavo — a platform that makes accountants\' work more efficient.',
-    intro: 'Vaavo is built for accountants\' needs. The platform automates routine tasks, provides real-time bank data and streamlines client communication.',
+    subtitle: 'Vaavo — a platform that makes accountants’ work more efficient.',
+    intro: 'Vaavo is built for the way accountants work. The platform automates routine tasks, provides real-time bank data and streamlines client communication.',
     cta: 'Want to try Vaavo at your accounting firm?',
     features: {
       ai: { title: 'AI Automation', desc: 'AI recognises receipts, suggests entries and learns from client patterns. Less manual work.' },
@@ -442,7 +442,7 @@ export const en = {
         items: [
           { title: 'Sole Trader (Toiminimi / Tmi)', desc: 'The simplest form. Suitable for freelancers and small entrepreneurs. No separate legal entity — the entrepreneur is personally liable.' },
           { title: 'Limited Company (Oy)', desc: 'The most popular business form. Separate legal entity with limited liability. No minimum share capital (requirement abolished in 2019). Suitable for growth.' },
-          { title: 'Limited Partnership (Ky)', desc: 'A partnership with a silent and a general partner. Suitable for small family businesses.' },
+          { title: 'Limited Partnership (Ky)', desc: 'A partnership with one silent partner and one general (active) partner. Suitable for small family businesses.' },
           { title: 'Cooperative (Osuuskunta)', desc: 'A democracy-based form. Suitable for community entrepreneurship and cooperative activities.' },
         ],
       },
@@ -464,7 +464,7 @@ export const en = {
         intro: 'As an entrepreneur in Finland, you should understand at least these tax types:',
         items: [
           { title: 'Value Added Tax (VAT)', desc: 'The general VAT rate is 25.5%. VAT returns are filed monthly or quarterly via OmaVero.' },
-          { title: 'Income Tax', desc: 'Corporate income tax is 20% (Oy). Sole trader income is taxed as the entrepreneur\'s personal income.' },
+          { title: 'Income Tax', desc: 'Corporate income tax is 20% (Oy). Sole trader income is taxed as the entrepreneur’s personal income.' },
           { title: 'Employer Contributions', desc: 'Social security contributions, TyEL pension insurance, accident insurance and unemployment insurance.' },
         ],
       },
@@ -498,7 +498,7 @@ export const en = {
   switchAccountant: {
     title: 'Switch Your Accountant',
     subtitle: 'Switching accountants is easier than you think.',
-    intro: 'If your current accounting firm doesn\'t meet your expectations, switching is a simple process. We handle the transition for you — you don\'t need to worry about anything.',
+    intro: 'If your current accounting firm doesn’t meet your expectations, switching is a simple process. We handle the transition for you — there’s nothing for you to worry about.',
     steps: {
       title: 'How Switching Works',
       items: [

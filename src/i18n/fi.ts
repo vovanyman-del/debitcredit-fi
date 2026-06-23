@@ -64,9 +64,9 @@ export const fi = {
     invisible: {
       eyebrow: 'Mitä saat',
       title: 'Vaavo selkokielellä',
-      lead: 'Se mikä muilla on piilossa papereissa, on sinulla ruudulla. Elävä näkymä kirjanpitäjän työhön.',
+      lead: 'Se mikä muualla on piilossa papereissa, on sinulla ruudulla. Näet itse, mitä kirjanpitäjä tekee.',
       bank: { title: 'Pankki, verot ja raportit — verkossa', desc: 'Milloin tahansa, ilman erillistä pyyntöä tai odotusta.' },
-      photo: { title: 'Kuva kuitista puhelimella — suoraan kirjanpitoon', desc: 'Kuva siirtyy itse kirjanpitoon — kuittilaatikoita ei tarvita.' },
+      photo: { title: 'Kuva kuitista puhelimella — suoraan kirjanpitoon', desc: 'Kuva siirtyy automaattisesti kirjanpitoon — kuittilaatikoita ei enää tarvita.' },
       language: { title: 'Kysymys omalla kielelläsi — selkeä vastaus', desc: 'Vaavo-kabinetissa kysyt omalla kielelläsi (RU, FI, EN, ET, UK) — tekoälyavustaja ymmärtää ja vastaa samalla kielellä.' },
       panelTitle: 'Vaavo · Raportit',
     },
@@ -94,7 +94,7 @@ export const fi = {
       title: 'Näin pääset alkuun — keskustelusta',
       step1: { title: 'Ota yhteyttä', desc: 'Kerro tarpeistasi ja saat tarjouksen samana päivänä.' },
       step2: { title: 'Valitse paketti', desc: 'Valitsemme yhdessä sopivan paketin yrityksellesi.' },
-      step3: { title: 'Yhdistä pankkitili', desc: 'Vaavo hakee tapahtumat automaattisesti.' },
+      step3: { title: 'Yhdistä pankkitili', desc: 'Vaavo hakee pankkitapahtumat automaattisesti.' },
       step4: { title: 'Keskity yrittämiseen', desc: 'Hoidamme kirjanpidon — sinä teet sen, mitä osaat parhaiten.' },
     },
     packages: {
@@ -110,7 +110,7 @@ export const fi = {
     },
     team: {
       eyebrow: 'Tiimi',
-      title: 'Eläviä ihmisiä, jotka tuntevat yrityksesi',
+      title: 'Oikeita ihmisiä, jotka tuntevat yrityksesi',
       subtitle: 'Saat nimetyn kirjanpitäjän — ei mustaa laatikkoa eikä chatbottia.',
       name: 'Vladimir Nyman',
       role: 'Perustaja ja kirjanpitäjä',
@@ -222,8 +222,8 @@ export const fi = {
       basic: 'Toiminimi / pieni Oy, laskutus + 1 palkka',
       medium: 'Toiminimi / pieni-keskisuuri Oy (5–15 laskua/kk, 2–4 palkkaa)',
       large: 'Keskisuuri Oy (20–40 laskua/kk, 30–50 kulua, ~5 palkkaa)',
-      maxi: 'Keski-suuri Oy (30–80 laskua, 70–100 kulua, ~10 palkkaa)',
-      custom: 'Mikä tahansa yritys erityistarpeilla',
+      maxi: 'Keskisuuri Oy (30–80 laskua, 70–100 kulua, ~10 palkkaa)',
+      custom: 'Mikä tahansa yritys, jolla on erityistarpeita',
     },
     packageFeatures: {
       micro: [
@@ -336,15 +336,15 @@ export const fi = {
   },
   vaavo: {
     title: 'Vaavo — Taloushallintoalusta',
-    subtitle: 'Asiakkaillemme ilmainen alusta, joka tekee kirjanpidon seurannasta helppoa ja läpinäkyvää.',
+    subtitle: 'Asiakkaillemme ilmainen alusta, jonka avulla seuraat kirjanpitoasi helposti ja läpinäkyvästi.',
     free: 'Ilmainen asiakkaillemme',
     techHighlight: 'Vaavo yhdistää pankkitiedot, dokumenttihallinnan ja viestinnän yhteen paikkaan. Tekoäly auttaa tositteiden tunnistamisessa ja kirjanpidon automatisoinnissa. Reaaliaikainen näkymä talouteesi — milloin tahansa, mistä tahansa.',
     cta: 'Haluatko nähdä Vaavon toiminnassa?',
     features: {
       ai: { title: 'AI-tositteiden käsittely', desc: 'Tekoäly tunnistaa kuitit ja laskut automaattisesti, ehdottaa kirjauskategoriaa ja liittää ne oikeisiin pankkitapahtumiin.' },
-      bank: { title: 'Pankkiyhteys', desc: 'Reaaliaikainen pankkidatan synkronointi. Näe tulot, menot ja saldot yhdellä silmäyksellä.' },
+      bank: { title: 'Pankkiyhteys', desc: 'Pankkitilisi tapahtumat päivittyvät automaattisesti. Näet tulot, menot ja saldon yhdellä silmäyksellä.' },
       files: { title: 'Dokumenttihallinta', desc: 'Tositteet, sopimukset ja raportit turvallisesti yhdessä paikassa. Järjestelmällinen arkisto kuukausittain.' },
-      messages: { title: 'Viestintä', desc: 'Suorat viestit kirjanpitäjän kanssa sovelluksen sisällä. Ei enää sähköpostin etsimistä.' },
+      messages: { title: 'Viestintä', desc: 'Viestit kirjanpitäjälle suoraan sovelluksessa. Ei enää sähköpostin kaivelua.' },
       analytics: { title: 'Analytiikka ja raportit', desc: 'Kuluanalyysi, tuloskehitys ja toimittajavertailut visuaalisina kaavioina.' },
       aiHelper: { title: 'AI-avustaja', desc: 'Kysy talousasioista suomeksi, englanniksi, venäjäksi, viroksi tai ukrainaksi — tekoäly vastaa yrityksesi tietojen perusteella.' },
     },
@@ -379,7 +379,7 @@ export const fi = {
     values: {
       title: 'Arvomme',
       transparency: { title: 'Läpinäkyvyys', desc: 'Selkeät hinnat, avoin viestintä ja reaaliaikainen pääsy taloustietoihin.' },
-      expertise: { title: 'Asiantuntemus', desc: 'Syvä osaaminen Suomen verolainsäädännöstä ja kirjanpidon vaatimuksista.' },
+      expertise: { title: 'Asiantuntemus', desc: 'Syvällinen osaaminen Suomen verolainsäädännöstä ja kirjanpidon vaatimuksista.' },
       technology: { title: 'Teknologia', desc: 'Vaavo-alusta ja tekoälytyökalut tekevät kirjanpidosta tehokkaampaa.' },
       multilingual: { title: 'Monikielisyys', desc: 'Kirjanpitäjät palvelevat suomeksi ja venäjäksi. Vaavo-kabinetti ja tuki kaikilla viidellä kielellä: RU, FI, EN, ET, UK.' },
     },
@@ -425,9 +425,9 @@ export const fi = {
     cta: 'Haluatko kokeilla Vaavoa tilitoimistossasi?',
     features: {
       ai: { title: 'AI-automaatio', desc: 'Tekoäly tunnistaa tositteet, ehdottaa kirjauksia ja oppii asiakkaiden tavoista. Vähemmän manuaalista työtä.' },
-      bank: { title: 'Pankkiyhteydet', desc: 'Reaaliaikainen pankkidatan synkronointi kaikille asiakkaille. Automaattinen tapahtumien kohdistus.' },
+      bank: { title: 'Pankkiyhteydet', desc: 'Pankkitapahtumat päivittyvät automaattisesti kaikille asiakkaille. Tapahtumat kohdistuvat itsestään.' },
       workspace: { title: 'Työtila', desc: 'Keskitetty näkymä kaikkien asiakkaiden kirjanpitoon. Tehtävälistat, muistutukset ja edistymisen seuranta.' },
-      messaging: { title: 'Viestintä', desc: 'Suorat viestit asiakkaan kanssa sovelluksen sisällä. Tositepyynnöt ja muistutukset automaattisesti.' },
+      messaging: { title: 'Viestintä', desc: 'Viestit asiakkaalle suoraan sovelluksessa. Tositepyynnöt ja muistutukset lähtevät automaattisesti.' },
     },
   },
   guide: {
@@ -441,9 +441,9 @@ export const fi = {
         intro: 'Suomessa yleisimmät yritysmuodot ovat:',
         items: [
           { title: 'Toiminimi (Tmi)', desc: 'Yksinkertaisin muoto. Sopii freelancereille ja pienille yrittäjille. Ei erillistä oikeushenkilöä — yrittäjä vastaa henkilökohtaisesti.' },
-          { title: 'Osakeyhtiö (Oy)', desc: 'Suosituin yritysmuoto. Erillinen oikeushenkilö, rajoitettu vastuu. Ei vähimmäisosakepääomaa (vaatimus poistui 2019). Sopii kasvuun.' },
-          { title: 'Kommandiittiyhtiö (Ky)', desc: 'Henkilöyhtiö, jossa äänetön ja vastuunalainen yhtiömies. Sopii pienille perheyritysille.' },
-          { title: 'Osuuskunta', desc: 'Demokratia-pohjainen muoto. Sopii yhteisölliseen yrittäjyyteen ja osuustoimintaan.' },
+          { title: 'Osakeyhtiö (Oy)', desc: 'Suosituin yritysmuoto. Erillinen oikeushenkilö, rajoitettu vastuu. Ei vähimmäisosakepääomaa (vaatimus poistui vuonna 2019). Sopii kasvuun.' },
+          { title: 'Kommandiittiyhtiö (Ky)', desc: 'Henkilöyhtiö, jossa äänetön ja vastuunalainen yhtiömies. Sopii pienille perheyrityksille.' },
+          { title: 'Osuuskunta', desc: 'Demokraattinen yhtiömuoto, jonka jokainen jäsen omistaa yhdessä. Sopii yhteisölliseen yrittäjyyteen ja osuustoimintaan.' },
         ],
       },
       registration: {
@@ -456,7 +456,7 @@ export const fi = {
           'Rekisteröidy kaupparekisteriin (PRH)',
           'Rekisteröidy verohallinnon rekistereihin (ALV, ennakkoperintä, työnantaja)',
           'Avaa yritystili pankissa',
-          'Järjestä kirjanpito — palkkaa tilitoimisto tai hoida itse',
+          'Järjestä kirjanpito — ota tilitoimisto tai hoida itse',
         ],
       },
       taxes: {
@@ -504,7 +504,7 @@ export const fi = {
       items: [
         { title: 'Ota meihin yhteyttä', desc: 'Kerro nykyisestä tilanteestasi. Arvioimme tarpeesi ja annamme tarjouksen.' },
         { title: 'Irtisanomme vanhan sopimuksen', desc: 'Hoidamme irtisanomisen ja tiedonsiirron edelliseltä tilitoimistolta.' },
-        { title: 'Tietojen siirto', desc: 'Siirrämme kirjanpitoaineiston, tositteet ja historiatiedot järjestelmäämme.' },
+        { title: 'Siirrämme tiedot', desc: 'Siirrämme kirjanpitoaineiston, tositteet ja historiatiedot järjestelmäämme.' },
         { title: 'Valmista!', desc: 'Kirjanpitosi jatkuu keskeytyksettä uudessa tilitoimistossa.' },
       ],
     },
