@@ -3,7 +3,7 @@ import type { Guide } from './types';
 // Facts verified June 2026 directly from prh.fi: PRH handling fees rose 1.1.2026
 // — guided electronic Oy founding (ohjattu perustaminen YTJ) 300 €, regular
 // foundation notification 400 €, toiminimi 75 €. Share capital 0 € since 2019.
-// Y-tunnus usually next business day. Audit not mandatory for a small company
+// Y-tunnus usually within a few business days. Audit not mandatory for a small company
 // (must exceed at most one of: turnover 200 000 €, balance 100 000 €, avg 3
 // employees, in two consecutive years).
 export const osakeyhtionPerustaminen: Guide = {
@@ -31,7 +31,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Kirjaudu YTJ-palveluun pankkitunnuksilla ja valitse osakeyhtiön ohjattu perustaminen.',
           'Täytä yhtiön tiedot ja ilmoittaudu tarvittaviin verorekistereihin: ennakkoperintärekisteri, ALV-rekisteri (jos liikevaihto yli 20 000 €) ja työnantajarekisteri (jos palkkaat).',
           'Maksa käsittelymaksu ja lähetä — sama ilmoitus menee PRH:lle ja Verohallinnolle.',
-          'Saat Y-tunnuksen yleensä seuraavana arkipäivänä; kaupparekisterimerkintä voi kestää hieman kauemmin.',
+          'Saat Y-tunnuksen yleensä muutaman arkipäivän kuluessa; kaupparekisterimerkintä voi kestää hieman kauemmin.',
         ] },
         { t: 'h2', x: 'Mitä osakeyhtiön perustaminen maksaa 2026?' },
         { t: 'ul', items: [
@@ -41,7 +41,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Kirjanpito: kuukausimaksu (alkaen muutamia kymmeniä euroja).',
           'Mahdollinen tilintarkastus (ei pakollinen pienelle yhtiölle).',
         ] },
-        { t: 'note', x: 'PRH:n käsittelymaksut nousivat 1.1.2026. Ohjattu paketti edellyttää 0 €:n osakepääomaa, vakiomuotoista yhtiöjärjestystä ja että kaikilla osakkailla on suomalainen henkilötunnus. Varmista ajantasaiset maksut PRH:lta.' },
+        { t: 'note', x: 'PRH:n käsittelymaksut nousivat 1.1.2026. Ohjattu paketti edellyttää 0 €:n osakepääomaa, vakiomuotoista yhtiöjärjestystä ja että kaikilla osakkailla on suomalainen henkilötunnus. Varmista ajantasaiset maksut PRH:lta. Lähde: prh.fi (06/2026).' },
         { t: 'h2', x: 'Tarvitseeko osakeyhtiö tilintarkastajan?' },
         { t: 'p', x: 'Pieni osakeyhtiö ei tarvitse tilintarkastajaa, jos enintään yksi seuraavista raja-arvoista ylittyy kahtena peräkkäisenä tilikautena: liikevaihto 200 000 €, taseen loppusumma 100 000 € tai keskimäärin kolme työntekijää. Useimmat aloittavat yhtiöt jäävät rajojen alle.' },
         { t: 'h2', x: 'Perustamisen jälkeen' },
@@ -52,11 +52,11 @@ export const osakeyhtionPerustaminen: Guide = {
           'Huolehdi ALV- ja veroilmoituksista ajallaan.',
         ] },
         { t: 'h2', x: 'Apua perustamiseen' },
-        { t: 'p', x: 'Hoidamme osakeyhtiön perustamisen kokonaisuutena ja kirjanpidon — omalla kielelläsi. Näet taloutesi reaaliajassa Vaavossa.' },
+        { t: 'p', x: 'Hoidamme osakeyhtiön perustamisen kokonaisuutena ja kirjanpidon — omalla kielelläsi. Näet taloutesi Vaavo-asiakasportaalissa.' },
       ],
       faq: [
         { q: 'Paljonko osakeyhtiön perustaminen maksaa?', a: 'Ohjattu sähköinen perustaminen YTJ-palvelussa maksaa 300 € ja tavallinen perustamisilmoitus 400 € (2026). Osakepääomaa ei vaadita (0 €).' },
-        { q: 'Kuinka kauan perustaminen kestää?', a: 'Y-tunnuksen saat yleensä jo seuraavana arkipäivänä. Kaupparekisterimerkintä voi kestää hieman kauemmin, mutta voit aloittaa toiminnan Y-tunnuksella.' },
+        { q: 'Kuinka kauan perustaminen kestää?', a: 'Y-tunnuksen saat yleensä muutaman arkipäivän kuluessa. Kaupparekisterimerkintä voi kestää hieman kauemmin, mutta voit aloittaa toiminnan Y-tunnuksella.' },
         { q: 'Voinko perustaa osakeyhtiön yksin?', a: 'Kyllä. Yksikin henkilö voi perustaa osakeyhtiön ja omistaa sen kokonaan.' },
         { q: 'Tarvitseeko pieni osakeyhtiö tilintarkastajan?', a: 'Ei, jos se jää raja-arvojen alle (liikevaihto 200 000 €, tase 100 000 €, 3 työntekijää — enintään yksi näistä saa ylittyä kahtena peräkkäisenä vuotena).' },
       ],
@@ -79,9 +79,9 @@ export const osakeyhtionPerustaminen: Guide = {
         { t: 'ol', items: [
           'Подготовьте документы: учредительный договор и устав (для пакета подходит стандартный устав).',
           'Войдите в сервис YTJ через банковские коды и выберите управляемую регистрацию osakeyhtiö.',
-          'Заполните данные компании и встаньте на нужные налоговые реестры: реестр предоплаты, реестр ALV (если оборот выше 20 000 €) и реестр работодателя (если нанимаете).',
+          'Заполните данные компании и встаньте на нужные налоговые реестры: реестр предоплаты, реестр НДС (ALV) (если оборот выше 20 000 €) и реестр работодателя (если нанимаете).',
           'Оплатите сбор и отправьте — одно заявление идёт в PRH и налоговую.',
-          'Y-tunnus вы обычно получаете уже на следующий рабочий день; запись в торговый реестр может занять чуть дольше.',
+          'Y-tunnus вы обычно получаете в течение нескольких рабочих дней; запись в торговый реестр может занять чуть дольше.',
         ] },
         { t: 'h2', x: 'Сколько стоит открыть osakeyhtiö в 2026?' },
         { t: 'ul', items: [
@@ -91,7 +91,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Бухгалтерия: месячная плата (от нескольких десятков евро).',
           'Возможный аудит (не обязателен для небольшой компании).',
         ] },
-        { t: 'note', x: 'Сборы PRH выросли с 1.1.2026. Управляемый пакет требует капитала 0 €, стандартного устава и наличия финского henkilötunnus у всех участников. Уточняйте актуальные сборы в PRH.' },
+        { t: 'note', x: 'Сборы PRH выросли с 1.1.2026. Управляемый пакет требует капитала 0 €, стандартного устава и наличия финского henkilötunnus у всех участников. Уточняйте актуальные сборы в PRH. Источник: prh.fi (06/2026).' },
         { t: 'h2', x: 'Нужен ли osakeyhtiö аудитор?' },
         { t: 'p', x: 'Небольшой osakeyhtiö не нуждается в аудиторе, если за два подряд отчётных года превышено не более одного из порогов: оборот 200 000 €, баланс 100 000 € или в среднем три работника. Большинство начинающих компаний остаются ниже порогов.' },
         { t: 'h2', x: 'После регистрации' },
@@ -102,11 +102,11 @@ export const osakeyhtionPerustaminen: Guide = {
           'Своевременно подавайте декларации ALV и налоговые.',
         ] },
         { t: 'h2', x: 'Помощь с регистрацией' },
-        { t: 'p', x: 'Открываем osakeyhtiö «под ключ» и ведём бухгалтерию — на вашем языке. Свои финансы вы видите в реальном времени в Vaavo.' },
+        { t: 'p', x: 'Открываем osakeyhtiö «под ключ» и ведём бухгалтерию — на вашем языке. Свои финансы вы видите в личном кабинете Vaavo.' },
       ],
       faq: [
         { q: 'Сколько стоит открыть osakeyhtiö?', a: 'Управляемая электронная регистрация в YTJ — 300 €, обычное заявление — 400 € (2026). Уставный капитал не требуется (0 €).' },
-        { q: 'Сколько времени занимает регистрация?', a: 'Y-tunnus обычно выдают уже на следующий рабочий день. Запись в торговый реестр может занять дольше, но начать работу можно с Y-tunnus.' },
+        { q: 'Сколько времени занимает регистрация?', a: 'Y-tunnus обычно выдают в течение нескольких рабочих дней. Запись в торговый реестр может занять дольше, но начать работу можно с Y-tunnus.' },
         { q: 'Можно ли открыть osakeyhtiö одному?', a: 'Да. Один человек может открыть osakeyhtiö и владеть им полностью.' },
         { q: 'Нужен ли небольшому osakeyhtiö аудитор?', a: 'Нет, если он остаётся ниже порогов (оборот 200 000 €, баланс 100 000 €, 3 работника — не более одного может быть превышено за два подряд года).' },
       ],
@@ -131,7 +131,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Log in to the YTJ service with bank credentials and choose the guided founding of a limited company.',
           'Fill in the company details and register for the necessary tax registers: the prepayment register, the VAT register (if turnover exceeds €20,000) and the employer register (if you hire).',
           'Pay the handling fee and submit — the same notification goes to both PRH and the Tax Administration.',
-          'You usually get a Business ID (Y-tunnus) the next business day; the Trade Register entry can take a little longer.',
+          'You usually get a Business ID (Y-tunnus) within a few business days; the Trade Register entry can take a little longer.',
         ] },
         { t: 'h2', x: 'What does founding an Oy cost in 2026?' },
         { t: 'ul', items: [
@@ -141,7 +141,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Bookkeeping: a monthly fee (from a few dozen euros).',
           'A possible audit (not mandatory for a small company).',
         ] },
-        { t: 'note', x: 'PRH handling fees rose on 1 Jan 2026. The guided package requires €0 share capital, standard articles of association and that all shareholders have a Finnish personal ID. Confirm the current fees with PRH.' },
+        { t: 'note', x: 'PRH handling fees rose on 1 Jan 2026. The guided package requires €0 share capital, standard articles of association and that all shareholders have a Finnish personal ID. Confirm the current fees with PRH. Source: prh.fi (06/2026).' },
         { t: 'h2', x: 'Does an Oy need an auditor?' },
         { t: 'p', x: 'A small limited company does not need an auditor if at most one of these limits is exceeded in two consecutive financial years: turnover €200,000, balance-sheet total €100,000, or an average of three employees. Most new companies stay below the limits.' },
         { t: 'h2', x: 'After founding' },
@@ -152,11 +152,11 @@ export const osakeyhtionPerustaminen: Guide = {
           'File VAT and tax returns on time.',
         ] },
         { t: 'h2', x: 'Help with founding' },
-        { t: 'p', x: 'We handle the whole company founding and the bookkeeping — in your language. You see your finances in real time in Vaavo.' },
+        { t: 'p', x: 'We handle the whole company founding and the bookkeeping — in your language. You can track your finances in the Vaavo client portal.' },
       ],
       faq: [
         { q: 'How much does it cost to set up an Oy?', a: 'Guided electronic founding in YTJ costs €300 and the regular foundation notification €400 (2026). No share capital is required (€0).' },
-        { q: 'How long does founding take?', a: 'You usually get a Business ID the next business day. The Trade Register entry can take longer, but you can start operating with the Business ID.' },
+        { q: 'How long does founding take?', a: 'You usually get a Business ID within a few business days. The Trade Register entry can take longer, but you can start operating with the Business ID.' },
         { q: 'Can I found a limited company alone?', a: 'Yes. A single person can found a limited company and own it entirely.' },
         { q: 'Does a small Oy need an auditor?', a: 'No, if it stays below the limits (turnover €200,000, balance €100,000, 3 employees — at most one may be exceeded in two consecutive years).' },
       ],
@@ -179,9 +179,9 @@ export const osakeyhtionPerustaminen: Guide = {
         { t: 'ol', items: [
           'Valmista dokumendid: asutamisleping ja põhikiri (juhitud paketi jaoks piisab standardpõhikirjast).',
           'Logi YTJ-teenusesse pangakoodidega ja vali osaühingu juhitud asutamine.',
-          'Täida ettevõtte andmed ja registreeru vajalikesse maksuregistritesse: ettemaksuregister, ALV-register (kui käive ületab 20 000 €) ja tööandjaregister (kui palkad).',
+          'Täida ettevõtte andmed ja registreeru vajalikesse maksuregistritesse: ettemaksuregister, käibemaksu (ALV) register (kui käive ületab 20 000 €) ja tööandjaregister (kui palkad).',
           'Maksa menetlustasu ja saada — sama teade läheb PRH-le ja maksuametile.',
-          'Y-tunnuse saad tavaliselt juba järgmisel tööpäeval; äriregistri kanne võib võtta veidi kauem.',
+          'Y-tunnuse saad tavaliselt mõne tööpäeva jooksul; äriregistri kanne võib võtta veidi kauem.',
         ] },
         { t: 'h2', x: 'Mis maksab osaühingu asutamine 2026?' },
         { t: 'ul', items: [
@@ -191,7 +191,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Raamatupidamine: kuutasu (alates mõnekümnest eurost).',
           'Võimalik audit (väikesele ettevõttele pole kohustuslik).',
         ] },
-        { t: 'note', x: 'PRH menetlustasud tõusid 1.1.2026. Juhitud pakett eeldab 0 € osakapitali, standardpõhikirja ja seda, et kõigil osanikel on Soome isikukood. Kontrolli ajakohased tasud PRH-st.' },
+        { t: 'note', x: 'PRH menetlustasud tõusid 1.1.2026. Juhitud pakett eeldab 0 € osakapitali, standardpõhikirja ja seda, et kõigil osanikel on Soome isikukood. Kontrolli ajakohased tasud PRH-st. Allikas: prh.fi (06/2026).' },
         { t: 'h2', x: 'Kas osaühing vajab audiitorit?' },
         { t: 'p', x: 'Väike osaühing ei vaja audiitorit, kui kahel järjestikusel majandusaastal ületatakse kõige rohkem üks järgmistest: käive 200 000 €, bilansimaht 100 000 € või keskmiselt kolm töötajat. Enamik alustavaid ettevõtteid jääb piiridest allapoole.' },
         { t: 'h2', x: 'Pärast asutamist' },
@@ -202,11 +202,11 @@ export const osakeyhtionPerustaminen: Guide = {
           'Esita ALV- ja maksudeklaratsioonid õigeaegselt.',
         ] },
         { t: 'h2', x: 'Abi asutamisel' },
-        { t: 'p', x: 'Asutame osaühingu tervikuna ja korraldame raamatupidamise — sinu keeles. Oma rahaasju näed reaalajas Vaavos.' },
+        { t: 'p', x: 'Asutame osaühingu tervikuna ja korraldame raamatupidamise — sinu keeles. Oma rahaasju näed Vaavo kliendiportaalis.' },
       ],
       faq: [
         { q: 'Kui palju maksab osaühingu asutamine?', a: 'Juhitud elektrooniline asutamine YTJ-s maksab 300 € ja tavaline asutamisteade 400 € (2026). Osakapitali ei nõuta (0 €).' },
-        { q: 'Kui kaua asutamine kestab?', a: 'Y-tunnuse saad tavaliselt järgmisel tööpäeval. Äriregistri kanne võib kesta kauem, kuid tegevust saab alustada Y-tunnusega.' },
+        { q: 'Kui kaua asutamine kestab?', a: 'Y-tunnuse saad tavaliselt mõne tööpäeva jooksul. Äriregistri kanne võib kesta kauem, kuid tegevust saab alustada Y-tunnusega.' },
         { q: 'Kas saan osaühingu asutada üksi?', a: 'Jah. Üks inimene saab osaühingu asutada ja seda täielikult omada.' },
         { q: 'Kas väike osaühing vajab audiitorit?', a: 'Ei, kui jääb piiridest allapoole (käive 200 000 €, bilanss 100 000 €, 3 töötajat — kõige rohkem üks võib ületuda kahel järjestikusel aastal).' },
       ],
@@ -229,9 +229,9 @@ export const osakeyhtionPerustaminen: Guide = {
         { t: 'ol', items: [
           'Підготуйте документи: установчий договір і статут (для пакета підходить стандартний статут).',
           'Увійдіть у сервіс YTJ через банківські коди й оберіть кероване відкриття osakeyhtiö.',
-          'Заповніть дані компанії та станьте на потрібні податкові реєстри: реєстр передоплати, реєстр ALV (якщо оборот понад 20 000 €) і реєстр роботодавця (якщо наймаєте).',
+          'Заповніть дані компанії та станьте на потрібні податкові реєстри: реєстр передоплати, реєстр ПДВ (ALV) (якщо оборот понад 20 000 €) і реєстр роботодавця (якщо наймаєте).',
           'Сплатіть збір і надішліть — одна заява йде в PRH і податкову.',
-          'Y-tunnus ви зазвичай отримуєте вже наступного робочого дня; запис у торговий реєстр може зайняти трохи довше.',
+          'Y-tunnus ви зазвичай отримуєте протягом кількох робочих днів; запис у торговий реєстр може зайняти трохи довше.',
         ] },
         { t: 'h2', x: 'Скільки коштує відкрити osakeyhtiö у 2026?' },
         { t: 'ul', items: [
@@ -241,7 +241,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Бухгалтерія: місячна плата (від кількох десятків євро).',
           'Можливий аудит (не обовʼязковий для невеликої компанії).',
         ] },
-        { t: 'note', x: 'Збори PRH зросли з 1.1.2026. Керований пакет вимагає капіталу 0 €, стандартного статуту і наявності фінського henkilötunnus у всіх учасників. Уточнюйте актуальні збори в PRH.' },
+        { t: 'note', x: 'Збори PRH зросли з 1.1.2026. Керований пакет вимагає капіталу 0 €, стандартного статуту і наявності фінського henkilötunnus у всіх учасників. Уточнюйте актуальні збори в PRH. Джерело: prh.fi (06/2026).' },
         { t: 'h2', x: 'Чи потрібен osakeyhtiö аудитор?' },
         { t: 'p', x: 'Невеликий osakeyhtiö не потребує аудитора, якщо за два поспіль звітні роки перевищено не більше одного з порогів: оборот 200 000 €, баланс 100 000 € або в середньому три працівники. Більшість компаній-початківців залишаються нижче порогів.' },
         { t: 'h2', x: 'Після реєстрації' },
@@ -252,11 +252,11 @@ export const osakeyhtionPerustaminen: Guide = {
           'Вчасно подавайте декларації ALV і податкові.',
         ] },
         { t: 'h2', x: 'Допомога з реєстрацією' },
-        { t: 'p', x: 'Відкриваємо osakeyhtiö «під ключ» і ведемо бухгалтерію — вашою мовою. Свої фінанси ви бачите в реальному часі у Vaavo.' },
+        { t: 'p', x: 'Відкриваємо osakeyhtiö «під ключ» і ведемо бухгалтерію — вашою мовою. Свої фінанси ви бачите в особистому кабінеті Vaavo.' },
       ],
       faq: [
         { q: 'Скільки коштує відкрити osakeyhtiö?', a: 'Кероване електронне відкриття в YTJ коштує 300 €, а звичайна заява — 400 € (2026). Статутний капітал не потрібен (0 €).' },
-        { q: 'Скільки часу займає реєстрація?', a: 'Y-tunnus зазвичай видають уже наступного робочого дня. Запис у торговий реєстр може зайняти довше, але почати роботу можна з Y-tunnus.' },
+        { q: 'Скільки часу займає реєстрація?', a: 'Y-tunnus зазвичай видають протягом кількох робочих днів. Запис у торговий реєстр може зайняти довше, але почати роботу можна з Y-tunnus.' },
         { q: 'Чи можна відкрити osakeyhtiö одному?', a: 'Так. Одна особа може відкрити osakeyhtiö і володіти ним повністю.' },
         { q: 'Чи потрібен невеликому osakeyhtiö аудитор?', a: 'Ні, якщо він залишається нижче порогів (оборот 200 000 €, баланс 100 000 €, 3 працівники — не більше одного може бути перевищено за два поспіль роки).' },
       ],

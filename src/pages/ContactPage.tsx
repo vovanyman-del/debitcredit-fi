@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
 import { company } from '../data/pricing';
 import PageHeader from '../components/PageHeader';
@@ -7,7 +8,7 @@ const inputCls =
   'w-full px-4 py-2.5 border border-ink-900/15 rounded-xl bg-white text-ink-900 focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500 outline-none transition-shadow';
 
 export default function ContactPage() {
-  const { t } = useI18n();
+  const { t, localePath } = useI18n();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -89,6 +90,10 @@ export default function ContactPage() {
                 >
                   {isSubmitting ? '...' : t.contact.form.submit}
                 </button>
+                <p className="text-xs text-ink-700/70 leading-relaxed">
+                  {t.contact.form.privacyNotice}{' '}
+                  <Link to={localePath('/tietosuoja')} className="underline hover:text-brand-600">{t.nav.privacy}</Link>
+                </p>
               </form>
             )}
           </div>

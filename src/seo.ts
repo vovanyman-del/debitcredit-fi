@@ -136,7 +136,7 @@ const SEO_DESC: Record<Locale, Partial<Record<string, string>>> = {
 };
 
 /** Page-specific title + description, derived from localized i18n copy. */
-function pageMeta(t: Translations, basePath: string, locale: Locale): { title: string; description: string } {
+export function pageMeta(t: Translations, basePath: string, locale: Locale): { title: string; description: string } {
   // Guides hub + articles (dynamic slug — handled before the static switch).
   if (basePath === '/opas') {
     return { title: withBrand(t.guides.hubTitle), description: t.guides.hubSubtitle };
