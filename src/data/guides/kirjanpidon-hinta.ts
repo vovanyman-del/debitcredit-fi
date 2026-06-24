@@ -11,10 +11,10 @@ export const kirjanpidonHinta: Guide = {
       title: 'Paljonko kirjanpitäjä maksaa? Tilitoimiston hinnat Suomessa',
       description:
         'Mistä tilitoimiston hinta muodostuu ja paljonko kirjanpito maksaa toiminimelle tai Oy:lle? Hinnoittelumallit, tyypilliset hinnat ja piilokulut.',
-      lead: 'Kirjanpidon hinta riippuu yrityksesi koosta, yhtiömuodosta ja tositteiden määrästä. Selitämme, mistä hinta muodostuu, mitä on tyypillistä maksaa ja miten vältät yllätyslaskut.',
+      lead: 'Kirjanpidon hinta riippuu yrityksesi koosta, yhtiömuodosta ja tositteiden (yksittäisten kirjanpidon dokumenttien) määrästä. Selitämme, mistä hinta muodostuu, mitä on tyypillistä maksaa ja miten vältät yllätyslaskut.',
       body: [
         { t: 'h2', x: 'Mistä kirjanpidon hinta muodostuu?' },
-        { t: 'p', x: 'Tilitoimisto hinnoittelee työn yleensä tositteiden määrän ja palveluiden laajuuden mukaan. Mitä enemmän tapahtumia ja mitä monimutkaisempi yritys, sitä korkeampi hinta.' },
+        { t: 'p', x: 'Tilitoimisto hinnoittelee työn yleensä tositteiden määrän ja palveluiden laajuuden mukaan. Tosite on yksittäinen kirjanpidon dokumentti (lasku, kuitti), ja yksi pankin maksutapahtuma vastaa yleensä yhtä tositetta. Mitä enemmän tapahtumia ja mitä monimutkaisempi yritys, sitä korkeampi hinta.' },
         { t: 'ul', items: [
           'Yhtiömuoto: toiminimi on kevyempi kuin osakeyhtiö.',
           'Tositteiden määrä: osto- ja myyntilaskut, kuitit, pankkitapahtumat.',
@@ -38,7 +38,7 @@ export const kirjanpidonHinta: Guide = {
         { t: 'h2', x: 'Kannattaako kirjanpito tehdä itse?' },
         { t: 'p', x: 'Toiminimellä yksinkertaisen kirjanpidon voi periaatteessa tehdä itse, mutta virheet ALV:ssä tai menetetyt vähennykset maksavat usein enemmän kuin kirjanpitäjän palkkio. Osakeyhtiössä kahdenkertainen kirjanpito ja tilinpäätös kannattaa lähes aina antaa ammattilaiselle.' },
         { t: 'h2', x: 'Selkeä hinnoittelu ilman yllätyksiä' },
-        { t: 'p', x: 'Meillä kuukausipaketit alkavat 34,90 €/kk ja sisältävät maksuttoman Vaavo-alustan. Hinta kerrotaan etukäteen, eikä piilokuluja ole. Katso hinnastosta, mikä paketti sopii yrityksellesi.' },
+        { t: 'p', x: 'Meillä kuukausipaketit alkavat 34,90 €/kk (alkaen, + ALV) ja sisältävät Vaavo-asiakasportaalin. Hinta kerrotaan etukäteen, ja pyrimme välttämään yllätyslaskut. Katso hinnastosta, mikä paketti sopii yrityksellesi.' },
       ],
       faq: [
         { q: 'Paljonko kirjanpito maksaa toiminimelle?', a: 'Pienen toiminimen kirjanpito maksaa tyypillisesti noin 30–70 €/kk tositteiden määrästä riippuen. Meillä paketit alkavat 34,90 €/kk.' },
@@ -51,15 +51,15 @@ export const kirjanpidonHinta: Guide = {
       title: 'Сколько стоит бухгалтер в Финляндии? Цены бухгалтерских фирм',
       description:
         'Из чего складывается цена бухгалтерии и сколько стоит учёт для toiminimi или Oy? Модели ценообразования, типичные цены и скрытые расходы.',
-      lead: 'Цена бухгалтерии зависит от размера бизнеса, формы компании и количества документов. Объясняем, из чего складывается стоимость, сколько платят обычно и как избежать неожиданных счетов.',
+      lead: 'Цена бухгалтерии зависит от размера бизнеса, формы компании и количества первичных документов. Объясняем, из чего складывается стоимость, сколько платят обычно и как избежать неожиданных счетов.',
       body: [
         { t: 'h2', x: 'Из чего складывается цена?' },
-        { t: 'p', x: 'Бухгалтерская фирма обычно считает стоимость по количеству документов и объёму услуг. Чем больше операций и сложнее бизнес, тем выше цена.' },
+        { t: 'p', x: 'Бухгалтерская фирма обычно считает стоимость по количеству первичных документов (tosite) и объёму услуг. Tosite — это отдельный первичный документ (счёт, чек); одна банковская операция (maksutapahtuma), как правило, даёт один документ. Чем больше операций и сложнее бизнес, тем выше цена.' },
         { t: 'ul', items: [
           'Форма компании: toiminimi проще, чем osakeyhtiö.',
-          'Количество документов: счета-фактуры (входящие/исходящие), чеки, банковские операции.',
+          'Количество первичных документов: счета-фактуры (входящие/исходящие), чеки, банковские операции (maksutapahtuma).',
           'Расчёт зарплат: число работников и периоды выплат.',
-          'Частота деклараций ALV (месяц/квартал/год).',
+          'Частота деклараций НДС (ALV) — месяц/квартал/год.',
           'Финансовая отчётность и налоговая декларация (часто отдельная годовая цена).',
           'Консультации.',
         ] },
@@ -70,7 +70,7 @@ export const kirjanpidonHinta: Guide = {
         { t: 'p', x: 'Фиксированная месячная цена или пакет делают расходы предсказуемыми — вы знаете заранее, сколько платите. Почасовая оплата может быть выгоднее в очень маленьком бизнесе, но счёт способен удивить. Большинству предпринимателей понятная пакетная цена — самый надёжный выбор.' },
         { t: 'h2', x: 'Остерегайтесь скрытых расходов' },
         { t: 'ul', items: [
-          'Доплаты за документы сверх лимита пакета.',
+          'Доплаты за первичные документы сверх лимита пакета.',
           'Отдельная, порой неожиданно большая годовая цена за отчётность.',
           'Поминутная оплата или плата за звонки-консультации.',
           'Платы за подключение или старт.',
@@ -78,7 +78,7 @@ export const kirjanpidonHinta: Guide = {
         { t: 'h2', x: 'Стоит ли вести учёт самому?' },
         { t: 'p', x: 'У toiminimi простой учёт в принципе можно вести самому, но ошибки в ALV или упущенные вычеты часто обходятся дороже, чем гонорар бухгалтера. В osakeyhtiö двойной учёт и отчётность почти всегда стоит доверить профессионалу.' },
         { t: 'h2', x: 'Понятные цены без сюрпризов' },
-        { t: 'p', x: 'У нас месячные пакеты начинаются от 34,90 €/мес и включают бесплатную платформу Vaavo. Цену называем заранее, скрытых расходов нет. Посмотрите в прайсе, какой пакет подойдёт вашему бизнесу.' },
+        { t: 'p', x: 'У нас месячные пакеты начинаются от 34,90 €/мес (+ ALV) и включают личный кабинет Vaavo. Цену называем заранее и стремимся избегать неожиданных счетов. Посмотрите в прайсе, какой пакет подойдёт вашему бизнесу.' },
       ],
       faq: [
         { q: 'Сколько стоит бухгалтерия для toiminimi?', a: 'Учёт небольшого toiminimi обычно стоит около 30–70 €/мес в зависимости от числа документов. У нас пакеты начинаются от 34,90 €/мес.' },
@@ -91,13 +91,13 @@ export const kirjanpidonHinta: Guide = {
       title: 'How much does an accountant cost in Finland? Bookkeeping prices',
       description:
         'What makes up an accounting firm’s price, and how much does bookkeeping cost for a toiminimi or an Oy? Pricing models, typical prices and hidden costs.',
-      lead: 'The price of bookkeeping depends on your company’s size, its form and the number of vouchers. We explain what makes up the price, what is typical to pay, and how to avoid surprise invoices.',
+      lead: 'The price of bookkeeping depends on your company’s size, its form and the number of source documents (tositteet). We explain what makes up the price, what is typical to pay, and how to avoid surprise invoices.',
       body: [
         { t: 'h2', x: 'What makes up the price of bookkeeping?' },
-        { t: 'p', x: 'An accounting firm usually prices the work by the number of vouchers and the scope of services. The more transactions and the more complex the business, the higher the price.' },
+        { t: 'p', x: 'An accounting firm usually prices the work by the number of source documents (tosite) and the scope of services. A source document is a single accounting item (an invoice, a receipt), and one bank transaction (maksutapahtuma) generally produces one source document. The more transactions and the more complex the business, the higher the price.' },
         { t: 'ul', items: [
           'Company form: a toiminimi is lighter than a limited company.',
-          'Number of vouchers: purchase and sales invoices, receipts, bank transactions.',
+          'Number of source documents: purchase and sales invoices, receipts, bank transactions.',
           'Payroll: the number of employees and pay periods.',
           'VAT return frequency (monthly/quarterly/annually).',
           'Financial statements and tax return (often a separate annual fee).',
@@ -110,7 +110,7 @@ export const kirjanpidonHinta: Guide = {
         { t: 'p', x: 'A fixed monthly price or package makes costs predictable — you know in advance what you pay. Hourly billing can be cheaper for a very small operation, but the invoice can surprise you. For most entrepreneurs a clear package price is the safest choice.' },
         { t: 'h2', x: 'Watch out for hidden costs' },
         { t: 'ul', items: [
-          'Extra voucher fees if your package limit is exceeded.',
+          'Extra source-document fees if your package limit is exceeded.',
           'A separate, sometimes surprisingly large annual fee for financial statements.',
           'Per-minute or per-call charges for advice.',
           'Onboarding or setup fees.',
@@ -118,10 +118,10 @@ export const kirjanpidonHinta: Guide = {
         { t: 'h2', x: 'Should you do the bookkeeping yourself?' },
         { t: 'p', x: 'For a toiminimi you can in principle do simple bookkeeping yourself, but mistakes in VAT or missed deductions often cost more than an accountant’s fee. For a limited company, double-entry bookkeeping and financial statements should almost always go to a professional.' },
         { t: 'h2', x: 'Clear pricing without surprises' },
-        { t: 'p', x: 'Our monthly packages start at €34.90/month and include the free Vaavo platform. The price is told upfront, with no hidden costs. Check the pricing page to see which package suits your business.' },
+        { t: 'p', x: 'Our monthly packages start from €34.90/month (+ ALV) and include the Vaavo client portal. The price is told upfront, and we aim to avoid surprise invoices. Check the pricing page to see which package suits your business.' },
       ],
       faq: [
-        { q: 'How much does bookkeeping cost for a toiminimi?', a: 'Bookkeeping for a small toiminimi typically costs around €30–70/month depending on the number of vouchers. Our packages start at €34.90/month.' },
+        { q: 'How much does bookkeeping cost for a toiminimi?', a: 'Bookkeeping for a small toiminimi typically costs around €30–70/month depending on the number of source documents. Our packages start from €34.90/month.' },
         { q: 'What is included in the monthly price?', a: 'Usually ongoing bookkeeping, VAT returns and a monthly report. Financial statements and payroll may be separate — in our packages the contents are stated clearly.' },
         { q: 'Can I do the bookkeeping myself?', a: 'For a toiminimi it is possible, but mistakes and missed deductions often cost more than an accountant. For a limited company a professional is practically essential.' },
         { q: 'Does an accountant save money?', a: 'A good accountant finds deductions and optimises taxes legally, so the fee often pays for itself — and you save time.' },
@@ -131,15 +131,15 @@ export const kirjanpidonHinta: Guide = {
       title: 'Kui palju maksab raamatupidaja Soomes? Raamatupidamise hinnad',
       description:
         'Millest koosneb raamatupidamisbüroo hind ja kui palju maksab raamatupidamine toiminimi’le või Oy’le? Hinnamudelid, tüüpilised hinnad ja peidetud kulud.',
-      lead: 'Raamatupidamise hind sõltub ettevõtte suurusest, vormist ja dokumentide arvust. Selgitame, millest hind koosneb, mida on tüüpiline maksta ja kuidas vältida üllatusarveid.',
+      lead: 'Raamatupidamise hind sõltub ettevõtte suurusest, vormist ja algdokumentide (tositteet) arvust. Selgitame, millest hind koosneb, mida on tüüpiline maksta ja kuidas vältida üllatusarveid.',
       body: [
         { t: 'h2', x: 'Millest hind koosneb?' },
-        { t: 'p', x: 'Raamatupidamisbüroo hinnastab töö tavaliselt dokumentide arvu ja teenuste mahu järgi. Mida rohkem tehinguid ja keerulisem ettevõte, seda kõrgem hind.' },
+        { t: 'p', x: 'Raamatupidamisbüroo hinnastab töö tavaliselt algdokumentide (tosite) arvu ja teenuste mahu järgi. Tosite on üksik algdokument (arve, tšekk) ja üks pangatehing (maksutapahtuma) annab tavaliselt ühe dokumendi. Mida rohkem tehinguid ja keerulisem ettevõte, seda kõrgem hind.' },
         { t: 'ul', items: [
           'Ettevõtlusvorm: toiminimi on kergem kui osaühing.',
-          'Dokumentide arv: ostu- ja müügiarved, tšekid, pangatehingud.',
+          'Algdokumentide arv: ostu- ja müügiarved, tšekid, pangatehingud.',
           'Palgaarvestus: töötajate arv ja palgaperioodid.',
-          'KM (ALV) deklaratsioonide sagedus (kuu/kvartal/aasta).',
+          'Käibemaksu (ALV) deklaratsioonide sagedus (kuu/kvartal/aasta).',
           'Aruandlus ja maksudeklaratsioon (sageli eraldi aastahind).',
           'Nõustamine.',
         ] },
@@ -150,7 +150,7 @@ export const kirjanpidonHinta: Guide = {
         { t: 'p', x: 'Fikseeritud kuuhind või pakett teeb kulud prognoositavaks — tead ette, mida maksad. Tunnitasu võib olla soodsam väga väikese tegevuse puhul, kuid arve võib üllatada. Enamikule ettevõtjatest on selge paketihind kõige turvalisem valik.' },
         { t: 'h2', x: 'Hoidu peidetud kuludest' },
         { t: 'ul', items: [
-          'Lisadokumentide tasud, kui paketi limiit ületatakse.',
+          'Lisaalgdokumentide tasud, kui paketi limiit ületatakse.',
           'Eraldi, vahel üllatavalt suur aastahind aruandluse eest.',
           'Minuti- või kõnetasu nõustamise eest.',
           'Kasutuselevõtu- või alustamistasud.',
@@ -158,10 +158,10 @@ export const kirjanpidonHinta: Guide = {
         { t: 'h2', x: 'Kas teha raamatupidamist ise?' },
         { t: 'p', x: 'Toiminimi’l saab lihtsat raamatupidamist põhimõtteliselt ise teha, kuid vead ALV-s või kaotatud mahaarvamised maksavad sageli rohkem kui raamatupidaja tasu. Osaühingus tasub kahekordne raamatupidamine ja aruandlus peaaegu alati anda professionaalile.' },
         { t: 'h2', x: 'Selge hinnastamine ilma üllatusteta' },
-        { t: 'p', x: 'Meil algavad kuupaketid 34,90 €/kuus ja sisaldavad tasuta Vaavo platvormi. Hind öeldakse ette, peidetud kulusid pole. Vaata hinnakirjast, milline pakett sinu ettevõttele sobib.' },
+        { t: 'p', x: 'Meil algavad kuupaketid alates 34,90 €/kuus (+ ALV) ja sisaldavad Vaavo kliendiportaali. Hind öeldakse ette ja püüame vältida üllatusarveid. Vaata hinnakirjast, milline pakett sinu ettevõttele sobib.' },
       ],
       faq: [
-        { q: 'Kui palju maksab raamatupidamine toiminimi’le?', a: 'Väikese toiminimi raamatupidamine maksab tüüpiliselt umbes 30–70 €/kuus sõltuvalt dokumentide arvust. Meil algavad paketid 34,90 €/kuus.' },
+        { q: 'Kui palju maksab raamatupidamine toiminimi’le?', a: 'Väikese toiminimi raamatupidamine maksab tüüpiliselt umbes 30–70 €/kuus sõltuvalt algdokumentide arvust. Meil algavad paketid alates 34,90 €/kuus.' },
         { q: 'Mis sisaldub kuuhinnas?', a: 'Tavaliselt jooksev raamatupidamine, ALV-deklaratsioonid ja kuuaruanne. Aruandlus ja palgaarvestus võivad olla eraldi — meie pakettides on sisu selgelt kirjas.' },
         { q: 'Kas saan ise raamatupidamist teha?', a: 'Toiminimi’l on see võimalik, kuid vead ja kaotatud mahaarvamised maksavad sageli rohkem kui raamatupidaja. Osaühingus on professionaal praktiliselt vajalik.' },
         { q: 'Kas raamatupidaja säästab raha?', a: 'Hea raamatupidaja leiab mahaarvamised ja optimeerib makse seaduslikult, nii et tasu tasub end sageli ära — ja säästad aega.' },
@@ -171,15 +171,15 @@ export const kirjanpidonHinta: Guide = {
       title: 'Скільки коштує бухгалтер у Фінляндії? Ціни бухгалтерських фірм',
       description:
         'З чого складається ціна бухгалтерії та скільки коштує облік для toiminimi чи Oy? Моделі ціноутворення, типові ціни та приховані витрати.',
-      lead: 'Ціна бухгалтерії залежить від розміру бізнесу, форми компанії та кількості документів. Пояснюємо, з чого складається вартість, скільки платять зазвичай і як уникнути несподіваних рахунків.',
+      lead: 'Ціна бухгалтерії залежить від розміру бізнесу, форми компанії та кількості первинних документів. Пояснюємо, з чого складається вартість, скільки платять зазвичай і як уникнути несподіваних рахунків.',
       body: [
         { t: 'h2', x: 'З чого складається ціна?' },
-        { t: 'p', x: 'Бухгалтерська фірма зазвичай рахує вартість за кількістю документів та обсягом послуг. Що більше операцій і складніший бізнес, то вища ціна.' },
+        { t: 'p', x: 'Бухгалтерська фірма зазвичай рахує вартість за кількістю первинних документів (tosite) та обсягом послуг. Tosite — це окремий первинний документ (рахунок, чек); одна банківська операція (maksutapahtuma), як правило, дає один документ. Що більше операцій і складніший бізнес, то вища ціна.' },
         { t: 'ul', items: [
           'Форма компанії: toiminimi простіша за osakeyhtiö.',
-          'Кількість документів: рахунки (вхідні/вихідні), чеки, банківські операції.',
+          'Кількість первинних документів: рахунки (вхідні/вихідні), чеки, банківські операції (maksutapahtuma).',
           'Розрахунок зарплат: кількість працівників і періоди виплат.',
-          'Частота декларацій ALV (місяць/квартал/рік).',
+          'Частота декларацій ПДВ (ALV) — місяць/квартал/рік.',
           'Звітність і податкова декларація (часто окрема річна ціна).',
           'Консультації.',
         ] },
@@ -190,7 +190,7 @@ export const kirjanpidonHinta: Guide = {
         { t: 'p', x: 'Фіксована місячна ціна або пакет роблять витрати передбачуваними — ви знаєте заздалегідь, скільки платите. Почасова оплата може бути вигіднішою у дуже малому бізнесі, але рахунок здатний здивувати. Для більшості підприємців зрозуміла пакетна ціна — найнадійніший вибір.' },
         { t: 'h2', x: 'Стережіться прихованих витрат' },
         { t: 'ul', items: [
-          'Доплати за документи понад ліміт пакета.',
+          'Доплати за первинні документи понад ліміт пакета.',
           'Окрема, інколи несподівано велика річна ціна за звітність.',
           'Похвилинна оплата або плата за дзвінки-консультації.',
           'Плати за підключення чи старт.',
@@ -198,10 +198,10 @@ export const kirjanpidonHinta: Guide = {
         { t: 'h2', x: 'Чи варто вести облік самому?' },
         { t: 'p', x: 'У toiminimi простий облік у принципі можна вести самому, але помилки в ALV чи втрачені вирахування часто коштують дорожче, ніж гонорар бухгалтера. В osakeyhtiö подвійний облік і звітність майже завжди варто довірити професіоналу.' },
         { t: 'h2', x: 'Зрозумілі ціни без сюрпризів' },
-        { t: 'p', x: 'У нас місячні пакети починаються від 34,90 €/міс і включають безкоштовну платформу Vaavo. Ціну називаємо заздалегідь, прихованих витрат немає. Подивіться у прайсі, який пакет підійде вашому бізнесу.' },
+        { t: 'p', x: 'У нас місячні пакети починаються від 34,90 €/міс (+ ALV) і включають особистий кабінет Vaavo. Ціну називаємо заздалегідь і прагнемо уникати несподіваних рахунків. Подивіться у прайсі, який пакет підійде вашому бізнесу.' },
       ],
       faq: [
-        { q: 'Скільки коштує бухгалтерія для toiminimi?', a: 'Облік невеликого toiminimi зазвичай коштує близько 30–70 €/міс залежно від кількості документів. У нас пакети починаються від 34,90 €/міс.' },
+        { q: 'Скільки коштує бухгалтерія для toiminimi?', a: 'Облік невеликого toiminimi зазвичай коштує близько 30–70 €/міс залежно від кількості первинних документів. У нас пакети починаються від 34,90 €/міс.' },
         { q: 'Що входить у місячну ціну?', a: 'Зазвичай поточний облік, декларації ALV і місячний звіт. Звітність і розрахунок зарплат можуть бути окремими — у наших пакетах склад указано прозоро.' },
         { q: 'Чи можна вести облік самому?', a: 'У toiminimi це можливо, але помилки й втрачені вирахування часто дорожчі за бухгалтера. В osakeyhtiö професіонал практично необхідний.' },
         { q: 'Чи економить бухгалтер гроші?', a: 'Хороший бухгалтер знаходить вирахування і законно оптимізує податки, тож гонорар часто окупається — і ви економите час.' },

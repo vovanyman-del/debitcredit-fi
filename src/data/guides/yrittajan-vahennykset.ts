@@ -13,7 +13,7 @@ export const yrittajanVahennykset: Guide = {
       title: 'Yrittäjän verovähennykset: mitä kuluja voit vähentää? (2026)',
       description:
         'Mitä yrittäjä voi vähentää verotuksessa? Toimitila, työvälineet, matkat, työhuone, vakuutukset ja YEL — selkeä lista vähennyksistä toiminimelle ja Oy:lle.',
-      lead: 'Verovähennykset pienentävät verotettavaa tulosta — siksi kannattaa vähentää kaikki liiketoimintaan liittyvät kulut. Käymme läpi, mitä yrittäjä voi vähentää.',
+      lead: 'Verovähennykset pienentävät verotettavaa tulosta — siksi kannattaa vähentää kaikki liiketoimintaan liittyvät kulut, kun ne täyttävät vähennyksen ehdot. Käymme läpi, mitä yrittäjä voi vähentää.',
       body: [
         { t: 'h2', x: 'Vähennysten perusperiaate' },
         { t: 'p', x: 'Voit vähentää menot, jotka ovat syntyneet liiketoiminnan tulojen hankkimisesta. Säilytä kuitit ja tositteet — ilman niitä vähennystä ei saa. Yksityismenot eivät ole vähennyskelpoisia.' },
@@ -30,11 +30,11 @@ export const yrittajanVahennykset: Guide = {
         ] },
         { t: 'h2', x: 'Matkakulut: kilometrit ja päivärahat' },
         { t: 'p', x: 'Työajot omalla autolla ja työmatkat voi vähentää. Verovapaan kilometrikorvauksen määrä on vuonna 2026 noin 0,55 €/km, ja päivärahat ovat osapäiväraha 25 € (matka 6–10 h) ja kokopäiväraha 54 € (yli 10 h). Toiminimiyrittäjä ei maksa itselleen korvauksia, vaan tekee vähennyksen verotuksessa.' },
-        { t: 'note', x: 'Verohallinto vahvistaa korvausten määrät vuosittain — tarkista vuoden 2026 ajantasaiset luvut. Osa kuluista (esim. edustusmenot) on vain osittain vähennyskelpoisia.' },
+        { t: 'note', x: 'Verohallinto vahvistaa korvausten määrät vuosittain — tarkista vuoden 2026 ajantasaiset luvut. Osa kuluista (esim. edustusmenot) on vain osittain vähennyskelpoisia. Lähde: vero.fi, kesäkuu 2026.' },
         { t: 'h2', x: 'Työhuonevähennys' },
         { t: 'p', x: 'Jos teet työtä kotona, voit vähentää työhuoneen kulut joko todellisten kulujen mukaan tai kaavamaisesti. Toiminimiyrittäjä voi tehdä työhuonevähennyksen omassa verotuksessaan.' },
         { t: 'h2', x: 'Älä jätä vähennyksiä käyttämättä' },
-        { t: 'p', x: 'Hyvä kirjanpitäjä varmistaa, että vähennät kaiken laillisesti etkä maksa liikaa veroa. Me käymme kulusi läpi ja hyödynnämme kaikki vähennykset — omalla kielelläsi.' },
+        { t: 'p', x: 'Hyvä kirjanpitäjä varmistaa, että saat kaikki vähennykset, joihin olet oikeutettu, etkä maksa veroa enempää kuin on tarpeen. Me käymme kulusi läpi ja varmistamme, että vähennät kaiken sallitun — omalla kielelläsi.' },
       ],
       faq: [
         { q: 'Mitä yrittäjä voi vähentää?', a: 'Liiketoimintaan liittyvät menot: toimitila, työvälineet, materiaalit, matkat, puhelin, työhuone, vakuutukset, YEL, koulutus sekä kirjanpito- ja asiantuntijapalvelut.' },
@@ -47,7 +47,7 @@ export const yrittajanVahennykset: Guide = {
       title: 'Налоговые вычеты предпринимателя: что можно вычесть? (2026)',
       description:
         'Что предприниматель может вычесть из налогов? Помещение, инструменты, поездки, рабочий кабинет, страховки и YEL — понятный список вычетов для toiminimi и Oy.',
-      lead: 'Вычеты уменьшают налогооблагаемую прибыль — поэтому стоит вычитать все расходы, связанные с бизнесом. Разбираем, что предприниматель может вычесть.',
+      lead: 'Вычеты уменьшают налогооблагаемую прибыль — поэтому стоит вычитать все расходы, связанные с бизнесом, если они отвечают условиям вычета. Разбираем, что предприниматель может вычесть.',
       body: [
         { t: 'h2', x: 'Базовый принцип вычетов' },
         { t: 'p', x: 'Вы можете вычесть расходы, понесённые для получения дохода от бизнеса. Храните чеки и документы — без них вычет не получить. Личные расходы не вычитаются.' },
@@ -64,11 +64,11 @@ export const yrittajanVahennykset: Guide = {
         ] },
         { t: 'h2', x: 'Командировочные: километры и суточные' },
         { t: 'p', x: 'Рабочие поездки на своём авто и командировки можно вычесть. Необлагаемая компенсация за километр в 2026 году — около 0,55 €/км, суточные: неполные 25 € (поездка 6–10 ч) и полные 54 € (свыше 10 ч). Предприниматель-toiminimi не платит себе компенсации, а делает вычет в налогообложении.' },
-        { t: 'note', x: 'Налоговая ежегодно подтверждает суммы компенсаций — уточняйте актуальные цифры 2026 года. Часть расходов (напр. представительские) вычитается лишь частично.' },
+        { t: 'note', x: 'Налоговая ежегодно подтверждает суммы компенсаций — уточняйте актуальные цифры 2026 года. Часть расходов (напр. представительские) вычитается лишь частично. Источник: vero.fi, июнь 2026.' },
         { t: 'h2', x: 'Вычет за рабочий кабинет' },
         { t: 'p', x: 'Если вы работаете дома, можно вычесть расходы на рабочий кабинет либо по фактическим затратам, либо по формуле. Предприниматель-toiminimi делает этот вычет в своём налогообложении.' },
         { t: 'h2', x: 'Не оставляйте вычеты неиспользованными' },
-        { t: 'p', x: 'Хороший бухгалтер проследит, чтобы вы вычли всё законно и не переплатили налог. Мы разберём ваши расходы и используем все вычеты — на вашем языке.' },
+        { t: 'p', x: 'Хороший бухгалтер проследит, чтобы вы получили все вычеты, на которые имеете право, и не переплатили налог. Мы разберём ваши расходы и проверим, что вы вычли всё разрешённое — на вашем языке.' },
       ],
       faq: [
         { q: 'Что предприниматель может вычесть?', a: 'Расходы, связанные с бизнесом: помещение, инструменты, материалы, поездки, телефон, рабочий кабинет, страховки, YEL, обучение, а также бухгалтерские и консультационные услуги.' },
@@ -81,7 +81,7 @@ export const yrittajanVahennykset: Guide = {
       title: 'Entrepreneur’s tax deductions: what expenses can you deduct? (2026)',
       description:
         'What can an entrepreneur deduct? Premises, tools, travel, home office, insurance and YEL — a clear list of deductions for a toiminimi and an Oy.',
-      lead: 'Deductions reduce your taxable profit — so it pays to deduct every expense related to your business. We go through what an entrepreneur can deduct.',
+      lead: 'Deductions reduce your taxable profit — so it pays to deduct every business-related expense that meets the conditions for a deduction. We go through what an entrepreneur can deduct.',
       body: [
         { t: 'h2', x: 'The basic principle of deductions' },
         { t: 'p', x: 'You can deduct expenses incurred to earn business income. Keep your receipts and vouchers — without them no deduction is granted. Private expenses are not deductible.' },
@@ -98,11 +98,11 @@ export const yrittajanVahennykset: Guide = {
         ] },
         { t: 'h2', x: 'Travel costs: kilometres and per-diems' },
         { t: 'p', x: 'Work driving with your own car and business trips can be deducted. The tax-free kilometre allowance in 2026 is about €0.55/km, and per-diems are €25 (a trip of 6–10 hours) and €54 (over 10 hours). A sole trader doesn’t pay themselves allowances but makes the deduction in their taxation.' },
-        { t: 'note', x: 'The Tax Administration confirms the allowance amounts every year — check the current 2026 figures. Some expenses (e.g. entertainment) are only partly deductible.' },
+        { t: 'note', x: 'The Tax Administration confirms the allowance amounts every year — check the current 2026 figures. Some expenses (e.g. entertainment) are only partly deductible. Source: vero.fi, June 2026.' },
         { t: 'h2', x: 'Home-office deduction' },
         { t: 'p', x: 'If you work at home, you can deduct the workroom costs either by actual costs or by a formula. A sole trader makes the home-office deduction in their own taxation.' },
         { t: 'h2', x: 'Don’t leave deductions unused' },
-        { t: 'p', x: 'A good accountant makes sure you deduct everything legally and don’t overpay tax. We review your expenses and use all the deductions — in your language.' },
+        { t: 'p', x: 'A good accountant makes sure you claim every deduction you’re entitled to and don’t pay more tax than necessary. We review your expenses and make sure you deduct everything allowed — in your language.' },
       ],
       faq: [
         { q: 'What can an entrepreneur deduct?', a: 'Business-related expenses: premises, tools, materials, travel, phone, a home office, insurance, YEL, training, and bookkeeping and expert services.' },
@@ -115,7 +115,7 @@ export const yrittajanVahennykset: Guide = {
       title: 'Ettevõtja maksuvähendused: milliseid kulusid saad maha arvata? (2026)',
       description:
         'Mida saab ettevõtja maha arvata? Ruumid, töövahendid, reisid, kodukontor, kindlustused ja YEL — selge nimekiri vähendustest toiminimi’le ja Oy’le.',
-      lead: 'Vähendused vähendavad maksustatavat kasumit — seega tasub maha arvata kõik äriga seotud kulud. Vaatame, mida ettevõtja saab maha arvata.',
+      lead: 'Vähendused vähendavad maksustatavat kasumit — seega tasub maha arvata kõik äriga seotud kulud, kui need vastavad mahaarvamise tingimustele. Vaatame, mida ettevõtja saab maha arvata.',
       body: [
         { t: 'h2', x: 'Vähenduste põhiprintsiip' },
         { t: 'p', x: 'Saad maha arvata kulud, mis on tekkinud äritulu teenimiseks. Säilita tšekid ja dokumendid — ilma nendeta vähendust ei anta. Isiklikud kulud ei ole mahaarvatavad.' },
@@ -132,11 +132,11 @@ export const yrittajanVahennykset: Guide = {
         ] },
         { t: 'h2', x: 'Reisikulud: kilomeetrid ja päevarahad' },
         { t: 'p', x: 'Tööreise oma autoga ja töölähetusi saab maha arvata. Maksuvaba kilomeetrihüvitis on 2026. aastal umbes 0,55 €/km ja päevarahad on osapäevaraha 25 € (reis 6–10 h) ja täispäevaraha 54 € (üle 10 h). Toiminimi-ettevõtja ei maksa endale hüvitisi, vaid teeb vähenduse maksustamises.' },
-        { t: 'note', x: 'Maksuamet kinnitab hüvitiste summad igal aastal — kontrolli 2026. aasta ajakohaseid numbreid. Osa kuludest (nt esinduskulud) on vaid osaliselt mahaarvatavad.' },
+        { t: 'note', x: 'Maksuamet kinnitab hüvitiste summad igal aastal — kontrolli 2026. aasta ajakohaseid numbreid. Osa kuludest (nt esinduskulud) on vaid osaliselt mahaarvatavad. Allikas: vero.fi, juuni 2026.' },
         { t: 'h2', x: 'Kodukontori vähendus' },
         { t: 'p', x: 'Kui töötad kodus, saad töötoa kulud maha arvata kas tegelike kulude alusel või valemiga. Toiminimi-ettevõtja teeb kodukontori vähenduse oma maksustamises.' },
         { t: 'h2', x: 'Ära jäta vähendusi kasutamata' },
-        { t: 'p', x: 'Hea raamatupidaja tagab, et arvad seaduslikult kõik maha ega maksa liiga palju maksu. Vaatame su kulud üle ja kasutame kõik vähendused — sinu keeles.' },
+        { t: 'p', x: 'Hea raamatupidaja tagab, et saad kõik vähendused, millele sul on õigus, ega maksa rohkem maksu kui vaja. Vaatame su kulud üle ja tagame, et arvad maha kõik lubatu — sinu keeles.' },
       ],
       faq: [
         { q: 'Mida saab ettevõtja maha arvata?', a: 'Äriga seotud kulud: ruumid, töövahendid, materjalid, reisid, telefon, töötuba, kindlustused, YEL, koolitus ning raamatupidamis- ja eksperditeenused.' },
@@ -149,7 +149,7 @@ export const yrittajanVahennykset: Guide = {
       title: 'Податкові вирахування підприємця: що можна вирахувати? (2026)',
       description:
         'Що підприємець може вирахувати з податків? Приміщення, інструменти, поїздки, домашній офіс, страховки і YEL — зрозумілий список вирахувань для toiminimi та Oy.',
-      lead: 'Вирахування зменшують оподатковуваний прибуток — тож варто вираховувати всі витрати, повʼязані з бізнесом. Розбираємо, що підприємець може вирахувати.',
+      lead: 'Вирахування зменшують оподатковуваний прибуток — тож варто вираховувати всі витрати, повʼязані з бізнесом, якщо вони відповідають умовам вирахування. Розбираємо, що підприємець може вирахувати.',
       body: [
         { t: 'h2', x: 'Базовий принцип вирахувань' },
         { t: 'p', x: 'Ви можете вирахувати витрати, понесені для отримання доходу від бізнесу. Зберігайте чеки й документи — без них вирахування не отримати. Особисті витрати не вираховуються.' },
@@ -166,11 +166,11 @@ export const yrittajanVahennykset: Guide = {
         ] },
         { t: 'h2', x: 'Витрати на поїздки: кілометри й добові' },
         { t: 'p', x: 'Робочі поїздки на власному авто та відрядження можна вирахувати. Неоподатковувана компенсація за кілометр у 2026 році — близько 0,55 €/км, добові: неповні 25 € (поїздка 6–10 год) і повні 54 € (понад 10 год). Підприємець-toiminimi не платить собі компенсації, а робить вирахування в оподаткуванні.' },
-        { t: 'note', x: 'Податкова щороку підтверджує суми компенсацій — уточнюйте актуальні цифри 2026 року. Частина витрат (напр. представницькі) вираховується лише частково.' },
+        { t: 'note', x: 'Податкова щороку підтверджує суми компенсацій — уточнюйте актуальні цифри 2026 року. Частина витрат (напр. представницькі) вираховується лише частково. Джерело: vero.fi, червень 2026.' },
         { t: 'h2', x: 'Вирахування за робочий кабінет' },
         { t: 'p', x: 'Якщо ви працюєте вдома, можна вирахувати витрати на робочий кабінет або за фактичними витратами, або за формулою. Підприємець-toiminimi робить це вирахування у своєму оподаткуванні.' },
         { t: 'h2', x: 'Не залишайте вирахування невикористаними' },
-        { t: 'p', x: 'Хороший бухгалтер простежить, щоб ви вирахували все законно й не переплатили податок. Ми розберемо ваші витрати та використаємо всі вирахування — вашою мовою.' },
+        { t: 'p', x: 'Хороший бухгалтер простежить, щоб ви отримали всі вирахування, на які маєте право, і не переплатили податок. Ми розберемо ваші витрати та перевіримо, що ви вирахували все дозволене — вашою мовою.' },
       ],
       faq: [
         { q: 'Що підприємець може вирахувати?', a: 'Витрати, повʼязані з бізнесом: приміщення, інструменти, матеріали, поїздки, телефон, робочий кабінет, страховки, YEL, навчання, а також бухгалтерські та консультаційні послуги.' },
