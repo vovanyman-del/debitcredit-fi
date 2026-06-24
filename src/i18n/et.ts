@@ -291,7 +291,7 @@ export const et = {
       'One-time tax report': 'Ühekordne maksudeklaratsioon',
       'Other accounting work': 'Muu raamatupidamistöö',
       'Explanatory work': 'Selgitustöö',
-      'Additional voucher': 'Lisakanne',
+      'Additional voucher': 'Lisatehing',
       'Annual report — Toiminimi': 'Aastaaruanne — Toiminimi (FIE)',
       'Annual report — Oy': 'Aastaaruanne — Oy (osaühing)',
       'Annual report — Ry/Ky/Osuuskunta': 'Aastaaruanne — Ry/Ky/Osuuskunta',

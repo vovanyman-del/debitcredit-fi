@@ -21,8 +21,8 @@ export const fi = {
   home: {
     hero: {
       eyebrow: 'Kirjanpito Helsingissä · kirjanpitäjät puhuvat suomea ja venäjää',
-      title: 'Näet aina, missä menet.',
-      subtitle: 'Kirjanpito, verot ja raportointi hallinnassa. Vaavossa näet pankin, verot ja raportit reaaliajassa — ei enää «anna paperit ja odota».',
+      title: 'Kirjanpito kunnossa. Tiedät aina, missä mennään.',
+      subtitle: 'Kirjanpito, verot ja raportointi hallinnassa. Vaavo-asiakasportaalissa näet pankin, verot ja raportit verkossa, aina ajan tasalla — ei enää «anna paperit ja odota».',
       cta: 'Ilmainen konsultaatio',
       ctaSecondary: 'Katso Vaavo',
     },
@@ -52,7 +52,7 @@ export const fi = {
       turnover: 'Liikevaihto',
       vat: 'ALV',
       result: 'Tulos',
-      scan: 'Kuvaa kuitti — kirjautuu itsestään',
+      scan: 'Kuvaa kuitti — lähtee kirjanpitäjälle käsittelyyn',
     },
     personas: {
       eyebrow: 'Miksi meille tullaan',
@@ -66,8 +66,8 @@ export const fi = {
       title: 'Vaavo selkokielellä',
       lead: 'Se mikä muualla on piilossa papereissa, on sinulla ruudulla. Näet itse, mitä kirjanpitäjä tekee.',
       bank: { title: 'Pankki, verot ja raportit — verkossa', desc: 'Milloin tahansa, ilman erillistä pyyntöä tai odotusta.' },
-      photo: { title: 'Kuva kuitista puhelimella — suoraan kirjanpitoon', desc: 'Kuva siirtyy automaattisesti kirjanpitoon — kuittilaatikoita ei enää tarvita.' },
-      language: { title: 'Kysymys omalla kielelläsi — selkeä vastaus', desc: 'Vaavo-kabinetissa kysyt omalla kielelläsi (RU, FI, EN, ET, UK) — tekoälyavustaja ymmärtää ja vastaa samalla kielellä.' },
+      photo: { title: 'Kuva kuitista puhelimella — suoraan kirjanpitäjälle', desc: 'Kuva lähtee kirjanpitäjälle käsittelyyn — kuittilaatikoita ei enää tarvita.' },
+      language: { title: 'Kysymys omalla kielelläsi — selkeä vastaus', desc: 'Vaavo-asiakasportaalissa kysyt omalla kielelläsi (RU, FI, EN, ET, UK) — tekoälyavustaja ymmärtää ja vastaa samalla kielellä.' },
       panelTitle: 'Vaavo · Raportit',
     },
     services: {
@@ -335,10 +335,10 @@ export const fi = {
     },
   },
   vaavo: {
-    title: 'Vaavo — Taloushallintoalusta',
+    title: 'Vaavo — taloutesi asiakasportaali',
     subtitle: 'Asiakkaillemme ilmainen alusta, jonka avulla seuraat kirjanpitoasi helposti ja läpinäkyvästi.',
     free: 'Ilmainen asiakkaillemme',
-    techHighlight: 'Vaavo yhdistää pankkitiedot, dokumenttihallinnan ja viestinnän yhteen paikkaan. Tekoäly auttaa tositteiden tunnistamisessa ja kirjanpidon automatisoinnissa. Reaaliaikainen näkymä talouteesi — milloin tahansa, mistä tahansa.',
+    techHighlight: 'Vaavo yhdistää pankkitiedot, dokumenttihallinnan ja viestinnän yhteen paikkaan. Tekoäly auttaa tositteiden tunnistamisessa ja nopeuttaa kirjanpitoa. Ajantasainen näkymä talouteesi — milloin tahansa, mistä tahansa.',
     cta: 'Haluatko nähdä Vaavon toiminnassa?',
     features: {
       ai: { title: 'AI-tositteiden käsittely', desc: 'Tekoäly tunnistaa kuitit ja laskut automaattisesti, ehdottaa kirjauskategoriaa ja liittää ne oikeisiin pankkitapahtumiin.' },
@@ -374,11 +374,11 @@ export const fi = {
       title: 'Tarinamme',
       p1: 'Tilitoimisto Debit Credit perustettiin Helsingissä tavoitteena tarjota modernia ja läpinäkyvää kirjanpitoa erityisesti pienille ja keskisuurille yrityksille.',
       p2: 'Olemme kymmenen vuoden aikana perustaneet yli 100 yritystä, laskeneet yli 15 000 palkkaa ja laatineet satoja tilinpäätöksiä. Asiakkaamme arvostavat selkeää hinnoittelua, nopeaa viestintää ja teknologiaa, joka tekee kirjanpidosta helppoa.',
-      p3: 'Kehitimme Vaavo-alustan, koska halusimme antaa asiakkaillemme reaaliaikaisen näkymän talouteensa — ei pelkkiä kuukausiraportteja, vaan jatkuvan yhteyden kirjanpitoon.',
+      p3: 'Kehitimme Vaavon, koska halusimme antaa asiakkaillemme ajantasaisen näkymän talouteensa — ei pelkkiä kuukausiraportteja, vaan jatkuvan yhteyden kirjanpitoon.',
     },
     values: {
       title: 'Arvomme',
-      transparency: { title: 'Läpinäkyvyys', desc: 'Selkeät hinnat, avoin viestintä ja reaaliaikainen pääsy taloustietoihin.' },
+      transparency: { title: 'Läpinäkyvyys', desc: 'Selkeät hinnat, avoin viestintä ja pääsy taloustietoihin verkossa.' },
       expertise: { title: 'Asiantuntemus', desc: 'Syvällinen osaaminen Suomen verolainsäädännöstä ja kirjanpidon vaatimuksista.' },
       technology: { title: 'Teknologia', desc: 'Vaavo-alusta ja tekoälytyökalut tekevät kirjanpidosta tehokkaampaa.' },
       multilingual: { title: 'Monikielisyys', desc: 'Kirjanpitäjät palvelevat suomeksi ja venäjäksi. Vaavo-kabinetti ja tuki kaikilla viidellä kielellä: RU, FI, EN, ET, UK.' },
@@ -416,13 +416,13 @@ export const fi = {
       address: 'Osoite',
       hours: 'Aukioloajat',
       hoursValue: 'Ma–Pe 9:00–17:00',
-      social: 'Sosiaaliset verkostot',
+      social: 'Sosiaalinen media',
     },
   },
   forAccountants: {
     title: 'Tilitoimistoille',
     subtitle: 'Vaavo — alusta, joka tekee kirjanpitäjän työstä tehokkaampaa.',
-    intro: 'Vaavo on kehitetty kirjanpitäjien tarpeisiin. Alusta automatisoi rutiinitehtäviä, tarjoaa reaaliaikaisen pankkidatan ja tehostaa asiakasviestintää.',
+    intro: 'Vaavo on kehitetty kirjanpitäjien tarpeisiin. Alusta automatisoi rutiinitehtäviä, pitää pankkidatan ajan tasalla ja tehostaa asiakasviestintää.',
     cta: 'Haluatko kokeilla Vaavoa tilitoimistossasi?',
     features: {
       ai: { title: 'AI-automaatio', desc: 'Tekoäly tunnistaa tositteet, ehdottaa kirjauksia ja oppii asiakkaiden tavoista. Vähemmän manuaalista työtä.' },
@@ -504,7 +504,7 @@ export const fi = {
       title: 'Näin vaihtaminen tapahtuu',
       items: [
         { title: 'Ota meihin yhteyttä', desc: 'Kerro nykyisestä tilanteestasi. Arvioimme tarpeesi ja annamme tarjouksen.' },
-        { title: 'Irtisanomme vanhan sopimuksen', desc: 'Hoidamme irtisanomisen ja tiedonsiirron edelliseltä tilitoimistolta.' },
+        { title: 'Autamme vanhan sopimuksen irtisanomisessa', desc: 'Autamme irtisanomisessa ja hoidamme tiedonsiirron edelliseltä tilitoimistolta.' },
         { title: 'Siirrämme tiedot', desc: 'Siirrämme kirjanpitoaineiston, tositteet ja historiatiedot järjestelmäämme.' },
         { title: 'Valmista!', desc: 'Kirjanpitosi jatkuu keskeytyksettä uudessa tilitoimistossa.' },
       ],
@@ -513,7 +513,7 @@ export const fi = {
       title: 'Miksi vaihtaa meille?',
       items: [
         'Selkeät ja ennustettavat kuukausihinnat',
-        'Vaavo-alusta — reaaliaikainen näkymä talouteesi',
+        'Vaavo-asiakasportaali — taloutesi ajan tasalla',
         'Nopea viestintä — vastaamme samana päivänä',
         'Kirjanpitäjät suomeksi ja venäjäksi · Vaavo-kabinetti viidellä kielellä',
         'Modernit työkalut ja tekoäly kirjanpidon apuna',
