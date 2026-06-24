@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { I18nProvider } from './i18n/context';
+import { I18nProvider, useI18n } from './i18n/context';
+import { pageMeta } from './seo';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -27,6 +28,22 @@ import NotFoundPage from './pages/NotFoundPage';
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
+// Keep the document <title> and meta description localized on client-side
+// navigation (the prerendered head is correct on first load; this stops the
+// previous locale's title lingering after an in-app language/page switch).
+function DocumentHead() {
+  const { pathname } = useLocation();
+  const { t, locale } = useI18n();
+  useEffect(() => {
+    const basePath = pathname.replace(/^\/(en|ru|et|uk)(?=\/|$)/, '') || '/';
+    const { title, description } = pageMeta(t, basePath, locale);
+    if (title) document.title = title;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta && description) meta.setAttribute('content', description);
+  }, [pathname, t, locale]);
   return null;
 }
 
@@ -58,6 +75,7 @@ function Layout() {
         <Header />
         <main className="flex-1">
           <ScrollToTop />
+          <DocumentHead />
           <Routes>
             <Route path="/*">
               {AppRoutes()}
