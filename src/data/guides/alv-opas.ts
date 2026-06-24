@@ -4,7 +4,7 @@ import type { Guide } from './types';
 // restaurants, books, medicine, passenger transport, accommodation, culture/
 // sports — lowered from 14 % on 1.1.2026); 10 % (newspapers/magazines); 0 %
 // (exports). VAT registration threshold 20 000 €/calendar year (raised from
-// 15 000 € on 1.1.2026, law 448/2024); small-business relief (alarajahuojennus)
+// 15 000 € on 1.1.2025, law 448/2024); small-business relief (alarajahuojennus)
 // removed 1.1.2025. Filing frequency by turnover: monthly default, quarterly
 // ≤ 100 000 €, annually ≤ 30 000 €.
 export const alvOpas: Guide = {
@@ -28,8 +28,8 @@ export const alvOpas: Guide = {
           '0 % — mm. EU:n ulkopuolinen vienti.',
         ] },
         { t: 'h2', x: 'Milloin ALV-rekisteröinti on pakollinen?' },
-        { t: 'p', x: 'Rekisteröidyt ALV-velvolliseksi, kun liikevaihtosi ylittää 20 000 € kalenterivuodessa (raja nousi 15 000 eurosta 1.1.2026). Rajaa tarkastellaan sekä kuluvalta että edelliseltä kalenterivuodelta. Jos jäät rajan alle, voit silti rekisteröityä vapaaehtoisesti.' },
-        { t: 'note', x: 'Alarajahuojennus poistui 1.1.2025. Käytä lukuja suuntaa-antavina ja varmista oma tilanteesi kirjanpitäjältä.' },
+        { t: 'p', x: 'Rekisteröidyt ALV-velvolliseksi, kun liikevaihtosi ylittää 20 000 € kalenterivuodessa (raja nousi 15 000 eurosta 1.1.2025). Rajaa tarkastellaan sekä kuluvalta että edelliseltä kalenterivuodelta. Jos jäät rajan alle, voit silti rekisteröityä vapaaehtoisesti.' },
+        { t: 'note', x: 'Alarajahuojennus poistui 1.1.2025. Lähde: vero.fi (tarkistettu 6/2026). Käytä lukuja suuntaa-antavina ja varmista oma tilanteesi kirjanpitäjältä.' },
         { t: 'h2', x: 'Kannattaako rekisteröityä vapaaehtoisesti?' },
         { t: 'p', x: 'Jos asiakkaasi ovat yrityksiä tai teet alkuvaiheessa isoja hankintoja, vapaaehtoinen rekisteröinti kannattaa usein: saat vähentää ostojesi ALV:n. Jos myyt suoraan kuluttajille, ALV nostaa hintojasi — punnitse hyödyt tapauskohtaisesti.' },
         { t: 'h2', x: 'Miten ALV ilmoitetaan?' },
@@ -67,8 +67,8 @@ export const alvOpas: Guide = {
           '0 % — напр. экспорт за пределы ЕС.',
         ] },
         { t: 'h2', x: 'Когда регистрация ALV обязательна?' },
-        { t: 'p', x: 'Вы становитесь плательщиком ALV, когда оборот превышает 20 000 € за календарный год (порог повышен с 15 000 € с 1.1.2026). Порог проверяется за текущий и предыдущий календарный год. Если вы ниже порога, можно зарегистрироваться добровольно.' },
-        { t: 'note', x: 'Льгота по нижнему пределу (alarajahuojennus) отменена с 1.1.2025. Используйте цифры как ориентир и уточняйте свою ситуацию у бухгалтера.' },
+        { t: 'p', x: 'Вы становитесь плательщиком ALV, когда оборот превышает 20 000 € за календарный год (порог повышен с 15 000 € с 1.1.2025). Порог проверяется за текущий и предыдущий календарный год. Если вы ниже порога, можно зарегистрироваться добровольно.' },
+        { t: 'note', x: 'Льгота по нижнему пределу (alarajahuojennus) отменена с 1.1.2025. Источник: vero.fi (проверено 06/2026). Используйте цифры как ориентир и уточняйте свою ситуацию у бухгалтера.' },
         { t: 'h2', x: 'Стоит ли регистрироваться добровольно?' },
         { t: 'p', x: 'Если ваши клиенты — компании или вы делаете крупные стартовые покупки, добровольная регистрация часто выгодна: вы сможете вычесть ALV покупок. Если продаёте напрямую потребителям, ALV повышает ваши цены — взвешивайте в каждом случае.' },
         { t: 'h2', x: 'Как подаётся декларация ALV?' },
@@ -106,8 +106,8 @@ export const alvOpas: Guide = {
           '0% — e.g. exports outside the EU.',
         ] },
         { t: 'h2', x: 'When is VAT registration mandatory?' },
-        { t: 'p', x: 'You must register for VAT when your turnover exceeds €20,000 in a calendar year (the threshold rose from €15,000 on 1 Jan 2026). The limit is assessed for both the current and the previous calendar year. If you stay below it, you can still register voluntarily.' },
-        { t: 'note', x: 'The small-business relief (alarajahuojennus) was removed on 1 Jan 2025. Use the figures as a guide and confirm your situation with an accountant.' },
+        { t: 'p', x: 'You must register for VAT when your turnover exceeds €20,000 in a calendar year (the threshold rose from €15,000 on 1 Jan 2025). The limit is assessed for both the current and the previous calendar year. If you stay below it, you can still register voluntarily.' },
+        { t: 'note', x: 'The small-business relief (alarajahuojennus) was removed on 1 Jan 2025. Source: vero.fi (checked 6/2026). Use the figures as a guide and confirm your situation with an accountant.' },
         { t: 'h2', x: 'Is voluntary registration worth it?' },
         { t: 'p', x: 'If your clients are businesses or you make large purchases early on, voluntary registration is often worthwhile: you can deduct the VAT on your purchases. If you sell directly to consumers, VAT raises your prices — weigh the benefits case by case.' },
         { t: 'h2', x: 'How is VAT reported?' },
@@ -145,8 +145,8 @@ export const alvOpas: Guide = {
           '0 % — nt eksport väljapoole ELi.',
         ] },
         { t: 'h2', x: 'Millal on ALV-registreerimine kohustuslik?' },
-        { t: 'p', x: 'Pead registreeruma ALV-kohustuslaseks, kui käive ületab 20 000 € kalendriaastas (piir tõusis 15 000 €-lt 1.1.2026). Piiri vaadatakse nii jooksval kui ka eelmisel kalendriaastal. Kui jääd alla piiri, saad siiski vabatahtlikult registreeruda.' },
-        { t: 'note', x: 'Väikeettevõtja soodustus (alarajahuojennus) kaotati 1.1.2025. Kasuta numbreid orientiirina ja kontrolli oma olukord raamatupidajaga.' },
+        { t: 'p', x: 'Pead registreeruma ALV-kohustuslaseks, kui käive ületab 20 000 € kalendriaastas (piir tõusis 15 000 €-lt 1.1.2025). Piiri vaadatakse nii jooksval kui ka eelmisel kalendriaastal. Kui jääd alla piiri, saad siiski vabatahtlikult registreeruda.' },
+        { t: 'note', x: 'Väikeettevõtja soodustus (alarajahuojennus) kaotati 1.1.2025. Allikas: vero.fi (kontrollitud 6/2026). Kasuta numbreid orientiirina ja kontrolli oma olukord raamatupidajaga.' },
         { t: 'h2', x: 'Kas vabatahtlik registreerimine tasub end ära?' },
         { t: 'p', x: 'Kui su kliendid on ettevõtted või teed alguses suuri oste, on vabatahtlik registreerimine sageli kasulik: saad maha arvata ostude ALV. Kui müüd otse tarbijatele, tõstab ALV su hindu — kaalu kasu juhtumipõhiselt.' },
         { t: 'h2', x: 'Kuidas ALV deklareeritakse?' },
@@ -184,8 +184,8 @@ export const alvOpas: Guide = {
           '0 % — напр. експорт за межі ЄС.',
         ] },
         { t: 'h2', x: 'Коли реєстрація ALV обовʼязкова?' },
-        { t: 'p', x: 'Ви стаєте платником ALV, коли оборот перевищує 20 000 € за календарний рік (поріг підвищено з 15 000 € з 1.1.2026). Поріг перевіряється за поточний і попередній календарний рік. Якщо ви нижче порога, можна зареєструватися добровільно.' },
-        { t: 'note', x: 'Пільгу за нижньою межею (alarajahuojennus) скасовано з 1.1.2025. Використовуйте цифри як орієнтир і уточнюйте свою ситуацію в бухгалтера.' },
+        { t: 'p', x: 'Ви стаєте платником ALV, коли оборот перевищує 20 000 € за календарний рік (поріг підвищено з 15 000 € з 1.1.2025). Поріг перевіряється за поточний і попередній календарний рік. Якщо ви нижче порога, можна зареєструватися добровільно.' },
+        { t: 'note', x: 'Пільгу за нижньою межею (alarajahuojennus) скасовано з 1.1.2025. Джерело: vero.fi (перевірено 06/2026). Використовуйте цифри як орієнтир і уточнюйте свою ситуацію в бухгалтера.' },
         { t: 'h2', x: 'Чи варто реєструватися добровільно?' },
         { t: 'p', x: 'Якщо ваші клієнти — компанії або ви робите великі стартові покупки, добровільна реєстрація часто вигідна: ви зможете вирахувати ALV покупок. Якщо продаєте напряму споживачам, ALV підвищує ваші ціни — зважуйте в кожному випадку.' },
         { t: 'h2', x: 'Як подається декларація ALV?' },
