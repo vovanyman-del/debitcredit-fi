@@ -66,12 +66,13 @@ export default function GuidePage() {
               {t.home.hero.cta}
             </Link>
             <Link
-              to={localePath('/palvelut')}
+              to={localePath('/hinnasto')}
               className="inline-flex justify-center items-center px-6 py-3 border border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors"
             >
-              {t.nav.services}
+              {t.nav.pricing}
             </Link>
           </div>
+          <Link to={localePath('/vaavo')} className="mt-5 inline-block text-sm font-semibold text-white underline underline-offset-4">{t.home.hero.ctaSecondary} →</Link>
         </div>
 
         {/* Read also — internal cross-links */}

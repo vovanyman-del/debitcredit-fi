@@ -115,7 +115,7 @@ export const fi = {
       name: 'Vladimir Nyman',
       role: 'Perustaja ja kirjanpitäjä',
       langs: 'Kirjanpitäjät palvelevat suomeksi ja venäjäksi',
-      desc: 'Kirjanpitäjä ja yrittäjä, joka perusti Debit Creditin tarjotakseen pienyrittäjille Suomessa selkeää ja inhimillistä palvelua.',
+      desc: "Kirjanpitäjä ja Debit Creditin perustaja. Suomessa suoritettu kirjanpidon alan ammatillinen koulutus ja talousalan korkeakoulututkinto. Palvelee suomeksi ja venäjäksi.",
     },
     testimonial: {
       quote: 'Ennen annoin paperit ja odotin — paljonko rahaa, mitkä verot, epäselvää. Nyt avaan Vaavon suoraan työmaalta ja näen minuutissa kaiken: rahat, ALV:n, eräpäivät. Ja kysyn omalla kielelläni. Rauhallista.',
@@ -219,7 +219,7 @@ export const fi = {
     packageTargets: {
       micro: 'Toiminimi (yksinkertainen kirjanpito)',
       mini: 'Toiminimi (kahdenkertainen) / pieni Oy',
-      basic: 'Toiminimi / pieni Oy, laskutus + 1 palkka',
+      basic: "Toiminimi / pieni Oy, 1 palkanlaskenta",
       medium: 'Toiminimi / pieni-keskisuuri Oy (5–15 laskua/kk, 2–4 palkkaa)',
       large: 'Keskisuuri Oy (20–40 laskua/kk, 30–50 kulua, ~5 palkkaa)',
       maxi: 'Keskisuuri Oy (30–80 laskua, 70–100 kulua, ~10 palkkaa)',
@@ -333,6 +333,7 @@ export const fi = {
       'per voucher': '/ tosite',
       'from': 'alkaen',
     },
+    portalIncluded: "Vaavo sisältyy jokaiseen pakettiin Microsta alkaen: laskutus portaalissa, asiakirjat, pankki, ajopäiväkirja ja Apuri. Portaalista tai sovelluksesta ei veloiteta erillistä tilausta. Kirjanpidon lisätyöt veloitetaan hinnaston mukaan.",
   },
   vaavo: {
     title: "Vaavo — laskut, pankki ja kirjanpitäjä",
@@ -351,8 +352,8 @@ export const fi = {
       files: { title: 'Dokumenttihallinta', desc: 'Tositteet, sopimukset ja raportit turvallisesti yhdessä paikassa. Järjestelmällinen arkisto kuukausittain.' },
       messages: { title: 'Viestintä', desc: 'Viestit kirjanpitäjälle suoraan sovelluksessa. Ei enää sähköpostin kaivelua.' },
       analytics: { title: "Yrityksesi raportit", desc: "Seuraa tuloja, menoja, tuloslaskelmaa ja tasetta. Kirjanpitoraportit perustuvat kirjanpitäjän käsittelemiin tietoihin." },
-      aiHelper: { title: 'AI-avustaja', desc: 'Kysy talousasioista suomeksi, englanniksi, venäjäksi, viroksi tai ukrainaksi — tekoäly vastaa yrityksesi tietojen perusteella.' },
-      access: { title: "Viidellä kielellä, tietokoneella ja puhelimella", desc: "Portaali toimii suomeksi, venäjäksi, englanniksi, viroksi ja ukrainaksi. Käytä sitä selaimessa tai Vaavon iPhone-sovelluksessa." },
+      aiHelper: { title: "Apuri auttaa taloudessa ja Vaavon käytössä", desc: "Kysy veroista, kirjanpidosta tai Vaavon toiminnoista. Apuri kertoo, mistä toiminto löytyy ja miten edetä, suomeksi, venäjäksi, englanniksi, viroksi tai ukrainaksi." },
+      mileage: { title: "Sähköinen ajopäiväkirja", desc: "Pidä kirjaa työajoista Vaavossa ja säilytä matkojen tiedot kirjanpitoa varten." },
     },
     demo: {
       step1: { title: 'Kirjaudu turvallisesti', desc: 'Henkilökohtaiset tunnukset — vain sinun yrityksesi tiedot' },
@@ -361,6 +362,12 @@ export const fi = {
       step4: { title: 'Seuraa pankkitapahtumia', desc: 'PSD2-yhteys pankkiin — tapahtumat päivittyvät automaattisesti' },
       step5: { title: 'Kysy kirjanpitäjältä', desc: 'Viesti suoraan — ei tarvitse soittaa tai lähettää sähköpostia' },
       step6: { title: 'Omalla kielelläsi', desc: 'Suomi, venäjä, englanti, viro, ukraina — valitse itsellesi sopiva' },
+    },
+    apps: {
+      title: "Vaavo tietokoneella ja puhelimessa",
+      description: "Asiakasportaali toimii selaimessa suomeksi, venäjäksi, englanniksi, viroksi ja ukrainaksi. Natiivi iPhone- ja iPad-sovellus on saatavilla App Storesta. Käyttö sisältyy kirjanpitopalveluun ilman lisämaksua.",
+      appStore: "Lataa App Storesta",
+      android: "Natiivi Android-sovellus on lähetetty julkaistavaksi Google Playhin. Lisäämme linkin julkaisun jälkeen.",
     },
   },
   about: {
@@ -393,6 +400,7 @@ export const fi = {
       title: 'Perustaja',
       name: 'Vladimir Nyman',
       desc: 'Kirjanpitäjä ja yrittäjä, joka perusti Debit Creditin tarjotakseen parempaa palvelua pienyrittäjille Suomessa.',
+      education: "Vladimir on suorittanut Suomessa ensin kirjanpidon alan ammatillisen koulutuksen ja sen jälkeen talousalan korkeakoulututkinnon. Koulutus yhdistää käytännön kirjanpito-osaamisen ja yrityksen talouden kokonaiskuvan.",
     },
     partners: {
       title: 'Yhteistyökumppanit',
@@ -565,7 +573,7 @@ export const fi = {
     backToHub: "Kaikki oppaat",
     relatedTitle: "Lue myös",
     ctaTitle: "Tarvitsetko apua?",
-    ctaText: "Autamme yrityksesi perustamisessa, verotuksessa ja kirjanpidossa — viidellä kielellä.",
+    ctaText: "Keskustellaan yrityksen perustamisesta, tilitoimiston vaihdosta tai kirjanpidosta kaikkialla Suomessa. Palvelemme suomeksi ja venäjäksi. Hinnat ovat julkiset, ja Vaavo sisältyy kaikkiin paketteihin.",
   },
   common: {
     vaavoLangs: 'Vaavo-kabinetti ja asiakastuki: suomi, venäjä, englanti, viro, ukraina.',

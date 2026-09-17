@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
 import type { Translations } from '../i18n/context';
 import { packages, company } from '../data/pricing';
+import { getGuide } from '../data/guides';
 
 /* ---------- small inline icons (brand-green, stroke) ---------- */
 const icon = (path: React.ReactNode) => (
@@ -28,7 +29,7 @@ const Check = (
 const fmt = (n: number) => n.toFixed(2).replace('.', ',');
 
 export default function HomePage() {
-  const { t, localePath } = useI18n();
+  const { t, locale, localePath } = useI18n();
   const h = t.home;
   const featured = [packages[0], packages[2], packages[4]]; // micro, basic, large
 
@@ -278,6 +279,25 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <h2 className="text-3xl sm:text-4xl font-bold">{t.guides.hubTitle}</h2>
+        <div className="mt-8 grid md:grid-cols-3 gap-5">
+          {['tilitoimiston-vaihto', 'kirjanpidon-hinta', 'toiminimi-vai-oy'].map(slug => {
+            const guide = getGuide(slug);
+            if (!guide) return null;
+            const content = guide.content[locale];
+            return (
+              <Link key={slug} to={localePath(`/opas/${slug}`)} className="rounded-2xl border border-ink-900/10 bg-white p-6 hover:border-brand-400 transition-colors">
+                <h3 className="text-lg font-bold">{content.title}</h3>
+                <p className="mt-3 text-sm text-ink-700/80 leading-relaxed">{content.description}</p>
+                <span className="mt-5 inline-block font-semibold text-brand-700">{t.guides.read} →</span>
+              </Link>
+            );
+          })}
+        </div>
+        <Link to={localePath('/opas')} className="mt-6 inline-flex font-semibold text-brand-700 hover:underline">{t.guides.backToHub} →</Link>
       </section>
 
       {/* ===== 10. FINAL CTA (green band) ===== */}

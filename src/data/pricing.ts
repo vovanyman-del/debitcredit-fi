@@ -52,7 +52,7 @@ export const packages: Package[] = [
     period: 'month',
     extraVoucherPrice: 2.50,
     vouchers: '10\u201320',
-    target: 'Toiminimi / small Oy with invoicing + 1 salary',
+    target: 'Toiminimi / small Oy with 1 salary calculation',
     features: [
       'Double-entry bookkeeping',
       '10\u201320 payment transactions per month',

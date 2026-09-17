@@ -115,7 +115,7 @@ export const et = {
       name: 'Vladimir Nyman',
       role: 'Asutaja ja raamatupidaja',
       langs: 'Raamatupidajad räägivad soome ja vene keelt',
-      desc: 'Raamatupidaja ja ettevõtja. Asutas Debit Crediti, et pakkuda Soome väikeettevõtjatele selget ja inimlikku teenust.',
+      desc: "Raamatupidaja ja Debit Crediti asutaja. Soomes omandatud raamatupidamise kutseharidus ja majandusalane kõrgharidus. Nõustamine soome ja vene keeles.",
     },
     testimonial: {
       quote: 'Varem andsin paberid ja ootasin — kui palju raha, millised maksud, segane. Nüüd avan Vaavo otse ehitusplatsilt ja näen minutiga kõike: raha, ALV, tähtajad. Ja küsin vene keeles. Rahulik.',
@@ -219,7 +219,7 @@ export const et = {
     packageTargets: {
       micro: 'Toiminimi (lihtsustatud raamatupidamine)',
       mini: 'Toiminimi (kahekordne) / väike Oy',
-      basic: 'Toiminimi / väike Oy arveldusega + 1 palk',
+      basic: "FIE / väike Oy, 1 palgaarvestus",
       medium: 'Toiminimi / väike-keskmine Oy (5–15 arvet/kuu, 2–4 palka)',
       large: 'Keskmine Oy (20–40 arvet/kuu, 30–50 kulu, ~5 palka)',
       maxi: 'Kesk-suur Oy (30–80 arvet, 70–100 kulu, ~10 palka)',
@@ -333,6 +333,7 @@ export const et = {
       'per voucher': '/ kanne',
       'from': 'alates',
     },
+    portalIncluded: "Vaavo kuulub igasse paketti alates Microst: arvete koostamine portaalis, dokumendid, pank, sõidupäevik ja Apuri. Portaali või rakenduse eest eraldi kuutasu ei ole. Raamatupidamise lisatööde eest tasutakse hinnakirja järgi.",
   },
   vaavo: {
     title: "Vaavo — arved, pank ja raamatupidaja",
@@ -351,8 +352,8 @@ export const et = {
       files: { title: 'Dokumendihaldus', desc: 'Kviitungid, lepingud ja aruanded turvaliselt ühes kohas. Korrastatud arhiiv kuude kaupa.' },
       messages: { title: 'Sõnumid', desc: 'Otsesuhtlus raamatupidajaga rakenduse sees. Enam ei pea e-kirju otsima.' },
       analytics: { title: "Ettevõtte aruanded", desc: "Vaata tulusid, kulusid, kasumiaruannet ja bilanssi. Raamatupidamisaruanded kajastavad raamatupidaja töödeldud andmeid." },
-      aiHelper: { title: 'AI assistent', desc: 'Küsi rahandusküsimusi soome, inglise, vene, eesti või ukraina keeles — AI vastab sinu ettevõtte andmete põhjal.' },
-      access: { title: "Viies keeles, arvutis ja telefonis", desc: "Portaal töötab soome, vene, inglise, eesti ja ukraina keeles. Kasuta seda veebilehitsejas või Vaavo iPhone’i rakenduses." },
+      aiHelper: { title: "Apuri aitab rahaasjade ja Vaavo kasutamisega", desc: "Küsi maksude, raamatupidamise või Vaavo kasutamise kohta. Apuri selgitab, kust funktsioon leida ja kuidas edasi tegutseda, soome, vene, inglise, eesti või ukraina keeles." },
+      mileage: { title: "Elektrooniline sõidupäevik", desc: "Pea Vaavos arvestust töösõitude üle ja säilita sõitude andmed raamatupidamise jaoks." },
     },
     demo: {
       step1: { title: 'Logi turvaliselt sisse', desc: 'Turvaline sisselogimine — näed ainult oma ettevõtte andmeid' },
@@ -361,6 +362,12 @@ export const et = {
       step4: { title: 'Jälgi pangatehinguid', desc: 'PSD2 pangaühendus — tehingud uuenevad automaatselt' },
       step5: { title: 'Küsi raamatupidajalt', desc: 'Kirjuta otse — pole vaja helistada ega meili saata' },
       step6: { title: 'Sinu keeles', desc: 'Soome, vene, inglise, eesti, ukraina — vali endale sobiv' },
+    },
+    apps: {
+      title: "Vaavo arvutis ja telefonis",
+      description: "Kliendiportaal töötab brauseris soome, vene, inglise, eesti ja ukraina keeles. iPhone’i ja iPadi omarakendus on saadaval App Store’is. Kasutamine kuulub raamatupidamisteenuse hinna sisse.",
+      appStore: "Laadi alla App Store’ist",
+      android: "Androidi omarakendus on esitatud Google Plays avaldamiseks. Lisame lingi pärast rakenduse avaldamist.",
     },
   },
   about: {
@@ -393,6 +400,7 @@ export const et = {
       title: 'Asutaja',
       name: 'Vladimir Nyman',
       desc: 'Raamatupidaja ja ettevõtja, kes asutas Debit Crediti, et pakkuda paremat teenust väikeettevõtjatele Soomes.',
+      education: "Vladimir omandas Soomes esmalt raamatupidamise erialase kutsehariduse ja seejärel majandusalase kõrghariduse. See ühendab praktilised raamatupidamisoskused ja arusaama ettevõtte rahandusest.",
     },
     partners: {
       title: 'Partnerid',
@@ -565,7 +573,7 @@ export const et = {
     backToHub: "Kõik juhendid",
     relatedTitle: "Loe ka",
     ctaTitle: "Vajad abi?",
-    ctaText: "Aitame ettevõtte loomisel, maksudes ja raamatupidamises — viies keeles.",
+    ctaText: "Arutame ettevõtte asutamist, raamatupidaja vahetamist või jooksvat raamatupidamist kõikjal Soomes. Raamatupidajad räägivad soome ja vene keelt. Hinnad on avalikud ning Vaavo kuulub igasse paketti.",
   },
   common: {
     vaavoLangs: 'Vaavo kabinet ja tugi: soome, vene, inglise, eesti, ukraina.',

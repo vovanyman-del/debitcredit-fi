@@ -249,7 +249,7 @@ function organizationNode(t: Translations) {
     telephone: company.phone,
     taxID: company.ytunnus, // Finnish Y-tunnus
     vatID: 'FI35127028', // Y-tunnus 3512702-8 → FI + digits
-    founder: { '@type': 'Person', name: company.founder },
+    founder: { '@type': 'Person', '@id': `${SITE}/#founder`, name: company.founder, description: t.about.founder.education },
     description: t.meta.description,
     address: postalAddress(),
     logo: `${SITE}/favicon.svg`,
@@ -365,7 +365,8 @@ function typeNode(t: Translations, locale: Locale, basePath: string, pageUrl: st
         '@id': `${pageUrl}#software`,
         name: 'Vaavo',
         applicationCategory: 'FinanceApplication',
-        operatingSystem: 'Web, iOS, Android',
+        operatingSystem: 'Web, iOS',
+        installUrl: 'https://apps.apple.com/fi/app/vaavo/id6761450083',
         description: t.vaavo.subtitle,
         url: company.vaavo.web,
         inLanguage: locale,
@@ -393,7 +394,7 @@ function jsonLd(locale: Locale, basePath: string): string {
       telephone: company.phone,
       priceRange: '€€',
       address: postalAddress(),
-      areaServed: { '@type': 'City', name: 'Helsinki' },
+      areaServed: { '@type': 'Country', name: 'Finland' },
       openingHours: 'Mo-Fr 09:00-17:00',
       sameAs: SOCIAL_SAMEAS,
       parentOrganization: { '@id': `${SITE}/#organization` },

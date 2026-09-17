@@ -115,7 +115,7 @@ export const en = {
       name: 'Vladimir Nyman',
       role: 'Founder and accountant',
       langs: 'Accountants speak Finnish and Russian',
-      desc: 'Accountant and entrepreneur. Founded Debit Credit to give small businesses in Finland clear, human service.',
+      desc: "Accountant and founder of Debit Credit. Finnish vocational education in accounting, followed by higher education in business and economics. Consultations in Finnish and Russian.",
     },
     testimonial: {
       quote: 'I used to hand over the papers and wait — how much money, which taxes, all unclear. Now I open Vaavo right from the construction site and in a minute I see everything: money, ALV, deadlines. And I ask in Russian. Calm.',
@@ -219,7 +219,7 @@ export const en = {
     packageTargets: {
       micro: 'Sole trader (simplified bookkeeping)',
       mini: 'Sole trader (double-entry) / small Ltd',
-      basic: 'Sole trader / small Ltd with invoicing + 1 salary',
+      basic: "Sole trader / small Oy, 1 salary calculation",
       medium: 'Sole trader / small-medium Ltd (5–15 invoices/mo, 2–4 salaries)',
       large: 'Medium Ltd (20–40 invoices/mo, 30–50 expenses, ~5 salaries)',
       maxi: 'Medium-large Ltd (30–80 invoices, 70–100 expenses, ~10 salaries)',
@@ -333,6 +333,7 @@ export const en = {
       'per voucher': '/ transaction',
       'from': 'from',
     },
+    portalIncluded: "Vaavo is included in every package, starting with Micro: invoicing in the portal, documents, banking, mileage log and Apuri. There is no separate portal or app subscription. Additional accounting work is charged according to the price list.",
   },
   vaavo: {
     title: "Vaavo — invoices, banking and your accountant",
@@ -351,8 +352,8 @@ export const en = {
       files: { title: 'Document Management', desc: 'Receipts, contracts and reports securely in one place. Organised archive by month.' },
       messages: { title: 'Messaging', desc: 'Direct messages with your accountant inside the app. No more searching through emails.' },
       analytics: { title: "Reports on your business", desc: "View income, expenses, your income statement and balance sheet. Accounting reports reflect the data processed by your accountant." },
-      aiHelper: { title: 'AI Assistant', desc: 'Ask financial questions in Finnish, Russian, English, Estonian or Ukrainian — AI responds based on your company data.' },
-      access: { title: "Five languages, on your computer and phone", desc: "The portal works in Finnish, Russian, English, Estonian and Ukrainian. Use it in your browser or the Vaavo app for iPhone." },
+      aiHelper: { title: "Apuri helps with finances and Vaavo", desc: "Ask about taxes, bookkeeping or how to use Vaavo. Apuri explains where to find a feature and what to do next in Finnish, Russian, English, Estonian or Ukrainian." },
+      mileage: { title: "Electronic mileage log", desc: "Keep a record of business trips in Vaavo and save the details for your accounting." },
     },
     demo: {
       step1: { title: 'Log in securely', desc: 'Personal credentials — only your company data' },
@@ -361,6 +362,12 @@ export const en = {
       step4: { title: 'Track bank transactions', desc: 'PSD2 bank connection — transactions update automatically' },
       step5: { title: 'Ask your accountant', desc: 'Message directly — no need to call or email' },
       step6: { title: 'In your language', desc: 'Finnish, Russian, English, Estonian, Ukrainian — choose yours' },
+    },
+    apps: {
+      title: "Vaavo on your computer and phone",
+      description: "The client portal works in your browser in Finnish, Russian, English, Estonian and Ukrainian. The native iPhone and iPad app is available in the App Store. Access is included in your accounting service at no extra charge.",
+      appStore: "Download on the App Store",
+      android: "The native Android app has been submitted for publication on Google Play. We will add a link once it is available.",
     },
   },
   about: {
@@ -393,6 +400,7 @@ export const en = {
       title: 'Founder',
       name: 'Vladimir Nyman',
       desc: 'Accountant and entrepreneur who founded Debit Credit to provide better service to small business owners in Finland.',
+      education: "Vladimir completed vocational education in accounting in Finland, followed by a higher education degree in business and economics. His training combines practical bookkeeping skills with an understanding of business finances.",
     },
     partners: {
       title: 'Partners',
@@ -565,7 +573,7 @@ export const en = {
     backToHub: "All guides",
     relatedTitle: "Read also",
     ctaTitle: "Need help?",
-    ctaText: "We help with setting up your business, taxes and bookkeeping — in five languages.",
+    ctaText: "Discuss starting a business, switching accountants or ongoing bookkeeping anywhere in Finland. Our accountants speak Finnish and Russian. Prices are published, and Vaavo is included in every package.",
   },
   common: {
     vaavoLangs: 'Vaavo workspace & support: Finnish, Russian, English, Estonian, Ukrainian.',

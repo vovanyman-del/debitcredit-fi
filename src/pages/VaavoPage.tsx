@@ -7,7 +7,7 @@ import CtaBand from '../components/CtaBand';
 const featureIcons: Record<string, ReactNode> = {
   sales: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M8 3H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2v-7M8 7h4M8 11h3M8 15h5M15 5h7m-3-3 3 3-3 3" /></svg>,
   incoming: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v10m-4-4 4 4 4-4M5 9l-2 8v4h18v-4l-2-8M3 17h5l2 2h4l2-2h5" /></svg>,
-  access: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M12 3a9 9 0 100 18 9 9 0 000-18zM3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18z" /></svg>,
+  mileage: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M5 4h10a4 4 0 010 8H9a4 4 0 000 8h10M5 2v4m14 12v4" /></svg>,
   ai: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
   bank: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M3 10l9-5 9 5M5 10v8m4-8v8m6-8v8m4-8v8M3 21h18" /></svg>,
   files: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>,
@@ -47,6 +47,14 @@ export default function VaavoPage() {
           <a href={productUrl} className="mt-6 inline-flex items-center gap-2 text-brand-700 font-semibold hover:underline">
             {t.vaavo.productLink}<span aria-hidden="true"> →</span>
           </a>
+        </div>
+        <div className="mt-6 rounded-2xl border border-ink-900/10 bg-white p-8 sm:p-10">
+          <h2 className="text-2xl font-bold">{t.vaavo.apps.title}</h2>
+          <p className="mt-4 max-w-3xl text-ink-700/80 leading-relaxed">{t.vaavo.apps.description}</p>
+          <a href="https://apps.apple.com/fi/app/vaavo/id6761450083" className="mt-6 inline-flex rounded-xl bg-ink-900 px-6 py-3 font-semibold text-white hover:bg-brand-700">
+            {t.vaavo.apps.appStore}<span aria-hidden="true" className="ml-2">↗</span>
+          </a>
+          <p className="mt-4 max-w-3xl text-sm text-ink-700/75 leading-relaxed">{t.vaavo.apps.android}</p>
         </div>
       </section>
 

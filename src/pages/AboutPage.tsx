@@ -81,6 +81,7 @@ export default function AboutPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-400">{a.founder.title}</p>
           <p className="mt-3 text-2xl font-bold">{a.founder.name}</p>
           <p className="mt-3 text-white/70 leading-relaxed">{a.founder.desc}</p>
+          <p className="mt-4 text-white/85 leading-relaxed">{a.founder.education}</p>
           <div className="mt-5 pt-5 border-t border-white/10 text-sm text-white/70">
             {company.name} · {company.address} · Y-tunnus {company.ytunnus}
           </div>

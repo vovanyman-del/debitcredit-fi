@@ -41,6 +41,10 @@ export default function PricingPage() {
       <PageHeader eyebrow={hp.eyebrow} title={t.pricing.title} subtitle={t.pricing.subtitle} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+        <div className="mb-10 rounded-2xl border border-brand-100 bg-brand-50 p-6">
+          <p className="text-ink-700 leading-relaxed">{t.pricing.portalIncluded}</p>
+          <Link to={localePath('/vaavo')} className="mt-3 inline-flex font-semibold text-brand-700 hover:underline">{t.home.hero.ctaSecondary} →</Link>
+        </div>
         {/* All packages */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {packages.map((pkg) => {
