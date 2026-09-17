@@ -38,8 +38,6 @@ export default function ContactPage() {
 
   const social = [
     { label: 'WhatsApp', href: company.social.whatsapp },
-    { label: 'Telegram', href: company.social.telegram },
-    { label: 'Facebook', href: company.social.facebook },
     { label: 'LinkedIn', href: company.social.linkedin },
   ];
 

@@ -171,8 +171,6 @@ export const company = {
   },
   social: {
     whatsapp: 'https://wa.me/358407109702',
-    telegram: 'https://t.me/debitcredit',
-    facebook: 'https://facebook.com/Debit-Credit-1869709246618006/',
     linkedin: 'https://linkedin.com/in/vladimir-serov-966747104/',
   },
 };

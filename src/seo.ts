@@ -260,7 +260,7 @@ function organizationNode(t: Translations) {
 
 // Public social profiles for Organization/LocalBusiness sameAs (helps Google
 // connect the entity to its profiles / knowledge panel).
-const SOCIAL_SAMEAS = [company.social.facebook, company.social.linkedin, company.social.telegram];
+const SOCIAL_SAMEAS = [company.social.linkedin];
 
 /** The site-wide WebSite node (referenced by isPartOf from each page). */
 function websiteNode(locale: Locale) {
