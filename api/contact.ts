@@ -45,7 +45,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const { name, email, phone, company, message, source, _gotcha } = req.body ?? {};
-  const sourceLabel = typeof source === 'string' && Object.hasOwn(SOURCE_LABELS, source)
+  const sourceLabel = typeof source === 'string' && Object.prototype.hasOwnProperty.call(SOURCE_LABELS, source)
     ? SOURCE_LABELS[source]
     : '';
 
