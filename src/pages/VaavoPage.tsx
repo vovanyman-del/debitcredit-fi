@@ -5,6 +5,9 @@ import VaavoDemo from '../components/VaavoDemo';
 import CtaBand from '../components/CtaBand';
 
 const featureIcons: Record<string, ReactNode> = {
+  sales: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M8 3H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2v-7M8 7h4M8 11h3M8 15h5M15 5h7m-3-3 3 3-3 3" /></svg>,
+  incoming: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v10m-4-4 4 4 4-4M5 9l-2 8v4h18v-4l-2-8M3 17h5l2 2h4l2-2h5" /></svg>,
+  access: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M12 3a9 9 0 100 18 9 9 0 000-18zM3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18z" /></svg>,
   ai: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
   bank: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M3 10l9-5 9 5M5 10v8m4-8v8m6-8v8m4-8v8M3 21h18" /></svg>,
   files: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>,
@@ -14,13 +17,38 @@ const featureIcons: Record<string, ReactNode> = {
 };
 
 export default function VaavoPage() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const productUrl = `https://vaavo.fi/${locale === 'fi' ? '' : `${locale}/`}`;
   const inv = t.home.invisible;
   const features = Object.entries(t.vaavo.features) as [string, { title: string; desc: string }][];
 
   return (
     <div className="bg-canvas text-ink-900">
-      <PageHeader eyebrow={t.vaavo.free} title={t.vaavo.title} subtitle={t.vaavo.subtitle} />
+      <PageHeader eyebrow={t.vaavo.free} title={t.vaavo.title} subtitle={t.vaavo.subtitle}>
+        <a href={productUrl} className="inline-flex items-center gap-2 text-brand-700 font-semibold hover:underline">
+          {t.vaavo.productLink}<span aria-hidden="true"> →</span>
+        </a>
+      </PageHeader>
+
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24" aria-labelledby="vaavo-features">
+        <h2 id="vaavo-features" className="mb-8 text-3xl sm:text-4xl font-bold">{t.vaavo.featuresTitle}</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {features.map(([key, feat]) => (
+            <div key={key} className="rounded-2xl border border-ink-900/10 bg-white p-6 hover:border-brand-400/60 hover:shadow-sm transition-all">
+              <div aria-hidden="true" className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">{featureIcons[key]}</div>
+              <h3 className="mt-5 text-base font-bold text-ink-900">{feat.title}</h3>
+              <p className="mt-2 text-sm text-ink-700/75 leading-relaxed">{feat.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12 rounded-2xl border border-brand-100 bg-brand-50 p-8 sm:p-10">
+          <h2 className="text-2xl font-bold">{t.vaavo.techTitle}</h2>
+          <p className="mt-4 text-ink-700/80 leading-relaxed text-lg">{t.vaavo.techHighlight}</p>
+          <a href={productUrl} className="mt-6 inline-flex items-center gap-2 text-brand-700 font-semibold hover:underline">
+            {t.vaavo.productLink}<span aria-hidden="true"> →</span>
+          </a>
+        </div>
+      </section>
 
       {/* Interactive "how it works" demo — snap → recognised → booked → visible */}
       <VaavoDemo />
@@ -33,10 +61,10 @@ export default function VaavoPage() {
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold leading-tight">{inv.title}</h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">{inv.lead}</p>
             <ul className="mt-8 space-y-5">
-              {[inv.bank, inv.photo, inv.language].map((it, i) => (
+              {[inv.bank, t.vaavo.features.sales, inv.language].map((it, i) => (
                 <li key={i} className="flex gap-4">
                   <div className="w-10 h-10 rounded-xl bg-white/5 text-brand-400 flex items-center justify-center shrink-0">
-                    {[featureIcons.bank, featureIcons.files, featureIcons.messages][i]}
+                    {[featureIcons.bank, featureIcons.sales, featureIcons.messages][i]}
                   </div>
                   <div>
                     <div className="font-semibold">{it.title}</div>
@@ -67,24 +95,6 @@ export default function VaavoPage() {
           </div>
         </div>
       </section>
-
-      {/* Feature grid */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map(([key, feat]) => (
-            <div key={key} className="rounded-2xl border border-ink-900/10 bg-white p-6 hover:border-brand-400/60 hover:shadow-sm transition-all">
-              <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">{featureIcons[key]}</div>
-              <h3 className="mt-5 text-base font-bold text-ink-900">{feat.title}</h3>
-              <p className="mt-2 text-sm text-ink-700/75 leading-relaxed">{feat.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Tech highlight */}
-        <div className="mt-12 rounded-2xl border border-ink-900/10 bg-white p-8 sm:p-10">
-          <p className="text-ink-700/80 leading-relaxed text-lg">{t.vaavo.techHighlight}</p>
-        </div>
-      </div>
 
       <CtaBand />
     </div>
