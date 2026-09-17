@@ -28,6 +28,7 @@ export const packages: Package[] = [
       '1\u201310 payment transactions per month',
       'Monthly VAT returns to tax authorities',
       'Monthly financial report for you',
+      "Routine bookkeeping and tax questions included",
     ],
   },
   {
@@ -44,6 +45,7 @@ export const packages: Package[] = [
       'Tax payments from owner account',
       'Monthly pension fund reports',
       'Monthly financial report for you',
+      "Routine bookkeeping and tax questions included",
     ],
   },
   {
@@ -60,7 +62,7 @@ export const packages: Package[] = [
       'Monthly VAT + pension + employer reports',
       'Tax payments from owner account',
       'Monthly financial report',
-      '10 minutes free consultation',
+      "Routine bookkeeping and tax questions included",
     ],
   },
   {
@@ -76,7 +78,7 @@ export const packages: Package[] = [
       '2 salary calculations included',
       'Monthly VAT + pension + employer reports',
       'Monthly financial report',
-      '20 minutes free consultation',
+      "Routine bookkeeping and tax questions included",
     ],
   },
   {
@@ -92,7 +94,7 @@ export const packages: Package[] = [
       '4 salary calculations included',
       'Monthly VAT + pension + employer reports',
       'Monthly financial report',
-      '40 minutes free consultation',
+      "Routine bookkeeping and tax questions included",
     ],
   },
   {
@@ -108,7 +110,7 @@ export const packages: Package[] = [
       '8 salary calculations included',
       'Monthly VAT + pension + employer reports',
       'Monthly financial report',
-      '90 minutes free consultation',
+      "Routine bookkeeping and tax questions included",
     ],
   },
   {

@@ -36,9 +36,11 @@ export function getGuide(slug: string): Guide | undefined {
   return guides.find((g) => g.slug === slug);
 }
 
-/** The next `limit` guides after this one (cyclic) — varies per article so the
- *  internal "read also" links spread across the whole hub. */
+/** Prefer relevant follow-up reading; use hub order as the fallback. */
 export function relatedGuides(slug: string, limit = 3): Guide[] {
+  if (slug === tilitoimistonVaihto.slug) {
+    return [kirjanpidonHinta, palkanlaskenta, yrittajanVahennykset].slice(0, limit);
+  }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
   const n = Math.min(limit, guides.length - 1);

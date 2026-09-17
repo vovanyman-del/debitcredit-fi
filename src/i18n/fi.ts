@@ -231,6 +231,7 @@ export const fi = {
         '1–10 maksutapahtumaa kuukaudessa',
         'Kuukausittaiset ALV-ilmoitukset',
         'Kuukausittainen talousraportti',
+        "Tavanomaiset kirjanpito- ja verokysymykset sisältyvät",
       ],
       mini: [
         'Kahdenkertainen kirjanpito',
@@ -239,6 +240,7 @@ export const fi = {
         'Veronmaksut yrittäjän tililtä',
         'Kuukausittaiset eläkeraportit',
         'Kuukausittainen talousraportti',
+        "Tavanomaiset kirjanpito- ja verokysymykset sisältyvät",
       ],
       basic: [
         'Kahdenkertainen kirjanpito',
@@ -247,7 +249,7 @@ export const fi = {
         'Kuukausittaiset ALV + eläke + työnantajaraportit',
         'Veronmaksut yrittäjän tililtä',
         'Kuukausittainen talousraportti',
-        '10 min ilmaista konsultointia',
+        "Tavanomaiset kirjanpito- ja verokysymykset sisältyvät",
       ],
       medium: [
         'Kahdenkertainen kirjanpito',
@@ -255,7 +257,7 @@ export const fi = {
         '2 palkanlaskentaa sisältyy',
         'Kuukausittaiset ALV + eläke + työnantajaraportit',
         'Kuukausittainen talousraportti',
-        '20 min ilmaista konsultointia',
+        "Tavanomaiset kirjanpito- ja verokysymykset sisältyvät",
       ],
       large: [
         'Kahdenkertainen kirjanpito',
@@ -263,7 +265,7 @@ export const fi = {
         '4 palkanlaskentaa sisältyy',
         'Kuukausittaiset ALV + eläke + työnantajaraportit',
         'Kuukausittainen talousraportti',
-        '40 min ilmaista konsultointia',
+        "Tavanomaiset kirjanpito- ja verokysymykset sisältyvät",
       ],
       maxi: [
         'Kahdenkertainen kirjanpito',
@@ -271,7 +273,7 @@ export const fi = {
         '8 palkanlaskentaa sisältyy',
         'Kuukausittaiset ALV + eläke + työnantajaraportit',
         'Kuukausittainen talousraportti',
-        '90 min ilmaista konsultointia',
+        "Tavanomaiset kirjanpito- ja verokysymykset sisältyvät",
       ],
       custom: ['Räätälöity tarpeisiisi'],
     },
@@ -290,7 +292,7 @@ export const fi = {
       'Board meeting minutes': 'Hallituksen pöytäkirja',
       'One-time tax report': 'Kertaluonteinen veroilmoitus',
       'Other accounting work': 'Muu kirjanpitotyö',
-      'Explanatory work': 'Selvitystyö',
+      'Explanatory work': "Erillinen selvitys- ja tiedonhankintatyö",
       'Additional voucher': 'Lisätosite',
       'Annual report — Toiminimi': 'Tilinpäätös — Toiminimi',
       'Annual report — Oy': 'Tilinpäätös — Oy',
@@ -301,7 +303,7 @@ export const fi = {
       'Business plan': 'Liiketoimintasuunnitelma',
       'Business plan (Finnvera/Business Finland)': 'Liiketoimintasuunnitelma (Finnvera/Business Finland)',
       'Business consulting': 'Yrityskonsultointi',
-      'Tax consulting': 'Verokonsultointi',
+      'Tax consulting': "Erillistä selvitystä vaativat verotoimeksiannot",
       'Interpreter/translator': 'Tulkkaus/käännöspalvelu',
     },
     serviceNotes: {
@@ -333,6 +335,8 @@ export const fi = {
       'per voucher': '/ tosite',
       'from': 'alkaen',
     },
+    consultationTitle: "Palveluun sisältyvä neuvonta",
+    consultationIncluded: "Asiakkaidemme tavanomaiset kirjanpito- ja verokysymykset sisältyvät palveluun ilman lisämaksua. Erillistä perehtymistä, tiedonhankintaa tai viranomaispuheluja vaativat toimeksiannot veloitetaan lisätöinä.",
     portalIncluded: "Vaavo sisältyy jokaiseen pakettiin Microsta alkaen: laskutus portaalissa, asiakirjat, pankki, ajopäiväkirja ja Apuri. Portaalista tai sovelluksesta ei veloiteta erillistä tilausta. Kirjanpidon lisätyöt veloitetaan hinnaston mukaan.",
   },
   vaavo: {

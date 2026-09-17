@@ -231,6 +231,7 @@ export const et = {
         '1–10 maksetehingut kuus',
         'Igakuised käibemaksudeklaratsioonid',
         'Igakuine finantsaruanne',
+        "Tavapärased raamatupidamis- ja maksuküsimused sisalduvad",
       ],
       mini: [
         'Kahekordne raamatupidamine',
@@ -239,6 +240,7 @@ export const et = {
         'Maksude tasumine omaniku kontolt',
         'Igakuised pensioniaruanded',
         'Igakuine finantsaruanne',
+        "Tavapärased raamatupidamis- ja maksuküsimused sisalduvad",
       ],
       basic: [
         'Kahekordne raamatupidamine',
@@ -247,7 +249,7 @@ export const et = {
         'Igakuised aruanded: käibemaks, pension ja tööandja',
         'Maksude tasumine omaniku kontolt',
         'Igakuine finantsaruanne',
-        '10 min tasuta nõustamist',
+        "Tavapärased raamatupidamis- ja maksuküsimused sisalduvad",
       ],
       medium: [
         'Kahekordne raamatupidamine',
@@ -255,7 +257,7 @@ export const et = {
         '2 palgaarvestust sisaldub',
         'Igakuised aruanded: käibemaks, pension ja tööandja',
         'Igakuine finantsaruanne',
-        '20 min tasuta nõustamist',
+        "Tavapärased raamatupidamis- ja maksuküsimused sisalduvad",
       ],
       large: [
         'Kahekordne raamatupidamine',
@@ -263,7 +265,7 @@ export const et = {
         '4 palgaarvestust sisaldub',
         'Igakuised aruanded: käibemaks, pension ja tööandja',
         'Igakuine finantsaruanne',
-        '40 min tasuta nõustamist',
+        "Tavapärased raamatupidamis- ja maksuküsimused sisalduvad",
       ],
       maxi: [
         'Kahekordne raamatupidamine',
@@ -271,7 +273,7 @@ export const et = {
         '8 palgaarvestust sisaldub',
         'Igakuised aruanded: käibemaks, pension ja tööandja',
         'Igakuine finantsaruanne',
-        '90 min tasuta nõustamist',
+        "Tavapärased raamatupidamis- ja maksuküsimused sisalduvad",
       ],
       custom: ['Kohandatud sinu vajadustele'],
     },
@@ -290,7 +292,7 @@ export const et = {
       'Board meeting minutes': 'Juhatuse koosoleku protokoll',
       'One-time tax report': 'Ühekordne maksudeklaratsioon',
       'Other accounting work': 'Muu raamatupidamistöö',
-      'Explanatory work': 'Selgitustöö',
+      'Explanatory work': "Eraldi uurimine ja teabe kogumine",
       'Additional voucher': 'Lisatehing',
       'Annual report — Toiminimi': 'Aastaaruanne — Toiminimi (FIE)',
       'Annual report — Oy': 'Aastaaruanne — Oy (osaühing)',
@@ -301,7 +303,7 @@ export const et = {
       'Business plan': 'Äriplaan',
       'Business plan (Finnvera/Business Finland)': 'Äriplaan (Finnvera/Business Finland)',
       'Business consulting': 'Ärinõustamine',
-      'Tax consulting': 'Maksunõustamine',
+      'Tax consulting': "Eraldi uurimist nõudvad maksuülesanded",
       'Interpreter/translator': 'Tõlk / tõlkija',
     },
     serviceNotes: {
@@ -333,6 +335,8 @@ export const et = {
       'per voucher': '/ kanne',
       'from': 'alates',
     },
+    consultationTitle: "Teenuses sisalduv nõustamine",
+    consultationIncluded: "Meie klientide tavapärased raamatupidamis- ja maksuküsimused kuuluvad teenuse sisse lisatasuta. Eraldi uurimist, teabe kogumist või ametiasutustesse helistamist vajavad ülesanded on tasulised lisatööd.",
     portalIncluded: "Vaavo kuulub igasse paketti alates Microst: arvete koostamine portaalis, dokumendid, pank, sõidupäevik ja Apuri. Portaali või rakenduse eest eraldi kuutasu ei ole. Raamatupidamise lisatööde eest tasutakse hinnakirja järgi.",
   },
   vaavo: {

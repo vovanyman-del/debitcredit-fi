@@ -231,6 +231,7 @@ export const en = {
         '1–10 payment transactions per month',
         'Monthly VAT returns',
         'Monthly financial report',
+        "Routine bookkeeping and tax questions included",
       ],
       mini: [
         'Double-entry bookkeeping',
@@ -239,6 +240,7 @@ export const en = {
         'We pay your taxes from your account on your instruction',
         'Monthly pension reports',
         'Monthly financial report',
+        "Routine bookkeeping and tax questions included",
       ],
       basic: [
         'Double-entry bookkeeping',
@@ -247,7 +249,7 @@ export const en = {
         'Monthly VAT return + pension and employer reporting',
         'We pay your taxes from your account on your instruction',
         'Monthly financial report',
-        '10 min free consultation',
+        "Routine bookkeeping and tax questions included",
       ],
       medium: [
         'Double-entry bookkeeping',
@@ -255,7 +257,7 @@ export const en = {
         '2 payroll runs included',
         'Monthly VAT return + pension and employer reporting',
         'Monthly financial report',
-        '20 min free consultation',
+        "Routine bookkeeping and tax questions included",
       ],
       large: [
         'Double-entry bookkeeping',
@@ -263,7 +265,7 @@ export const en = {
         '4 payroll runs included',
         'Monthly VAT return + pension and employer reporting',
         'Monthly financial report',
-        '40 min free consultation',
+        "Routine bookkeeping and tax questions included",
       ],
       maxi: [
         'Double-entry bookkeeping',
@@ -271,7 +273,7 @@ export const en = {
         '8 payroll runs included',
         'Monthly VAT return + pension and employer reporting',
         'Monthly financial report',
-        '90 min free consultation',
+        "Routine bookkeeping and tax questions included",
       ],
       custom: ['Tailored to your needs'],
     },
@@ -290,7 +292,7 @@ export const en = {
       'Board meeting minutes': 'Board meeting minutes',
       'One-time tax report': 'One-time tax report',
       'Other accounting work': 'Other accounting work',
-      'Explanatory work': 'Explanatory work',
+      'Explanatory work': "Separate research and information gathering",
       'Additional voucher': 'Additional transaction',
       'Annual report — Toiminimi': 'Annual report — Sole trader',
       'Annual report — Oy': 'Annual report — Ltd',
@@ -301,7 +303,7 @@ export const en = {
       'Business plan': 'Business plan',
       'Business plan (Finnvera/Business Finland)': 'Business plan (Finnvera/Business Finland)',
       'Business consulting': 'Business consulting',
-      'Tax consulting': 'Tax consulting',
+      'Tax consulting': "Tax assignments requiring separate research",
       'Interpreter/translator': 'Interpreter / translator',
     },
     serviceNotes: {
@@ -333,6 +335,8 @@ export const en = {
       'per voucher': '/ transaction',
       'from': 'from',
     },
+    consultationTitle: "Advice included in your service",
+    consultationIncluded: "Our clients’ routine bookkeeping and tax questions are included at no extra charge. Assignments requiring separate research, information gathering or calls to authorities are charged as additional work.",
     portalIncluded: "Vaavo is included in every package, starting with Micro: invoicing in the portal, documents, banking, mileage log and Apuri. There is no separate portal or app subscription. Additional accounting work is charged according to the price list.",
   },
   vaavo: {

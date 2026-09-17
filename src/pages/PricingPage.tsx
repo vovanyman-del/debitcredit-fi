@@ -45,6 +45,10 @@ export default function PricingPage() {
           <p className="text-ink-700 leading-relaxed">{t.pricing.portalIncluded}</p>
           <Link to={localePath('/vaavo')} className="mt-3 inline-flex font-semibold text-brand-700 hover:underline">{t.home.hero.ctaSecondary} →</Link>
         </div>
+        <section className="mb-10 max-w-3xl">
+          <h2 className="text-xl font-bold text-ink-900">{t.pricing.consultationTitle}</h2>
+          <p className="mt-3 text-ink-700 leading-relaxed">{t.pricing.consultationIncluded}</p>
+        </section>
         {/* All packages */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {packages.map((pkg) => {
