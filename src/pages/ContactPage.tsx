@@ -80,6 +80,16 @@ export default function ContactPage() {
                   <label htmlFor="contact-message" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.message}</label>
                   <textarea id="contact-message" name="message" rows={5} required className={`${inputCls} resize-none`} />
                 </div>
+                <div>
+                  <label htmlFor="contact-source" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.sourceLabel}</label>
+                  <select id="contact-source" name="source" defaultValue="" aria-describedby="contact-source-hint" className={inputCls}>
+                    <option value="">{t.contact.form.sourceEmpty}</option>
+                    {Object.entries(t.contact.form.sources).map(([value, label]) => (
+                      <option key={value} value={value}>{label}</option>
+                    ))}
+                  </select>
+                  <p id="contact-source-hint" className="mt-1.5 text-xs text-ink-700/70">{t.contact.form.sourceHint}</p>
+                </div>
                 {error && <p role="alert" className="text-red-700 text-sm">{error}</p>}
                 <button
                   type="submit"

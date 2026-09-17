@@ -363,6 +363,24 @@ export const fi = {
       step5: { title: 'Kysy kirjanpitäjältä', desc: 'Viesti suoraan — ei tarvitse soittaa tai lähettää sähköpostia' },
       step6: { title: 'Omalla kielelläsi', desc: 'Suomi, venäjä, englanti, viro, ukraina — valitse itsellesi sopiva' },
     },
+    faq: [
+      {
+        "q": "Maksaako Vaavo erikseen Debit Creditin asiakkaalle?",
+        "a": "Ei. Vaavo-asiakasportaali sisältyy kaikkiin Debit Creditin kirjanpitopaketteihin Microsta alkaen ilman erillistä Vaavo-tilausta. Kirjanpitopalvelu on maksullinen. Vuosittaiset työt ja muut lisäpalvelut hinnoitellaan hinnaston mukaan."
+      },
+      {
+        "q": "Voinko laatia laskuja myös Micro-paketissa?",
+        "a": "Kyllä. Voit laatia ja lähettää omat myyntilaskusi Vaavo-portaalissa kaikissa paketeissa. Jos pyydät kirjanpitäjää laatimaan laskun puolestasi, kyse on erikseen hinnoitellusta lisätyöstä."
+      },
+      {
+        "q": "Mitä kieliä kirjanpitäjä ja portaali tukevat?",
+        "a": "Kirjanpitäjämme palvelevat suomeksi ja venäjäksi. Vaavo-portaalin käyttöliittymä ja Apuri tukevat suomea, venäjää, englantia, viroa ja ukrainaa."
+      },
+      {
+        "q": "Näenkö pankkitapahtumat ja valmiin kirjanpidon samanaikaisesti?",
+        "a": "Pankkitapahtumat ja kirjanpitoraportit ovat eri asioita. Raportit, kuten tuloslaskelma ja tase, perustuvat kirjanpitäjän käsittelemiin tietoihin. Uusi pankkitapahtuma ei itsessään tarkoita, että siihen liittyvä kirjaus on jo tarkistettu."
+      }
+    ],
     apps: {
       title: "Vaavo tietokoneella ja puhelimessa",
       description: "Asiakasportaali toimii selaimessa suomeksi, venäjäksi, englanniksi, viroksi ja ukrainaksi. Natiivi iPhone- ja iPad-sovellus on saatavilla App Storesta. Käyttö sisältyy kirjanpitopalveluun ilman lisämaksua.",
@@ -414,6 +432,10 @@ export const fi = {
     title: 'Yhteystiedot',
     subtitle: 'Ota yhteyttä — vastaamme samana päivänä.',
     form: {
+      sourceLabel: "Mistä kuulit meistä? (vapaaehtoinen)",
+      sourceHint: "Vastauksesi auttaa meitä ymmärtämään, mistä yhteydenotot tulevat.",
+      sourceEmpty: "En halua vastata",
+      sources: {"search":"Google tai muu hakukone","ai":"Tekoäly, esim. Gemini tai ChatGPT","referral":"Suositus","publication":"Artikkeli tai ilmoitus","direct_email":"Sain teiltä sähköpostin","other":"Muu"},
       name: 'Nimi',
       email: 'Sähköposti',
       phone: 'Puhelinnumero',
@@ -537,10 +559,10 @@ export const fi = {
   },
   privacy: {
     title: 'Tietosuojaseloste',
-    lastUpdated: 'Päivitetty 6/2026',
+    lastUpdated: "Päivitetty 17.9.2026",
     sections: [
       { title: 'Rekisterinpitäjä', content: 'Tilitoimisto Debit Credit (Y-tunnus 3512702-8), Haapaniemenkatu 7–9 B, 16. krs, 00530 Helsinki. Tietosuoja-asioissa yhteyshenkilö: Vladimir Nyman, vladimir@debitcredit.fi.' },
-      { title: 'Mitä henkilötietoja keräämme', content: 'Keräämme henkilötietoja kahdesta lähteestä: (a) yhteydenottolomakkeelta: nimi, sähköpostiosoite, puhelinnumero, yrityksen nimi ja viesti; (b) Vaavo-asiakasportaalin ja kirjanpitopalvelun kautta: kirjanpitoaineisto, laskut, tositteet, pankkitapahtumatiedot ja yksilöintitiedot sopimuksen mukaisesti.' },
+      { title: 'Mitä henkilötietoja keräämme', content: 'Keräämme henkilötietoja kahdesta lähteestä: (a) yhteydenottolomakkeelta: nimi, sähköpostiosoite, puhelinnumero, yrityksen nimi ja viesti; (b) Vaavo-asiakasportaalin ja kirjanpitopalvelun kautta: kirjanpitoaineisto, laskut, tositteet, pankkitapahtumatiedot ja yksilöintitiedot sopimuksen mukaisesti. Halutessasi voit kertoa myös, mistä kuulit meistä; käytämme vastausta yhteydenottojen lähteiden arviointiin.' },
       { title: 'Käsittelyn oikeusperuste (GDPR 6 art.)', content: 'Käsittelemme henkilötietoja seuraavin oikeusperustein: sopimuksen täytäntöönpano (kirjanpito- ja taloushallintopalvelut, Vaavo); lakisääteinen velvoite (kirjanpitolaki, verolainsäädäntö); oikeutettu etu (yhteydenottoihin vastaaminen, palvelun turvaaminen); sekä suostumus (mahdollinen markkinointi vain suostumuksella).' },
       { title: 'Käyttötarkoitukset', content: 'Käytämme tietoja yhteydenottopyyntöjen käsittelyyn, kirjanpito-, palkka- ja veropalveluiden sekä Vaavo-portaalin tarjoamiseen, lakisääteiseen kirjanpitoon ja raportointiin sekä viestintään. Emme käytä tietoja markkinointiin ilman suostumusta.' },
       { title: 'Vastaanottajat ja käsittelijät', content: 'Käytämme huolellisesti valittuja henkilötietojen käsittelijöitä käsittelysopimusten (DPA) nojalla: verkkosivuston hosting — Vercel Inc.; yhteydenottolomakkeen sähköpostien välitys — Mailgun (EU-alue); ja Vaavo-palvelussa: Supabase (tietokanta/hosting), Enable Banking (PSD2-pankkiyhteys), Maventa (verkkolaskutus, kun asiakas ottaa sen käyttöön) sekä tekoälypalvelut (OpenAI ja Mistral AI) dokumenttien tunnistukseen. Luovutamme tietoja myös viranomaisille (esim. Verohallinto, Tulorekisteri) lain edellyttäessä. Emme myy tietojasi.' },

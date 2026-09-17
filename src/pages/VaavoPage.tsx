@@ -104,6 +104,18 @@ export default function VaavoPage() {
         </div>
       </section>
 
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20" aria-labelledby="vaavo-faq">
+        <h2 id="vaavo-faq" className="text-3xl font-bold">{t.guides.faqTitle}</h2>
+        <dl className="mt-7 space-y-5">
+          {t.vaavo.faq.map(({ q, a }) => (
+            <div key={q} className="rounded-2xl border border-ink-900/10 bg-white p-6">
+              <dt className="font-semibold text-ink-900">{q}</dt>
+              <dd className="mt-2 text-ink-700 leading-relaxed">{a}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
       <CtaBand />
     </div>
   );

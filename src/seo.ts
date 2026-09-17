@@ -99,35 +99,35 @@ const withBrand = (title: string) => {
 // description in pageMeta() for these routes only.
 const SEO_DESC: Record<Locale, Partial<Record<string, string>>> = {
   fi: {
-    '/yhteystiedot': 'Ota yhteyttä tilitoimisto Debit Credittiin — vastaamme samana päivänä suomeksi, venäjäksi, englanniksi, viroksi tai ukrainaksi. Puhelin, sähköposti ja WhatsApp.',
+    '/yhteystiedot': 'Ota yhteyttä Debit Credittiin. Kirjanpitäjämme palvelevat suomeksi ja venäjäksi, Vaavo-portaali viidellä kielellä. Puhelin, sähköposti ja WhatsApp.',
     '/yrittajaksi': 'Yrittäjäksi Suomessa: kattava opas yritysmuodon valintaan, rekisteröintiin, verotukseen ja kirjanpitoon. Käytännön askeleet ja yleisimmät virheet.',
     '/vaihda-tilitoimistoa': 'Tilitoimiston vaihtaminen on helppoa: hoidamme irtisanomisen ja aineiston siirron edelliseltä kirjanpitäjältä. Kirjanpitosi jatkuu keskeytyksettä.',
     '/tietosuoja': 'Tietosuojaseloste: miten tilitoimisto Debit Credit kerää, käyttää ja suojaa henkilötietojasi GDPR:n mukaisesti. Oikeutesi ja yhteystiedot.',
     '/kayttoehdot': 'Käyttöehdot: tilitoimisto Debit Creditin palveluiden ja Vaavo-alustan käytön ehdot, vastuut ja sopimusehdot selkeästi esitettyinä.',
   },
   ru: {
-    '/yhteystiedot': 'Свяжитесь с бухгалтерией Debit Credit — отвечаем в тот же день на русском, финском, английском, эстонском или украинском. Телефон, эл. почта и WhatsApp.',
+    '/yhteystiedot': 'Свяжитесь с Debit Credit: бухгалтеры общаются на русском и финском, портал Vaavo работает на пяти языках. Телефон, электронная почта и WhatsApp.',
     '/yrittajaksi': 'Стать предпринимателем в Финляндии: подробный гид по выбору формы бизнеса, регистрации, налогам и бухгалтерии. Практические шаги и частые ошибки.',
     '/vaihda-tilitoimistoa': 'Сменить бухгалтерию легко: сами оформим расторжение и перенос данных от прежнего бухгалтера. Ваш учёт продолжится без перерывов.',
     '/tietosuoja': 'Политика конфиденциальности: как бухгалтерия Debit Credit собирает, использует и защищает ваши персональные данные согласно GDPR. Ваши права и контакты.',
     '/kayttoehdot': 'Условия использования: правила пользования услугами бухгалтерии Debit Credit и платформой Vaavo, ответственность и договорные условия.',
   },
   en: {
-    '/yhteystiedot': 'Get in touch with accounting firm Debit Credit — we reply the same day in Finnish, English, Russian, Estonian or Ukrainian. Phone, email and WhatsApp.',
+    '/yhteystiedot': 'Contact Debit Credit. Our accountants speak Finnish and Russian; the Vaavo portal supports five languages. Get in touch by phone, email or WhatsApp.',
     '/yrittajaksi': 'Becoming an entrepreneur in Finland: a complete guide to choosing a company form, registration, taxation and bookkeeping. Practical steps and common mistakes.',
     '/vaihda-tilitoimistoa': 'Switching accounting firms is easy: we handle the termination and data transfer from your previous accountant. Your bookkeeping continues without interruption.',
     '/tietosuoja': 'Privacy policy: how accounting firm Debit Credit collects, uses and protects your personal data under the GDPR. Your rights and contact details.',
     '/kayttoehdot': 'Terms of service: the conditions for using accounting firm Debit Credit’s services and the Vaavo platform, responsibilities and contractual terms.',
   },
   et: {
-    '/yhteystiedot': 'Võta ühendust raamatupidamisbürooga Debit Credit — vastame samal päeval soome, vene, inglise, eesti või ukraina keeles. Telefon, e-post ja WhatsApp.',
+    '/yhteystiedot': 'Võta ühendust Debit Creditiga. Raamatupidajad suhtlevad soome ja vene keeles, Vaavo portaal töötab viies keeles. Telefon, e-post ja WhatsApp.',
     '/yrittajaksi': 'Ettevõtjaks Soomes: põhjalik juhend ettevõtlusvormi valimisest, registreerimisest, maksudest ja raamatupidamisest. Praktilised sammud ja levinud vead.',
     '/vaihda-tilitoimistoa': 'Raamatupidaja vahetamine on lihtne: korraldame lepingu lõpetamise ja andmete ülekande eelmiselt raamatupidajalt. Raamatupidamine jätkub katkestusteta.',
     '/tietosuoja': 'Privaatsuspoliitika: kuidas raamatupidamisbüroo Debit Credit kogub, kasutab ja kaitseb sinu isikuandmeid vastavalt GDPR-ile. Sinu õigused ja kontaktid.',
     '/kayttoehdot': 'Kasutustingimused: Debit Crediti teenuste ja Vaavo platvormi kasutamise tingimused, vastutus ja lepingutingimused selgelt esitatuna.',
   },
   uk: {
-    '/yhteystiedot': 'Зв’яжіться з бухгалтерією Debit Credit — відповідаємо того ж дня українською, фінською, англійською, російською чи естонською. Телефон, email і WhatsApp.',
+    '/yhteystiedot': 'Зв’яжіться з Debit Credit: бухгалтери спілкуються фінською та російською, портал Vaavo працює п’ятьма мовами. Телефон, електронна пошта та WhatsApp.',
     '/yrittajaksi': 'Стати підприємцем у Фінляндії: повний гід з вибору форми бізнесу, реєстрації, податків і бухгалтерії. Практичні кроки та типові помилки.',
     '/vaihda-tilitoimistoa': 'Змінити бухгалтерію легко: самі оформимо розірвання та перенесення даних від попереднього бухгалтера. Ваш облік триватиме без перерв.',
     '/tietosuoja': 'Політика конфіденційності: як бухгалтерія Debit Credit збирає, використовує та захищає ваші персональні дані згідно з GDPR. Ваші права та контакти.',
@@ -249,18 +249,13 @@ function organizationNode(t: Translations) {
     telephone: company.phone,
     taxID: company.ytunnus, // Finnish Y-tunnus
     vatID: 'FI35127028', // Y-tunnus 3512702-8 → FI + digits
-    founder: { '@type': 'Person', '@id': `${SITE}/#founder`, name: company.founder, description: t.about.founder.education },
+    founder: { '@type': 'Person', '@id': `${SITE}/#founder`, name: company.founder, description: t.about.founder.education, sameAs: [company.social.linkedin] },
     description: t.meta.description,
     address: postalAddress(),
     logo: `${SITE}/favicon.svg`,
     image: `${SITE}/og/og-default.png`,
-    sameAs: SOCIAL_SAMEAS,
   };
 }
-
-// Public social profiles for Organization/LocalBusiness sameAs (helps Google
-// connect the entity to its profiles / knowledge panel).
-const SOCIAL_SAMEAS = [company.social.linkedin];
 
 /** The site-wide WebSite node (referenced by isPartOf from each page). */
 function websiteNode(locale: Locale) {
@@ -368,10 +363,17 @@ function typeNode(t: Translations, locale: Locale, basePath: string, pageUrl: st
         operatingSystem: 'Web, iOS',
         installUrl: 'https://apps.apple.com/fi/app/vaavo/id6761450083',
         description: t.vaavo.subtitle,
+        featureList: Object.values(t.vaavo.features).map((feature) => `${feature.title}: ${feature.desc}`),
         url: company.vaavo.web,
         inLanguage: locale,
         publisher: { '@id': `${SITE}/#organization` },
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }, // free for clients
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'EUR',
+          description: t.vaavo.faq[0].a, // included with paid accounting service
+          url: urlFor(locale, '/hinnasto'),
+        },
       };
     default:
       return null;
@@ -396,7 +398,6 @@ function jsonLd(locale: Locale, basePath: string): string {
       address: postalAddress(),
       areaServed: { '@type': 'Country', name: 'Finland' },
       openingHours: 'Mo-Fr 09:00-17:00',
-      sameAs: SOCIAL_SAMEAS,
       parentOrganization: { '@id': `${SITE}/#organization` },
     };
     return serializeLd([organizationNode(t), localBusiness]);

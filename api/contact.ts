@@ -4,6 +4,15 @@ const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY ?? '';
 const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN ?? '';
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? 'vladimir@debitcredit.fi';
 
+const SOURCE_LABELS: Record<string, string> = {
+  search: 'Google / muu hakukone',
+  ai: 'Tekoäly (esim. Gemini / ChatGPT)',
+  referral: 'Suositus',
+  publication: 'Artikkeli / ilmoitus',
+  direct_email: 'Debit Creditin sähköposti',
+  other: 'Muu',
+};
+
 // Simple in-memory rate limiting (per serverless instance)
 const rateMap = new Map<string, number[]>();
 const RATE_LIMIT = 5; // max requests per window
@@ -35,7 +44,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(429).json({ error: 'Too many requests. Please try again later.' });
   }
 
-  const { name, email, phone, company, message, _gotcha } = req.body ?? {};
+  const { name, email, phone, company, message, source, _gotcha } = req.body ?? {};
+  const sourceLabel = typeof source === 'string' && Object.hasOwn(SOURCE_LABELS, source)
+    ? SOURCE_LABELS[source]
+    : '';
 
   // Honeypot — bots fill hidden fields
   if (_gotcha) {
@@ -66,6 +78,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `Sähköposti: ${email}`,
       phone ? `Puhelin: ${phone}` : '',
       company ? `Yritys: ${company}` : '',
+      sourceLabel ? `Mistä kuulit meistä: ${sourceLabel}` : '',
       '',
       `Viesti:`,
       message,

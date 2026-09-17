@@ -363,6 +363,24 @@ export const en = {
       step5: { title: 'Ask your accountant', desc: 'Message directly — no need to call or email' },
       step6: { title: 'In your language', desc: 'Finnish, Russian, English, Estonian, Ukrainian — choose yours' },
     },
+    faq: [
+      {
+        "q": "Do Debit Credit clients pay separately for Vaavo?",
+        "a": "No. The Vaavo client portal is included in every Debit Credit bookkeeping package, starting with Micro, without a separate Vaavo subscription. The bookkeeping service is paid. Annual work and additional services are charged according to the price list."
+      },
+      {
+        "q": "Can I create invoices with the Micro package?",
+        "a": "Yes. In every package you can create and send your own sales invoices in the Vaavo portal. Asking your accountant to prepare an invoice for you is a separate service charged according to the price list."
+      },
+      {
+        "q": "Which languages do the accountants and portal support?",
+        "a": "Our accountants communicate in Finnish and Russian. The Vaavo interface and Apuri assistant support Finnish, Russian, English, Estonian and Ukrainian."
+      },
+      {
+        "q": "Do bank transactions and completed accounting reports update at the same time?",
+        "a": "Bank transactions and accounting reports are different data. Reports such as the profit and loss statement and balance sheet reflect information processed by the accountant. A new bank transaction does not by itself mean that the corresponding accounting entry has been checked."
+      }
+    ],
     apps: {
       title: "Vaavo on your computer and phone",
       description: "The client portal works in your browser in Finnish, Russian, English, Estonian and Ukrainian. The native iPhone and iPad app is available in the App Store. Access is included in your accounting service at no extra charge.",
@@ -414,6 +432,10 @@ export const en = {
     title: 'Contact Us',
     subtitle: 'Get in touch — we respond the same day.',
     form: {
+      sourceLabel: "How did you hear about us? (optional)",
+      sourceHint: "Your answer helps us understand where enquiries come from.",
+      sourceEmpty: "Prefer not to say",
+      sources: {"search":"Google or another search engine","ai":"AI, such as Gemini or ChatGPT","referral":"Recommendation","publication":"Article or advertisement","direct_email":"An email from you","other":"Other"},
       name: 'Name',
       email: 'Email',
       phone: 'Phone number',
@@ -537,10 +559,10 @@ export const en = {
   },
   privacy: {
     title: 'Privacy Policy',
-    lastUpdated: 'Updated 6/2026',
+    lastUpdated: "Updated 17 September 2026",
     sections: [
       { title: 'Data Controller', content: 'The data controller is Tilitoimisto Debit Credit (Business ID / Y-tunnus 3512702-8), Haapaniemenkatu 7–9 B, 16th floor, 00530 Helsinki. Data-protection contact: Vladimir Nyman, vladimir@debitcredit.fi.' },
-      { title: 'Personal data we collect', content: 'We collect and process: (a) via the contact form — your name, email address, phone number, company name and message; (b) via the Vaavo client portal (our accounting platform) and the accounting service — bookkeeping material, invoices, source documents (tositteet), bank-transaction data and identifying data, processed under the service agreement.' },
+      { title: 'Personal data we collect', content: 'We collect and process: (a) via the contact form — your name, email address, phone number, company name and message; (b) via the Vaavo client portal (our accounting platform) and the accounting service — bookkeeping material, invoices, source documents (tositteet), bank-transaction data and identifying data, processed under the service agreement. You may also tell us how you heard about us; we use this optional answer to assess the sources of enquiries.' },
       { title: 'Legal basis for processing (GDPR Art. 6)', content: 'We process personal data on the following legal bases: performance of a contract (providing accounting services and the Vaavo platform); compliance with a legal obligation (the Accounting Act / kirjanpitolaki and tax law); our legitimate interest (responding to enquiries and securing the service); and consent (any marketing, only with your consent).' },
       { title: 'Purposes of processing', content: 'We process personal data to handle contact requests; to provide accounting, payroll and tax services and the Vaavo client portal; to fulfil statutory bookkeeping and reporting obligations; and to communicate with you. We do not use your data for marketing without your consent.' },
       { title: 'Recipients and processors', content: 'We use carefully selected processors under data-processing agreements (DPAs): website hosting — Vercel Inc.; contact-form email delivery — Mailgun (EU region); and for the Vaavo service: Supabase (database and hosting), Enable Banking (PSD2 bank-data access), Maventa (e-invoicing, where the customer enables it) and AI providers (OpenAI and Mistral AI) for document recognition. We also disclose data to authorities (e.g. the Tax Administration / Verohallinto and the Incomes Register / Tulorekisteri) as required by law. We do not sell your data.' },
