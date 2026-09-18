@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
-import { getGuide, relatedGuides } from '../data/guides';
+import { getGuide, keepAmountsTogether, relatedGuides } from '../data/guides';
 import GuideBlocks from '../components/GuideBlocks';
 import NotFoundPage from './NotFoundPage';
 
@@ -28,7 +28,7 @@ export default function GuidePage() {
             <Link to={localePath('/opas')} className="hover:text-brand-600">{g.eyebrow}</Link>
           </nav>
           <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.1] text-ink-900">{c.title}</h1>
-          <p className="mt-4 text-lg text-ink-700 leading-relaxed">{c.lead}</p>
+          <p className="mt-4 text-lg text-ink-700 leading-relaxed">{keepAmountsTogether(c.lead)}</p>
           <p className="mt-5 text-xs text-ink-700/60">
             {g.updated} {guide.dateModified}
           </p>
@@ -46,8 +46,8 @@ export default function GuidePage() {
             <dl className="mt-6 space-y-5">
               {c.faq.map((item, i) => (
                 <div key={i} className="rounded-2xl border border-ink-900/10 bg-white p-5">
-                  <dt className="font-semibold text-ink-900">{item.q}</dt>
-                  <dd className="mt-2 text-ink-700/90 leading-relaxed">{item.a}</dd>
+                  <dt className="font-semibold text-ink-900">{keepAmountsTogether(item.q)}</dt>
+                  <dd className="mt-2 text-ink-700/90 leading-relaxed">{keepAmountsTogether(item.a)}</dd>
                 </div>
               ))}
             </dl>

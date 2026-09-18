@@ -8,7 +8,8 @@ export type Block =
   | { t: 'h3'; x: string }
   | { t: 'ul'; items: string[] }
   | { t: 'ol'; items: string[] }
-  | { t: 'note'; x: string }; // highlighted aside (e.g. "rates change, check current")
+  | { t: 'note'; x: string } // highlighted aside (e.g. "rates change, check current")
+  | { t: 'links'; items: { label: string; href: string }[] }; // external sources (official pages)
 
 export interface GuideContent {
   title: string; // H1 + base of the <title>
@@ -25,11 +26,20 @@ export interface Guide {
   content: Record<Locale, GuideContent>;
 }
 
+/**
+ * Keeps amounts on one line when rendered: "60 000 €" and "5 %" must not wrap
+ * between the digits and the unit on a narrow phone. Source strings stay plain.
+ */
+export function keepAmountsTogether(text: string): string {
+  return text.replace(/(\d) (?=\d{3}(?!\d))/g, '$1\u00a0').replace(/(\d) (?=[€%])/g, '$1\u00a0');
+}
+
 /** Plain-text version of a block array (for word counts / fallback descriptions). */
 export function blocksToText(body: Block[]): string {
   return body
     .map((b) => {
       if (b.t === 'ul' || b.t === 'ol') return b.items.join(' ');
+      if (b.t === 'links') return b.items.map((it) => it.label).join(' ');
       return b.x;
     })
     .join(' ');
