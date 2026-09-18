@@ -2,6 +2,17 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    { "source": "/etusivu", "destination": "/", "permanent": true },
+    { "source": "/vaihto", "destination": "/vaihda-tilitoimistoa", "permanent": true },
+    { "source": "/pakettiratkaisuja", "destination": "/hinnasto", "permanent": true },
+    { "source": "/meist", "destination": "/meista", "permanent": true },
+    { "source": "/tceny", "destination": "/ru/hinnasto", "permanent": true },
+    { "source": "/uslugi", "destination": "/ru/palvelut", "permanent": true },
+    { "source": "/kontakty", "destination": "/ru/yhteystiedot", "permanent": true },
+    { "source": "/o_nas", "destination": "/ru/meista", "permanent": true },
+    { "source": "/raznoe", "destination": "/ru/opas", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
