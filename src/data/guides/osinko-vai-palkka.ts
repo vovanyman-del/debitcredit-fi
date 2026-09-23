@@ -9,7 +9,7 @@ import type { Guide } from './types';
 export const osinkoVaiPalkka: Guide = {
   slug: 'osinko-vai-palkka',
   datePublished: '2026-06-21',
-  dateModified: '2026-06-21',
+  dateModified: '2026-09-23',
   content: {
     fi: {
       title: 'Osinko vai palkka? Näin nostat rahaa osakeyhtiöstä verotehokkaasti',
@@ -40,7 +40,7 @@ export const osinkoVaiPalkka: Guide = {
           'Suunnittele nostot etukäteen kirjanpitäjän kanssa.',
         ] },
         { t: 'h2', x: 'Suunnittele kanssamme' },
-        { t: 'p', x: 'Laskemme tilanteeseesi sopivan palkan ja osingon yhdistelmän laillisesti — omalla kielelläsi, kaikki ehdot huomioiden, jotta hyödynnät sinulle kuuluvat vähennykset etkä maksa turhaan liikaa.' },
+        { t: 'p', x: 'Laskemme tilanteeseesi sopivan palkan ja osingon yhdistelmän laillisesti, kaikki ehdot huomioiden, ja selitämme sen suomeksi tai venäjäksi, jotta hyödynnät sinulle kuuluvat vähennykset etkä maksa turhaan liikaa.' },
       ],
       faq: [
         { q: 'Onko osinko vai palkka edullisempi?', a: 'Se riippuu yhtiön voitosta ja nettovarallisuudesta sekä muista tuloistasi. Usein edullisin on yhdistelmä — laskemme sen puolestasi.' },
@@ -78,7 +78,7 @@ export const osinkoVaiPalkka: Guide = {
           'Планируйте выплаты заранее вместе с бухгалтером.',
         ] },
         { t: 'h2', x: 'Спланируйте вместе с нами' },
-        { t: 'p', x: 'Рассчитаем для вашей ситуации законную комбинацию зарплаты и дивиденда — на вашем языке, с учётом всех условий, чтобы вы использовали положенные вычеты и не переплатили по незнанию.' },
+        { t: 'p', x: 'Рассчитаем для вашей ситуации законную комбинацию зарплаты и дивиденда с учётом всех условий и объясним её по-русски или по-фински, чтобы вы использовали положенные вычеты и не переплатили по незнанию.' },
       ],
       faq: [
         { q: 'Что выгоднее — дивиденд или зарплата?', a: 'Зависит от прибыли компании, чистых активов и ваших других доходов. Часто выгоднее комбинация — мы её рассчитаем.' },
@@ -116,7 +116,7 @@ export const osinkoVaiPalkka: Guide = {
           'Plan your withdrawals in advance with your accountant.',
         ] },
         { t: 'h2', x: 'Plan it with us' },
-        { t: 'p', x: 'We calculate a salary/dividend mix that suits your situation, legally — in your language, taking all the conditions into account, so you use the reliefs you’re entitled to and don’t overpay by mistake.' },
+        { t: 'p', x: 'We calculate a salary/dividend mix that suits your situation, legally and taking all the conditions into account, and explain it in Finnish or Russian — so you use the reliefs you’re entitled to and don’t overpay by mistake.' },
       ],
       faq: [
         { q: 'Is a dividend or salary more advantageous?', a: 'It depends on the company’s profit and net assets and on your other income. A combination is often the most advantageous — we calculate it for you.' },
@@ -154,7 +154,7 @@ export const osinkoVaiPalkka: Guide = {
           'Planeeri väljavõtted ette koos raamatupidajaga.',
         ] },
         { t: 'h2', x: 'Planeeri koos meiega' },
-        { t: 'p', x: 'Arvutame sinu olukorrale sobiva palga ja dividendi kombinatsiooni seaduslikult — sinu keeles, arvestades kõiki tingimusi, et kasutaksid sulle kuuluvad mahaarvamised ega maksaks asjata liiga.' },
+        { t: 'p', x: 'Arvutame sinu olukorrale sobiva palga ja dividendi kombinatsiooni seaduslikult ja kõiki tingimusi arvestades ning selgitame selle soome või vene keeles, et kasutaksid ära kõik sulle kuuluvad mahaarvamised ega maksaks asjata liiga palju.' },
       ],
       faq: [
         { q: 'Kas dividend või palk on soodsam?', a: 'See sõltub ettevõtte kasumist ja netovarast ning sinu muudest tuludest. Sageli on soodsaim kombinatsioon — arvutame selle sinu eest.' },
@@ -192,7 +192,7 @@ export const osinkoVaiPalkka: Guide = {
           'Плануйте виплати заздалегідь разом із бухгалтером.',
         ] },
         { t: 'h2', x: 'Сплануйте разом з нами' },
-        { t: 'p', x: 'Розрахуємо для вашої ситуації законну комбінацію зарплати й дивіденду — вашою мовою, з урахуванням усіх умов, щоб ви скористалися належними вирахуваннями й не переплатили через незнання.' },
+        { t: 'p', x: 'Розрахуємо для вашої ситуації законну комбінацію зарплати й дивіденду з урахуванням усіх умов і пояснимо її фінською або російською, щоб ви скористалися належними вирахуваннями й не переплатили через незнання.' },
       ],
       faq: [
         { q: 'Що вигідніше — дивіденд чи зарплата?', a: 'Залежить від прибутку компанії та чистих активів і ваших інших доходів. Часто вигідніша комбінація — ми її розрахуємо.' },

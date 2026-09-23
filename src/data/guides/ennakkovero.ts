@@ -8,7 +8,7 @@ import type { Guide } from './types';
 export const ennakkovero: Guide = {
   slug: 'ennakkovero',
   datePublished: '2026-06-21',
-  dateModified: '2026-06-21',
+  dateModified: '2026-09-23',
   content: {
     fi: {
       title: 'Ennakkovero: näin yrittäjä maksaa veronsa etukäteen (2026)',
@@ -26,7 +26,7 @@ export const ennakkovero: Guide = {
         { t: 'h2', x: 'Lisäennakko ja jäännösvero' },
         { t: 'p', x: 'Jos tulos oli arvioitua suurempi, voit maksaa puuttuvan osan lisäennakkona. Maksamalla lisäennakon ajoissa tilikauden päättymisen jälkeen vältät tai pienennät koron. Jos veroa jää maksamatta, syntyy jäännösvero, jolle lasketaan korkoa.' },
         { t: 'h2', x: 'Apua ennakkoveroon' },
-        { t: 'p', x: 'Autamme arvioimaan tuloksesi realistisesti ja pitämään ennakkoveron ajan tasalla, jotta vältät ikäviä yllätyksiä — omalla kielelläsi. Näet tilanteesi Vaavon asiakasportaalissa.' },
+        { t: 'p', x: 'Autamme arvioimaan tuloksesi realistisesti ja pitämään ennakkoveron ajan tasalla, jotta vältät ikäviä yllätyksiä — suomeksi tai venäjäksi. Näet tilanteesi Vaavon asiakasportaalissa.' },
       ],
       faq: [
         { q: 'Mikä on ennakkovero?', a: 'Tuloveroa, jonka maksat etukäteen arvioidun yritystuloksen perusteella ennakkoveroerinä OmaVerossa.' },
@@ -51,7 +51,7 @@ export const ennakkovero: Guide = {
         { t: 'h2', x: 'Дополнительный аванс и доплата' },
         { t: 'p', x: 'Если прибыль оказалась больше расчётной, недостающую часть можно заплатить как дополнительный аванс (lisäennakko). Заплатив его вовремя после окончания отчётного года, вы избежите или уменьшите проценты. Если налог остаётся неуплаченным, возникает доплата (jäännösvero), на которую начисляются проценты.' },
         { t: 'h2', x: 'Помощь с авансовым налогом' },
-        { t: 'p', x: 'Помогаем реалистично оценить вашу прибыль и держать авансовый налог в актуальном состоянии, чтобы избежать неприятных сюрпризов — на вашем языке. Свою ситуацию вы видите в личном кабинете Vaavo.' },
+        { t: 'p', x: 'Помогаем реалистично оценить вашу прибыль и держать авансовый налог в актуальном состоянии, чтобы избежать неприятных сюрпризов — по-русски или по-фински. Свою ситуацию вы видите в личном кабинете Vaavo.' },
       ],
       faq: [
         { q: 'Что такое авансовый налог?', a: 'Подоходный налог, который вы платите заранее по расчётной прибыли бизнеса частями в OmaVero.' },
@@ -76,7 +76,7 @@ export const ennakkovero: Guide = {
         { t: 'h2', x: 'Additional prepayment and back tax' },
         { t: 'p', x: 'If your profit was higher than estimated, you can pay the missing part as an additional prepayment (lisäennakko). By paying it in time after the financial year ends, you avoid or reduce the interest. If tax remains unpaid, a back tax (jäännösvero) arises, on which interest is charged.' },
         { t: 'h2', x: 'Help with prepaid tax' },
-        { t: 'p', x: 'We help you estimate your profit realistically and keep the prepaid tax up to date, so you avoid unpleasant surprises — in your language. You can follow your situation in the Vaavo client portal.' },
+        { t: 'p', x: 'We help you estimate your profit realistically and keep the prepaid tax up to date, so you avoid unpleasant surprises — in Finnish or Russian. You can follow your situation in the Vaavo client portal.' },
       ],
       faq: [
         { q: 'What is prepaid tax?', a: 'Income tax you pay in advance based on your estimated business profit, in instalments via OmaVero.' },
@@ -101,7 +101,7 @@ export const ennakkovero: Guide = {
         { t: 'h2', x: 'Lisaettemaks ja juurdemaks' },
         { t: 'p', x: 'Kui kasum oli hinnangust suurem, saad puuduva osa maksta lisaettemaksuna (lisäennakko). Makstes selle õigel ajal pärast majandusaasta lõppu, väldid või vähendad intressi. Kui maks jääb maksmata, tekib juurdemaks (jäännösvero), millelt arvestatakse intressi.' },
         { t: 'h2', x: 'Abi ettemaksuga' },
-        { t: 'p', x: 'Aitame su kasumit realistlikult hinnata ja hoida ettemaksu ajakohasena, et väldiksid ebameeldivaid üllatusi — sinu keeles. Oma olukorda näed Vaavo kliendiportaalis.' },
+        { t: 'p', x: 'Aitame su kasumit realistlikult hinnata ja hoida ettemaksu ajakohasena, et väldiksid ebameeldivaid üllatusi — soome või vene keeles. Oma olukorda näed Vaavo kliendiportaalis.' },
       ],
       faq: [
         { q: 'Mis on ettemaks?', a: 'Tulumaks, mille maksad ette hinnangulise ärikasumi alusel osamaksetena OmaVeros.' },
@@ -126,7 +126,7 @@ export const ennakkovero: Guide = {
         { t: 'h2', x: 'Додатковий аванс і доплата' },
         { t: 'p', x: 'Якщо прибуток виявився більшим за розрахунковий, відсутню частину можна сплатити як додатковий аванс (lisäennakko). Сплативши його вчасно після завершення звітного року, ви уникнете або зменшите відсотки. Якщо податок залишається несплаченим, виникає доплата (jäännösvero), на яку нараховуються відсотки.' },
         { t: 'h2', x: 'Допомога з авансовим податком' },
-        { t: 'p', x: 'Допомагаємо реалістично оцінити ваш прибуток і тримати авансовий податок в актуальному стані, щоб уникнути неприємних сюрпризів — вашою мовою. Свою ситуацію ви бачите в особистому кабінеті Vaavo.' },
+        { t: 'p', x: 'Допомагаємо реалістично оцінити ваш прибуток і тримати авансовий податок в актуальному стані, щоб уникнути неприємних сюрпризів — фінською або російською. Свою ситуацію ви бачите в особистому кабінеті Vaavo.' },
       ],
       faq: [
         { q: 'Що таке авансовий податок?', a: 'Прибутковий податок, який ви платите заздалегідь за розрахунковим прибутком бізнесу частинами в OmaVero.' },

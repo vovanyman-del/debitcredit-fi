@@ -7,7 +7,7 @@ import type { Guide } from './types';
 export const yrittajanVahennykset: Guide = {
   slug: 'yrittajan-vahennykset',
   datePublished: '2026-06-21',
-  dateModified: '2026-06-21',
+  dateModified: '2026-09-23',
   content: {
     fi: {
       title: 'Yrittäjän verovähennykset: mitä kuluja voit vähentää? (2026)',
@@ -34,7 +34,7 @@ export const yrittajanVahennykset: Guide = {
         { t: 'h2', x: 'Työhuonevähennys' },
         { t: 'p', x: 'Jos teet työtä kotona, voit vähentää työhuoneen kulut joko todellisten kulujen mukaan tai kaavamaisesti. Toiminimiyrittäjä voi tehdä työhuonevähennyksen omassa verotuksessaan.' },
         { t: 'h2', x: 'Älä jätä vähennyksiä käyttämättä' },
-        { t: 'p', x: 'Hyvä kirjanpitäjä varmistaa, että saat kaikki vähennykset, joihin olet oikeutettu, etkä maksa veroa enempää kuin on tarpeen. Me käymme kulusi läpi ja varmistamme, että vähennät kaiken sallitun — omalla kielelläsi.' },
+        { t: 'p', x: 'Hyvä kirjanpitäjä varmistaa, että saat kaikki vähennykset, joihin olet oikeutettu, etkä maksa veroa enempää kuin on tarpeen. Me käymme kulusi läpi ja varmistamme, että vähennät kaiken sallitun — suomeksi tai venäjäksi.' },
       ],
       faq: [
         { q: 'Mitä yrittäjä voi vähentää?', a: 'Liiketoimintaan liittyvät menot: toimitila, työvälineet, materiaalit, matkat, puhelin, työhuone, vakuutukset, YEL, koulutus sekä kirjanpito- ja asiantuntijapalvelut.' },
@@ -68,7 +68,7 @@ export const yrittajanVahennykset: Guide = {
         { t: 'h2', x: 'Вычет за рабочий кабинет' },
         { t: 'p', x: 'Если вы работаете дома, можно вычесть расходы на рабочий кабинет либо по фактическим затратам, либо по формуле. Предприниматель-toiminimi делает этот вычет в своём налогообложении.' },
         { t: 'h2', x: 'Не оставляйте вычеты неиспользованными' },
-        { t: 'p', x: 'Хороший бухгалтер проследит, чтобы вы получили все вычеты, на которые имеете право, и не переплатили налог. Мы разберём ваши расходы и проверим, что вы вычли всё разрешённое — на вашем языке.' },
+        { t: 'p', x: 'Хороший бухгалтер проследит, чтобы вы получили все вычеты, на которые имеете право, и не переплатили налог. Мы разберём ваши расходы и проверим, что вы вычли всё разрешённое — по-русски или по-фински.' },
       ],
       faq: [
         { q: 'Что предприниматель может вычесть?', a: 'Расходы, связанные с бизнесом: помещение, инструменты, материалы, поездки, телефон, рабочий кабинет, страховки, YEL, обучение, а также бухгалтерские и консультационные услуги.' },
@@ -102,7 +102,7 @@ export const yrittajanVahennykset: Guide = {
         { t: 'h2', x: 'Home-office deduction' },
         { t: 'p', x: 'If you work at home, you can deduct the workroom costs either by actual costs or by a formula. A sole trader makes the home-office deduction in their own taxation.' },
         { t: 'h2', x: 'Don’t leave deductions unused' },
-        { t: 'p', x: 'A good accountant makes sure you claim every deduction you’re entitled to and don’t pay more tax than necessary. We review your expenses and make sure you deduct everything allowed — in your language.' },
+        { t: 'p', x: 'A good accountant makes sure you claim every deduction you’re entitled to and don’t pay more tax than necessary. We review your expenses and make sure you deduct everything allowed — in Finnish or Russian.' },
       ],
       faq: [
         { q: 'What can an entrepreneur deduct?', a: 'Business-related expenses: premises, tools, materials, travel, phone, a home office, insurance, YEL, training, and bookkeeping and expert services.' },
@@ -136,7 +136,7 @@ export const yrittajanVahennykset: Guide = {
         { t: 'h2', x: 'Kodukontori vähendus' },
         { t: 'p', x: 'Kui töötad kodus, saad töötoa kulud maha arvata kas tegelike kulude alusel või valemiga. Toiminimi-ettevõtja teeb kodukontori vähenduse oma maksustamises.' },
         { t: 'h2', x: 'Ära jäta vähendusi kasutamata' },
-        { t: 'p', x: 'Hea raamatupidaja tagab, et saad kõik vähendused, millele sul on õigus, ega maksa rohkem maksu kui vaja. Vaatame su kulud üle ja tagame, et arvad maha kõik lubatu — sinu keeles.' },
+        { t: 'p', x: 'Hea raamatupidaja tagab, et saad kõik vähendused, millele sul on õigus, ega maksa rohkem maksu kui vaja. Vaatame su kulud üle ja tagame, et arvad maha kõik lubatu — soome või vene keeles.' },
       ],
       faq: [
         { q: 'Mida saab ettevõtja maha arvata?', a: 'Äriga seotud kulud: ruumid, töövahendid, materjalid, reisid, telefon, töötuba, kindlustused, YEL, koolitus ning raamatupidamis- ja eksperditeenused.' },
@@ -170,7 +170,7 @@ export const yrittajanVahennykset: Guide = {
         { t: 'h2', x: 'Вирахування за робочий кабінет' },
         { t: 'p', x: 'Якщо ви працюєте вдома, можна вирахувати витрати на робочий кабінет або за фактичними витратами, або за формулою. Підприємець-toiminimi робить це вирахування у своєму оподаткуванні.' },
         { t: 'h2', x: 'Не залишайте вирахування невикористаними' },
-        { t: 'p', x: 'Хороший бухгалтер простежить, щоб ви отримали всі вирахування, на які маєте право, і не переплатили податок. Ми розберемо ваші витрати та перевіримо, що ви вирахували все дозволене — вашою мовою.' },
+        { t: 'p', x: 'Хороший бухгалтер простежить, щоб ви отримали всі вирахування, на які маєте право, і не переплатили податок. Ми розберемо ваші витрати та перевіримо, що ви вирахували все дозволене — фінською або російською.' },
       ],
       faq: [
         { q: 'Що підприємець може вирахувати?', a: 'Витрати, повʼязані з бізнесом: приміщення, інструменти, матеріали, поїздки, телефон, робочий кабінет, страховки, YEL, навчання, а також бухгалтерські та консультаційні послуги.' },

@@ -9,7 +9,7 @@ import type { Guide } from './types';
 export const starttiraha: Guide = {
   slug: 'starttiraha',
   datePublished: '2026-06-21',
-  dateModified: '2026-06-21',
+  dateModified: '2026-09-23',
   content: {
     fi: {
       title: 'Starttiraha 2026: kuka saa, kuinka paljon ja miten haet',
@@ -42,7 +42,7 @@ export const starttiraha: Guide = {
         { t: 'h2', x: 'Vinkki: hyvä liiketoimintasuunnitelma ratkaisee' },
         { t: 'p', x: 'Päätös tehdään liiketoimintasuunnitelman ja kannattavuuslaskelman perusteella. Huolellinen, realistinen suunnitelma parantaa mahdollisuuksiasi merkittävästi. Autamme suunnitelman ja laskelman laatimisessa.' },
         { t: 'h2', x: 'Apua starttirahan hakemiseen' },
-        { t: 'p', x: 'Autamme liiketoimintasuunnitelmassa, kannattavuuslaskelmassa ja yrityksen rekisteröinnissä — omalla kielelläsi. Näin haet starttirahan oikein ja oikeaan aikaan.' },
+        { t: 'p', x: 'Autamme liiketoimintasuunnitelmassa, kannattavuuslaskelmassa ja yrityksen rekisteröinnissä — suomeksi tai venäjäksi. Näin haet starttirahan oikein ja oikeaan aikaan.' },
       ],
       faq: [
         { q: 'Kuinka paljon starttiraha on?', a: 'Starttiraha on peruspäivärahan suuruinen, noin 37 €/päivä eli noin 800 €/kk vuonna 2026. Se on veronalaista tuloa.' },
@@ -82,7 +82,7 @@ export const starttiraha: Guide = {
         { t: 'h2', x: 'Совет: хороший бизнес-план решает' },
         { t: 'p', x: 'Решение принимается на основе бизнес-плана и расчёта рентабельности. Тщательный, реалистичный план заметно повышает ваши шансы. Поможем составить план и расчёт.' },
         { t: 'h2', x: 'Помощь с подачей на starttiraha' },
-        { t: 'p', x: 'Поможем с бизнес-планом, расчётом рентабельности и регистрацией компании — на вашем языке. Так вы подадите на starttiraha правильно и вовремя.' },
+        { t: 'p', x: 'Поможем с бизнес-планом, расчётом рентабельности и регистрацией компании — по-русски или по-фински. Так вы подадите на starttiraha правильно и вовремя.' },
       ],
       faq: [
         { q: 'Сколько составляет starttiraha?', a: 'Starttiraha равна базовому пособию по безработице (peruspäiväraha) — около 37 €/день, то есть примерно 800 €/мес в 2026 году. Это налогооблагаемый доход.' },
@@ -122,7 +122,7 @@ export const starttiraha: Guide = {
         { t: 'h2', x: 'Tip: a good business plan is decisive' },
         { t: 'p', x: 'The decision is made on the basis of the business plan and the profitability calculation. A careful, realistic plan significantly improves your chances. We help prepare the plan and the calculation.' },
         { t: 'h2', x: 'Help with applying for the startup grant' },
-        { t: 'p', x: 'We help with the business plan, the profitability calculation and registering the company — in your language. That way you apply for the startup grant correctly and at the right time.' },
+        { t: 'p', x: 'We help with the business plan, the profitability calculation and registering the company — in Finnish or Russian. That way you apply for the startup grant correctly and at the right time.' },
       ],
       faq: [
         { q: 'How much is the startup grant?', a: 'The startup grant equals the basic unemployment allowance (peruspäiväraha) — about €37/day, i.e. roughly €800/month in 2026. It is taxable income.' },
@@ -162,7 +162,7 @@ export const starttiraha: Guide = {
         { t: 'h2', x: 'Nõuanne: hea äriplaan on otsustav' },
         { t: 'p', x: 'Otsus tehakse äriplaani ja tasuvusarvutuse alusel. Hoolikas, realistlik plaan parandab oluliselt sinu võimalusi. Aitame plaani ja arvutuse koostamisel.' },
         { t: 'h2', x: 'Abi stardiraha taotlemisel' },
-        { t: 'p', x: 'Aitame äriplaani, tasuvusarvutuse ja ettevõtte registreerimisega — sinu keeles. Nii taotled starttiraha õigesti ja õigel ajal.' },
+        { t: 'p', x: 'Aitame äriplaani, tasuvusarvutuse ja ettevõtte registreerimisega — soome või vene keeles. Nii taotled starttiraha õigesti ja õigel ajal.' },
       ],
       faq: [
         { q: 'Kui suur on stardiraha?', a: 'Starttiraha võrdub töötu põhipäevarahaga (peruspäiväraha) — umbes 37 €/päev ehk umbes 800 €/kuus 2026. aastal. See on maksustatav tulu.' },
@@ -202,7 +202,7 @@ export const starttiraha: Guide = {
         { t: 'h2', x: 'Порада: хороший бізнес-план вирішує' },
         { t: 'p', x: 'Рішення ухвалюється на основі бізнес-плану та розрахунку рентабельності. Ретельний, реалістичний план помітно підвищує ваші шанси. Допоможемо скласти план і розрахунок.' },
         { t: 'h2', x: 'Допомога з поданням на starttiraha' },
-        { t: 'p', x: 'Допоможемо з бізнес-планом, розрахунком рентабельності та реєстрацією компанії — вашою мовою. Так ви подасте на starttiraha правильно і вчасно.' },
+        { t: 'p', x: 'Допоможемо з бізнес-планом, розрахунком рентабельності та реєстрацією компанії — фінською або російською. Так ви подасте заявку на starttiraha правильно і вчасно.' },
       ],
       faq: [
         { q: 'Скільки становить starttiraha?', a: 'Starttiraha дорівнює базовій допомозі по безробіттю (peruspäiväraha) — близько 37 €/день, тобто приблизно 800 €/міс у 2026 році. Це оподатковуваний дохід.' },

@@ -9,7 +9,7 @@ import type { Guide } from './types';
 export const osakeyhtionPerustaminen: Guide = {
   slug: 'osakeyhtion-perustaminen',
   datePublished: '2026-06-21',
-  dateModified: '2026-06-21',
+  dateModified: '2026-09-23',
   content: {
     fi: {
       title: 'Osakeyhtiön perustaminen vaihe vaiheelta (2026)',
@@ -52,7 +52,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Huolehdi ALV- ja veroilmoituksista ajallaan.',
         ] },
         { t: 'h2', x: 'Apua perustamiseen' },
-        { t: 'p', x: 'Hoidamme osakeyhtiön perustamisen kokonaisuutena ja kirjanpidon — omalla kielelläsi. Näet taloutesi Vaavo-asiakasportaalissa.' },
+        { t: 'p', x: 'Hoidamme osakeyhtiön perustamisen kokonaisuutena ja kirjanpidon — suomeksi tai venäjäksi. Näet taloutesi Vaavo-asiakasportaalissa.' },
       ],
       faq: [
         { q: 'Paljonko osakeyhtiön perustaminen maksaa?', a: 'Ohjattu sähköinen perustaminen YTJ-palvelussa maksaa 300 € ja tavallinen perustamisilmoitus 400 € (2026). Osakepääomaa ei vaadita (0 €).' },
@@ -102,7 +102,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Своевременно подавайте декларации ALV и налоговые.',
         ] },
         { t: 'h2', x: 'Помощь с регистрацией' },
-        { t: 'p', x: 'Открываем osakeyhtiö «под ключ» и ведём бухгалтерию — на вашем языке. Свои финансы вы видите в личном кабинете Vaavo.' },
+        { t: 'p', x: 'Открываем osakeyhtiö «под ключ» и ведём бухгалтерию — по-русски или по-фински. Свои финансы вы видите в личном кабинете Vaavo.' },
       ],
       faq: [
         { q: 'Сколько стоит открыть osakeyhtiö?', a: 'Управляемая электронная регистрация в YTJ — 300 €, обычное заявление — 400 € (2026). Уставный капитал не требуется (0 €).' },
@@ -152,7 +152,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'File VAT and tax returns on time.',
         ] },
         { t: 'h2', x: 'Help with founding' },
-        { t: 'p', x: 'We handle the whole company founding and the bookkeeping — in your language. You can track your finances in the Vaavo client portal.' },
+        { t: 'p', x: 'We handle the entire company formation and the bookkeeping — in Finnish or Russian. You can track your finances in the Vaavo client portal.' },
       ],
       faq: [
         { q: 'How much does it cost to set up an Oy?', a: 'Guided electronic founding in YTJ costs €300 and the regular foundation notification €400 (2026). No share capital is required (€0).' },
@@ -202,7 +202,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Esita ALV- ja maksudeklaratsioonid õigeaegselt.',
         ] },
         { t: 'h2', x: 'Abi asutamisel' },
-        { t: 'p', x: 'Asutame osaühingu tervikuna ja korraldame raamatupidamise — sinu keeles. Oma rahaasju näed Vaavo kliendiportaalis.' },
+        { t: 'p', x: 'Asutame osaühingu tervikuna ja korraldame raamatupidamise — soome või vene keeles. Oma rahaasju näed Vaavo kliendiportaalis.' },
       ],
       faq: [
         { q: 'Kui palju maksab osaühingu asutamine?', a: 'Juhitud elektrooniline asutamine YTJ-s maksab 300 € ja tavaline asutamisteade 400 € (2026). Osakapitali ei nõuta (0 €).' },
@@ -252,7 +252,7 @@ export const osakeyhtionPerustaminen: Guide = {
           'Вчасно подавайте декларації ALV і податкові.',
         ] },
         { t: 'h2', x: 'Допомога з реєстрацією' },
-        { t: 'p', x: 'Відкриваємо osakeyhtiö «під ключ» і ведемо бухгалтерію — вашою мовою. Свої фінанси ви бачите в особистому кабінеті Vaavo.' },
+        { t: 'p', x: 'Відкриваємо osakeyhtiö «під ключ» і ведемо бухгалтерію — фінською або російською. Свої фінанси ви бачите в особистому кабінеті Vaavo.' },
       ],
       faq: [
         { q: 'Скільки коштує відкрити osakeyhtiö?', a: 'Кероване електронне відкриття в YTJ коштує 300 €, а звичайна заява — 400 € (2026). Статутний капітал не потрібен (0 €).' },

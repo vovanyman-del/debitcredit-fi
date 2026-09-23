@@ -8,7 +8,7 @@ import type { Guide } from './types';
 export const palkanlaskenta: Guide = {
   slug: 'palkanlaskenta',
   datePublished: '2026-06-21',
-  dateModified: '2026-06-21',
+  dateModified: '2026-09-23',
   content: {
     fi: {
       title: 'Palkanlaskenta: näin maksat palkkaa työntekijälle (2026)',
@@ -38,7 +38,7 @@ export const palkanlaskenta: Guide = {
           'Kirjallinen työsopimus.',
         ] },
         { t: 'h2', x: 'Me hoidamme palkanlaskennan' },
-        { t: 'p', x: 'Laskemme palkat, hoidamme ennakonpidätyksen, tulorekisteri-ilmoitukset ja työnantajamaksut — omalla kielelläsi. Sinä keskityt liiketoimintaan.' },
+        { t: 'p', x: 'Laskemme palkat, hoidamme ennakonpidätyksen, tulorekisteri-ilmoitukset ja työnantajamaksut — suomeksi tai venäjäksi. Sinä keskityt liiketoimintaan.' },
       ],
       faq: [
         { q: 'Paljonko työntekijä maksaa palkan päälle?', a: 'Lakisääteiset sivukulut ovat yhteensä noin 20 % bruttopalkasta. Lisäksi tulevat lomapalkka ja muut työehtosopimuksen mukaiset kulut.' },
@@ -75,7 +75,7 @@ export const palkanlaskenta: Guide = {
           'Письменный трудовой договор.',
         ] },
         { t: 'h2', x: 'Мы сделаем расчёт зарплаты' },
-        { t: 'p', x: 'Считаем зарплаты, оформляем удержание налога, отчёты в Tulorekisteri и взносы работодателя — на вашем языке. Вы занимаетесь бизнесом.' },
+        { t: 'p', x: 'Считаем зарплаты, оформляем удержание налога, отчёты в Tulorekisteri и взносы работодателя — по-русски или по-фински. Вы занимаетесь бизнесом.' },
       ],
       faq: [
         { q: 'Сколько работник стоит сверх зарплаты?', a: 'Обязательные взносы — в сумме около 20 % от брутто-зарплаты. Дополнительно идут отпускные и прочие расходы по коллективному договору.' },
@@ -112,7 +112,7 @@ export const palkanlaskenta: Guide = {
           'A written employment contract.',
         ] },
         { t: 'h2', x: 'We handle the payroll' },
-        { t: 'p', x: 'We calculate the salaries and handle the withholding, the Incomes Register reports and the employer contributions — in your language. You focus on the business.' },
+        { t: 'p', x: 'We calculate the salaries and handle the withholding, the Incomes Register reports and the employer contributions — in Finnish or Russian. You focus on the business.' },
       ],
       faq: [
         { q: 'How much does an employee cost on top of the salary?', a: 'Statutory side costs total about 20% of the gross salary. On top come holiday pay and other costs under the collective agreement.' },
@@ -149,7 +149,7 @@ export const palkanlaskenta: Guide = {
           'Kirjalik tööleping.',
         ] },
         { t: 'h2', x: 'Korraldame palgaarvestuse' },
-        { t: 'p', x: 'Arvutame palgad ja korraldame kinnipidamise, Tulorekisteri teated ja tööandja maksed — sinu keeles. Sina keskendud ärile.' },
+        { t: 'p', x: 'Arvutame palgad ja korraldame kinnipidamise, Tulorekisteri teated ja tööandja maksed — soome või vene keeles. Sina keskendud ärile.' },
       ],
       faq: [
         { q: 'Kui palju maksab töötaja palga peale?', a: 'Seadusjärgsed kõrvalkulud on kokku umbes 20 % brutopalgast. Lisaks tulevad puhkusetasu ja muud kollektiivlepingu kulud.' },
@@ -186,7 +186,7 @@ export const palkanlaskenta: Guide = {
           'Письмовий трудовий договір.',
         ] },
         { t: 'h2', x: 'Ми зробимо розрахунок зарплати' },
-        { t: 'p', x: 'Рахуємо зарплати та оформлюємо утримання, звіти в Tulorekisteri і внески роботодавця — вашою мовою. Ви займаєтеся бізнесом.' },
+        { t: 'p', x: 'Рахуємо зарплати та оформлюємо утримання, звіти в Tulorekisteri і внески роботодавця — фінською або російською. Ви займаєтеся бізнесом.' },
       ],
       faq: [
         { q: 'Скільки працівник коштує понад зарплату?', a: 'Обовʼязкові внески — разом близько 20 % від брутто-зарплати. Додатково йдуть відпускні та інші витрати за колективним договором.' },

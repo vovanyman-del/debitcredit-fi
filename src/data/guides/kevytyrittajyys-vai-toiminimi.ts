@@ -6,7 +6,7 @@ import type { Guide } from './types';
 export const kevytyrittajyysVaiToiminimi: Guide = {
   slug: 'kevytyrittajyys-vai-toiminimi',
   datePublished: '2026-06-21',
-  dateModified: '2026-06-21',
+  dateModified: '2026-09-23',
   content: {
     fi: {
       title: 'Kevytyrittäjyys vai toiminimi? Kummalla aloitat?',
@@ -30,7 +30,7 @@ export const kevytyrittajyysVaiToiminimi: Guide = {
         { t: 'h2', x: 'Kummalla kannattaa aloittaa?' },
         { t: 'p', x: 'Kevytyrittäjyys sopii satunnaiseen tai kokeiluluontoiseen laskutukseen, kun haluat aloittaa kevyesti. Kun toiminta on säännöllistä tai kasvaa, oma toiminimi on usein edullisempi ja joustavampi, koska saat täydet vähennykset ja paremman verotuksen.' },
         { t: 'h2', x: 'Autamme valinnassa' },
-        { t: 'p', x: 'Autamme valitsemaan sinulle sopivan tavan ja perustamaan toiminimen, jos se on järkevin — omalla kielelläsi.' },
+        { t: 'p', x: 'Autamme valitsemaan sinulle sopivan tavan ja perustamaan toiminimen, jos se on järkevin — suomeksi tai venäjäksi.' },
       ],
       faq: [
         { q: 'Mikä on ero kevytyrittäjän ja toiminimen välillä?', a: 'Kevytyrittäjä laskuttaa laskutuspalvelun kautta ilman omaa yritystä. Toiminimi on oma yritys Y-tunnuksella, jolla saat täydet vähennykset ja enemmän hallintaa.' },
@@ -61,7 +61,7 @@ export const kevytyrittajyysVaiToiminimi: Guide = {
         { t: 'h2', x: 'С чего лучше начать?' },
         { t: 'p', x: 'Лёгкое предпринимательство подходит для случайных или пробных счетов, когда хочется начать просто. Когда деятельность регулярная или растёт, собственный toiminimi часто выгоднее и гибче — вы получаете полные вычеты и лучшее налогообложение.' },
         { t: 'h2', x: 'Поможем с выбором' },
-        { t: 'p', x: 'Поможем выбрать подходящий способ и открыть toiminimi, если это разумнее всего — на вашем языке.' },
+        { t: 'p', x: 'Поможем выбрать подходящий способ и открыть toiminimi, если это разумнее всего — по-русски или по-фински.' },
       ],
       faq: [
         { q: 'В чём разница между работой через сервис выставления счетов и toiminimi?', a: 'Пользователь сервиса выставления счетов выставляет счета через сервис без своей фирмы. Toiminimi — собственная фирма с Y-tunnus, с полными вычетами и большим контролем.' },
@@ -92,7 +92,7 @@ export const kevytyrittajyysVaiToiminimi: Guide = {
         { t: 'h2', x: 'Which one should you start with?' },
         { t: 'p', x: 'Light entrepreneurship suits occasional or trial invoicing when you want to start lightly. When the activity is regular or growing, your own toiminimi is often cheaper and more flexible, because you get full deductions and better taxation.' },
         { t: 'h2', x: 'We help you choose' },
-        { t: 'p', x: 'We help you choose the right approach and set up a toiminimi if that makes the most sense — in your language.' },
+        { t: 'p', x: 'We help you choose the right approach and set up a toiminimi if that makes the most sense — in Finnish or Russian.' },
       ],
       faq: [
         { q: 'What is the difference between a light entrepreneur and a toiminimi?', a: 'A light entrepreneur invoices through a service without their own business. A toiminimi is your own business with a Business ID, with full deductions and more control.' },
@@ -123,7 +123,7 @@ export const kevytyrittajyysVaiToiminimi: Guide = {
         { t: 'h2', x: 'Kummast tasub alustada?' },
         { t: 'p', x: 'Kergettevõtlus sobib juhuslikuks või proovi-arveldamiseks, kui soovid alustada kergelt. Kui tegevus on regulaarne või kasvab, on oma toiminimi sageli odavam ja paindlikum, sest saad täisvähendused ja parema maksustamise.' },
         { t: 'h2', x: 'Aitame valida' },
-        { t: 'p', x: 'Aitame valida sulle sobiva viisi ja asutada toiminimi, kui see on mõistlikem — sinu keeles.' },
+        { t: 'p', x: 'Aitame valida sulle sobiva viisi ja asutada toiminimi, kui see on mõistlikem — soome või vene keeles.' },
       ],
       faq: [
         { q: 'Mis vahe on kergettevõtjal ja toiminimi’l?', a: 'Kergettevõtja arveldab teenuse kaudu ilma oma ettevõtteta. Toiminimi on oma ettevõte Y-tunnusega, täisvähenduste ja suurema kontrolliga.' },
@@ -154,7 +154,7 @@ export const kevytyrittajyysVaiToiminimi: Guide = {
         { t: 'h2', x: 'З чого краще почати?' },
         { t: 'p', x: 'Легке підприємництво підходить для випадкових або пробних рахунків, коли хочеться почати просто. Коли діяльність регулярна або зростає, власний toiminimi часто вигідніший і гнучкіший — ви отримуєте повні вирахування і краще оподаткування.' },
         { t: 'h2', x: 'Допоможемо з вибором' },
-        { t: 'p', x: 'Допоможемо обрати відповідний спосіб і відкрити toiminimi, якщо це найрозумніше — вашою мовою.' },
+        { t: 'p', x: 'Допоможемо обрати відповідний спосіб і відкрити toiminimi, якщо це найрозумніше — фінською або російською.' },
       ],
       faq: [
         { q: 'У чому різниця між легким підприємцем і toiminimi?', a: 'Легкий підприємець виставляє рахунки через сервіс без своєї фірми. Toiminimi — власна фірма з Y-tunnus, з повними вирахуваннями та більшим контролем.' },
