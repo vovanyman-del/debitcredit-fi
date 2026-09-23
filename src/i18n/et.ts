@@ -338,6 +338,9 @@ export const et = {
     consultationTitle: "Teenuses sisalduv nõustamine",
     consultationIncluded: "Meie klientide tavapärased raamatupidamis- ja maksuküsimused kuuluvad teenuse sisse lisatasuta. Eraldi uurimist, teabe kogumist või ametiasutustesse helistamist vajavad ülesanded on tasulised lisatööd.",
     portalIncluded: "Vaavo kuulub igasse paketti alates Microst: arvete koostamine portaalis, dokumendid, pank, sõidupäevik ja Apuri. Portaali või rakenduse eest eraldi kuutasu ei ole. Raamatupidamise lisatööde eest tasutakse hinnakirja järgi.",
+    referralTitle: "Soovita meid – kuu tasuta mõlemale",
+    referralText: "Kui sinu soovitatud ettevõte või ühing sõlmib meiega raamatupidamislepingu, on tema paketi esimene kuu tasuta. Sina saad oma paketi ühe kuu tasuta, kui uus klient on tasunud oma esimese arve. Soodustus kehtib kuupaketi hinnale – mitte lisateenustele – ja seda ei maksta välja rahas. Uuel kliendil piisab, kui ta mainib pöördumisel soovitaja nime.",
+    referralCta: "Võta ühendust",
   },
   vaavo: {
     title: "Vaavo — arved, pank ja raamatupidaja",
@@ -438,6 +441,8 @@ export const et = {
     form: {
       sourceLabel: "Kust sa meist kuulsid? (vabatahtlik)",
       sourceHint: "Sinu vastus aitab meil mõista, kust päringud tulevad.",
+      referrerLabel: "Kes meid soovitas? (valikuline)",
+      referrerHint: "Soovitaja ja uus klient saavad kumbki ühe kuu tasuta.",
       sourceEmpty: "Ei soovi vastata",
       sources: {"search":"Google või muu otsingumootor","ai":"Tehisintellekt, näiteks Gemini või ChatGPT","referral":"Soovitus","publication":"Artikkel või kuulutus","direct_email":"Sain teilt e-kirja","other":"Muu"},
       name: 'Nimi',
@@ -563,10 +568,10 @@ export const et = {
   },
   privacy: {
     title: 'Privaatsuspoliitika',
-    lastUpdated: "Uuendatud 17.09.2026",
+    lastUpdated: "Uuendatud 23.09.2026",
     sections: [
       { title: 'Vastutav töötleja', content: 'Vastutav töötleja on Tilitoimisto Debit Credit (Y-tunnus ehk Soome ettevõtte registrikood 3512702-8), Haapaniemenkatu 7–9 B, 16. korrus, 00530 Helsingi. Andmekaitse kontaktisik: Vladimir Nyman, vladimir@debitcredit.fi.' },
-      { title: 'Milliseid isikuandmeid kogume', content: 'Kogume isikuandmeid kahest allikast. (a) Kontaktivormilt: nimi, e-posti aadress, telefoninumber, ettevõtte nimi ja sõnumi sisu. (b) Vaavo kliendiportaali (raamatupidamise kabinet) ja raamatupidamisteenuse kaudu töötleme lepingu alusel raamatupidamismaterjali, arveid, algdokumente (tositteet — kuludokumendid ja kviitungid), pangatehingute andmeid ja tuvastusandmeid. Soovi korral võid ka öelda, kust sa meist kuulsid; kasutame seda vabatahtlikku vastust päringute allikate hindamiseks.' },
+      { title: 'Milliseid isikuandmeid kogume', content: 'Kogume isikuandmeid kahest allikast. (a) Kontaktivormilt: nimi, e-posti aadress, telefoninumber, ettevõtte nimi ja sõnumi sisu. (b) Vaavo kliendiportaali (raamatupidamise kabinet) ja raamatupidamisteenuse kaudu töötleme lepingu alusel raamatupidamismaterjali, arveid, algdokumente (tositteet — kuludokumendid ja kviitungid), pangatehingute andmeid ja tuvastusandmeid. Soovi korral võid ka öelda, kust sa meist kuulsid; kasutame seda vabatahtlikku vastust päringute allikate hindamiseks. Kui ütled soovitaja nime, kasutame seda ainult soovitajasoodustuse andmiseks.' },
       { title: 'Töötlemise õiguslik alus (GDPR art 6)', content: 'Töötleme sinu isikuandmeid järgmistel õiguslikel alustel: lepingu täitmine (raamatupidamisteenuste osutamine ja Vaavo kabineti kasutamine); juriidilise kohustuse täitmine (Soome raamatupidamisseadus kirjanpitolaki ja maksuseadusandlus); meie õigustatud huvi (päringutele vastamine ja teenuse turvalisuse tagamine); sinu nõusolek (turundust teostame ainult sinu nõusolekul).' },
       { title: 'Töötlemise eesmärgid', content: 'Töötleme andmeid kontaktipäringute käsitlemiseks, raamatupidamis-, palga- ja maksuteenuste ning Vaavo kliendiportaali pakkumiseks, seadusjärgse raamatupidamise ja aruandluse tagamiseks ning sinuga suhtlemiseks. Me ei kasuta sinu andmeid turunduseks ilma sinu nõusolekuta.' },
       { title: 'Vastuvõtjad ja volitatud töötlejad', content: 'Kasutame hoolikalt valitud volitatud töötlejaid, kellega oleme sõlminud andmetöötluslepingud (DPA): veebimajutus — Vercel Inc.; kontaktivormi e-kirjade saatmine — Mailgun (ELi piirkond). Vaavo teenuses kasutame järgmisi töötlejaid: Supabase (andmebaas ja majutus), Enable Banking (PSD2 pangaühendus), Maventa (e-arvete vahetus, kui klient selle kasutusele võtab) ja tehisintellekti teenused (OpenAI ja Mistral AI) dokumentide automaatseks tuvastamiseks. Edastame andmeid ka ametiasutustele (nt Verohallinto — Soome maksuamet, ja Tulorekisteri — Soome sissetulekuregister), kui seadus seda nõuab. Me ei müü sinu andmeid.' },

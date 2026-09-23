@@ -12,6 +12,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [source, setSource] = useState('');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -82,7 +83,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label htmlFor="contact-source" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.sourceLabel}</label>
-                  <select id="contact-source" name="source" defaultValue="" aria-describedby="contact-source-hint" className={inputCls}>
+                  <select id="contact-source" name="source" value={source} onChange={(e) => setSource(e.target.value)} aria-describedby="contact-source-hint" className={inputCls}>
                     <option value="">{t.contact.form.sourceEmpty}</option>
                     {Object.entries(t.contact.form.sources).map(([value, label]) => (
                       <option key={value} value={value}>{label}</option>
@@ -90,6 +91,14 @@ export default function ContactPage() {
                   </select>
                   <p id="contact-source-hint" className="mt-1.5 text-xs text-ink-700/70">{t.contact.form.sourceHint}</p>
                 </div>
+                {/* Referral bonus: the referrer's name tells us who gets the free month. */}
+                {source === 'referral' && (
+                  <div>
+                    <label htmlFor="contact-referrer" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.referrerLabel}</label>
+                    <input id="contact-referrer" name="referrer" type="text" maxLength={200} aria-describedby="contact-referrer-hint" className={inputCls} />
+                    <p id="contact-referrer-hint" className="mt-1.5 text-xs text-ink-700/70">{t.contact.form.referrerHint}</p>
+                  </div>
+                )}
                 {error && <p role="alert" className="text-red-700 text-sm">{error}</p>}
                 <button
                   type="submit"

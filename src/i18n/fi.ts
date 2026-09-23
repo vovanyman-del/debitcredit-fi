@@ -338,6 +338,9 @@ export const fi = {
     consultationTitle: "Palveluun sisältyvä neuvonta",
     consultationIncluded: "Asiakkaidemme tavanomaiset kirjanpito- ja verokysymykset sisältyvät palveluun ilman lisämaksua. Erillistä perehtymistä, tiedonhankintaa tai viranomaispuheluja vaativat toimeksiannot veloitetaan lisätöinä.",
     portalIncluded: "Vaavo sisältyy jokaiseen pakettiin Microsta alkaen: laskutus portaalissa, asiakirjat, pankki, ajopäiväkirja ja Apuri. Portaalista tai sovelluksesta ei veloiteta erillistä tilausta. Kirjanpidon lisätyöt veloitetaan hinnaston mukaan.",
+    referralTitle: "Suosittele meitä – kuukausi maksutta molemmille",
+    referralText: "Kun suosittelemasi yritys tai yhdistys tekee kanssamme kirjanpitosopimuksen, sen kuukausipaketin ensimmäinen kuukausi on maksuton. Sinä saat oman kuukausipakettisi yhden kuukauden maksutta, kun uusi asiakas on maksanut ensimmäisen laskunsa. Etu koskee kuukausipaketin hintaa – ei lisäpalveluita – eikä sitä makseta rahana. Uuden asiakkaan kannattaa mainita suosittelijan nimi yhteydenotossa.",
+    referralCta: "Ota yhteyttä",
   },
   vaavo: {
     title: "Vaavo — laskut, pankki ja kirjanpitäjä",
@@ -438,6 +441,8 @@ export const fi = {
     form: {
       sourceLabel: "Mistä kuulit meistä? (vapaaehtoinen)",
       sourceHint: "Vastauksesi auttaa meitä ymmärtämään, mistä yhteydenotot tulevat.",
+      referrerLabel: "Kuka suositteli meitä? (valinnainen)",
+      referrerHint: "Suosittelija ja uusi asiakas saavat kumpikin kuukauden maksutta.",
       sourceEmpty: "En halua vastata",
       sources: {"search":"Google tai muu hakukone","ai":"Tekoäly, esim. Gemini tai ChatGPT","referral":"Suositus","publication":"Artikkeli tai ilmoitus","direct_email":"Sain teiltä sähköpostin","other":"Muu"},
       name: 'Nimi',
@@ -563,10 +568,10 @@ export const fi = {
   },
   privacy: {
     title: 'Tietosuojaseloste',
-    lastUpdated: "Päivitetty 17.9.2026",
+    lastUpdated: "Päivitetty 23.9.2026",
     sections: [
       { title: 'Rekisterinpitäjä', content: 'Tilitoimisto Debit Credit (Y-tunnus 3512702-8), Haapaniemenkatu 7–9 B, 16. krs, 00530 Helsinki. Tietosuoja-asioissa yhteyshenkilö: Vladimir Nyman, vladimir@debitcredit.fi.' },
-      { title: 'Mitä henkilötietoja keräämme', content: 'Keräämme henkilötietoja kahdesta lähteestä: (a) yhteydenottolomakkeelta: nimi, sähköpostiosoite, puhelinnumero, yrityksen nimi ja viesti; (b) Vaavo-asiakasportaalin ja kirjanpitopalvelun kautta: kirjanpitoaineisto, laskut, tositteet, pankkitapahtumatiedot ja yksilöintitiedot sopimuksen mukaisesti. Halutessasi voit kertoa myös, mistä kuulit meistä; käytämme vastausta yhteydenottojen lähteiden arviointiin.' },
+      { title: 'Mitä henkilötietoja keräämme', content: 'Keräämme henkilötietoja kahdesta lähteestä: (a) yhteydenottolomakkeelta: nimi, sähköpostiosoite, puhelinnumero, yrityksen nimi ja viesti; (b) Vaavo-asiakasportaalin ja kirjanpitopalvelun kautta: kirjanpitoaineisto, laskut, tositteet, pankkitapahtumatiedot ja yksilöintitiedot sopimuksen mukaisesti. Halutessasi voit kertoa myös, mistä kuulit meistä; käytämme vastausta yhteydenottojen lähteiden arviointiin. Jos kerrot suosittelijan nimen, käytämme sitä vain suosittelijan edun myöntämiseen.' },
       { title: 'Käsittelyn oikeusperuste (GDPR 6 art.)', content: 'Käsittelemme henkilötietoja seuraavin oikeusperustein: sopimuksen täytäntöönpano (kirjanpito- ja taloushallintopalvelut, Vaavo); lakisääteinen velvoite (kirjanpitolaki, verolainsäädäntö); oikeutettu etu (yhteydenottoihin vastaaminen, palvelun turvaaminen); sekä suostumus (mahdollinen markkinointi vain suostumuksella).' },
       { title: 'Käyttötarkoitukset', content: 'Käytämme tietoja yhteydenottopyyntöjen käsittelyyn, kirjanpito-, palkka- ja veropalveluiden sekä Vaavo-portaalin tarjoamiseen, lakisääteiseen kirjanpitoon ja raportointiin sekä viestintään. Emme käytä tietoja markkinointiin ilman suostumusta.' },
       { title: 'Vastaanottajat ja käsittelijät', content: 'Käytämme huolellisesti valittuja henkilötietojen käsittelijöitä käsittelysopimusten (DPA) nojalla: verkkosivuston hosting — Vercel Inc.; yhteydenottolomakkeen sähköpostien välitys — Mailgun (EU-alue); ja Vaavo-palvelussa: Supabase (tietokanta/hosting), Enable Banking (PSD2-pankkiyhteys), Maventa (verkkolaskutus, kun asiakas ottaa sen käyttöön) sekä tekoälypalvelut (OpenAI ja Mistral AI) dokumenttien tunnistukseen. Luovutamme tietoja myös viranomaisille (esim. Verohallinto, Tulorekisteri) lain edellyttäessä. Emme myy tietojasi.' },

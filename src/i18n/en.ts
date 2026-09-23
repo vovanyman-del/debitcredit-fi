@@ -338,6 +338,9 @@ export const en = {
     consultationTitle: "Advice included in your service",
     consultationIncluded: "Our clients’ routine bookkeeping and tax questions are included at no extra charge. Assignments requiring separate research, information gathering or calls to authorities are charged as additional work.",
     portalIncluded: "Vaavo is included in every package, starting with Micro: invoicing in the portal, documents, banking, mileage log and Apuri. There is no separate portal or app subscription. Additional accounting work is charged according to the price list.",
+    referralTitle: "Recommend us – one month free for both of you",
+    referralText: "When a company or association you recommend signs a bookkeeping agreement with us, the first month of its package is free. You get one month of your own package free once the new client has paid its first invoice. The benefit applies to the monthly package price – not to additional services – and is not paid out in cash. The new client just needs to mention who recommended us when getting in touch.",
+    referralCta: "Contact us",
   },
   vaavo: {
     title: "Vaavo — invoices, banking and your accountant",
@@ -438,6 +441,8 @@ export const en = {
     form: {
       sourceLabel: "How did you hear about us? (optional)",
       sourceHint: "Your answer helps us understand where enquiries come from.",
+      referrerLabel: "Who recommended us? (optional)",
+      referrerHint: "The person who recommended us and the new client each get one month free.",
       sourceEmpty: "Prefer not to say",
       sources: {"search":"Google or another search engine","ai":"AI, such as Gemini or ChatGPT","referral":"Recommendation","publication":"Article or advertisement","direct_email":"An email from you","other":"Other"},
       name: 'Name',
@@ -563,10 +568,10 @@ export const en = {
   },
   privacy: {
     title: 'Privacy Policy',
-    lastUpdated: "Updated 17 September 2026",
+    lastUpdated: "Updated 23 September 2026",
     sections: [
       { title: 'Data Controller', content: 'The data controller is Tilitoimisto Debit Credit (Business ID / Y-tunnus 3512702-8), Haapaniemenkatu 7–9 B, 16th floor, 00530 Helsinki. Data-protection contact: Vladimir Nyman, vladimir@debitcredit.fi.' },
-      { title: 'Personal data we collect', content: 'We collect and process: (a) via the contact form — your name, email address, phone number, company name and message; (b) via the Vaavo client portal (our accounting platform) and the accounting service — bookkeeping material, invoices, source documents (tositteet), bank-transaction data and identifying data, processed under the service agreement. You may also tell us how you heard about us; we use this optional answer to assess the sources of enquiries.' },
+      { title: 'Personal data we collect', content: 'We collect and process: (a) via the contact form — your name, email address, phone number, company name and message; (b) via the Vaavo client portal (our accounting platform) and the accounting service — bookkeeping material, invoices, source documents (tositteet), bank-transaction data and identifying data, processed under the service agreement. You may also tell us how you heard about us; we use this optional answer to assess the sources of enquiries. If you tell us who recommended us, we use that name only to grant the referral benefit.' },
       { title: 'Legal basis for processing (GDPR Art. 6)', content: 'We process personal data on the following legal bases: performance of a contract (providing accounting services and the Vaavo platform); compliance with a legal obligation (the Accounting Act / kirjanpitolaki and tax law); our legitimate interest (responding to enquiries and securing the service); and consent (any marketing, only with your consent).' },
       { title: 'Purposes of processing', content: 'We process personal data to handle contact requests; to provide accounting, payroll and tax services and the Vaavo client portal; to fulfil statutory bookkeeping and reporting obligations; and to communicate with you. We do not use your data for marketing without your consent.' },
       { title: 'Recipients and processors', content: 'We use carefully selected processors under data-processing agreements (DPAs): website hosting — Vercel Inc.; contact-form email delivery — Mailgun (EU region); and for the Vaavo service: Supabase (database and hosting), Enable Banking (PSD2 bank-data access), Maventa (e-invoicing, where the customer enables it) and AI providers (OpenAI and Mistral AI) for document recognition. We also disclose data to authorities (e.g. the Tax Administration / Verohallinto and the Incomes Register / Tulorekisteri) as required by law. We do not sell your data.' },

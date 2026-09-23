@@ -106,6 +106,13 @@ export default function PricingPage() {
 
         <p className="mt-6 text-sm text-ink-700/75">{t.pricing.note}</p>
 
+        {/* Referral offer */}
+        <section id="suosittele" className="mt-10 rounded-2xl border border-brand-100 bg-brand-50 p-6">
+          <h2 className="text-xl font-bold text-ink-900">{t.pricing.referralTitle}</h2>
+          <p className="mt-3 text-ink-700 leading-relaxed">{t.pricing.referralText}</p>
+          <Link to={localePath('/yhteystiedot')} className="mt-3 inline-flex font-semibold text-brand-700 hover:underline">{t.pricing.referralCta} →</Link>
+        </section>
+
         {/* Additional services */}
         <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 mt-16 mb-6">{t.pricing.additional}</h2>
         <div className="space-y-3">

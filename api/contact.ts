@@ -44,10 +44,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(429).json({ error: 'Too many requests. Please try again later.' });
   }
 
-  const { name, email, phone, company, message, source, _gotcha } = req.body ?? {};
+  const { name, email, phone, company, message, source, referrer, _gotcha } = req.body ?? {};
   const sourceLabel = typeof source === 'string' && Object.prototype.hasOwnProperty.call(SOURCE_LABELS, source)
     ? SOURCE_LABELS[source]
     : '';
+  // Referral bonus (a free month for both): the referrer's name, as the visitor typed it.
+  const referrerText = typeof referrer === 'string' ? referrer.trim().slice(0, 200) : '';
 
   // Honeypot — bots fill hidden fields
   if (_gotcha) {
@@ -79,6 +81,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       phone ? `Puhelin: ${phone}` : '',
       company ? `Yritys: ${company}` : '',
       sourceLabel ? `Mistä kuulit meistä: ${sourceLabel}` : '',
+      referrerText ? `Suosittelija: ${referrerText}` : '',
       '',
       `Viesti:`,
       message,
