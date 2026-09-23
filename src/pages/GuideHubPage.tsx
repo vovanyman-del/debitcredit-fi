@@ -13,6 +13,15 @@ export default function GuideHubPage() {
       <PageHeader eyebrow={g.eyebrow} title={g.hubTitle} subtitle={g.hubSubtitle} />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+        {/* Free tool first: the toiminimi tax calculator. */}
+        <Link
+          to={localePath('/toiminimen-verolaskuri')}
+          className="group mb-5 flex flex-col rounded-2xl border border-brand-100 bg-brand-50 p-6 hover:border-brand-400/60 hover:shadow-sm transition-all"
+        >
+          <h2 className="text-lg font-bold text-ink-900 group-hover:text-brand-700 transition-colors">{t.calc.hubCardTitle}</h2>
+          <p className="mt-2 text-sm text-ink-700/80 leading-relaxed">{t.calc.hubCardDesc}</p>
+          <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">{t.calc.hubCardCta} →</span>
+        </Link>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {guides.map((guide) => {
             const c = guide.content[locale];

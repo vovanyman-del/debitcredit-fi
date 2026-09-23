@@ -23,6 +23,7 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import GuideHubPage from './pages/GuideHubPage';
 import GuidePage from './pages/GuidePage';
+import ToiminimiCalculatorPage from './pages/ToiminimiCalculatorPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function ScrollToTop() {
@@ -63,6 +64,7 @@ function AppRoutes() {
       <Route path="kayttoehdot" element={<TermsPage />} />
       <Route path="opas" element={<GuideHubPage />} />
       <Route path="opas/:slug" element={<GuidePage />} />
+      <Route path="toiminimen-verolaskuri" element={<ToiminimiCalculatorPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </>
   );

@@ -55,6 +55,7 @@ export const BASE_PATHS = [
   '/vaihda-tilitoimistoa',
   '/tietosuoja',
   '/kayttoehdot',
+  '/toiminimen-verolaskuri',
 ] as const;
 
 // Guide hub + one path per article (slug shared across locales).
@@ -67,6 +68,7 @@ const SITEMAP_HINTS: Record<string, { priority: string; changefreq: string }> = 
   '/opas': { priority: '0.7', changefreq: 'weekly' },
   '/': { priority: '1.0', changefreq: 'weekly' },
   '/hinnasto': { priority: '0.9', changefreq: 'monthly' },
+  '/toiminimen-verolaskuri': { priority: '0.8', changefreq: 'monthly' },
   '/palvelut': { priority: '0.8', changefreq: 'monthly' },
   '/yhteystiedot': { priority: '0.8', changefreq: 'monthly' },
   '/vaavo': { priority: '0.7', changefreq: 'monthly' },
@@ -173,6 +175,8 @@ export function pageMeta(t: Translations, basePath: string, locale: Locale): { t
       return { title: withBrand(t.privacy.title), description: desc(t.meta.description) };
     case '/kayttoehdot':
       return { title: withBrand(t.terms.title), description: desc(t.meta.description) };
+    case '/toiminimen-verolaskuri':
+      return { title: withBrand(t.calc.title), description: t.calc.metaDescription };
     default:
       return { title: t.meta.title, description: t.meta.description };
   }
@@ -233,6 +237,8 @@ function shortTitle(t: Translations, basePath: string): string {
       return t.terms.title;
     case '/opas':
       return t.guides.hubTitle;
+    case '/toiminimen-verolaskuri':
+      return t.calc.title;
     default:
       return t.meta.title;
   }
