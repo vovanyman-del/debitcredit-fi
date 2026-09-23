@@ -11,6 +11,7 @@ import { alvOpas } from './alv-opas';
 import { palkanlaskenta } from './palkanlaskenta';
 import { starttiraha } from './starttiraha';
 import { tilitoimistonVaihto } from './tilitoimiston-vaihto';
+import { yhdistyksenKirjanpito } from './yhdistyksen-kirjanpito';
 
 export * from './types';
 
@@ -28,6 +29,7 @@ export const guides: Guide[] = [
   palkanlaskenta,
   starttiraha,
   tilitoimistonVaihto,
+  yhdistyksenKirjanpito,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -40,6 +42,9 @@ export function getGuide(slug: string): Guide | undefined {
 export function relatedGuides(slug: string, limit = 3): Guide[] {
   if (slug === tilitoimistonVaihto.slug) {
     return [kirjanpidonHinta, palkanlaskenta, yrittajanVahennykset].slice(0, limit);
+  }
+  if (slug === yhdistyksenKirjanpito.slug) {
+    return [alvOpas, palkanlaskenta, kirjanpidonHinta].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
