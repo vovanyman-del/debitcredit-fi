@@ -12,6 +12,7 @@ import { palkanlaskenta } from './palkanlaskenta';
 import { starttiraha } from './starttiraha';
 import { tilitoimistonVaihto } from './tilitoimiston-vaihto';
 import { yhdistyksenKirjanpito } from './yhdistyksen-kirjanpito';
+import { virolainenOuSuomessa } from './virolainen-ou-suomessa';
 
 export * from './types';
 
@@ -30,6 +31,7 @@ export const guides: Guide[] = [
   starttiraha,
   tilitoimistonVaihto,
   yhdistyksenKirjanpito,
+  virolainenOuSuomessa,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
