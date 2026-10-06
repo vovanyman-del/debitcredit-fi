@@ -2,7 +2,9 @@ import { type ReactNode } from 'react';
 import { useI18n } from '../i18n/context';
 import PageHeader from '../components/PageHeader';
 import VaavoDemo from '../components/VaavoDemo';
+import VaavoVideo from '../components/VaavoVideo';
 import CtaBand from '../components/CtaBand';
+import { VAAVO_SHORT_TOPICS, formatDuration, vaavoVideo } from '../data/vaavoVideos';
 
 const featureIcons: Record<string, ReactNode> = {
   sales: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M8 3H5a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2v-7M8 7h4M8 11h3M8 15h5M15 5h7m-3-3 3 3-3 3" /></svg>,
@@ -21,6 +23,7 @@ export default function VaavoPage() {
   const productUrl = `https://vaavo.fi/${locale === 'fi' ? '' : `${locale}/`}`;
   const inv = t.home.invisible;
   const features = Object.entries(t.vaavo.features) as [string, { title: string; desc: string }][];
+  const video = t.vaavo.video;
 
   return (
     <div className="bg-canvas text-ink-900">
@@ -29,6 +32,32 @@ export default function VaavoPage() {
           {t.vaavo.productLink}<span aria-hidden="true"> →</span>
         </a>
       </PageHeader>
+
+      {/* Video kit: introduction film + three short films in the page language */}
+      <section id="video" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20" aria-labelledby="vaavo-video">
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-600">
+          {video.mainLabel} · {formatDuration(vaavoVideo(locale, 'main').seconds)}
+        </p>
+        <h2 id="vaavo-video" className="mt-3 text-3xl sm:text-4xl font-bold">{video.title}</h2>
+        <p className="mt-4 max-w-3xl text-lg text-ink-700/80 leading-relaxed">{video.intro}</p>
+        <figure className="mt-8">
+          <VaavoVideo topic="main" title={video.mainLabel} className="rounded-2xl border border-ink-900/10 shadow-xl shadow-ink-900/5" />
+          <figcaption className="mt-3 text-sm text-ink-700/75 leading-relaxed">{video.disclaimer}</figcaption>
+        </figure>
+        <h3 className="mt-14 text-2xl font-bold">{video.moreTitle}</h3>
+        <p className="mt-2 text-ink-700/80">{video.moreIntro}</p>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {VAAVO_SHORT_TOPICS.map((topic) => (
+            <figure key={topic} className="rounded-2xl border border-ink-900/10 bg-white overflow-hidden">
+              <VaavoVideo topic={topic} title={video.shorts[topic]} />
+              <figcaption className="flex items-baseline justify-between gap-3 p-5">
+                <span className="font-semibold text-ink-900">{video.shorts[topic]}</span>
+                <span className="shrink-0 font-mono text-xs text-ink-700/75">{formatDuration(vaavoVideo(locale, topic).seconds)}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24" aria-labelledby="vaavo-features">
         <h2 id="vaavo-features" className="mb-8 text-3xl sm:text-4xl font-bold">{t.vaavo.featuresTitle}</h2>

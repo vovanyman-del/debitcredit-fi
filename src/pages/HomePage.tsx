@@ -3,6 +3,7 @@ import { useI18n } from '../i18n/context';
 import type { Translations } from '../i18n/context';
 import { packages, company } from '../data/pricing';
 import { getGuide } from '../data/guides';
+import VaavoVideo from '../components/VaavoVideo';
 
 /* ---------- small inline icons (brand-green, stroke) ---------- */
 const icon = (path: React.ReactNode) => (
@@ -137,7 +138,14 @@ export default function HomePage() {
               ))}
             </ul>
           </div>
-          <DarkPanel title={h.invisible.panelTitle} />
+          {/* Vaavo introduction film; the short films are on /vaavo */}
+          <figure>
+            <VaavoVideo topic="main" title={t.vaavo.video.mainLabel} className="rounded-2xl border border-white/10" />
+            <figcaption className="mt-3 text-sm text-white/60 leading-relaxed">{t.vaavo.video.disclaimer}</figcaption>
+            <Link to={localePath('/vaavo')} className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-400 hover:text-white">
+              {t.vaavo.video.homeLink} <span aria-hidden>→</span>
+            </Link>
+          </figure>
         </div>
       </section>
 
@@ -373,33 +381,6 @@ function VaavoCard({ h }: { h: Translations['home'] }) {
         <span className="shrink-0 inline-flex items-center gap-1.5 text-xs font-medium text-brand-700 bg-brand-50 border border-brand-100 rounded-full px-3 py-1">
           📷 {c.scan}
         </span>
-      </div>
-    </div>
-  );
-}
-
-/* ===== Dark Vaavo reports panel (section 4) ===== */
-function DarkPanel({ title }: { title: string }) {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-ink-800 p-6">
-      <div className="flex items-center justify-between text-sm">
-        <span className="font-semibold text-white">{title}</span>
-        <span className="text-white/70 font-mono text-xs">2025</span>
-      </div>
-      <div className="mt-6 flex items-end gap-2 h-40">
-        {[42, 58, 50, 72, 64, 88, 70, 95].map((v, i) => (
-          <span key={i} className={`flex-1 rounded-t ${i % 3 === 2 ? 'bg-brand-500' : 'bg-white/15'}`} style={{ height: `${v}%` }} />
-        ))}
-      </div>
-      <div className="mt-5 grid grid-cols-2 gap-3">
-        <div className="rounded-xl bg-white/5 p-3">
-          <div className="text-[10px] uppercase tracking-wider text-white/70">100 %</div>
-          <div className="mt-1 text-sm font-semibold text-white">ALV</div>
-        </div>
-        <div className="rounded-xl bg-white/5 p-3">
-          <div className="text-[10px] uppercase tracking-wider text-white/70">LIVE</div>
-          <div className="mt-1 text-sm font-semibold text-brand-400">online</div>
-        </div>
       </div>
     </div>
   );

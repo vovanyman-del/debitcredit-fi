@@ -388,6 +388,21 @@ export const en = {
         "a": "Bank transactions and accounting reports are different data. Reports such as the profit and loss statement and balance sheet reflect information processed by the accountant. A new bank transaction does not by itself mean that the corresponding accounting entry has been checked."
       }
     ],
+    video: {
+      title: "More focus on your business.",
+      intro: "Who’s paid, does your accountant have all the documents, and where can you turn for help? A short introduction to Vaavo.",
+      mainLabel: "Meet Vaavo",
+      moreTitle: "A closer look at what matters to you",
+      moreIntro: "Three short videos — choose the task you have in mind.",
+      disclaimer: "Real app screens with fictional data. The entrepreneur image and narration were generated with AI.",
+      homeLink: "Three more short videos on the Vaavo page",
+      play: "Play",
+      shorts: {
+        invoices: "Invoice your way",
+        payments: "Who’s already paid",
+        support: "A receipt or a question for your accountant",
+      },
+    },
     apps: {
       title: "Vaavo on your computer and phone",
       description: "The client portal works in your browser in Finnish, Russian, English, Estonian and Ukrainian. The native iPhone and iPad app is available in the App Store. Access is included in your accounting service at no extra charge.",

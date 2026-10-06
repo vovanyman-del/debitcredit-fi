@@ -388,6 +388,21 @@ export const et = {
         "a": "Pangatehingud ja raamatupidamisaruanded on erinevad andmed. Kasumiaruanne ja bilanss kajastavad raamatupidaja töödeldud teavet. Uue pangatehingu ilmumine ei tähenda iseenesest, et vastav raamatupidamiskanne on juba kontrollitud."
       }
     ],
+    video: {
+      title: "Rohkem tähelepanu oma tööle.",
+      intro: "Kes on arve maksnud, kas kõik dokumendid on raamatupidajal ja kust saab abi? Lühike tutvus Vaavoga.",
+      mainLabel: "Tutvu Vaavoga",
+      moreTitle: "Lähemalt sellest, mis sulle tähtis",
+      moreIntro: "Kolm lühikest videot — vali endale oluline teema.",
+      disclaimer: "Programmi tegelikud vaated väljamõeldud andmetega. Ettevõtjat kujutav pilt ja hääl on loodud tehisintellekti abil.",
+      homeLink: "Veel kolm lühivideot Vaavo lehel",
+      play: "Esita",
+      shorts: {
+        invoices: "Arve sulle sobival viisil",
+        payments: "Kes on juba maksnud",
+        support: "Kviitung ja küsimus raamatupidajale",
+      },
+    },
     apps: {
       title: "Vaavo arvutis ja telefonis",
       description: "Kliendiportaal töötab brauseris soome, vene, inglise, eesti ja ukraina keeles. iPhone’i ja iPadi omarakendus on saadaval App Store’is. Kasutamine kuulub raamatupidamisteenuse hinna sisse.",

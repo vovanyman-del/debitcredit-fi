@@ -12,6 +12,7 @@ import { et } from './i18n/et';
 import { uk } from './i18n/uk';
 import { company, packages } from './data/pricing';
 import { guideSlugs, getGuide } from './data/guides';
+import { vaavoVideo } from './data/vaavoVideos';
 
 type Translations = typeof fi;
 
@@ -482,8 +483,26 @@ function jsonLd(locale: Locale, basePath: string): string {
 
   const extra = typeNode(t, locale, basePath, pageUrl);
   if (extra) graph.push(extra);
+  if (basePath === '/vaavo') graph.push(vaavoVideoNode(t, locale, pageUrl));
 
   return serializeLd(graph);
+}
+
+/** The introduction film at the top of /vaavo, in the page language. */
+function vaavoVideoNode(t: Translations, locale: Locale, pageUrl: string) {
+  const film = vaavoVideo(locale, 'main');
+  return {
+    '@type': 'VideoObject',
+    '@id': `${pageUrl}#video`,
+    name: `${t.vaavo.video.title.replace(/\.$/, '')} — Vaavo`,
+    description: t.vaavo.video.intro,
+    thumbnailUrl: `${SITE}${film.poster}`,
+    contentUrl: `${SITE}${film.src}`,
+    uploadDate: '2026-10-06',
+    duration: `PT${Math.floor(film.seconds / 60)}M${film.seconds % 60}S`,
+    inLanguage: locale,
+    publisher: { '@id': `${SITE}/#organization` },
+  };
 }
 
 /** Wrap a JSON-LD @graph in a <script>, escaping "<" so it can't break out. */

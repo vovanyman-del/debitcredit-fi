@@ -388,6 +388,21 @@ export const fi = {
         "a": "Pankkitapahtumat ja kirjanpitoraportit ovat eri asioita. Raportit, kuten tuloslaskelma ja tase, perustuvat kirjanpitäjän käsittelemiin tietoihin. Uusi pankkitapahtuma ei itsessään tarkoita, että siihen liittyvä kirjaus on jo tarkistettu."
       }
     ],
+    video: {
+      title: "Keskity omaan työhösi.",
+      intro: "Kuka on maksanut laskunsa, ovatko tositteet kirjanpitäjällä ja mistä saa apua? Tutustu Vaavoon lyhyesti.",
+      mainLabel: "Tutustu Vaavoon",
+      moreTitle: "Lisää sinulle tärkeistä asioista",
+      moreIntro: "Kolme lyhyttä videota — valitse sinua kiinnostava aihe.",
+      disclaimer: "Ohjelmiston aidot näkymät, kuvitteelliset tiedot. Yrittäjää esittävä kuva ja ääni on tuotettu tekoälyllä.",
+      homeLink: "Kolme lyhyttä videota lisää Vaavo-sivulla",
+      play: "Toista",
+      shorts: {
+        invoices: "Lasku sinulle sopivalla tavalla",
+        payments: "Kuka on jo maksanut",
+        support: "Kuitti ja kysymys kirjanpitäjälle",
+      },
+    },
     apps: {
       title: "Vaavo tietokoneella ja puhelimessa",
       description: "Asiakasportaali toimii selaimessa suomeksi, venäjäksi, englanniksi, viroksi ja ukrainaksi. Natiivi iPhone- ja iPad-sovellus on saatavilla App Storesta. Käyttö sisältyy kirjanpitopalveluun ilman lisämaksua.",
