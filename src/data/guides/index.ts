@@ -13,6 +13,7 @@ import { starttiraha } from './starttiraha';
 import { tilitoimistonVaihto } from './tilitoimiston-vaihto';
 import { yhdistyksenKirjanpito } from './yhdistyksen-kirjanpito';
 import { virolainenOuSuomessa } from './virolainen-ou-suomessa';
+import { rakennusalanKaannettyArvonlisavero } from './rakennusalan-kaannetty-arvonlisavero';
 
 export * from './types';
 
@@ -32,6 +33,7 @@ export const guides: Guide[] = [
   tilitoimistonVaihto,
   yhdistyksenKirjanpito,
   virolainenOuSuomessa,
+  rakennusalanKaannettyArvonlisavero,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -47,6 +49,9 @@ export function relatedGuides(slug: string, limit = 3): Guide[] {
   }
   if (slug === yhdistyksenKirjanpito.slug) {
     return [alvOpas, palkanlaskenta, kirjanpidonHinta].slice(0, limit);
+  }
+  if (slug === rakennusalanKaannettyArvonlisavero.slug) {
+    return [alvOpas, virolainenOuSuomessa, kirjanpidonHinta].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
