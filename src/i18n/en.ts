@@ -405,9 +405,9 @@ export const en = {
     },
     apps: {
       title: "Vaavo on your computer and phone",
-      description: "The client portal works in your browser in Finnish, Russian, English, Estonian and Ukrainian. The native iPhone and iPad app is available in the App Store. Access is included in your accounting service at no extra charge.",
+      description: "The client portal works in your browser in Finnish, Russian, English, Estonian and Ukrainian. The native app is available for iPhone and iPad in the App Store and for Android phones on Google Play. Access is included in your accounting service at no extra charge.",
       appStore: "Download on the App Store",
-      android: "The native Android app has been submitted for publication on Google Play. We will add a link once it is available.",
+      googlePlay: "Get it on Google Play",
     },
   },
   about: {
