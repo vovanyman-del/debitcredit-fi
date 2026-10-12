@@ -405,9 +405,9 @@ export const fi = {
     },
     apps: {
       title: "Vaavo tietokoneella ja puhelimessa",
-      description: "Asiakasportaali toimii selaimessa suomeksi, venäjäksi, englanniksi, viroksi ja ukrainaksi. Natiivi iPhone- ja iPad-sovellus on saatavilla App Storesta. Käyttö sisältyy kirjanpitopalveluun ilman lisämaksua.",
+      description: "Asiakasportaali toimii selaimessa suomeksi, venäjäksi, englanniksi, viroksi ja ukrainaksi. Natiivi sovellus on saatavilla iPhonelle ja iPadille App Storesta sekä Android-puhelimille Google Playsta. Käyttö sisältyy kirjanpitopalveluun ilman lisämaksua.",
       appStore: "Lataa App Storesta",
-      android: "Natiivi Android-sovellus on lähetetty julkaistavaksi Google Playhin. Lisäämme linkin julkaisun jälkeen.",
+      googlePlay: "Lataa Google Playsta",
     },
   },
   about: {

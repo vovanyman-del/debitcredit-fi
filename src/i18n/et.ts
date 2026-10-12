@@ -405,9 +405,9 @@ export const et = {
     },
     apps: {
       title: "Vaavo arvutis ja telefonis",
-      description: "Kliendiportaal töötab brauseris soome, vene, inglise, eesti ja ukraina keeles. iPhone’i ja iPadi omarakendus on saadaval App Store’is. Kasutamine kuulub raamatupidamisteenuse hinna sisse.",
+      description: "Kliendiportaal töötab brauseris soome, vene, inglise, eesti ja ukraina keeles. Omarakendus on saadaval iPhone’ile ja iPadile App Store’is ning Android-telefonidele Google Plays. Kasutamine kuulub raamatupidamisteenuse hinna sisse.",
       appStore: "Laadi alla App Store’ist",
-      android: "Androidi omarakendus on esitatud Google Plays avaldamiseks. Lisame lingi pärast rakenduse avaldamist.",
+      googlePlay: "Laadi alla Google Playst",
     },
   },
   about: {

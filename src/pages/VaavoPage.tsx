@@ -80,10 +80,14 @@ export default function VaavoPage() {
         <div className="mt-6 rounded-2xl border border-ink-900/10 bg-white p-8 sm:p-10">
           <h2 className="text-2xl font-bold">{t.vaavo.apps.title}</h2>
           <p className="mt-4 max-w-3xl text-ink-700/80 leading-relaxed">{t.vaavo.apps.description}</p>
-          <a href="https://apps.apple.com/fi/app/vaavo/id6761450083" className="mt-6 inline-flex rounded-xl bg-ink-900 px-6 py-3 font-semibold text-white hover:bg-brand-700">
-            {t.vaavo.apps.appStore}<span aria-hidden="true" className="ml-2">↗</span>
-          </a>
-          <p className="mt-4 max-w-3xl text-sm text-ink-700/75 leading-relaxed">{t.vaavo.apps.android}</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="https://apps.apple.com/fi/app/vaavo/id6761450083" className="inline-flex rounded-xl bg-ink-900 px-6 py-3 font-semibold text-white hover:bg-brand-700">
+              {t.vaavo.apps.appStore}<span aria-hidden="true" className="ml-2">↗</span>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=fi.vaavo.app" className="inline-flex rounded-xl bg-ink-900 px-6 py-3 font-semibold text-white hover:bg-brand-700">
+              {t.vaavo.apps.googlePlay}<span aria-hidden="true" className="ml-2">↗</span>
+            </a>
+          </div>
         </div>
       </section>
 
