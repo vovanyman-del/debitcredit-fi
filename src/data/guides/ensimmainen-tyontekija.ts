@@ -43,7 +43,13 @@ import type { Guide } from './types';
 //   Työttömyysvakuutusmaksut: "yli 1500 euroa kalenterivuoden aikana", "18 vuotta täyttäneitä ja alle
 //   65-vuotiaita"; "Työllisyysrahasto lähettää sinulle neljä kertaa vuodessa laskun ja päätöksen";
 //   "sinun tulee aina pidättää maksuvelvollisen työntekijän palkasta työttömyysvakuutusmaksu, vaikka
-//   et maksaisikaan palkkaa vuoden aikana yli maksuvelvollisuuden rajan".
+//   et maksaisikaan palkkaa vuoden aikana yli maksuvelvollisuuden rajan"; Työttömyysvakuutusmaksu-
+//   velvollisuus: "Työnantajana olet työttömyysvakuutusmaksuvelvollinen, jos olet maksanut
+//   kalenterivuoden aikana työntekijöillesi palkkaa yhteensä yli 1500 euroa", "Mikäli palkkasumma
+//   kalenterivuoden aikana ei ylitä 1500 euroa, jää pidätetty osuus sinulle".
+//   Vero Sosiaalivakuutusmaksut: "laskea maksu palkkojen ja luontoisetujen yhteissummasta ja vähentää
+//   työntekijän osuus hänen nettopalkastaan palkanmaksun yhteydessä" → in the worked example the
+//   employee shares are deducted in addition to withholding, not before it.
 // - Vero, Näin ilmoitat palkat ja työnantajasuoritukset (22.1.2025; EN 22.1.2025): "Ilmoita tiedot
 //   5 päivän kuluessa maksupäivästä. Maksupäivä on se päivä, jolloin suoritus on saajan käytettävissä";
 //   weekend/holiday → "seuraavana arkipäivänä"; erillisilmoitus "kerran kuukaudessa. Ilmoituksen
@@ -61,8 +67,14 @@ import type { Guide } from './types';
 // - Vero, Verokorttiohjeet työnantajille (17.11.2025): tax card via "Vero API -rajapintapalvelun
 //   kautta"; "työntekijällä on oikeus ilmoittaa suoraan työnantajalleen suurempi veroprosentti";
 //   "Työnantajan täytyy pidättää 60 % ennakonpidätystä ... jos verokorttia ei saada työntekijältä".
-// - Suomi.fi, Työsuhteen aikaiset velvoitteet (fetched 19.10.2026): "Laiminlyöntimaksu on 100–15000
-//   euroa"; "Jos ilmoitat tiedot tulorekisteriin myöhässä, joudut maksamaan myöhästymismaksua";
+// - Vero, syventävä ohje 80789 Sivullisilmoittajan laiminlyöntimaksu tulorekisteri-ilmoittamisen
+//   velvoitteista (VH/5794/00.01.00/2025, antopäivä 26.11.2025, voimassa 1.1.2026 – toistaiseksi; page
+//   26.11.2025): VML 22 a § "enintään 2000 euroa" (vähäinen), "enintään 5000 euroa" (olennainen);
+//   "Ilmoitusvelvollisen laiminlyötyä ilmoituksen antamisen kokonaan, voidaan laiminlyöntimaksua määrätä
+//   enintään 15 000 euroa puuttuvaa ilmoitusta kohden."
+// - Suomi.fi, Työsuhteen aikaiset velvoitteet (fetched 19.10.2026): "Jos ilmoitat tiedot tulorekisteriin
+//   myöhässä, joudut maksamaan myöhästymismaksua"; (its "100–15000 euroa" is not used — Vero's
+//   guidance states only maximums);
 //   Muistilista: "työntekijä saa vähintään lakisääteiset työterveyshuollon palvelut".
 // - Työsopimuslaki 55/2001 (Finlex, ajantasa 29.5.2026): 1:3 "Työsopimus voidaan tehdä suullisesti,
 //   kirjallisesti tai sähköisesti"; 1:4 koeaika "enintään kuuden kuukauden pituisesta"; 2:4 "kirjallinen
@@ -73,15 +85,24 @@ import type { Guide } from './types';
 //   määräytyminen", "irtisanomisaika", "työhön sovellettava työehtosopimus", "vakuutuslaitos, jossa
 //   työnantaja on järjestänyt työntekijän eläketurvan tai vakuuttanut työntekijän työtapaturman";
 //   "1–8 kohdassa tarkoitetut tiedot on annettava seitsemän päivän kuluessa ja 9–15 kohdassa
-//   tarkoitetut tiedot kuukauden kuluessa työnteon aloittamisesta"; 2:7 yleissitova TES "Työnantajan on
+//   tarkoitetut tiedot kuukauden kuluessa työnteon aloittamisesta"; list items also "koeaika" and
+//   "mahdollinen lakiin, sopimukseen tai käytäntöön perustuva oikeus työnantajan tarjoamaan
+//   koulutukseen"; 2:4 2 mom. exemption in full: "enintään kolme tuntia viikossa neljän peräkkäisen
+//   viikon pituisen ajanjakson aikana"; 1:4 3 mom. "Määräaikaisessa työsuhteessa koeaika saa
+//   pidennyksineen olla korkeintaan puolet työsopimuksen kestosta, ei kuitenkaan enempää kuin kuusi
+//   kuukautta"; 2:7 yleissitova TES "Työnantajan on
 //   noudatettava vähintään"; 2:10 without TES and agreement "tavanomainen ja kohtuullinen palkka";
 //   2:15 "kerran kuukaudessa"; 2:16 "Palkka on maksettava työntekijän osoittamalle pankkitilille",
 //   "Maksaessaan palkan työnantajan on annettava työntekijälle laskelma, josta käyvät ilmi palkan
 //   suuruus ja sen määräytymisen perusteet".
-// - Vuosilomalaki 162/2005 (Finlex, ajantasa 27.6.2025): 5 § "kaksi ja puoli arkipäivää kultakin
+// - Vuosilomalaki 162/2005 (Finlex, ajantasa 27.6.2025): 2 § lomanmääräytymisvuosi "1 päivän huhtikuuta
+//   ja 31 päivän maaliskuuta välistä aikaa", arkipäivä "muita viikonpäiviä kuin sunnuntaita, kirkollisia
+//   juhlapäiviä, itsenäisyyspäivää, jouluaattoa, juhannusaattoa, pääsiäislauantaita ja vapunpäivää"
+//   (so Saturdays count); 5 § "kaksi ja puoli arkipäivää kultakin
 //   täydeltä lomanmääräytymiskuukaudelta", under a year "kaksi arkipäivää"; 6 § "vähintään 14
-//   työssäolopäivää", else "vähintään 35 työtuntia"; 12 § "9 prosenttia taikka ... vähintään vuoden
-//   11,5 prosenttia"; 20 § "Vuosilomapalkka on maksettava ennen loman alkamista. Enintään kuuden päivän
+//   työssäolopäivää", else "vähintään 35 työtuntia"; 12 § "9 prosenttia taikka työsuhteen jatkuttua
+//   lomakautta edeltävän lomanmääräytymisvuoden loppuun mennessä vähintään vuoden 11,5 prosenttia";
+//   15 § "Vuosilomapalkka on maksettava ennen loman alkamista. Enintään kuuden päivän
 //   pituiselta lomajaksolta lomapalkka saadaan maksaa ... tavanmukaisesti noudatettavana
 //   palkanmaksupäivänä"; 17 § lomakorvaus "Työsuhteen päättyessä". The Act contains no lomaraha.
 // - Työterveyshuoltolaki 1383/2001 (Finlex, ajantasa 24.10.2025): "Työnantajan on kustannuksellaan
@@ -104,6 +125,7 @@ const SRC = {
   registerEn: `${VERO}/en/businesses-and-corporations/taxes-and-charges/being-an-employer/employer-register/`,
   taxCardFi: `${VERO}/yritykset-ja-yhteisot/verot-ja-maksut/yritys_tyonantajana/verokorttiohjeet/`,
   unemployment: 'https://www.tyollisyysrahasto.fi/tyottomyysvakuusmaksut/tyottomyysvakuutusmaksun-maksaminen/',
+  penaltyFi: `${VERO}/syventavat-vero-ohjeet/ohje-hakusivu/80789/sivullisilmoittajan-laiminlyontimaksu-tulorekisteri-ilmoittamisen-velvoitteista/`,
   kela: 'https://www.kela.fi/tyonantajat-tyoterveyshuolto-korvauksen-maara',
   suomiFi: 'https://www.suomi.fi/oppaat/tyontekijan-rekrytointi/muistilista',
   suomiEn: 'https://www.suomi.fi/guides/recruiting-an-employee/checklist',
@@ -138,7 +160,7 @@ export const ensimmainenTyontekija: Guide = {
           'Järjestä palkanlaskenta ja tulorekisteri-ilmoitukset, jotta ensimmäinen palkka menee oikein.',
         ] },
         { t: 'h2', x: 'Työsopimus: mitä siinä pitää olla' },
-        { t: 'p', x: 'Työsopimuslain mukaan työsopimuksen voi tehdä suullisesti, kirjallisesti tai sähköisesti. Työnantajan on kuitenkin annettava työntekijälle kirjallinen selvitys työnteon keskeisistä ehdoista, jos ne eivät käy ilmi kirjallisesta työsopimuksesta. Käytännössä helpoin tapa on tehdä kirjallinen työsopimus, joka sisältää kaikki tiedot. Selvitystä ei tarvita, jos työaika on keskimäärin enintään kolme tuntia viikossa.' },
+        { t: 'p', x: 'Työsopimuslain mukaan työsopimuksen voi tehdä suullisesti, kirjallisesti tai sähköisesti. Työnantajan on kuitenkin annettava työntekijälle kirjallinen selvitys työnteon keskeisistä ehdoista, jos ne eivät käy ilmi kirjallisesta työsopimuksesta. Käytännössä helpoin tapa on tehdä kirjallinen työsopimus, joka sisältää kaikki tiedot. Selvitystä ei tarvita, jos työaika on keskimäärin enintään kolme tuntia viikossa neljän peräkkäisen viikon aikana.' },
         { t: 'p', x: 'Selvityksestä on käytävä ilmi ainakin nämä tiedot:' },
         { t: 'ul', items: [
           'työnantaja ja työntekijä sekä heidän koti- tai liikepaikkansa',
@@ -148,9 +170,11 @@ export const ensimmainenTyontekija: Guide = {
           'noudatettava työaika',
           'vuosiloman määräytyminen ja irtisanomisaika',
           'työhön sovellettava työehtosopimus',
+          'koeaika, jos siitä on sovittu',
+          'mahdollinen oikeus työnantajan tarjoamaan koulutukseen',
           'vakuutuslaitos, jossa työntekijän eläketurva ja tapaturmavakuutus on järjestetty',
         ] },
-        { t: 'p', x: 'Osa tiedoista on annettava seitsemän päivän kuluessa ja loput kuukauden kuluessa työnteon aloittamisesta. Koeajasta voi sopia, ja se voi olla enintään kuusi kuukautta. Jos alalla on yleissitova työehtosopimus, sen ehtoja on noudatettava vähintään, eikä työsopimuksella voi sopia huonommin. Jos mikään työehtosopimus ei sido eikä palkasta ole sovittu, työntekijälle on maksettava tavanomainen ja kohtuullinen palkka.' },
+        { t: 'p', x: 'Osa tiedoista on annettava seitsemän päivän kuluessa ja loput kuukauden kuluessa työnteon aloittamisesta. Koeajasta voi sopia: se voi olla enintään kuusi kuukautta, ja määräaikaisessa työsuhteessa enintään puolet sopimuksen kestosta. Jos alalla on yleissitova työehtosopimus, sen ehtoja on noudatettava vähintään, eikä työsopimuksella voi sopia huonommin. Jos mikään työehtosopimus ei sido eikä palkasta ole sovittu, työntekijälle on maksettava tavanomainen ja kohtuullinen palkka.' },
         { t: 'h2', x: 'Verokortti ja ennakonpidätys' },
         { t: 'p', x: 'Työnantaja toimittaa palkasta ennakonpidätyksen työntekijän verokortin mukaan. Verokortin tiedot voi hakea palkanlaskentaohjelmaan suoraan Verohallinnosta Vero API -rajapinnan kautta, tai työntekijä toimittaa verokortin itse. Työntekijä voi myös ilmoittaa suoraan työnantajalle suuremman veroprosentin. Jos verokorttia ei saada, ennakonpidätys on 60 %.' },
         { t: 'p', x: 'Työntekijän sairausvakuutusmaksu sisältyy ennakonpidätysprosenttiin. Lisäksi palkasta peritään työntekijän osuus työeläkemaksusta (7,30 % vuonna 2026) ja työttömyysvakuutusmaksusta (0,89 % vuonna 2026). Ennakonpidätykset ja työnantajan sairausvakuutusmaksu maksetaan OmaVerossa, ja eräpäivä on palkanmaksukuukautta seuraavan kuukauden 12. päivä.' },
@@ -161,7 +185,7 @@ export const ensimmainenTyontekija: Guide = {
           'Kaikki palkat ilmoitetaan summasta riippumatta, sillä euromääräistä alarajaa ei ole. Ilmoitus annetaan, vaikka yritys ei kuuluisi työnantajarekisteriin.',
           'Työnantajarekisteriin kuuluvan yrityksen on annettava erillisilmoitus myös kuukausilta, joilta palkkaa ei makseta (Ei palkanmaksua -tieto).',
         ] },
-        { t: 'p', x: 'Myöhästyneestä ilmoituksesta määrätään myöhästymismaksu, ja ilmoittamatta jättämisestä voi seurata 100–15 000 euron laiminlyöntimaksu. Jos ilmoituksia ei tule, Verohallinto arvioi palkkatiedot ja määrää verot sekä veronkorotuksen. Tulorekisterin tiedot menevät myös työeläkeyhtiölle ja Työllisyysrahastolle, jotka laskuttavat niiden perusteella.' },
+        { t: 'p', x: 'Myöhästyneestä ilmoituksesta määrätään myöhästymismaksu, ja jos ilmoitus jätetään kokonaan antamatta, Verohallinto voi määrätä laiminlyöntimaksun, enintään 15 000 euroa puuttuvaa ilmoitusta kohden. Jos ilmoituksia ei tule, Verohallinto arvioi palkkatiedot ja määrää verot sekä veronkorotuksen. Tulorekisterin tiedot menevät myös työeläkeyhtiölle ja Työllisyysrahastolle, jotka laskuttavat niiden perusteella.' },
         { t: 'h2', x: 'Työnantajarekisteri: milloin ilmoittautuminen on pakollinen' },
         { t: 'p', x: 'Säännöllisesti palkkaa maksavan työnantajan on aina ilmoittauduttava Verohallinnon työnantajarekisteriin. Yritys on säännöllinen työnantaja, kun se:' },
         { t: 'ul', items: [
@@ -173,17 +197,17 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'h2', x: 'Työnantajamaksut vuonna 2026' },
         { t: 'ul', items: [
           'Työeläkemaksu (TyEL): keskimäärin 24,40 % palkasta. Työntekijän osuus on 7,30 % kaikissa ikäryhmissä, ja työnantajalle jää keskimäärin 17,10 %. Tarkka maksu määräytyy työeläkeyhtiön mukaan.',
-          'Työttömyysvakuutusmaksu: työnantajan osuus on 0,31 % palkkasumman 2 509 500 euroon asti ja sen ylittävältä osalta 1,23 %. Työntekijän osuus on 0,89 %. Maksu koskee 18–64-vuotiaita, ja maksuvelvollisuus alkaa, kun palkkoja maksetaan kalenterivuonna yhteensä yli 1 500 euroa. Työllisyysrahasto laskuttaa tulorekisterin tietojen perusteella neljä kertaa vuodessa.',
+          'Työttömyysvakuutusmaksu: työnantajan osuus on 0,31 % palkkasumman 2 509 500 euroon asti ja sen ylittävältä osalta 1,23 %. Työntekijän osuus on 0,89 %. Maksu koskee 18–64-vuotiaita. Työnantajan oma maksuvelvollisuus alkaa, kun palkkoja maksetaan kalenterivuonna yhteensä yli 1 500 euroa, mutta työntekijän osuus pidätetään palkasta aina, myös rajan alittuessa. Työllisyysrahasto laskuttaa tulorekisterin tietojen perusteella neljä kertaa vuodessa.',
           'Työnantajan sairausvakuutusmaksu: 1,91 % palkasta (1,87 % vuonna 2025). Maksu koskee 16–67-vuotiaita työntekijöitä.',
           'Tapaturmavakuutus: maksu vaihtelee toimialan ja yrityksen mukaan, ja vakuutusyhtiö laskuttaa sen.',
           'Ryhmähenkivakuutus: maksetaan, jos työehtosopimus edellyttää sitä. Maksu laskutetaan tapaturmavakuutuksen yhteydessä.',
         ] },
-        { t: 'p', x: 'Esimerkki: kun bruttopalkka on 3 000 euroa kuukaudessa, työnantaja maksaa keskimääräisellä TyEL-maksulla 513,00 euroa työeläkemaksua, 9,30 euroa työttömyysvakuutusmaksua ja 57,30 euroa sairausvakuutusmaksua. Yhteensä sivukuluja kertyy 579,60 euroa eli noin 19,3 % palkasta, ja lisäksi tulevat tapaturma- ja ryhmähenkivakuutus. Työntekijän palkasta peritään 219,00 euroa työeläkemaksua ja 26,70 euroa työttömyysvakuutusmaksua ennen ennakonpidätystä.' },
+        { t: 'p', x: 'Esimerkki: kun bruttopalkka on 3 000 euroa kuukaudessa, työnantaja maksaa keskimääräisellä TyEL-maksulla 513,00 euroa työeläkemaksua, 9,30 euroa työttömyysvakuutusmaksua ja 57,30 euroa sairausvakuutusmaksua. Yhteensä sivukuluja kertyy 579,60 euroa eli noin 19,3 % palkasta, ja lisäksi tulevat tapaturma- ja ryhmähenkivakuutus. Lisäksi työntekijän palkasta peritään 219,00 euroa työeläkemaksua ja 26,70 euroa työttömyysvakuutusmaksua. Ennakonpidätys lasketaan bruttopalkasta, ja työntekijän osuudet vähennetään palkasta sen lisäksi.' },
         { t: 'note', x: 'Prosentit ovat vuoden 2026 maksuja. Lähteet: Verohallinto, sosiaalivakuutusmaksut (päivitetty 8.12.2025), Työllisyysrahasto (vuoden 2026 työttömyysvakuutusmaksut) ja Eläketurvakeskus (lakisääteiset sosiaalivakuutusmaksut 2026). TyEL-maksu on keskiarvo, ja oman maksusi kertoo työeläkeyhtiö. Maksut muuttuvat vuosittain.' },
         { t: 'h2', x: 'Pakolliset vakuutukset' },
         { t: 'ul', items: [
           'TyEL-vakuutus koskee 17 vuotta täyttäneitä työntekijöitä, joiden kuukausiansio ylittää vakuuttamisvelvollisuuden alarajan. Raja on niin matala, että käytännössä lähes jokainen palkka kuuluu vakuutuksen piiriin. Eläketurva on järjestettävä viimeistään ennen kuin palkka on ilmoitettava tulorekisteriin.',
-          'Tapaturmavakuutus on otettava, jos palkkoja maksetaan kalenterivuodessa yhteensä yli 1 500 euroa. Vakuutuksen on oltava voimassa heti, kun työntekijä aloittaa työt.',
+          'Tapaturmavakuutus on Verohallinnon mukaan otettava, kun palkkoja maksetaan kalenterivuodessa yhteensä yli 1 500 euroa. Vakuutuksen on oltava voimassa heti, kun työntekijä aloittaa työt.',
           'Ryhmähenkivakuutus voi tulla pakolliseksi, jos työnantajaa koskevassa työehtosopimuksessa on sovittu niin.',
         ] },
         { t: 'h2', x: 'Työterveyshuolto' },
@@ -193,10 +217,10 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'p', x: 'Palkka maksetaan työntekijän ilmoittamalle pankkitilille, ja sen on oltava työntekijän käytettävissä eräpäivänä. Kuukausipalkka maksetaan kerran kuukaudessa, ellei toisin sovita. Jokaisen palkanmaksun yhteydessä työntekijälle annetaan palkkalaskelma, josta käyvät ilmi palkan suuruus ja sen määräytymisen perusteet. Käytännössä laskelmassa näkyvät bruttopalkka ja lisät, luontoisedut, ennakonpidätys, työntekijän eläke- ja työttömyysvakuutusmaksu sekä nettopalkka.' },
         { t: 'h2', x: 'Vuosiloma ja lomapalkka lyhyesti' },
         { t: 'ul', items: [
-          'Lomaa kertyy kaksi arkipäivää jokaiselta täydeltä lomanmääräytymiskuukaudelta, jos työsuhde on lomanmääräytymisvuoden loppuun mennessä kestänyt alle vuoden. Sen jälkeen lomaa kertyy kaksi ja puoli arkipäivää kuukaudessa.',
+          'Lomaa kertyy kaksi arkipäivää jokaiselta täydeltä lomanmääräytymiskuukaudelta, jos työsuhde on lomanmääräytymisvuoden loppuun mennessä kestänyt alle vuoden. Sen jälkeen lomaa kertyy kaksi ja puoli arkipäivää kuukaudessa. Arkipäiviä ovat myös lauantait, ja lomanmääräytymisvuosi on 1.4.–31.3.',
           'Täysi lomanmääräytymiskuukausi on kuukausi, jona työntekijälle kertyy vähintään 14 työssäolopäivää. Jos työpäiviä on harvemmin, kuukausi lasketaan täydeksi, kun työtunteja kertyy vähintään 35.',
           'Lomapalkka maksetaan ennen loman alkamista. Enintään kuuden päivän lomajakson lomapalkan saa maksaa tavallisena palkkapäivänä.',
-          'Jos työntekijä ei ole viikko- tai kuukausipalkalla ja tekee työtä alle 14 päivänä kuukaudessa, lomapalkka on 9 % palkasta, tai 11,5 %, kun työsuhde on kestänyt vähintään vuoden.',
+          'Jos työntekijä ei ole viikko- tai kuukausipalkalla ja tekee työtä alle 14 päivänä kuukaudessa, lomapalkka on 9 % palkasta, tai 11,5 %, kun työsuhde on kestänyt vähintään vuoden lomanmääräytymisvuoden loppuun (31.3.) mennessä.',
           'Työsuhteen päättyessä pitämättömästä lomasta maksetaan lomakorvaus. Lomarahaa vuosilomalaki ei edellytä, vaan se perustuu yleensä työehtosopimukseen tai työsopimukseen.',
         ] },
         { t: 'h2', x: 'Yleisimmät virheet ensimmäisen työntekijän kanssa' },
@@ -218,6 +242,7 @@ export const ensimmainenTyontekija: Guide = {
           { label: 'Verohallinto: työnantajarekisteri', href: SRC.registerFi },
           { label: 'Verohallinto: verokorttiohjeet työnantajille', href: SRC.taxCardFi },
           { label: 'Työllisyysrahasto: työttömyysvakuutusmaksun maksaminen ja vuoden 2026 maksut', href: SRC.unemployment },
+          { label: 'Verohallinto: tulorekisteri-ilmoittamisen laiminlyöntimaksu', href: SRC.penaltyFi },
           { label: 'Kela: työterveyshuollon korvauksen määrä', href: SRC.kela },
           { label: 'Suomi.fi: rekrytoinnin muistilista työnantajalle', href: SRC.suomiFi },
           { label: 'Finlex: työsopimuslaki (55/2001)', href: SRC.tslFi },
@@ -251,7 +276,7 @@ export const ensimmainenTyontekija: Guide = {
           'Организуйте расчёт зарплаты и подачу сведений в Tulorekisteri, чтобы первая зарплата прошла без ошибок.',
         ] },
         { t: 'h2', x: 'Трудовой договор: что в нём должно быть' },
-        { t: 'p', x: 'По закону о трудовом договоре (työsopimuslaki) договор можно заключить устно, письменно или электронно. Но работодатель обязан дать работнику письменное описание основных условий работы, если их нет в письменном договоре. Проще всего сразу составить письменный договор со всеми сведениями. Описание не требуется, если работник трудится в среднем не более трёх часов в неделю.' },
+        { t: 'p', x: 'По закону о трудовом договоре (työsopimuslaki) договор можно заключить устно, письменно или электронно. Но работодатель обязан дать работнику письменное описание основных условий работы, если их нет в письменном договоре. Проще всего сразу составить письменный договор со всеми сведениями. Описание не требуется, если работник трудится в среднем не более трёх часов в неделю за четыре недели подряд.' },
         { t: 'p', x: 'В описании должны быть как минимум:' },
         { t: 'ul', items: [
           'работодатель и работник, их место жительства или место деятельности',
@@ -261,9 +286,11 @@ export const ensimmainenTyontekija: Guide = {
           'рабочее время',
           'порядок определения отпуска и срок предупреждения об увольнении',
           'применяемый коллективный договор',
+          'испытательный срок, если о нём договорились',
+          'возможное право на обучение, которое предоставляет работодатель',
           'страховая организация, в которой оформлены пенсионное страхование и страховка от несчастных случаев',
         ] },
-        { t: 'p', x: 'Часть сведений нужно дать в течение семи дней, остальные — в течение месяца с начала работы. Можно договориться об испытательном сроке, но не длиннее шести месяцев. Если в отрасли есть общеобязательный коллективный договор, его условия — это минимум, и договориться о худших условиях нельзя. Если никакой коллективный договор не применяется и зарплата не оговорена, работнику положена обычная и разумная зарплата.' },
+        { t: 'p', x: 'Часть сведений нужно дать в течение семи дней, остальные — в течение месяца с начала работы. Можно договориться об испытательном сроке: не длиннее шести месяцев, а в срочном договоре — не больше половины его срока. Если в отрасли есть общеобязательный коллективный договор, его условия — это минимум, и договориться о худших условиях нельзя. Если никакой коллективный договор не применяется и зарплата не оговорена, работнику положена обычная и разумная зарплата.' },
         { t: 'h2', x: 'Налоговая карта и удержание налога' },
         { t: 'p', x: 'Работодатель удерживает из зарплаты аванс налога (ennakonpidätys) по налоговой карте работника. Данные налоговой карты программа расчёта зарплаты может получать напрямую из налоговой через интерфейс Vero API, либо работник передаёт карту сам. Работник вправе сообщить работодателю более высокий процент. Если налоговой карты нет, удерживается 60 %.' },
         { t: 'p', x: 'Взнос работника по медицинскому страхованию уже входит в процент удержания. Кроме того, из зарплаты удерживаются доля работника в пенсионном взносе (7,30 % в 2026 году) и в страховании от безработицы (0,89 % в 2026 году). Удержанный налог и взнос работодателя по медицинскому страхованию платятся в OmaVero, срок — 12-е число месяца, следующего за месяцем выплаты.' },
@@ -274,7 +301,7 @@ export const ensimmainenTyontekija: Guide = {
           'Сообщаются все зарплаты независимо от суммы: минимального порога нет. Отчёт подаётся, даже если фирма не состоит в реестре работодателей.',
           'Фирма из реестра работодателей подаёт отдельный отчёт и за месяцы без зарплаты (отметка Ei palkanmaksua).',
         ] },
-        { t: 'p', x: 'За опоздание начисляется плата за просрочку (myöhästymismaksu), а за неподачу может быть назначен штраф 100–15 000 евро (laiminlyöntimaksu). Если отчётов нет, налоговая сама оценивает зарплаты и назначает налоги с надбавкой. Данные Tulorekisteri получают также пенсионная компания и Työllisyysrahasto, которые выставляют по ним счета.' },
+        { t: 'p', x: 'За опоздание начисляется плата за просрочку (myöhästymismaksu), а если отчёт не подан вовсе, налоговая может назначить штраф (laiminlyöntimaksu) до 15 000 евро за каждый отсутствующий отчёт. Если отчётов нет, налоговая сама оценивает зарплаты и назначает налоги с надбавкой. Данные Tulorekisteri получают также пенсионная компания и Työllisyysrahasto, которые выставляют по ним счета.' },
         { t: 'h2', x: 'Реестр работодателей: когда регистрация обязательна' },
         { t: 'p', x: 'Работодатель, который платит зарплату регулярно, обязан зарегистрироваться в реестре работодателей налоговой. Фирма считается регулярным работодателем, если она:' },
         { t: 'ul', items: [
@@ -286,17 +313,17 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'h2', x: 'Взносы работодателя в 2026 году' },
         { t: 'ul', items: [
           'Пенсионный взнос (TyEL): в среднем 24,40 % от зарплаты. Доля работника — 7,30 % для всех возрастов, на работодателя приходится в среднем 17,10 %. Точный процент называет ваша пенсионная компания.',
-          'Взнос по страхованию от безработицы: доля работодателя — 0,31 % от фонда оплаты труда до 2 509 500 евро и 1,23 % сверх этой суммы. Доля работника — 0,89 %. Взнос платится за работников 18–64 лет, обязанность возникает, если за календарный год выплачено больше 1 500 евро зарплаты. Työllisyysrahasto выставляет счёт по данным Tulorekisteri четыре раза в год.',
+          'Взнос по страхованию от безработицы: доля работодателя — 0,31 % от фонда оплаты труда до 2 509 500 евро и 1,23 % сверх этой суммы. Доля работника — 0,89 %. Взнос платится за работников 18–64 лет. Собственная доля работодателя возникает, если за календарный год выплачено больше 1 500 евро зарплаты, а долю работника удерживают из зарплаты всегда, даже ниже этого порога. Työllisyysrahasto выставляет счёт по данным Tulorekisteri четыре раза в год.',
           'Взнос работодателя по медицинскому страхованию: 1,91 % от зарплаты (1,87 % в 2025 году), за работников 16–67 лет.',
           'Страхование от несчастных случаев: взнос зависит от отрасли и фирмы, счёт выставляет страховая компания.',
           'Групповое страхование жизни: платится, если этого требует коллективный договор, обычно одним счётом со страховкой от несчастных случаев.',
         ] },
-        { t: 'p', x: 'Пример: при зарплате брутто 3 000 евро в месяц работодатель при среднем взносе TyEL платит 513,00 евро пенсионного взноса, 9,30 евро взноса по безработице и 57,30 евро медицинского взноса. Итого 579,60 евро, то есть около 19,3 % от зарплаты, плюс страхование от несчастных случаев и групповое страхование жизни. Из зарплаты работника до удержания налога удерживается 219,00 евро пенсионного взноса и 26,70 евро взноса по безработице.' },
+        { t: 'p', x: 'Пример: при зарплате брутто 3 000 евро в месяц работодатель при среднем взносе TyEL платит 513,00 евро пенсионного взноса, 9,30 евро взноса по безработице и 57,30 евро медицинского взноса. Итого 579,60 евро, то есть около 19,3 % от зарплаты, плюс страхование от несчастных случаев и групповое страхование жизни. Кроме того, из зарплаты работника удерживается 219,00 евро пенсионного взноса и 26,70 евро взноса по безработице. Аванс налога считается с зарплаты брутто, а доли работника вычитаются дополнительно.' },
         { t: 'note', x: 'Проценты — ставки 2026 года. Источники: налоговая Verohallinto, социальные страховые взносы (обновлено 8.12.2025), Työllisyysrahasto (взносы по безработице 2026) и Eläketurvakeskus (обязательные социальные взносы 2026). Ставка TyEL — средняя, ваш процент сообщит пенсионная компания. Ставки меняются ежегодно.' },
         { t: 'h2', x: 'Обязательные страховки' },
         { t: 'ul', items: [
           'Пенсионное страхование TyEL оформляется на работников от 17 лет, чей месячный заработок выше минимального порога. Порог настолько низкий, что под страхование попадает практически любая зарплата. Страхование нужно оформить не позднее, чем зарплату надо сообщить в Tulorekisteri.',
-          'Страхование от несчастных случаев обязательно, если за календарный год выплачивается больше 1 500 евро зарплаты. Оно должно действовать с первого дня работы.',
+          'По данным налоговой, страхование от несчастных случаев обязательно, если за календарный год выплачивается больше 1 500 евро зарплаты. Оно должно действовать с первого дня работы.',
           'Групповое страхование жизни становится обязательным, если это предусмотрено коллективным договором, который распространяется на работодателя.',
         ] },
         { t: 'h2', x: 'Производственная медицина (työterveyshuolto)' },
@@ -306,10 +333,10 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'p', x: 'Зарплата перечисляется на банковский счёт, указанный работником, и должна быть доступна в день выплаты. Месячная зарплата выплачивается раз в месяц, если не договорились иначе. При каждой выплате работник получает расчётный листок (palkkalaskelma), в котором видны сумма зарплаты и основания её расчёта. На практике в нём указывают зарплату брутто и надбавки, натуральные льготы, удержанный налог, взносы работника и сумму к выплате.' },
         { t: 'h2', x: 'Отпуск и отпускные коротко' },
         { t: 'ul', items: [
-          'За каждый полный месяц накопления отпуска работник получает два рабочих дня отпуска, если к концу года накопления трудовые отношения длились меньше года. Потом — два с половиной дня в месяц.',
+          'За каждый полный месяц накопления отпуска работник получает два будних дня отпуска (включая субботы), если к концу года накопления трудовые отношения длились меньше года. Потом — два с половиной будних дня в месяц. Год накопления отпуска длится с 1.4 по 31.3.',
           'Полный месяц накопления — это месяц, в котором у работника не менее 14 отработанных дней. Если работа реже, месяц считается полным при не менее чем 35 рабочих часах.',
           'Отпускные выплачиваются до начала отпуска. За отпуск до шести дней их можно выплатить в обычный день зарплаты.',
-          'Если работник не на недельной или месячной ставке и работает меньше 14 дней в месяц, отпускные составляют 9 % от зарплаты, а после года работы — 11,5 %.',
+          'Если работник не на недельной или месячной ставке и работает меньше 14 дней в месяц, отпускные составляют 9 % от зарплаты, а если к концу года накопления отпуска (31.3) трудовые отношения длились не меньше года — 11,5 %.',
           'При увольнении за неиспользованный отпуск выплачивается компенсация (lomakorvaus). Отпускную премию (lomaraha) закон об отпусках не требует — она обычно следует из коллективного или трудового договора.',
         ] },
         { t: 'h2', x: 'Частые ошибки с первым работником' },
@@ -331,6 +358,7 @@ export const ensimmainenTyontekija: Guide = {
           { label: 'Vero: реестр работодателей (на английском)', href: SRC.registerEn },
           { label: 'Vero: налоговые карты — инструкция для работодателей (на финском)', href: SRC.taxCardFi },
           { label: 'Työllisyysrahasto: взносы по безработице 2026 (на финском)', href: SRC.unemployment },
+          { label: 'Vero: штраф за неподачу сведений в Tulorekisteri (на финском)', href: SRC.penaltyFi },
           { label: 'Kela: возмещение расходов на производственную медицину (на финском)', href: SRC.kela },
           { label: 'Suomi.fi: памятка работодателю по найму (на английском)', href: SRC.suomiEn },
           { label: 'Finlex: закон о трудовом договоре (на английском)', href: SRC.tslEn },
@@ -364,7 +392,7 @@ export const ensimmainenTyontekija: Guide = {
           'Set up payroll and Incomes Register reporting so that the first salary is paid correctly.',
         ] },
         { t: 'h2', x: 'Employment contract: what it must contain' },
-        { t: 'p', x: 'Under the Employment Contracts Act, a contract can be made orally, in writing or electronically. The employer must still give the employee a written statement of the key terms of employment if they are not in a written contract. The easiest way is a written contract that covers everything. No statement is needed if the working time averages three hours a week or less.' },
+        { t: 'p', x: 'Under the Employment Contracts Act, a contract can be made orally, in writing or electronically. The employer must still give the employee a written statement of the key terms of employment if they are not in a written contract. The easiest way is a written contract that covers everything. No statement is needed if the working time averages three hours a week or less over four consecutive weeks.' },
         { t: 'p', x: 'The statement must include at least:' },
         { t: 'ul', items: [
           'the employer and the employee and their domicile or place of business',
@@ -374,9 +402,11 @@ export const ensimmainenTyontekija: Guide = {
           'the working time',
           'how annual leave is determined and the notice period',
           'the applicable collective agreement',
+          'the trial period, if one has been agreed',
+          'any right to training provided by the employer',
           'the insurer that provides the employee’s pension and accident insurance',
         ] },
-        { t: 'p', x: 'Part of the information must be given within seven days and the rest within a month of the start of work. A trial period can be agreed, up to six months. If a generally binding collective agreement covers the industry, its terms are the minimum, and the contract cannot agree on worse terms. If no collective agreement applies and pay has not been agreed, the employee must be paid a customary and reasonable wage.' },
+        { t: 'p', x: 'Part of the information must be given within seven days and the rest within a month of the start of work. A trial period can be agreed: up to six months, and in a fixed-term contract no more than half of its duration. If a generally binding collective agreement covers the industry, its terms are the minimum, and the contract cannot agree on worse terms. If no collective agreement applies and pay has not been agreed, the employee must be paid a customary and reasonable wage.' },
         { t: 'h2', x: 'Tax card and withholding' },
         { t: 'p', x: 'The employer withholds tax from the salary according to the employee’s tax card. Payroll software can fetch the tax card details directly from the Tax Administration through the Vero API, or the employee hands over the tax card. The employee may also tell the employer to use a higher rate. If there is no tax card, the withholding is 60%.' },
         { t: 'p', x: 'The employee’s health insurance contribution is already included in the withholding rate. In addition, the employee’s share of the pension contribution (7.30% in 2026) and of the unemployment insurance contribution (0.89% in 2026) is deducted from the salary. Withholdings and the employer’s health insurance contribution are paid in MyTax (OmaVero) by the 12th day of the month after the payment month.' },
@@ -387,7 +417,7 @@ export const ensimmainenTyontekija: Guide = {
           'All wages are reported whatever the amount: there is no euro threshold. The report is filed even if the company is not in the employer register.',
           'A company in the employer register must file the separate report also for months with no wages paid (the “No wages payable” entry).',
         ] },
-        { t: 'p', x: 'Late reports incur a late-filing fee, and failure to report can lead to a negligence penalty of €100–15,000. If no reports arrive, the Tax Administration estimates the wages and imposes the taxes and a tax increase. Incomes Register data also goes to the pension company and the Employment Fund, which invoice on that basis.' },
+        { t: 'p', x: 'Late reports incur a late-filing fee, and if a report is not filed at all, the Tax Administration can impose a negligence penalty of up to €15,000 per missing report. If no reports arrive, the Tax Administration estimates the wages and imposes the taxes and a tax increase. Incomes Register data also goes to the pension company and the Employment Fund, which invoice on that basis.' },
         { t: 'h2', x: 'Employer register: when registration is mandatory' },
         { t: 'p', x: 'A regular employer must always register in the Tax Administration’s employer register. A company is a regular employer when it:' },
         { t: 'ul', items: [
@@ -399,17 +429,17 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'h2', x: 'Employer contributions in 2026' },
         { t: 'ul', items: [
           'Pension contribution (TyEL): on average 24.40% of the salary. The employee share is 7.30% for all age groups, leaving the employer an average of 17.10%. Your exact rate comes from your pension company.',
-          'Unemployment insurance contribution: the employer pays 0.31% of the payroll up to €2,509,500 and 1.23% on the part above it. The employee share is 0.89%. It applies to employees aged 18–64, and the obligation starts when the wages paid in a calendar year exceed €1,500 in total. The Employment Fund (Työllisyysrahasto) invoices four times a year based on Incomes Register data.',
+          'Unemployment insurance contribution: the employer pays 0.31% of the payroll up to €2,509,500 and 1.23% on the part above it. The employee share is 0.89%. It applies to employees aged 18–64. The employer’s own obligation starts when the wages paid in a calendar year exceed €1,500 in total, but the employee share is always withheld from pay, even below that limit. The Employment Fund (Työllisyysrahasto) invoices four times a year based on Incomes Register data.',
           'Employer’s health insurance contribution: 1.91% of the salary (1.87% in 2025), for employees aged 16–67.',
           'Accident insurance: the premium varies by industry and company and is invoiced by the insurer.',
           'Group life insurance: paid if the collective agreement requires it, usually invoiced together with the accident insurance.',
         ] },
-        { t: 'p', x: 'Example: on a gross salary of €3,000 a month, with the average TyEL rate the employer pays €513.00 in pension contributions, €9.30 in unemployment insurance and €57.30 in health insurance. That is €579.60, about 19.3% of the salary, plus accident and group life insurance. Before withholding, €219.00 in pension contributions and €26.70 in unemployment insurance are deducted from the employee’s salary.' },
+        { t: 'p', x: 'Example: on a gross salary of €3,000 a month, with the average TyEL rate the employer pays €513.00 in pension contributions, €9.30 in unemployment insurance and €57.30 in health insurance. That is €579.60, about 19.3% of the salary, plus accident and group life insurance. In addition, €219.00 in pension contributions and €26.70 in unemployment insurance are deducted from the employee’s salary. Tax is withheld from the gross salary, and the employee’s shares are deducted on top of that.' },
         { t: 'note', x: 'The percentages are the 2026 rates. Sources: Tax Administration, social insurance contributions (updated 8 December 2025), the Employment Fund (2026 unemployment insurance contributions) and the Finnish Centre for Pensions (statutory social insurance contributions 2026). The TyEL rate is an average; your pension company tells you your own rate. Rates change every year.' },
         { t: 'h2', x: 'Mandatory insurance' },
         { t: 'ul', items: [
           'TyEL insurance covers employees aged 17 or over whose monthly earnings exceed the lower limit of the insurance obligation. The limit is so low that practically every salary is covered. Pension cover must be arranged at the latest before the wages must be reported to the Incomes Register.',
-          'Accident insurance is required if you pay more than €1,500 in wages in a calendar year. It must be in force from the moment the employee starts work.',
+          'According to the Tax Administration, accident insurance is required if you pay more than €1,500 in wages in a calendar year. It must be in force from the moment the employee starts work.',
           'Group life insurance can become mandatory if the collective agreement that applies to the employer requires it.',
         ] },
         { t: 'h2', x: 'Occupational health care' },
@@ -419,10 +449,10 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'p', x: 'The salary is paid to the bank account given by the employee and must be available on the due date. A monthly salary is paid once a month unless agreed otherwise. With every payment the employee gets a pay slip showing the amount of pay and how it was determined. In practice the slip shows the gross salary and supplements, benefits in kind, the tax withheld, the employee’s pension and unemployment contributions and the net pay.' },
         { t: 'h2', x: 'Annual leave and holiday pay in brief' },
         { t: 'ul', items: [
-          'Leave accrues at two working days for each full accrual month if the employment has lasted less than a year by the end of the holiday credit year. After that it is two and a half days a month.',
+          'Leave accrues at two weekdays (Mon–Sat) for each full accrual month if the employment has lasted less than a year by the end of the holiday credit year. After that it is two and a half weekdays a month. The holiday credit year runs from 1 April to 31 March.',
           'A full accrual month is a month with at least 14 working days. If the employee works on fewer days, a month counts as full with at least 35 working hours.',
           'Holiday pay is paid before the leave starts. For a leave period of up to six days it can be paid on the normal payday.',
-          'If the employee is not on a weekly or monthly salary and works fewer than 14 days a month, holiday pay is 9% of wages, or 11.5% once the employment has lasted at least a year.',
+          'If the employee is not on a weekly or monthly salary and works fewer than 14 days a month, holiday pay is 9% of wages, or 11.5% if the employment has lasted at least a year by the end of the holiday credit year (31 March).',
           'When employment ends, unused leave is paid as holiday compensation. The Annual Holidays Act does not require a holiday bonus (lomaraha); it usually comes from the collective agreement or the employment contract.',
         ] },
         { t: 'h2', x: 'Common mistakes with a first employee' },
@@ -444,6 +474,7 @@ export const ensimmainenTyontekija: Guide = {
           { label: 'Vero: employer register', href: SRC.registerEn },
           { label: 'Vero: tax card instructions for employers (in Finnish)', href: SRC.taxCardFi },
           { label: 'Employment Fund: 2026 unemployment insurance contributions (in Finnish)', href: SRC.unemployment },
+          { label: 'Vero: negligence penalty for Incomes Register reporting (in Finnish)', href: SRC.penaltyFi },
           { label: 'Kela: occupational health care reimbursement (in Finnish)', href: SRC.kela },
           { label: 'Suomi.fi: recruitment checklist for employers', href: SRC.suomiEn },
           { label: 'Finlex: Employment Contracts Act (55/2001)', href: SRC.tslEn },
@@ -477,7 +508,7 @@ export const ensimmainenTyontekija: Guide = {
           'Korralda palgaarvestus ja Tulorekisteri teated, et esimene palk läheks õigesti.',
         ] },
         { t: 'h2', x: 'Tööleping: mis selles peab olema' },
-        { t: 'p', x: 'Soome töölepinguseaduse (työsopimuslaki) järgi võib lepingu sõlmida suuliselt, kirjalikult või elektrooniliselt. Tööandja peab siiski andma töötajale kirjaliku ülevaate töö peamistest tingimustest, kui need ei ole kirjas kirjalikus lepingus. Lihtsaim on teha kohe kirjalik leping, kus on kõik andmed. Ülevaadet pole vaja, kui tööaeg on keskmiselt kuni kolm tundi nädalas.' },
+        { t: 'p', x: 'Soome töölepinguseaduse (työsopimuslaki) järgi võib lepingu sõlmida suuliselt, kirjalikult või elektrooniliselt. Tööandja peab siiski andma töötajale kirjaliku ülevaate töö peamistest tingimustest, kui need ei ole kirjas kirjalikus lepingus. Lihtsaim on teha kohe kirjalik leping, kus on kõik andmed. Ülevaadet pole vaja, kui tööaeg on nelja järjestikuse nädala jooksul keskmiselt kuni kolm tundi nädalas.' },
         { t: 'p', x: 'Ülevaates peavad olema vähemalt:' },
         { t: 'ul', items: [
           'tööandja ja töötaja ning nende elu- või tegevuskoht',
@@ -487,9 +518,11 @@ export const ensimmainenTyontekija: Guide = {
           'kehtiv tööaeg',
           'puhkuse määramine ja etteteatamisaeg',
           'tööle kohaldatav kollektiivleping',
+          'katseaeg, kui selles on kokku lepitud',
+          'võimalik õigus tööandja pakutavale koolitusele',
           'kindlustusasutus, kus on korraldatud töötaja pensionikindlustus ja õnnetusjuhtumikindlustus',
         ] },
-        { t: 'p', x: 'Osa andmetest tuleb anda seitsme päeva ja ülejäänud kuu jooksul töö algusest. Katseajas võib kokku leppida, kuid see võib olla kuni kuus kuud. Kui tegevusalal kehtib üldsiduv kollektiivleping, on selle tingimused miinimum ja halvemates tingimustes kokku leppida ei saa. Kui ükski kollektiivleping ei kehti ja palgas pole kokku lepitud, tuleb maksta tavapärast ja mõistlikku palka.' },
+        { t: 'p', x: 'Osa andmetest tuleb anda seitsme päeva ja ülejäänud kuu jooksul töö algusest. Katseajas võib kokku leppida: see võib olla kuni kuus kuud ja tähtajalise lepingu korral kuni pool lepingu kestusest. Kui tegevusalal kehtib üldsiduv kollektiivleping, on selle tingimused miinimum ja halvemates tingimustes kokku leppida ei saa. Kui ükski kollektiivleping ei kehti ja palgas pole kokku lepitud, tuleb maksta tavapärast ja mõistlikku palka.' },
         { t: 'h2', x: 'Maksukaart ja kinnipidamine' },
         { t: 'p', x: 'Tööandja peab palgast kinni maksu ettemaksu (ennakonpidätys) töötaja maksukaardi järgi. Maksukaardi andmed saab palgatarkvara otse Soome maksuametist Vero API liidese kaudu või annab töötaja maksukaardi ise. Töötaja võib tööandjale teatada ka kõrgema protsendi. Kui maksukaarti ei ole, peetakse kinni 60 %.' },
         { t: 'p', x: 'Töötaja ravikindlustusmakse sisaldub juba kinnipidamise protsendis. Lisaks peetakse palgast kinni töötaja osa pensionimaksest (2026. aastal 7,30 %) ja töötuskindlustusmaksest (2026. aastal 0,89 %). Kinnipeetud maks ja tööandja ravikindlustusmakse makstakse OmaVero kaudu hiljemalt palgamaksmise kuule järgneva kuu 12. kuupäevaks.' },
@@ -500,7 +533,7 @@ export const ensimmainenTyontekija: Guide = {
           'Teatatakse kõik palgad summast olenemata: eurodes alampiiri ei ole. Teade esitatakse ka siis, kui ettevõte ei ole tööandjate registris.',
           'Tööandjate registris olev ettevõte peab esitama eraldi teate ka kuude kohta, mil palka ei makstud (märge Ei palkanmaksua).',
         ] },
-        { t: 'p', x: 'Hilinenud teate eest määratakse hilinemistasu (myöhästymismaksu) ja teatamata jätmise eest võib tulla 100–15 000 euro suurune hooletustasu (laiminlyöntimaksu). Kui teateid ei tule, hindab maksuamet palgad ise ning määrab maksud ja maksutõusu. Tulorekisteri andmed lähevad ka pensionikindlustusseltsile ja töötuskindlustusfondile Työllisyysrahasto, kes esitavad nende põhjal arved.' },
+        { t: 'p', x: 'Hilinenud teate eest määratakse hilinemistasu (myöhästymismaksu) ja kui teade jääb üldse esitamata, võib maksuamet määrata hooletustasu (laiminlyöntimaksu) kuni 15 000 eurot iga puuduva teate kohta. Kui teateid ei tule, hindab maksuamet palgad ise ning määrab maksud ja maksutõusu. Tulorekisteri andmed lähevad ka pensionikindlustusseltsile ja töötuskindlustusfondile Työllisyysrahasto, kes esitavad nende põhjal arved.' },
         { t: 'h2', x: 'Tööandjate register: millal on registreerimine kohustuslik' },
         { t: 'p', x: 'Regulaarselt palka maksev tööandja peab alati registreeruma maksuameti tööandjate registris. Ettevõte on regulaarne tööandja, kui ta:' },
         { t: 'ul', items: [
@@ -512,17 +545,17 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'h2', x: 'Tööandja maksed 2026. aastal' },
         { t: 'ul', items: [
           'Pensionimakse (TyEL): keskmiselt 24,40 % palgast. Töötaja osa on kõigis vanuserühmades 7,30 %, tööandjale jääb keskmiselt 17,10 %. Täpse protsendi ütleb sinu pensionikindlustusselts.',
-          'Töötuskindlustusmakse: tööandja osa on 0,31 % palgafondist kuni 2 509 500 euroni ja seda ületavalt osalt 1,23 %. Töötaja osa on 0,89 %. Makse kehtib 18–64-aastastele töötajatele ja kohustus tekib, kui kalendriaasta jooksul makstakse palka kokku üle 1 500 euro. Työllisyysrahasto esitab Tulorekisteri andmete põhjal arve neli korda aastas.',
+          'Töötuskindlustusmakse: tööandja osa on 0,31 % palgafondist kuni 2 509 500 euroni ja seda ületavalt osalt 1,23 %. Töötaja osa on 0,89 %. Makse kehtib 18–64-aastastele töötajatele. Tööandja enda maksekohustus tekib, kui kalendriaasta jooksul makstakse palka kokku üle 1 500 euro, kuid töötaja osa peetakse palgast kinni alati, ka allpool seda piiri. Työllisyysrahasto esitab Tulorekisteri andmete põhjal arve neli korda aastas.',
           'Tööandja ravikindlustusmakse: 1,91 % palgast (2025. aastal 1,87 %), 16–67-aastaste töötajate eest.',
           'Õnnetusjuhtumikindlustus: makse sõltub tegevusalast ja ettevõttest, arve esitab kindlustusselts.',
           'Grupielukindlustus: makstakse, kui kollektiivleping seda nõuab, tavaliselt koos õnnetusjuhtumikindlustuse arvega.',
         ] },
-        { t: 'p', x: 'Näide: kui brutopalk on 3 000 eurot kuus, maksab tööandja keskmise TyEL-määraga 513,00 eurot pensionimakset, 9,30 eurot töötuskindlustusmakset ja 57,30 eurot ravikindlustusmakset. Kokku 579,60 eurot ehk umbes 19,3 % palgast, lisaks õnnetusjuhtumi- ja grupielukindlustus. Töötaja palgast peetakse enne tulumaksu kinni 219,00 eurot pensionimakset ja 26,70 eurot töötuskindlustusmakset.' },
+        { t: 'p', x: 'Näide: kui brutopalk on 3 000 eurot kuus, maksab tööandja keskmise TyEL-määraga 513,00 eurot pensionimakset, 9,30 eurot töötuskindlustusmakset ja 57,30 eurot ravikindlustusmakset. Kokku 579,60 eurot ehk umbes 19,3 % palgast, lisaks õnnetusjuhtumi- ja grupielukindlustus. Lisaks peetakse töötaja palgast kinni 219,00 eurot pensionimakset ja 26,70 eurot töötuskindlustusmakset. Maksu ettemaks arvutatakse brutopalgast ja töötaja osad peetakse kinni selle kõrval.' },
         { t: 'note', x: 'Protsendid on 2026. aasta määrad. Allikad: Soome maksuamet, sotsiaalkindlustusmaksed (uuendatud 8.12.2025), Työllisyysrahasto (2026. aasta töötuskindlustusmaksed) ja Eläketurvakeskus (seadusjärgsed sotsiaalkindlustusmaksed 2026). TyEL-määr on keskmine, sinu enda määra ütleb pensionikindlustusselts. Määrad muutuvad igal aastal.' },
         { t: 'h2', x: 'Kohustuslikud kindlustused' },
         { t: 'ul', items: [
           'TyEL-kindlustus kehtib vähemalt 17-aastastele töötajatele, kelle kuutulu ületab kindlustamiskohustuse alampiiri. Piir on nii madal, et praktiliselt iga palk kuulub kindlustuse alla. Pensionikindlustus tuleb korraldada hiljemalt enne, kui palk tuleb Tulorekisterisse teatada.',
-          'Õnnetusjuhtumikindlustus on kohustuslik, kui kalendriaastas makstakse palka kokku üle 1 500 euro. See peab kehtima kohe, kui töötaja tööd alustab.',
+          'Maksuameti andmetel on õnnetusjuhtumikindlustus kohustuslik, kui kalendriaastas makstakse palka kokku üle 1 500 euro. See peab kehtima kohe, kui töötaja tööd alustab.',
           'Grupielukindlustus võib muutuda kohustuslikuks, kui tööandjale kehtivas kollektiivlepingus on nii kokku lepitud.',
         ] },
         { t: 'h2', x: 'Töötervishoid (työterveyshuolto)' },
@@ -532,10 +565,10 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'p', x: 'Palk makstakse töötaja antud pangakontole ja see peab olema kättesaadav maksepäeval. Kuupalk makstakse kord kuus, kui ei ole kokku lepitud teisiti. Iga palgamaksega saab töötaja palgalehe (palkkalaskelma), millelt näeb palga suuruse ja selle arvestamise alused. Praktikas on palgalehel brutopalk ja lisatasud, loontoised hüved, kinnipeetud maks, töötaja pensioni- ja töötuskindlustusmakse ning netopalk.' },
         { t: 'h2', x: 'Põhipuhkus ja puhkusetasu lühidalt' },
         { t: 'ul', items: [
-          'Iga täis puhkuse kogumise kuu eest koguneb kaks tööpäeva puhkust, kui töösuhe on puhkuse kogumise aasta lõpuks kestnud alla aasta. Pärast seda kaks ja pool päeva kuus.',
+          'Iga täis puhkuse kogumise kuu eest koguneb kaks argipäeva (E–L) puhkust, kui töösuhe on puhkuse kogumise aasta lõpuks kestnud alla aasta. Pärast seda kaks ja pool argipäeva kuus. Puhkuse kogumise aasta kestab 1.4–31.3.',
           'Täis kogumise kuu on kuu, mil töötajal on vähemalt 14 tööpäeva. Kui tööpäevi on vähem, loetakse kuu täisväärtuslikuks, kui töötunde koguneb vähemalt 35.',
           'Puhkusetasu makstakse enne puhkuse algust. Kuni kuuepäevase puhkuse eest võib selle maksta tavalisel palgapäeval.',
-          'Kui töötaja ei ole nädala- ega kuupalgal ja töötab alla 14 päeva kuus, on puhkusetasu 9 % palgast või 11,5 %, kui töösuhe on kestnud vähemalt aasta.',
+          'Kui töötaja ei ole nädala- ega kuupalgal ja töötab alla 14 päeva kuus, on puhkusetasu 9 % palgast või 11,5 %, kui töösuhe on puhkuse kogumise aasta lõpuks (31.3) kestnud vähemalt aasta.',
           'Töösuhte lõppedes makstakse kasutamata puhkuse eest hüvitist (lomakorvaus). Puhkuserahta (lomaraha) puhkuseseadus ei nõua — see tuleb tavaliselt kollektiivlepingust või töölepingust.',
         ] },
         { t: 'h2', x: 'Levinumad vead esimese töötajaga' },
@@ -557,6 +590,7 @@ export const ensimmainenTyontekija: Guide = {
           { label: 'Vero: tööandjate register (inglise keeles)', href: SRC.registerEn },
           { label: 'Vero: maksukaardi juhised tööandjale (soome keeles)', href: SRC.taxCardFi },
           { label: 'Työllisyysrahasto: 2026. aasta töötuskindlustusmaksed (soome keeles)', href: SRC.unemployment },
+          { label: 'Vero: Tulorekisteri teadete hooletustasu (soome keeles)', href: SRC.penaltyFi },
           { label: 'Kela: töötervishoiu kulude hüvitis (soome keeles)', href: SRC.kela },
           { label: 'Suomi.fi: tööandja värbamise kontrollnimekiri (inglise keeles)', href: SRC.suomiEn },
           { label: 'Finlex: töölepinguseadus (inglise keeles)', href: SRC.tslEn },
@@ -590,7 +624,7 @@ export const ensimmainenTyontekija: Guide = {
           'Організуйте розрахунок зарплати і подання даних до Tulorekisteri, щоб перша зарплата пройшла без помилок.',
         ] },
         { t: 'h2', x: 'Трудовий договір: що в ньому має бути' },
-        { t: 'p', x: 'За законом про трудовий договір (työsopimuslaki) договір можна укласти усно, письмово або електронно. Але роботодавець зобовʼязаний надати працівникові письмовий опис основних умов роботи, якщо їх немає в письмовому договорі. Найпростіше одразу скласти письмовий договір з усіма відомостями. Опис не потрібен, якщо працівник працює в середньому не більше трьох годин на тиждень.' },
+        { t: 'p', x: 'За законом про трудовий договір (työsopimuslaki) договір можна укласти усно, письмово або електронно. Але роботодавець зобовʼязаний надати працівникові письмовий опис основних умов роботи, якщо їх немає в письмовому договорі. Найпростіше одразу скласти письмовий договір з усіма відомостями. Опис не потрібен, якщо працівник працює в середньому не більше трьох годин на тиждень протягом чотирьох тижнів поспіль.' },
         { t: 'p', x: 'В описі мають бути щонайменше:' },
         { t: 'ul', items: [
           'роботодавець і працівник, їхнє місце проживання або діяльності',
@@ -600,9 +634,11 @@ export const ensimmainenTyontekija: Guide = {
           'робочий час',
           'порядок визначення відпустки і строк попередження про звільнення',
           'колективний договір, що застосовується',
+          'випробувальний строк, якщо про нього домовилися',
+          'можливе право на навчання, яке надає роботодавець',
           'страхова установа, у якій оформлено пенсійне страхування і страхування від нещасних випадків',
         ] },
-        { t: 'p', x: 'Частину відомостей треба надати протягом семи днів, решту — протягом місяця від початку роботи. Можна домовитися про випробувальний строк, але не довше шести місяців. Якщо в галузі є загальнообовʼязковий колективний договір, його умови — це мінімум, і домовитися про гірші умови не можна. Якщо жоден колективний договір не застосовується і зарплату не узгоджено, працівникові належить звичайна і розумна зарплата.' },
+        { t: 'p', x: 'Частину відомостей треба надати протягом семи днів, решту — протягом місяця від початку роботи. Можна домовитися про випробувальний строк: не довше шести місяців, а в строковому договорі — не більше половини його строку. Якщо в галузі є загальнообовʼязковий колективний договір, його умови — це мінімум, і домовитися про гірші умови не можна. Якщо жоден колективний договір не застосовується і зарплату не узгоджено, працівникові належить звичайна і розумна зарплата.' },
         { t: 'h2', x: 'Податкова картка й утримання податку' },
         { t: 'p', x: 'Роботодавець утримує із зарплати аванс податку (ennakonpidätys) за податковою карткою працівника. Дані податкової картки програма розрахунку зарплати може отримувати напряму з податкової через інтерфейс Vero API, або працівник передає картку сам. Працівник має право повідомити роботодавцю вищий відсоток. Якщо податкової картки немає, утримується 60 %.' },
         { t: 'p', x: 'Внесок працівника на медичне страхування вже входить у відсоток утримання. Крім того, із зарплати утримуються частка працівника в пенсійному внеску (7,30 % у 2026 році) і в страхуванні від безробіття (0,89 % у 2026 році). Утриманий податок і внесок роботодавця на медичне страхування сплачуються в OmaVero до 12-го числа місяця, наступного за місяцем виплати.' },
@@ -613,7 +649,7 @@ export const ensimmainenTyontekija: Guide = {
           'Повідомляються всі зарплати незалежно від суми: мінімального порогу немає. Звіт подається, навіть якщо фірма не перебуває в реєстрі роботодавців.',
           'Фірма з реєстру роботодавців подає окремий звіт і за місяці без зарплати (позначка Ei palkanmaksua).',
         ] },
-        { t: 'p', x: 'За запізнення нараховується плата за прострочення (myöhästymismaksu), а за неподання може бути призначено штраф 100–15 000 євро (laiminlyöntimaksu). Якщо звітів немає, податкова сама оцінює зарплати і призначає податки з надбавкою. Дані Tulorekisteri отримують також пенсійна компанія і Työllisyysrahasto, які виставляють за ними рахунки.' },
+        { t: 'p', x: 'За запізнення нараховується плата за прострочення (myöhästymismaksu), а якщо звіт не подано взагалі, податкова може призначити штраф (laiminlyöntimaksu) до 15 000 євро за кожен відсутній звіт. Якщо звітів немає, податкова сама оцінює зарплати і призначає податки з надбавкою. Дані Tulorekisteri отримують також пенсійна компанія і Työllisyysrahasto, які виставляють за ними рахунки.' },
         { t: 'h2', x: 'Реєстр роботодавців: коли реєстрація обовʼязкова' },
         { t: 'p', x: 'Роботодавець, який платить зарплату регулярно, зобовʼязаний зареєструватися в реєстрі роботодавців податкової. Фірма вважається регулярним роботодавцем, якщо вона:' },
         { t: 'ul', items: [
@@ -625,17 +661,17 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'h2', x: 'Внески роботодавця у 2026 році' },
         { t: 'ul', items: [
           'Пенсійний внесок (TyEL): у середньому 24,40 % від зарплати. Частка працівника — 7,30 % для всіх вікових груп, на роботодавця припадає в середньому 17,10 %. Точний відсоток називає ваша пенсійна компанія.',
-          'Внесок на страхування від безробіття: частка роботодавця — 0,31 % від фонду оплати праці до 2 509 500 євро і 1,23 % понад цю суму. Частка працівника — 0,89 %. Внесок сплачується за працівників 18–64 років, обовʼязок виникає, якщо за календарний рік виплачено понад 1 500 євро зарплати. Työllisyysrahasto виставляє рахунок за даними Tulorekisteri чотири рази на рік.',
+          'Внесок на страхування від безробіття: частка роботодавця — 0,31 % від фонду оплати праці до 2 509 500 євро і 1,23 % понад цю суму. Частка працівника — 0,89 %. Внесок сплачується за працівників 18–64 років. Власна частка роботодавця виникає, якщо за календарний рік виплачено понад 1 500 євро зарплати, а частку працівника утримують із зарплати завжди, навіть нижче цього порогу. Työllisyysrahasto виставляє рахунок за даними Tulorekisteri чотири рази на рік.',
           'Внесок роботодавця на медичне страхування: 1,91 % від зарплати (1,87 % у 2025 році), за працівників 16–67 років.',
           'Страхування від нещасних випадків: внесок залежить від галузі та фірми, рахунок виставляє страхова компанія.',
           'Групове страхування життя: сплачується, якщо цього вимагає колективний договір, зазвичай одним рахунком зі страхуванням від нещасних випадків.',
         ] },
-        { t: 'p', x: 'Приклад: за зарплати брутто 3 000 євро на місяць роботодавець за середнього внеску TyEL сплачує 513,00 євро пенсійного внеску, 9,30 євро внеску на безробіття і 57,30 євро медичного внеску. Разом 579,60 євро, тобто близько 19,3 % від зарплати, плюс страхування від нещасних випадків і групове страхування життя. Із зарплати працівника до утримання податку утримується 219,00 євро пенсійного внеску і 26,70 євро внеску на безробіття.' },
+        { t: 'p', x: 'Приклад: за зарплати брутто 3 000 євро на місяць роботодавець за середнього внеску TyEL сплачує 513,00 євро пенсійного внеску, 9,30 євро внеску на безробіття і 57,30 євро медичного внеску. Разом 579,60 євро, тобто близько 19,3 % від зарплати, плюс страхування від нещасних випадків і групове страхування життя. Крім того, із зарплати працівника утримується 219,00 євро пенсійного внеску і 26,70 євро внеску на безробіття. Аванс податку рахується із зарплати брутто, а частки працівника вираховуються додатково.' },
         { t: 'note', x: 'Відсотки — ставки 2026 року. Джерела: податкова Verohallinto, соціальні страхові внески (оновлено 8.12.2025), Työllisyysrahasto (внески на безробіття 2026) і Eläketurvakeskus (обовʼязкові соціальні внески 2026). Ставка TyEL — середня, ваш відсоток повідомить пенсійна компанія. Ставки змінюються щороку.' },
         { t: 'h2', x: 'Обовʼязкові страховки' },
         { t: 'ul', items: [
           'Пенсійне страхування TyEL оформлюється на працівників від 17 років, чий місячний заробіток перевищує мінімальний поріг. Поріг настільки низький, що під страхування потрапляє практично будь-яка зарплата. Страхування потрібно оформити не пізніше, ніж зарплату треба повідомити до Tulorekisteri.',
-          'Страхування від нещасних випадків обовʼязкове, якщо за календарний рік виплачується понад 1 500 євро зарплати. Воно має діяти з першого дня роботи.',
+          'За даними податкової, страхування від нещасних випадків обовʼязкове, якщо за календарний рік виплачується понад 1 500 євро зарплати. Воно має діяти з першого дня роботи.',
           'Групове страхування життя стає обовʼязковим, якщо це передбачено колективним договором, який поширюється на роботодавця.',
         ] },
         { t: 'h2', x: 'Виробнича медицина (työterveyshuolto)' },
@@ -645,10 +681,10 @@ export const ensimmainenTyontekija: Guide = {
         { t: 'p', x: 'Зарплата перераховується на банківський рахунок, указаний працівником, і має бути доступна в день виплати. Місячна зарплата виплачується раз на місяць, якщо не домовилися інакше. Під час кожної виплати працівник отримує розрахунковий листок (palkkalaskelma), у якому видно суму зарплати й підстави її розрахунку. На практиці в ньому зазначають зарплату брутто і надбавки, натуральні пільги, утриманий податок, внески працівника і суму до виплати.' },
         { t: 'h2', x: 'Відпустка і відпускні коротко' },
         { t: 'ul', items: [
-          'За кожен повний місяць накопичення відпустки працівник отримує два робочі дні відпустки, якщо до кінця року накопичення трудові відносини тривали менше року. Потім — два з половиною дні на місяць.',
+          'За кожен повний місяць накопичення відпустки працівник отримує два будні дні відпустки (включно із суботами), якщо до кінця року накопичення трудові відносини тривали менше року. Потім — два з половиною будні дні на місяць. Рік накопичення відпустки триває з 1.4 по 31.3.',
           'Повний місяць накопичення — це місяць, у якому в працівника щонайменше 14 відпрацьованих днів. Якщо робота рідша, місяць вважається повним за щонайменше 35 робочих годин.',
           'Відпускні виплачуються до початку відпустки. За відпустку до шести днів їх можна виплатити у звичайний день зарплати.',
-          'Якщо працівник не на тижневій чи місячній ставці і працює менше 14 днів на місяць, відпускні становлять 9 % від зарплати, а після року роботи — 11,5 %.',
+          'Якщо працівник не на тижневій чи місячній ставці і працює менше 14 днів на місяць, відпускні становлять 9 % від зарплати, а якщо до кінця року накопичення відпустки (31.3) трудові відносини тривали щонайменше рік — 11,5 %.',
           'Під час звільнення за невикористану відпустку виплачується компенсація (lomakorvaus). Відпускної премії (lomaraha) закон про відпустки не вимагає — вона зазвичай випливає з колективного або трудового договору.',
         ] },
         { t: 'h2', x: 'Часті помилки з першим працівником' },
@@ -670,6 +706,7 @@ export const ensimmainenTyontekija: Guide = {
           { label: 'Vero: реєстр роботодавців (англійською)', href: SRC.registerEn },
           { label: 'Vero: податкові картки — інструкція для роботодавців (фінською)', href: SRC.taxCardFi },
           { label: 'Työllisyysrahasto: внески на безробіття 2026 (фінською)', href: SRC.unemployment },
+          { label: 'Vero: штраф за неподання даних до Tulorekisteri (фінською)', href: SRC.penaltyFi },
           { label: 'Kela: відшкодування витрат на виробничу медицину (фінською)', href: SRC.kela },
           { label: 'Suomi.fi: памʼятка роботодавцю з найму (англійською)', href: SRC.suomiEn },
           { label: 'Finlex: закон про трудовий договір (англійською)', href: SRC.tslEn },
