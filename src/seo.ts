@@ -498,7 +498,7 @@ function vaavoVideoNode(t: Translations, locale: Locale, pageUrl: string) {
     description: t.vaavo.video.intro,
     thumbnailUrl: `${SITE}${film.poster}`,
     contentUrl: `${SITE}${film.src}`,
-    uploadDate: '2026-10-06',
+    uploadDate: '2026-10-06T15:26:00+03:00',
     duration: `PT${Math.floor(film.seconds / 60)}M${film.seconds % 60}S`,
     inLanguage: locale,
     publisher: { '@id': `${SITE}/#organization` },
