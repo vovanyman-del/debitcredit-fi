@@ -15,6 +15,7 @@ import { yhdistyksenKirjanpito } from './yhdistyksen-kirjanpito';
 import { virolainenOuSuomessa } from './virolainen-ou-suomessa';
 import { rakennusalanKaannettyArvonlisavero } from './rakennusalan-kaannetty-arvonlisavero';
 import { kilometrikorvausPaivaraha2026 } from './kilometrikorvaus-paivaraha-2026';
+import { ajopaivakirja } from './ajopaivakirja';
 
 export * from './types';
 
@@ -36,6 +37,7 @@ export const guides: Guide[] = [
   virolainenOuSuomessa,
   rakennusalanKaannettyArvonlisavero,
   kilometrikorvausPaivaraha2026,
+  ajopaivakirja,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -57,6 +59,9 @@ export function relatedGuides(slug: string, limit = 3): Guide[] {
   }
   if (slug === kilometrikorvausPaivaraha2026.slug) {
     return [palkanlaskenta, yrittajanVahennykset, toiminimenVerotus].slice(0, limit);
+  }
+  if (slug === ajopaivakirja.slug) {
+    return [kilometrikorvausPaivaraha2026, yrittajanVahennykset, toiminimenVerotus].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
