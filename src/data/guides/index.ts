@@ -17,6 +17,7 @@ import { rakennusalanKaannettyArvonlisavero } from './rakennusalan-kaannetty-arv
 import { kilometrikorvausPaivaraha2026 } from './kilometrikorvaus-paivaraha-2026';
 import { ajopaivakirja } from './ajopaivakirja';
 import { ensimmainenTyontekija } from './ensimmainen-tyontekija';
+import { verotili } from './verotili';
 
 export * from './types';
 
@@ -40,6 +41,7 @@ export const guides: Guide[] = [
   kilometrikorvausPaivaraha2026,
   ajopaivakirja,
   ensimmainenTyontekija,
+  verotili,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -67,6 +69,9 @@ export function relatedGuides(slug: string, limit = 3): Guide[] {
   }
   if (slug === ensimmainenTyontekija.slug) {
     return [palkanlaskenta, kilometrikorvausPaivaraha2026, osinkoVaiPalkka].slice(0, limit);
+  }
+  if (slug === verotili.slug) {
+    return [alvOpas, ennakkovero, ensimmainenTyontekija].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
