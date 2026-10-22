@@ -47,7 +47,7 @@ import type { Guide } from './types';
 //   satunnaisesti palkkaa maksava työnantaja, jonka ... kalenterivuoden liikevaihto ... on enintään
 //   100 000 euroa, voi hakemuksesta valita verokaudeksi neljänneskalenterivuoden"; ALV "enintään 30 000
 //   euroa, voi hakemuksesta valita verokaudeksi kalenterivuoden" (the law says "enintään"; Vero's page
-//   and alv-opas.ts say "alle" — same euro limits); 13 § "Verokauden on oltava sama vähintään yhden
+//   and alv-opas.ts say "alle" — same euro limits); 14 § 3 mom. "Verokauden on oltava sama vähintään yhden
 //   vuoden ajan"; 16 § tulorekisteri data → "Verohallinto muodostaa ... verokaudelta veroa koskevat
 //   tiedot"; 17 § and 32 §: ALV "verokautta seuraavan toisen kalenterikuukauden yleisenä eräpäivänä",
 //   other taxes "verokautta seuraavan kalenterikuukauden", calendar year "helmikuun viimeisenä päivänä".
@@ -231,7 +231,7 @@ export const verotili: Guide = {
           'Myöhästymismaksu ei ole tuloverotuksessa vähennyskelpoinen meno.',
         ] },
         { t: 'p', x: 'Jos ilmoitusta ei tule lainkaan, Verohallinto lähettää kehotuksen, jossa on arvio verosta. Jos ilmoitusta ei kehotuksenkaan jälkeen anneta, vero määrätään arvioimalla ja lisäksi määrätään veronkorotus. Erityisestä syystä, esimerkiksi OmaVeron häiriön vuoksi, myöhästymismaksun perimättä jättämistä voi hakea OmaVerossa.' },
-        { t: 'p', x: 'Tulorekisterin ilmoituksille on oma myöhästymismaksunsa tulotietojärjestelmälain mukaan. Se määrätään, jos kuukauden aikana maksettujen palkkojen tiedot ilmoitetaan myöhemmin kuin maksupäivää seuraavan kuukauden 8. päivänä: 3 euroa päivältä enintään 45 päivältä (135 euroa), ja yli 45 päivän viiveessä lisäksi 1 % myöhässä ilmoitetusta palkasta, yhteensä enintään 15 135 euroa kalenterikuukaudelta. Palkkatietoilmoitukset ja erillisilmoitus katsotaan yhdeksi kokonaisuudeksi.' },
+        { t: 'p', x: 'Tulorekisterin ilmoituksille on oma myöhästymismaksunsa tulotietojärjestelmälain mukaan. Se määrätään, jos kuukauden aikana maksettujen palkkojen tiedot ilmoitetaan myöhemmin kuin maksupäivää seuraavan kuukauden 8. päivänä: 3 euroa päivältä enintään 45 päivältä (135 euroa), ja yli 45 päivän viiveessä lisäksi 1 % myöhässä ilmoitetusta palkasta (tarkemmin: veronalaisesta suorituksesta tai eläkkeen perusteena olevasta työansiosta sen mukaan, kumpi on suurempi), yhteensä enintään 15 135 euroa kalenterikuukaudelta. Palkkatietoilmoitukset ja erillisilmoitus katsotaan yhdeksi kokonaisuudeksi.' },
         { t: 'h2', x: 'Jos maksu myöhästyy: viivästyskorko 9,5 %' },
         { t: 'p', x: 'Eräpäivän jälkeen maksetulle verolle lasketaan viivästyskorkoa. Vuonna 2026 viivästyskorko on 9,5 % (perintöverossa 4,5 %). Lain mukaan korko on viitekorko lisättynä seitsemällä prosenttiyksiköllä, ja se vahvistetaan vuosittain. Korkoa lasketaan eräpäivää seuraavasta päivästä maksupäivään saakka todellisten päivien mukaan, eikä sillä ole vähimmäismäärää. Viivästyskorkoa maksetaan myös myöhästymismaksulle ja veronkorotukselle.' },
         { t: 'p', x: 'Esimerkki: 5 000 euron ALV maksetaan 30 päivää myöhässä. Viivästyskorko on 5 000 × 9,5 % × 30 / 365 = 39,04 euroa. Maksa vero ja korko yhdellä kertaa samoilla maksutiedoilla, sillä maksu käytetään ensin korolle ja vasta sitten verolle. OmaVerossa korko on laskettu summaan valmiiksi.' },
@@ -313,7 +313,7 @@ export const verotili: Guide = {
         ] },
         { t: 'p', x: 'Отдельной декларации по взносам работодателя в OmaVero нет: налоговая сама формирует налог за период из данных Tulorekisteri. По всем налогам на самодекларации налоговая советует сначала подать декларацию и только потом платить.' },
         { t: 'h2', x: 'Сроки: 12-е число месяца' },
-        { t: 'p', x: 'Общий срок уплаты налогов на самодекларации — 12-е число месяца. Если это суббота или праздник, срок переносится на следующий рабочий день. По ALV срок подачи декларации и срок оплаты совпадают.' },
+        { t: 'p', x: 'Общий срок уплаты налогов на самодекларации — 12-е число месяца. Если это суббота, воскресенье или праздник, срок переносится на следующий рабочий день. По ALV срок подачи декларации и срок оплаты совпадают.' },
         { t: 'ul', items: [
           'ALV, месячный период: 12-е число второго месяца после периода. Например, ALV за сентябрь — до 12.11.',
           'ALV, квартальный период: 12.5, 12.8, 12.11 и 12.2.',
@@ -365,7 +365,7 @@ export const verotili: Guide = {
           'Myöhästymismaksu не уменьшает налогооблагаемую прибыль.',
         ] },
         { t: 'p', x: 'Если декларации нет вовсе, налоговая присылает требование с оценкой налога. Если и после этого декларацию не подать, налог начисляют по оценке и добавляют налоговую надбавку (veronkorotus). При особой причине, например сбое OmaVero, можно попросить не взимать плату за просрочку — заявление подаётся в OmaVero.' },
-        { t: 'p', x: 'Для отчётов в Tulorekisteri своя плата за просрочку по закону о системе данных о доходах (tulotietojärjestelmälaki). Она назначается, если данные о зарплате, выплаченной в течение месяца, поданы позже 8-го числа следующего месяца: 3 € в день максимум за 45 дней (135 €), а при опоздании больше 45 дней ещё 1 % от суммы зарплаты, поданной с опозданием, — всего не более 15 135 € за календарный месяц. Отчёты о зарплате и отдельный отчёт работодателя считаются одним комплектом.' },
+        { t: 'p', x: 'Для отчётов в Tulorekisteri своя плата за просрочку по закону о системе данных о доходах (tulotietojärjestelmälaki). Она назначается, если данные о зарплате, выплаченной в течение месяца, поданы позже 8-го числа следующего месяца: 3 € в день максимум за 45 дней (135 €), а при опоздании больше 45 дней ещё 1 % от суммы зарплаты, поданной с опозданием (точнее: от облагаемой выплаты или от заработка, учитываемого для пенсии, — смотря что больше), — всего не более 15 135 € за календарный месяц. Отчёты о зарплате и отдельный отчёт работодателя считаются одним комплектом.' },
         { t: 'h2', x: 'Опоздание с оплатой: пени (viivästyskorko) 9,5 %' },
         { t: 'p', x: 'На налог, уплаченный после срока, начисляются пени (viivästyskorko). В 2026 году это 9,5 % годовых (по налогу на наследство — 4,5 %). По закону ставка равна референтной ставке плюс семь процентных пунктов и устанавливается каждый год. Пени считаются со дня после срока по день оплаты включительно по фактическому числу дней, минимальной суммы нет. Пени начисляются и на myöhästymismaksu, и на налоговую надбавку.' },
         { t: 'p', x: 'Пример: ALV 5 000 € уплачен на 30 дней позже. Пени: 5 000 × 9,5 % × 30 / 365 = 39,04 €. Платите налог и пени одним платежом с теми же реквизитами: деньги сначала идут на пени, потом на налог. В OmaVero пени уже включены в сумму.' },
@@ -415,7 +415,7 @@ export const verotili: Guide = {
       ],
       faq: [
         { q: 'Verotili ещё существует?', a: 'Нет. Закон о налоговом счёте отменён с 1.1.2017. Налоги на самодекларации подаются и оплачиваются в OmaVero, а состояние платежей видно в saldoerittely, ежемесячной выписке tapahtumaote и сводке yhteenveto.' },
-        { q: 'Когда платить ALV и взносы работодателя?', a: 'Как правило, 12-го числа. ALV за месяц — 12-го числа второго месяца после периода, взносы работодателя — 12-го числа месяца после выплаты зарплаты. Если 12-е выпадает на субботу или праздник, срок переносится на следующий рабочий день.' },
+        { q: 'Когда платить ALV и взносы работодателя?', a: 'Как правило, 12-го числа. ALV за месяц — 12-го числа второго месяца после периода, взносы работодателя — 12-го числа месяца после выплаты зарплаты. Если 12-е выпадает на субботу, воскресенье или праздник, срок переносится на следующий рабочий день.' },
         { q: 'Сколько стоит опоздание в 2026 году?', a: 'На налог, уплаченный с опозданием, начисляются пени 9,5 % годовых. За опоздание с декларацией — 3 € в день, максимум 135 €, а при опоздании больше 45 дней ещё 2 % от задекларированного налога.' },
         { q: 'Можно ли продлить срок декларации по ALV?', a: 'Нет, продлить срок подачи декларации по налогам на самодекларации нельзя. Для оплаты можно запросить рассрочку, но сначала нужно подать декларацию, а за отсрочку начисляются пени.' },
         { q: 'Где найти номер ссылки (viitenumero)?', a: 'В OmaVero: Maksutilanne → Verojen maksaminen ja maksutiedot. Osakeyhtiö пользуется общим номером ссылки, toiminimi — номерами по видам налогов. Получатель — Verohallinto.' },
@@ -447,7 +447,7 @@ export const verotili: Guide = {
         ] },
         { t: 'p', x: 'Employer contributions have no separate tax return in MyTax: the Tax Administration builds the tax for the period from the Incomes Register data. For all self-assessed taxes, the Tax Administration instructs you to file before you pay.' },
         { t: 'h2', x: 'Due dates: the 12th of the month' },
-        { t: 'p', x: 'The general due date for self-assessed taxes is the 12th of the month. If it falls on a Saturday or public holiday, it moves to the next working day. For VAT, the filing deadline and the payment deadline are the same day.' },
+        { t: 'p', x: 'The general due date for self-assessed taxes is the 12th of the month. If it falls on a Saturday, Sunday or public holiday, it moves to the next working day. For VAT, the filing deadline and the payment deadline are the same day.' },
         { t: 'ul', items: [
           'VAT, monthly period: the 12th of the second month after the period. For example, September VAT by 12 November.',
           'VAT, quarterly period: 12 May, 12 August, 12 November and 12 February.',
@@ -499,7 +499,7 @@ export const verotili: Guide = {
           'The late-filing penalty is not deductible in income taxation.',
         ] },
         { t: 'p', x: 'If no return arrives at all, the Tax Administration sends a request that includes an estimate of the tax. If you still do not file, the tax is assessed by estimate and a tax increase (veronkorotus) is added. For a special reason, such as a MyTax outage, you can apply in MyTax for the penalty to be waived.' },
-        { t: 'p', x: 'Incomes Register reports have their own late-filing penalty under the Act on the Incomes Information System. It is imposed if data on wages paid during a month is reported after the 8th day of the following month: €3 per day for at most 45 days (€135), and after more than 45 days also 1% of the wages reported late, up to €15,135 per calendar month. Earnings payment reports and the separate report count as one whole.' },
+        { t: 'p', x: 'Incomes Register reports have their own late-filing penalty under the Act on the Incomes Information System. It is imposed if data on wages paid during a month is reported after the 8th day of the following month: €3 per day for at most 45 days (€135), and after more than 45 days also 1% of the wages reported late (more precisely: of the taxable payment or the earnings that count towards pension, whichever is larger), up to €15,135 per calendar month. Earnings payment reports and the separate report count as one whole.' },
         { t: 'h2', x: 'Paying late: 9.5% late-payment interest' },
         { t: 'p', x: 'Tax paid after its due date accrues late-payment interest (viivästyskorko). In 2026 the rate is 9.5% (4.5% for inheritance tax). By law it is the reference rate plus seven percentage points, set annually. Interest runs from the day after the due date until the payment date, by actual days, and has no minimum amount. Late-filing penalties and tax increases also accrue late-payment interest.' },
         { t: 'p', x: 'Example: €5,000 of VAT is paid 30 days late. The interest is 5,000 × 9.5% × 30 / 365 = €39.04. Pay the tax and the interest in one go with the same payment details, as a payment is applied to interest first and only then to tax. In MyTax the interest is already included in the amount.' },
@@ -549,7 +549,7 @@ export const verotili: Guide = {
       ],
       faq: [
         { q: 'Does the verotili still exist?', a: 'No. The Tax Account Act was repealed with effect from 1 January 2017. Self-assessed taxes are now reported and paid in MyTax, and you see your payment situation in the balance breakdown, the monthly transaction summary and the summary letter.' },
-        { q: 'When are VAT and employer contributions due?', a: 'Usually on the 12th of the month. Monthly VAT is due on the 12th of the second month after the period, and employer contributions on the 12th of the month after the month of payment. If the 12th is a Saturday or public holiday, the due date moves to the next working day.' },
+        { q: 'When are VAT and employer contributions due?', a: 'Usually on the 12th of the month. Monthly VAT is due on the 12th of the second month after the period, and employer contributions on the 12th of the month after the month of payment. If the 12th is a Saturday, Sunday or public holiday, the due date moves to the next working day.' },
         { q: 'What does being late cost in 2026?', a: 'Tax paid late accrues 9.5% late-payment interest a year. A late return triggers a late-filing penalty of €3 per day, at most €135, plus 2% of the reported tax if the delay exceeds 45 days.' },
         { q: 'Can I get an extension for a VAT return?', a: 'No. There is no extension for self-assessed tax returns. You can apply for a payment arrangement for the payment, but you must file first, and the extra time accrues late-payment interest.' },
         { q: 'Where do I find my reference number?', a: 'In MyTax under Maksutilanne → Verojen maksaminen ja maksutiedot. A limited company uses the general tax reference number, a sole trader tax-specific reference numbers. The payee is Verohallinto.' },
@@ -581,7 +581,7 @@ export const verotili: Guide = {
         ] },
         { t: 'p', x: 'Tööandja maksete kohta OmaVerosse eraldi deklaratsiooni ei esitata: maksuamet moodustab perioodi maksu Tulorekisteri andmetest. Kõigi omaalgatuslike maksude puhul soovitab maksuamet esitada deklaratsiooni enne maksmist.' },
         { t: 'h2', x: 'Tähtajad: kuu 12. kuupäev' },
-        { t: 'p', x: 'Omaalgatuslike maksude üldine maksetähtaeg on kuu 12. kuupäev. Kui see on laupäev või püha, nihkub tähtaeg järgmisele tööpäevale. ALV puhul on deklaratsiooni ja makse tähtaeg sama.' },
+        { t: 'p', x: 'Omaalgatuslike maksude üldine maksetähtaeg on kuu 12. kuupäev. Kui see on laupäev, pühapäev või püha, nihkub tähtaeg järgmisele tööpäevale. ALV puhul on deklaratsiooni ja makse tähtaeg sama.' },
         { t: 'ul', items: [
           'ALV, kuuperiood: perioodi lõpule järgneva teise kuu 12. kuupäev. Näiteks septembri ALV hiljemalt 12.11.',
           'ALV, kvartaliperiood: 12.5, 12.8, 12.11 ja 12.2.',
@@ -633,7 +633,7 @@ export const verotili: Guide = {
           'Hilinemistasu ei ole tulumaksus mahaarvatav kulu.',
         ] },
         { t: 'p', x: 'Kui deklaratsiooni ei tule üldse, saadab maksuamet nõude, milles on maksu hinnang. Kui ka pärast seda deklaratsiooni ei esitata, määratakse maks hinnangu alusel ja lisaks maksutõstmine (veronkorotus). Erilisel põhjusel, näiteks OmaVero tõrke tõttu, võib OmaVeros taotleda hilinemistasu sissenõudmata jätmist.' },
-        { t: 'p', x: 'Tulorekisteri teadetele kehtib tuluandmesüsteemi seaduse (tulotietojärjestelmälaki) järgi oma hilinemistasu. See määratakse, kui kuu jooksul makstud palkade andmed esitatakse hiljem kui maksepäevale järgneva kuu 8. kuupäeval: 3 € päevas kuni 45 päeva eest (135 €) ja üle 45 päeva hilinemisel lisaks 1 % hilinenult teatatud palgast, kokku kuni 15 135 € kalendrikuu kohta. Palgateateid ja eraldi teadet käsitletakse ühe tervikuna.' },
+        { t: 'p', x: 'Tulorekisteri teadetele kehtib tuluandmesüsteemi seaduse (tulotietojärjestelmälaki) järgi oma hilinemistasu. See määratakse, kui kuu jooksul makstud palkade andmed esitatakse hiljem kui maksepäevale järgneva kuu 8. kuupäeval: 3 € päevas kuni 45 päeva eest (135 €) ja üle 45 päeva hilinemisel lisaks 1 % hilinenult teatatud palgast (täpsemalt: maksustatavast väljamaksest või pensioni aluseks olevast töötasust, olenevalt sellest, kumb on suurem), kokku kuni 15 135 € kalendrikuu kohta. Palgateateid ja eraldi teadet käsitletakse ühe tervikuna.' },
         { t: 'h2', x: 'Hilinenud makse: viivis 9,5 %' },
         { t: 'p', x: 'Pärast tähtpäeva tasutud maksult arvestatakse viivist (viivästyskorko). 2026. aastal on see 9,5 % (pärandimaksul 4,5 %). Seaduse järgi on viivis viiteintress pluss seitse protsendipunkti ja see kinnitatakse igal aastal. Viivist arvestatakse tähtpäevale järgnevast päevast kuni maksepäevani tegelike päevade järgi ja sellel pole miinimumsummat. Viivist arvestatakse ka hilinemistasult ja maksutõstmiselt.' },
         { t: 'p', x: 'Näide: 5 000 € ALV makstakse 30 päeva hiljem. Viivis on 5 000 × 9,5 % × 30 / 365 = 39,04 €. Maksa maks ja viivis korraga samade andmetega, sest makse kasutatakse esmalt viivise ja alles siis maksu katteks. OmaVeros on viivis summale juba lisatud.' },
@@ -683,7 +683,7 @@ export const verotili: Guide = {
       ],
       faq: [
         { q: 'Kas verotili on veel kasutusel?', a: 'Ei. Maksukonto seadus tunnistati kehtetuks alates 1.1.2017. Omaalgatuslikud maksud deklareeritakse ja makstakse nüüd OmaVeros ning maksete olukorda näed saldo jaotusest, igakuisest tehingute väljavõttest ja kokkuvõttest.' },
-        { q: 'Millal tuleb ALV ja tööandja maksed tasuda?', a: 'Tavaliselt kuu 12. kuupäeval. Kuuperioodi ALV tuleb tasuda perioodile järgneva teise kuu 12. kuupäevaks ja tööandja maksed palga maksmise kuule järgneva kuu 12. kuupäevaks. Kui 12. on laupäev või püha, nihkub tähtaeg järgmisele tööpäevale.' },
+        { q: 'Millal tuleb ALV ja tööandja maksed tasuda?', a: 'Tavaliselt kuu 12. kuupäeval. Kuuperioodi ALV tuleb tasuda perioodile järgneva teise kuu 12. kuupäevaks ja tööandja maksed palga maksmise kuule järgneva kuu 12. kuupäevaks. Kui 12. on laupäev, pühapäev või püha, nihkub tähtaeg järgmisele tööpäevale.' },
         { q: 'Mis maksab hilinemine 2026. aastal?', a: 'Hilinenult tasutud maksult arvestatakse viivist 9,5 % aastas. Hilinenud deklaratsiooni eest on hilinemistasu 3 € päevas, kokku kuni 135 €, ja üle 45 päeva hilinemisel lisaks 2 % deklareeritud maksust.' },
         { q: 'Kas ALV deklaratsiooni tähtaega saab pikendada?', a: 'Ei. Omaalgatuslike maksude deklaratsiooni tähtaega pikendada ei saa. Maksmiseks võib taotleda maksegraafikut, kuid kõigepealt tuleb deklaratsioon esitada ja lisaaja eest arvestatakse viivist.' },
         { q: 'Kust leian viitenumbri?', a: 'OmaVerost: Maksutilanne → Verojen maksaminen ja maksutiedot. Osaühing kasutab üldist maksude viitenumbrit, FIE maksuliigipõhiseid viitenumbreid. Makse saaja on Verohallinto.' },
@@ -715,7 +715,7 @@ export const verotili: Guide = {
         ] },
         { t: 'p', x: 'Окремої декларації щодо внесків роботодавця в OmaVero немає: податкова сама формує податок за період з даних Tulorekisteri. Щодо всіх податків на самодекларації податкова радить спершу подати декларацію і лише потім платити.' },
         { t: 'h2', x: 'Строки: 12-те число місяця' },
-        { t: 'p', x: 'Загальний строк сплати податків на самодекларації — 12-те число місяця. Якщо це субота чи свято, строк переноситься на наступний робочий день. Для ALV строк подання декларації і строк оплати збігаються.' },
+        { t: 'p', x: 'Загальний строк сплати податків на самодекларації — 12-те число місяця. Якщо це субота, неділя чи свято, строк переноситься на наступний робочий день. Для ALV строк подання декларації і строк оплати збігаються.' },
         { t: 'ul', items: [
           'ALV, місячний період: 12-те число другого місяця після періоду. Наприклад, ALV за вересень — до 12.11.',
           'ALV, квартальний період: 12.5, 12.8, 12.11 і 12.2.',
@@ -767,7 +767,7 @@ export const verotili: Guide = {
           'Myöhästymismaksu не зменшує оподатковуваний прибуток.',
         ] },
         { t: 'p', x: 'Якщо декларації немає взагалі, податкова надсилає вимогу з оцінкою податку. Якщо й після цього декларацію не подати, податок нараховують за оцінкою і додають податкову надбавку (veronkorotus). За особливої причини, наприклад збою OmaVero, можна попросити не стягувати плату за прострочення — заява подається в OmaVero.' },
-        { t: 'p', x: 'Для звітів до Tulorekisteri своя плата за прострочення за законом про систему даних про доходи (tulotietojärjestelmälaki). Її призначають, якщо дані про зарплату, виплачену протягом місяця, подано пізніше 8-го числа наступного місяця: 3 € на день максимум за 45 днів (135 €), а за запізнення понад 45 днів ще 1 % від суми зарплати, поданої із запізненням, — загалом не більше 15 135 € за календарний місяць. Звіти про зарплату й окремий звіт роботодавця вважаються одним комплектом.' },
+        { t: 'p', x: 'Для звітів до Tulorekisteri своя плата за прострочення за законом про систему даних про доходи (tulotietojärjestelmälaki). Її призначають, якщо дані про зарплату, виплачену протягом місяця, подано пізніше 8-го числа наступного місяця: 3 € на день максимум за 45 днів (135 €), а за запізнення понад 45 днів ще 1 % від суми зарплати, поданої із запізненням (точніше: від оподатковуваної виплати або від заробітку, що враховується для пенсії, — залежно від того, що більше), — загалом не більше 15 135 € за календарний місяць. Звіти про зарплату й окремий звіт роботодавця вважаються одним комплектом.' },
         { t: 'h2', x: 'Запізнення з оплатою: пеня (viivästyskorko) 9,5 %' },
         { t: 'p', x: 'На податок, сплачений після строку, нараховується пеня (viivästyskorko). У 2026 році це 9,5 % річних (для податку на спадщину — 4,5 %). За законом ставка дорівнює референтній ставці плюс сім процентних пунктів і встановлюється щороку. Пеню рахують від дня після строку до дня оплати включно за фактичною кількістю днів, мінімальної суми немає. Пеня нараховується й на myöhästymismaksu, і на податкову надбавку.' },
         { t: 'p', x: 'Приклад: ALV 5 000 € сплачено на 30 днів пізніше. Пеня: 5 000 × 9,5 % × 30 / 365 = 39,04 €. Сплачуйте податок і пеню одним платежем з тими самими реквізитами: гроші спершу йдуть на пеню, потім на податок. В OmaVero пеню вже включено в суму.' },
@@ -817,7 +817,7 @@ export const verotili: Guide = {
       ],
       faq: [
         { q: 'Verotili ще існує?', a: 'Ні. Закон про податковий рахунок скасовано з 1.1.2017. Податки на самодекларації подаються і сплачуються в OmaVero, а стан платежів видно в saldoerittely, щомісячній виписці tapahtumaote і зведенні yhteenveto.' },
-        { q: 'Коли сплачувати ALV і внески роботодавця?', a: 'Як правило, 12-го числа. ALV за місяць — 12-го числа другого місяця після періоду, внески роботодавця — 12-го числа місяця після виплати зарплати. Якщо 12-те припадає на суботу чи свято, строк переноситься на наступний робочий день.' },
+        { q: 'Коли сплачувати ALV і внески роботодавця?', a: 'Як правило, 12-го числа. ALV за місяць — 12-го числа другого місяця після періоду, внески роботодавця — 12-го числа місяця після виплати зарплати. Якщо 12-те припадає на суботу, неділю чи свято, строк переноситься на наступний робочий день.' },
         { q: 'Скільки коштує запізнення у 2026 році?', a: 'На податок, сплачений із запізненням, нараховується пеня 9,5 % річних. За запізнення з декларацією — 3 € на день, максимум 135 €, а за запізнення понад 45 днів ще 2 % від задекларованого податку.' },
         { q: 'Чи можна продовжити строк декларації з ALV?', a: 'Ні, продовжити строк подання декларації з податків на самодекларації не можна. Для оплати можна попросити розстрочку, але спершу треба подати декларацію, а за відстрочку нараховується пеня.' },
         { q: 'Де знайти номер посилання (viitenumero)?', a: 'В OmaVero: Maksutilanne → Verojen maksaminen ja maksutiedot. Osakeyhtiö користується загальним номером посилання, toiminimi — номерами за видами податків. Отримувач — Verohallinto.' },
