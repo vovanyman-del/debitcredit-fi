@@ -58,7 +58,11 @@ import type { Guide } from './types';
 //   nykyisen laskennallisen YEL-työtulon". Cross-check Varma 2026 table: "YEL-työtulon yläraja 214 000 €/v";
 //   "Vuonna 2025 YEL-maksu oli alle 53- ja yli 62-vuotiailla 24,1 % sekä 53–62-vuotiailla 25,6 %" (so in
 //   2026 there are no age brackets). Pending reform: Suomen Yrittäjät 9.10.2026 — the government
-//   submitted the bill to Parliament, intended "1.4.2028", starting discount to be removed; not yet law.
+//   submitted the bill to Parliament, intended "1.4.2028"; under the new model work income must be at
+//   least 50 % of taxable earned income (phased in 30–50 % over 2028–2032); the starting discount would be
+//   removed for new entrepreneurs (existing ones may keep it); details may change in Parliament; not yet law.
+//   YEL 143 § (also when the entrepreneur takes the policy late himself): "Vakuutusta ei anneta takautuvasti
+//   pidemmältä ajalta kuin kulumassa olevalta ja sitä välittömästi edeltäneeltä kolmelta kalenterivuodelta".
 // - suomi.fi, Yrittäjän eläketurva YEL – Eläketurvakeskus (30.12.2025; EN "Pensions for the
 //   self-employed"): "Samat säännöt koskevat myös kevytyrittäjää tai itsensä työllistäjää"; sivutoiminen
 //   and seasonal also; "Ota eläkevakuutus kuuden kuukauden kuluessa yritystoiminnan alkamisesta".
@@ -84,7 +88,8 @@ import type { Guide } from './types';
 // - Ilmarinen (instalments): "1, 2, 3, 4, 6 or 12 instalments per year"; "At least half of the
 //   instalments must fall due before August"; one instalment in January "the most affordable option".
 // - Own arithmetic: 9 423,09 × 24,4 % = 2 299,23 €; 30 000 × 24,4 % = 7 320 € (610 €/kk); 24,4 % × 78 % =
-//   19,032 %; 30 000 × 19,032 % = 5 709,60 € (475,80 €/kk); 30 000 × 1,5 % = 450 €/v pension (37,50 €/kk).
+//   19,032 %; 30 000 × 19,032 % = 5 709,60 € (475,80 €/kk); 30 000 × 1,5 % = 450 €/v pension (about 37,50 €/kk, before the
+//   elinaikakerroin).
 // Not stated (no verified 2026 source or out of scope): age brackets (none in 2026), the palkkakerroin
 // value, any pension company's interest or service price, the yrittäjän työssäoloehto in months.
 const VERO = 'https://www.vero.fi';
@@ -131,7 +136,7 @@ export const yelVakuutus: Guide = {
           'Toiminimi (liikkeen- tai ammatinharjoittaja): YEL, kun ehdot täyttyvät.',
           'Avoin yhtiö ja kommandiittiyhtiö: henkilökohtaisesti vastuussa olevat yhtiömiehet ovat YEL-yrittäjiä. Kommandiittiyhtiön äänetön yhtiömies vakuutetaan palkastaan TyEL:n mukaan.',
           'Osakeyhtiö: johtavassa asemassa (toimitusjohtaja, hallituksen jäsen tai vastaava) työskentelevä osakas on YEL-yrittäjä, jos hän omistaa yksin yli 30 % osakkeista tai äänistä tai yhdessä samassa taloudessa asuvien perheenjäsentensä kanssa yli 50 %. Myös toisen yhtiön kautta omistettu osuus lasketaan.',
-          'Kevytyrittäjä: samat säännöt kuin muillakin yrittäjillä. Laskutuspalvelu ei ole työnantajasi, joten YEL on otettava, kun työtuloraja ylittyy.',
+          'Kevytyrittäjä: samat säännöt kuin muillakin yrittäjillä. Laskutuspalvelu ei ole työnantajasi, joten YEL on otettava, kun työtulosi on vähintään 9 423,09 euroa vuodessa.',
         ] },
         { t: 'h3', x: 'Perheenjäsenet' },
         { t: 'p', x: 'Perheenjäseniä ovat avio- ja avopuoliso sekä suoraan ylenevässä tai alenevassa polvessa olevat sukulaiset, jotka asuvat yrittäjän kanssa samassa taloudessa. Toiminimessä työskentelevä puoliso on YEL-yrittäjä, samoin muu perheenjäsen, joka työskentelee ilman palkkaa. Jos muulle perheenjäsenelle kuin puolisolle maksetaan palkkaa, hänet vakuutetaan TyEL:n mukaan.' },
@@ -161,7 +166,7 @@ export const yelVakuutus: Guide = {
         { t: 'h2', x: 'Mihin YEL-työtulo vaikuttaa?' },
         { t: 'ul', items: [
           'Eläke: eläkettä karttuu 1,5 % vuoden työtulosta. Sama työtulo ratkaisee myös työkyvyttömyyseläkkeen ja perhe-eläkkeen.',
-          'Kelan sairauspäiväraha: yrittäjän päiväraha lasketaan YEL-työtulosta, ei omasta yrityksestä nostetusta palkasta eikä elinkeinotoiminnan tulosta. Jos YEL-vakuutus on voimassa sairastuessasi, omavastuuaika on vain sairastumispäivä (YEL-päiväraha), kun muuten se on sairastumispäivä ja 9 arkipäivää.',
+          'Kelan sairauspäiväraha: yrittäjän päiväraha lasketaan YEL-työtulosta, ei omasta yrityksestä nostetusta palkasta eikä elinkeinotoiminnan tulosta. Yleinen omavastuuaika on sairastumispäivä ja sitä seuraavat 9 arkipäivää. Jos YEL-vakuutus on voimassa sairastuessasi, omavastuuajalta maksetaan YEL-päivärahaa; sen omavastuu on vain sairastumispäivä.',
           'Vanhempainpäivärahat (raskaus- ja vanhempainraha) määräytyvät samalla tavalla YEL-työtulosta. Ilman voimassa olevaa YEL:ää yrittäjätoiminnasta ei lasketa Kelan vuosituloon mitään, ja tämä koskee myös kevytyrittäjiä.',
           'Työttömyysturva: yrittäjän työttömyyskassaan pääsee, kun YEL-työtulo on vähintään 15 481 euroa vuodessa (2026). Pienemmällä työtulolla jää Kelan perusturvan varaan.',
           'Työtapaturmat: YEL ei ole tapaturmavakuutus. Yrittäjä voi ottaa vapaaehtoisen työtapaturma- ja ammattitautivakuutuksen, jonka korvaukset sidotaan YEL-työtuloon.',
@@ -173,13 +178,13 @@ export const yelVakuutus: Guide = {
           'Henkilökohtaisen vähennyksen hyöty on ansiotulojesi veroprosentin suuruinen. Myös vapaaehtoinen YEL alarajan alittavasta työtulosta on vähennyskelpoinen.',
         ] },
         { t: 'h2', x: 'Mistä vakuutuksen saa?' },
-        { t: 'p', x: 'YEL-vakuutuksen voi ottaa mistä tahansa työeläkevakuutusyhtiöstä (Elo, Ilmarinen, Varma, Veritas) tai eläkekassasta, jos omalla alallasi toimii sellainen (Apteekkien eläkekassa, Eläkekassa Verso). Lakisääteinen maksuprosentti on sama kaikkialla. Eroja on palvelussa ja verkkoasioinnissa. Vakuutuksen voi myöhemmin siirtää toiseen yhtiöön, mutta työtulo ei siirron yhteydessä ilman erityistä syytä muutu.' },
+        { t: 'p', x: 'YEL-vakuutuksen voi ottaa mistä tahansa työeläkevakuutusyhtiöstä (Elo, Ilmarinen, Varma, Veritas) tai eläkekassasta, jos omalla alallasi toimii sellainen (Apteekkien eläkekassa, Eläkekassa Verso). Lakisääteinen maksuprosentti on sama kaikkialla. Eroja on palvelussa ja verkkoasioinnissa. Vakuutuksen voi myöhemmin siirtää toiseen yhtiöön.' },
         { t: 'h2', x: 'Esimerkki euroina' },
         { t: 'p', x: 'Aila perustaa toiminimen vuonna 2026 ja tekee siivouspalveluita täyttä päivää. Työeläkeyhtiö vahvistaa hänen YEL-työtulokseen 30 000 euroa vuodessa.' },
         { t: 'ul', items: [
           'Normaali maksu olisi 30 000 × 24,4 % = 7 320 euroa vuodessa eli 610 euroa kuukaudessa.',
           'Aloittavana yrittäjänä Aila maksaa 48 kuukauden ajan 19,032 %: 5 709,60 euroa vuodessa eli 475,80 euroa kuukaudessa. Säästö on 1 610,40 euroa vuodessa.',
-          'Eläkettä karttuu 30 000 × 1,5 % = 450 euroa vuodessa eli 37,50 euroa kuukausieläkettä jokaista vakuutettua vuotta kohden, tämän päivän rahassa.',
+          'Eläkettä karttuu 30 000 × 1,5 % = 450 euroa vuodessa eli noin 37,50 euroa kuukausieläkettä jokaista vakuutettua vuotta kohden, tämän päivän rahassa ja ennen elinaikakerrointa.',
           'Koska työtulo ylittää 15 481 euroa, Aila voi liittyä yrittäjän työttömyyskassaan. Kelan esimerkissä 20 000 euron YEL-työtulolla sairauspäiväraha on noin 47 euroa arkipäivältä, joten 30 000 euron työtulolla se on suurempi.',
           'Maksut ovat vähennyskelpoisia, joten ne pienentävät Ailan verotettavaa tuloa.',
         ] },
@@ -194,7 +199,7 @@ export const yelVakuutus: Guide = {
           'Työtulon tarkistusehdotukseen ei vastata kahdessa viikossa, ja työtulo muuttuu ilman omaa arviota.',
           'YEL-maksut vähennetään sekä elinkeinotoiminnan että henkilökohtaisessa verotuksessa.',
         ] },
-        { t: 'note', x: 'Luvut ovat vuoden 2026 tietoja: maksu 24,4 %, aloittavan yrittäjän alennus 22 % 48 kuukauden ajan, työtulon alaraja 9 423,09 euroa, yläraja 214 000 euroa ja työttömyyskassan raja 15 481 euroa. Hallitus antoi lokakuussa 2026 eduskunnalle esityksen YEL-uudistuksesta: vuodesta 2028 yrittäjä voisi valita maksun perusteeksi joko nykyisen työtulon tai yritystoiminnan verotetut ansiotulot, ja aloittavan yrittäjän alennus poistuisi. Esitys ei ole vielä laki. Lähteet: yrittäjän eläkelaki (1272/2006), Eläketurvakeskus, Kela ja Verohallinto.' },
+        { t: 'note', x: 'Luvut ovat vuoden 2026 tietoja: maksu 24,4 %, aloittavan yrittäjän alennus 22 % 48 kuukauden ajan, työtulon alaraja 9 423,09 euroa, yläraja 214 000 euroa ja työttömyyskassan raja 15 481 euroa. Hallitus antoi lokakuussa 2026 eduskunnalle esityksen YEL-uudistuksesta: vuodesta 2028 yrittäjä voisi valita maksun perusteeksi joko nykyisen työtulon tai yritystoiminnan verotetut ansiotulot, jolloin työtulon pitäisi olla vähintään 50 % verotettavista ansiotuloista (siirtymäaikana 2028–2032 asteittain 30–50 %). Aloittavan yrittäjän alennus poistuisi uusilta yrittäjiltä, mutta nykyiset voisivat säilyttää sen. Esitys ei ole vielä laki, ja yksityiskohdat voivat muuttua eduskuntakäsittelyssä. Lähteet: yrittäjän eläkelaki (1272/2006), Eläketurvakeskus, Kela ja Verohallinto.' },
         { t: 'h2', x: 'Autamme mitoittamaan YEL:n oikein' },
         { t: 'p', x: 'Tilitoimisto Debit Credit auttaa arvioimaan, onko sinulla YEL-velvollisuus, ja käy kanssasi läpi, mikä työtulo sopii työhösi ja tarvitsemaasi turvaan. Kirjaamme YEL-maksut, huolehdimme siitä, että ne vähennetään verotuksessa oikein ja vain kerran, ja autamme, kun työeläkeyhtiön tarkistusehdotus tulee. Palvelemme suomeksi ja venäjäksi. Ota yhteyttä, niin katsotaan YEL-tilanteesi yhdessä.' },
         { t: 'h2', x: 'Viranomaislähteet' },
@@ -212,9 +217,9 @@ export const yelVakuutus: Guide = {
       faq: [
         { q: 'Onko YEL pakollinen sivutoimiselle yrittäjälle?', a: 'On, jos ehdot täyttyvät: olet 18–69-vuotias (1962 tai myöhemmin syntyneillä yläraja on 70), teet työtä yrityksessä, toiminta on jatkunut vähintään neljä kuukautta ja työtulosi on vähintään 9 423,09 euroa vuodessa (2026). Päätoimisuus ei ratkaise.' },
         { q: 'Paljonko YEL maksaa vuonna 2026?', a: '24,4 % vahvistetusta työtulosta iästä riippumatta. Aloittava yrittäjä saa 22 %:n alennuksen ensimmäisten 48 kuukauden ajan, jolloin maksu on 19,032 %. Esimerkiksi 30 000 euron työtulolla maksu on 7 320 euroa vuodessa, alennuksella 5 709,60 euroa.' },
-        { q: 'Tarvitseeko kevytyrittäjä YEL-vakuutuksen?', a: 'Tarvitsee, jos työtulo ylittää 9 423,09 euroa vuodessa ja muut ehdot täyttyvät. Laskutuspalvelu ei ole työnantaja. Ilman YEL:ää kevytyrittäjän työstä ei myöskään lasketa tuloa Kelan päivärahoihin.' },
+        { q: 'Tarvitseeko kevytyrittäjä YEL-vakuutuksen?', a: 'Tarvitsee, jos työtulo on vähintään 9 423,09 euroa vuodessa ja muut ehdot täyttyvät. Laskutuspalvelu ei ole työnantaja. Ilman YEL:ää kevytyrittäjän työstä ei myöskään lasketa tuloa Kelan päivärahoihin.' },
         { q: 'Milloin osakeyhtiön osakas tarvitsee YEL:n?', a: 'Kun hän työskentelee yhtiössä johtavassa asemassa ja omistaa yksin yli 30 % tai yhdessä samassa taloudessa asuvien perheenjäsentensä kanssa yli 50 % osakkeista tai äänistä. Muuten yhtiöltä saatu palkka vakuutetaan TyEL:n mukaan.' },
-        { q: 'Mitä tapahtuu, jos otan YEL:n myöhässä?', a: 'Vakuutus otetaan takautuvasti, ja Valtiokonttori voi määrätä laiminlyöntimaksun, joka on enintään laiminlyöntiajan maksujen suuruinen. Jos et korjaa tilannetta kehotuksesta, Eläketurvakeskus ottaa vakuutuksen puolestasi kuluvalle ja kolmelle edelliselle vuodelle, eikä alennusta silloin saa.' },
+        { q: 'Mitä tapahtuu, jos otan YEL:n myöhässä?', a: 'Vakuutus otetaan takautuvasti, mutta myös itse myöhässä otettuna enintään kuluvalta ja sitä välittömästi edeltäneeltä kolmelta kalenterivuodelta. Valtiokonttori voi määrätä laiminlyöntimaksun, joka on enintään laiminlyöntiajan maksujen suuruinen. Jos et korjaa tilannetta kehotuksesta, Eläketurvakeskus ottaa vakuutuksen puolestasi kuluvalle ja kolmelle edelliselle vuodelle, eikä alennusta silloin saa.' },
         { q: 'Voinko vähentää YEL-maksut verotuksessa?', a: 'Kyllä, kokonaan. Toiminimi voi vähentää ne elinkeinotoiminnan, omassa tai puolison verotuksessa, mutta vain kerran. Osakeyhtiön osakas vähentää ne omasta tai puolison ansiotulosta.' },
       ],
     },
@@ -241,7 +246,7 @@ export const yelVakuutus: Guide = {
           'Toiminimi (индивидуальный предприниматель): YEL, если выполнены условия.',
           'Avoin yhtiö и kommandiittiyhtiö: лично ответственные участники — предприниматели по YEL. «Молчаливого» участника kommandiittiyhtiö страхуют по TyEL, как работника.',
           'Osakeyhtiö: акционер на руководящей должности (toimitusjohtaja, член правления или аналог) — предприниматель по YEL, если ему одному принадлежит больше 30 % акций или голосов либо вместе с членами семьи, живущими с ним в одном домохозяйстве, — больше 50 %. Учитывается и владение через другую компанию.',
-          'Kevytyrittäjä: те же правила, что для всех. Сервис выставления счетов — не ваш работодатель, поэтому при превышении порога YEL обязателен.',
+          'Kevytyrittäjä: те же правила, что для всех. Сервис выставления счетов — не ваш работодатель, поэтому YEL обязателен, если доход YEL не менее 9 423,09 € в год.',
         ] },
         { t: 'h3', x: 'Члены семьи' },
         { t: 'p', x: 'Членами семьи считаются супруг или сожитель, а также родственники по прямой восходящей и нисходящей линии, живущие с предпринимателем в одном домохозяйстве. Супруг, работающий в toiminimi, — предприниматель по YEL, как и другой член семьи, работающий без зарплаты. Если другому члену семьи (не супругу) платят зарплату, его страхуют по TyEL.' },
@@ -253,7 +258,7 @@ export const yelVakuutus: Guide = {
           'Предпринимателю на трудовой пенсии по старости: для него YEL добровольный.',
         ] },
         { t: 'h2', x: 'Доход YEL: что это и как его определяют' },
-        { t: 'p', x: 'Доход YEL (työtulo) — это не оборот, не прибыль и не зарплата, которую вы себе платите. Это денежная оценка вашего труда: какую зарплату пришлось бы платить человеку с такой же квалификацией за ту же работу. Работу оценивает и доход утверждает пенсионная компания по совокупности факторов.' },
+        { t: 'p', x: 'Доход YEL (työtulo) — это не оборот, не прибыль и не зарплата, которую вы себе платите. Это денежная оценка вашего труда: какую зарплату пришлось бы платить человеку с такой же квалификацией за ту же работу. Доход утверждает пенсионная компания на основе общей оценки.' },
         { t: 'ul', items: [
           'С 2023 года закон требует сравнивать доход с медианной зарплатой штатных работников частного сектора вашей отрасли. Учитываются также объём работы, масштаб бизнеса и квалификация. Калькулятор на сайте Työeläke.fi даёт рекомендацию по отрасли и обороту.',
           'Нижний предел в 2026 году — 9 423,09 €, верхний — 214 000 € в год. Пределы и утверждённый доход ежегодно в январе индексируют по коэффициенту зарплат (palkkakerroin).',
@@ -271,7 +276,7 @@ export const yelVakuutus: Guide = {
         { t: 'h2', x: 'На что влияет доход YEL' },
         { t: 'ul', items: [
           'Пенсия: каждый год копится 1,5 % годового дохода YEL. От него же зависят пенсия по нетрудоспособности и пенсия по потере кормильца.',
-          'Больничное пособие Kela (sairauspäiväraha): у предпринимателя его считают от дохода YEL, а не от зарплаты из своей фирмы и не от прибыли бизнеса. Если YEL действует на момент болезни, период без выплат — только день заболевания (YEL-päiväraha), а без него — день заболевания и ещё 9 рабочих дней.',
+          'Больничное пособие Kela (sairauspäiväraha): у предпринимателя его считают от дохода YEL, а не от зарплаты из своей фирмы и не от прибыли бизнеса. Общий период ожидания (omavastuuaika) — день заболевания и ещё 9 рабочих дней. Если YEL действует на момент болезни, за этот период платят YEL-päiväraha, а её собственный период ожидания — только день заболевания.',
           'Пособия по беременности и уходу за ребёнком (vanhempainpäivärahat) тоже считают от дохода YEL. Без действующего YEL доход от предпринимательства в годовой доход для Kela не попадает вовсе — это касается и kevytyrittäjä.',
           'Безработица: вступить в кассу по безработице для предпринимателей можно при доходе YEL от 15 481 € в год (2026). С меньшим доходом остаётся только базовая защита Kela.',
           'Несчастные случаи: YEL не страхует от травм на работе. Можно оформить добровольную страховку от несчастных случаев и профзаболеваний, выплаты по ней привязаны к доходу YEL.',
@@ -283,13 +288,13 @@ export const yelVakuutus: Guide = {
           'Личный вычет экономит сумму, равную вашей ставке налога на заработанный доход. Добровольный YEL при доходе ниже порога тоже вычитается.',
         ] },
         { t: 'h2', x: 'Где оформить страховку' },
-        { t: 'p', x: 'YEL можно оформить в любой пенсионной страховой компании (Elo, Ilmarinen, Varma, Veritas) или в пенсионной кассе, если такая есть в вашей отрасли (Apteekkien eläkekassa, Eläkekassa Verso). Ставка взноса установлена законом и везде одинакова. Разница — в сервисе и онлайн-кабинете. Страховку можно потом перевести в другую компанию, но доход YEL при переводе без особой причины не меняется.' },
+        { t: 'p', x: 'YEL можно оформить в любой пенсионной страховой компании (Elo, Ilmarinen, Varma, Veritas) или в пенсионной кассе, если такая есть в вашей отрасли (Apteekkien eläkekassa, Eläkekassa Verso). Ставка взноса установлена законом и везде одинакова. Разница — в сервисе и онлайн-кабинете. Страховку можно потом перевести в другую компанию.' },
         { t: 'h2', x: 'Пример в евро' },
         { t: 'p', x: 'Айла в 2026 году открывает toiminimi и полный день работает в клининге. Пенсионная компания утверждает её доход YEL — 30 000 € в год.' },
         { t: 'ul', items: [
           'Обычный взнос: 30 000 × 24,4 % = 7 320 € в год, или 610 € в месяц.',
           'Как начинающая, Айла 48 месяцев платит 19,032 %: 5 709,60 € в год, или 475,80 € в месяц. Экономия — 1 610,40 € в год.',
-          'Пенсия: 30 000 × 1,5 % = 450 € в год, то есть 37,50 € ежемесячной пенсии за каждый застрахованный год в сегодняшних деньгах.',
+          'Пенсия: 30 000 × 1,5 % = 450 € в год, то есть примерно 37,50 € ежемесячной пенсии за каждый застрахованный год в сегодняшних деньгах, до применения коэффициента продолжительности жизни (elinaikakerroin).',
           'Доход выше 15 481 €, поэтому Айла может вступить в кассу по безработице для предпринимателей. В примере Kela при доходе YEL 20 000 € больничное — около 47 € за рабочий день, при 30 000 € оно будет выше.',
           'Взносы вычитаются из налогооблагаемого дохода.',
         ] },
@@ -304,7 +309,7 @@ export const yelVakuutus: Guide = {
           'Не ответить на предложение о пересмотре дохода в течение двух недель — доход изменят без вашего мнения.',
           'Вычесть взносы YEL дважды: и в декларации бизнеса, и в личной.',
         ] },
-        { t: 'note', x: 'Цифры 2026 года: взнос 24,4 %, скидка начинающим 22 % на 48 месяцев, нижний предел дохода 9 423,09 €, верхний 214 000 €, порог для кассы по безработице 15 481 €. В октябре 2026 года правительство внесло в парламент законопроект о реформе YEL: с 2028 года предприниматель мог бы выбирать основой взноса либо нынешний доход YEL, либо облагаемый заработанный доход от бизнеса, а скидка начинающим исчезла бы. Это ещё не закон. Источники: закон 1272/2006, Eläketurvakeskus, Kela и налоговая Verohallinto.' },
+        { t: 'note', x: 'Цифры 2026 года: взнос 24,4 %, скидка начинающим 22 % на 48 месяцев, нижний предел дохода 9 423,09 €, верхний 214 000 €, порог для кассы по безработице 15 481 €. В октябре 2026 года правительство внесло в парламент законопроект о реформе YEL: с 2028 года предприниматель мог бы выбирать основой взноса либо нынешний доход YEL, либо облагаемый заработанный доход от бизнеса, при этом доход YEL должен был бы составлять не менее 50 % облагаемого заработанного дохода (в переходный период 2028–2032 годов — постепенно от 30 до 50 %). Скидку начинающим отменили бы для новых предпринимателей, а нынешние могли бы её сохранить. Это ещё не закон, и детали могут измениться при рассмотрении в парламенте. Источники: закон 1272/2006, Eläketurvakeskus, Kela и налоговая Verohallinto.' },
         { t: 'h2', x: 'Поможем подобрать YEL правильно' },
         { t: 'p', x: 'Tilitoimisto Debit Credit поможет понять, обязаны ли вы оформлять YEL, и вместе с вами разберёт, какой доход YEL соответствует вашей работе и нужной вам защите. Мы проводим взносы YEL в бухгалтерии, следим, чтобы вычет из налогов был сделан правильно и один раз, и помогаем, когда приходит предложение пенсионной компании о пересмотре дохода. Работаем на русском и финском. Свяжитесь с нами — посмотрим вашу ситуацию с YEL.' },
         { t: 'h2', x: 'Официальные источники' },
@@ -322,10 +327,10 @@ export const yelVakuutus: Guide = {
       faq: [
         { q: 'Нужен ли YEL, если бизнес — подработка?', a: 'Да, если выполнены условия: вам 18–69 лет (для родившихся в 1962 году и позже — до 70), вы работаете в бизнесе, деятельность длится не меньше четырёх месяцев и доход YEL — не менее 9 423,09 € в год (2026). Основная это работа или нет, неважно.' },
         { q: 'Сколько стоит YEL в 2026 году?', a: '24,4 % от утверждённого дохода независимо от возраста. Начинающий предприниматель первые 48 месяцев получает скидку 22 %, и взнос составляет 19,032 %. Например, при доходе 30 000 € взнос — 7 320 € в год, со скидкой — 5 709,60 €.' },
-        { q: 'Нужен ли YEL kevytyrittäjä?', a: 'Да, если доход превышает 9 423,09 € в год и выполнены остальные условия. Сервис выставления счетов не работодатель. Без YEL работа kevytyrittäjä не учитывается и при расчёте пособий Kela.' },
+        { q: 'Нужен ли YEL kevytyrittäjä?', a: 'Да, если доход не менее 9 423,09 € в год и выполнены остальные условия. Сервис выставления счетов не работодатель. Без YEL работа kevytyrittäjä не учитывается и при расчёте пособий Kela.' },
         { q: 'Когда YEL нужен акционеру osakeyhtiö?', a: 'Когда он работает в компании на руководящей должности и владеет один больше чем 30 % акций или голосов либо вместе с членами семьи из одного домохозяйства — больше чем 50 %. Иначе зарплату от компании страхуют по TyEL.' },
-        { q: 'Что будет, если оформить YEL с опозданием?', a: 'Страховку оформят задним числом, а Valtiokonttori может назначить штраф до суммы взносов за пропущенное время. Если не исправить ситуацию после требования, Eläketurvakeskus сам оформит страховку за текущий и три предыдущих года, и скидки начинающему тогда не будет.' },
-        { q: 'Можно ли вычесть взносы YEL из налогов?', a: 'Да, полностью. Владелец toiminimi вычитает их в налогообложении бизнеса, в своём или в налогообложении супруга, но только один раз. Акционер osakeyhtiö вычитает их из своего заработанного дохода или дохода супруга.' },
+        { q: 'Что будет, если оформить YEL с опозданием?', a: 'Страховку оформят задним числом, но даже если вы оформляете её сами, — не более чем за текущий и три предыдущих календарных года. Valtiokonttori может назначить штраф до суммы взносов за пропущенное время. Если не исправить ситуацию после требования, Eläketurvakeskus сам оформит страховку за текущий и три предыдущих года, и скидки начинающему тогда не будет.' },
+        { q: 'Можно ли вычесть взносы YEL из налогов?', a: 'Да, полностью. Владелец toiminimi вычитает их в декларации бизнеса, в своей или в декларации супруга, но только один раз. Акционер osakeyhtiö вычитает их из своего заработанного дохода или дохода супруга.' },
       ],
     },
     en: {
@@ -351,7 +356,7 @@ export const yelVakuutus: Guide = {
           'Sole trader (toiminimi): YEL whenever the conditions are met.',
           'General and limited partnerships (avoin yhtiö, kommandiittiyhtiö): partners with personal liability are YEL entrepreneurs. A silent partner in a limited partnership is insured under TyEL on any salary.',
           'Limited company (osakeyhtiö): a shareholder in a managerial position (managing director, board member or similar) is a YEL entrepreneur if they alone own more than 30% of the shares or votes, or more than 50% together with family members living in the same household. Ownership through another company counts too.',
-          'Light entrepreneur: the same rules as everyone else. The invoicing service is not your employer, so YEL is compulsory once you pass the income limit.',
+          'Light entrepreneur: the same rules as everyone else. The invoicing service is not your employer, so YEL is compulsory once your work income is at least €9,423.09 a year.',
         ] },
         { t: 'h3', x: 'Family members' },
         { t: 'p', x: 'Family members are a spouse or cohabiting partner and relatives in direct ascending or descending line who live in the same household as the entrepreneur. A spouse working in a toiminimi is a YEL entrepreneur, as is any other family member who works there without pay. If a family member other than the spouse is paid a salary, they are insured under TyEL.' },
@@ -381,7 +386,7 @@ export const yelVakuutus: Guide = {
         { t: 'h2', x: 'What YEL work income affects' },
         { t: 'ul', items: [
           'Pension: you earn 1.5% of each year’s work income as pension. The same income also decides your disability and survivors’ pensions.',
-          'Kela sickness allowance: for an entrepreneur it is based on YEL work income, not on a salary from your own company or on business profit. If your YEL is in force when you fall ill, the waiting period is only the first day (YEL daily allowance); otherwise it is the first day plus 9 working days.',
+          'Kela sickness allowance: for an entrepreneur it is based on YEL work income, not on a salary from your own company or on business profit. The general waiting period is the day you fall ill plus the following 9 working days. If your YEL is in force when you fall ill, you receive the YEL daily allowance (YEL-päiväraha) for that period, and its own waiting period is only the day you fall ill.',
           'Parental allowances (maternity and parental allowance) are also based on YEL work income. Without valid YEL, nothing from your self-employment counts towards Kela’s annual income, and this applies to light entrepreneurs too.',
           'Unemployment: you can join an unemployment fund for entrepreneurs if your YEL work income is at least €15,481 a year (2026). Below that you rely on Kela’s basic benefits only.',
           'Accidents: YEL does not cover accidents at work. You can take out voluntary accident and occupational disease insurance, with compensation tied to your YEL work income.',
@@ -393,13 +398,13 @@ export const yelVakuutus: Guide = {
           'A personal deduction saves the amount of your earned-income tax rate. Voluntary YEL below the income limit is deductible too.',
         ] },
         { t: 'h2', x: 'Where to get insured' },
-        { t: 'p', x: 'You can take out YEL with any earnings-related pension insurance company (Elo, Ilmarinen, Varma, Veritas) or with a pension fund if one exists for your field (Apteekkien eläkekassa, Eläkekassa Verso). The contribution rate is set by law and is the same everywhere; the differences lie in service and online tools. You can later move your policy to another company, but your work income will not change on the transfer without a specific reason.' },
+        { t: 'p', x: 'You can take out YEL with any earnings-related pension insurance company (Elo, Ilmarinen, Varma, Veritas) or with a pension fund if one exists for your field (Apteekkien eläkekassa, Eläkekassa Verso). The contribution rate is set by law and is the same everywhere; the differences lie in service and online tools. You can later move your policy to another company.' },
         { t: 'h2', x: 'A worked example' },
         { t: 'p', x: 'Aila sets up a toiminimi in 2026 and works full-time in cleaning. Her pension company confirms her YEL work income at €30,000 a year.' },
         { t: 'ul', items: [
           'The normal contribution would be €30,000 × 24.4% = €7,320 a year, or €610 a month.',
           'As a new entrepreneur, Aila pays 19.032% for 48 months: €5,709.60 a year, or €475.80 a month. She saves €1,610.40 a year.',
-          'Pension: €30,000 × 1.5% = €450 a year, i.e. €37.50 of monthly pension for each insured year, in today’s money.',
+          'Pension: €30,000 × 1.5% = €450 a year, i.e. about €37.50 of monthly pension for each insured year, in today’s money and before the life expectancy coefficient.',
           'Her work income exceeds €15,481, so she can join an entrepreneurs’ unemployment fund. In Kela’s own example, YEL work income of €20,000 gives a sickness allowance of about €47 per working day; at €30,000 it is higher.',
           'Her contributions are tax-deductible, so they reduce her taxable income.',
         ] },
@@ -414,7 +419,7 @@ export const yelVakuutus: Guide = {
           'Not replying to a review proposal within two weeks, so the work income changes without your input.',
           'Deducting YEL contributions twice, on both the business and the personal return.',
         ] },
-        { t: 'note', x: 'Figures for 2026: contribution 24.4%, new-entrepreneur discount 22% for 48 months, work income lower limit €9,423.09, upper limit €214,000, unemployment fund threshold €15,481. In October 2026 the government submitted a YEL reform bill to Parliament: from 2028 entrepreneurs could choose either today’s work income or their taxable business earned income as the basis, and the new-entrepreneur discount would be removed. The bill is not yet law. Sources: Self-employed Persons’ Pensions Act (1272/2006), Finnish Centre for Pensions, Kela and the Tax Administration.' },
+        { t: 'note', x: 'Figures for 2026: contribution 24.4%, new-entrepreneur discount 22% for 48 months, work income lower limit €9,423.09, upper limit €214,000, unemployment fund threshold €15,481. In October 2026 the government submitted a YEL reform bill to Parliament: from 2028 entrepreneurs could choose either today’s work income or their taxable business earned income as the basis, in which case work income would have to be at least 50% of taxable earned income (phased in from 30% to 50% over 2028–2032). The new-entrepreneur discount would be removed for new entrepreneurs, while existing ones could keep it. The bill is not yet law, and details may change during parliamentary consideration. Sources: Self-employed Persons’ Pensions Act (1272/2006), Finnish Centre for Pensions, Kela and the Tax Administration.' },
         { t: 'h2', x: 'Let us help you size your YEL' },
         { t: 'p', x: 'Tilitoimisto Debit Credit helps you check whether you must take out YEL and goes through with you which work income fits your work and the cover you need. We book your YEL contributions, make sure they are deducted correctly and only once, and help you when the pension company’s review proposal arrives. We work in Finnish and Russian. Get in touch and we will look at your YEL situation together.' },
         { t: 'h2', x: 'Official sources' },
@@ -432,9 +437,9 @@ export const yelVakuutus: Guide = {
       faq: [
         { q: 'Is YEL compulsory for a side business?', a: 'Yes, if the conditions are met: you are 18–69 (up to 70 if born in 1962 or later), you work in the business, it has lasted at least four months and your work income is at least €9,423.09 a year (2026). Whether it is your main job does not matter.' },
         { q: 'How much does YEL cost in 2026?', a: '24.4% of your confirmed work income regardless of age. A new entrepreneur gets a 22% discount for the first 48 months, making it 19.032%. For example, with work income of €30,000 the contribution is €7,320 a year, or €5,709.60 with the discount.' },
-        { q: 'Does a light entrepreneur need YEL?', a: 'Yes, if work income exceeds €9,423.09 a year and the other conditions are met. The invoicing service is not an employer. Without YEL, a light entrepreneur’s work does not count towards Kela allowances either.' },
+        { q: 'Does a light entrepreneur need YEL?', a: 'Yes, if work income is at least €9,423.09 a year and the other conditions are met. The invoicing service is not an employer. Without YEL, a light entrepreneur’s work does not count towards Kela allowances either.' },
         { q: 'When does a limited company shareholder need YEL?', a: 'When they work in a managerial position and alone own more than 30% of the shares or votes, or more than 50% together with family members in the same household. Otherwise a salary from the company is insured under TyEL.' },
-        { q: 'What if I take out YEL late?', a: 'The insurance is backdated, and the State Treasury can impose a neglect fee of up to the contributions for the neglected period. If you do not act on the reminder, the Finnish Centre for Pensions insures you for the current and three previous years, with no new-entrepreneur discount.' },
+        { q: 'What if I take out YEL late?', a: 'The insurance is backdated, but even if you take it out yourself, at most for the current calendar year and the three preceding ones. The State Treasury can impose a neglect fee of up to the contributions for the neglected period. If you do not act on the reminder, the Finnish Centre for Pensions insures you for the current and three previous years, with no new-entrepreneur discount.' },
         { q: 'Can I deduct YEL contributions from my taxes?', a: 'Yes, in full. A sole trader can deduct them in business taxation, on their own return or on the spouse’s, but only once. A limited company shareholder deducts them from their own or their spouse’s earned income.' },
       ],
     },
@@ -461,10 +466,10 @@ export const yelVakuutus: Guide = {
           'Toiminimi (FIE): YEL, kui tingimused on täidetud.',
           'Avoin yhtiö ja kommandiittiyhtiö (täis- ja usaldusühing): isiklikult vastutavad osanikud on YEL-ettevõtjad. Usaldusühingu usaldusosanik kindlustatakse palga pealt TyEL-i järgi.',
           'Osaühing (osakeyhtiö): juhtival kohal (tegevjuht, juhatuse liige vms) töötav osanik on YEL-ettevõtja, kui talle kuulub üksi üle 30 % osakutest või häältest või koos samas leibkonnas elavate pereliikmetega üle 50 %. Arvesse läheb ka teise ettevõtte kaudu omamine.',
-          'Kergettevõtja: samad reeglid mis teistelgi. Arveldusteenus ei ole sinu tööandja, seega on YEL kohustuslik, kui töötulu piir ületatakse.',
+          'Kergettevõtja: samad reeglid mis teistelgi. Arveldusteenus ei ole sinu tööandja, seega on YEL kohustuslik, kui töötulu on vähemalt 9 423,09 € aastas.',
         ] },
         { t: 'h3', x: 'Pereliikmed' },
-        { t: 'p', x: 'Pereliikmed on abikaasa või elukaaslane ning otsejoones üles- või allapoole sugulased, kes elavad ettevõtjaga samas leibkonnas. Toiminimi’s töötav abikaasa on YEL-ettevõtja, samuti muu pereliige, kes töötab palgata. Kui muule pereliikmele kui abikaasale makstakse palka, kindlustatakse ta TyEL-i järgi.' },
+        { t: 'p', x: 'Pereliikmed on abikaasa või elukaaslane ning otsejoones üles- või allapoole sugulased, kes elavad ettevõtjaga samas leibkonnas. Toiminimi-ettevõttes töötav abikaasa on YEL-ettevõtja, samuti muu pereliige, kes töötab palgata. Kui muule pereliikmele kui abikaasale makstakse palka, kindlustatakse ta TyEL-i järgi.' },
         { t: 'h3', x: 'Kes YEL-i ei vaja?' },
         { t: 'ul', items: [
           'Ettevõtja, kelle töötulu jääb alla 9 423,09 € aastas. Vabatahtliku YEL-kindlustuse saab avalduse alusel siiski võtta, kuid mitte tagasiulatuvalt.',
@@ -491,7 +496,7 @@ export const yelVakuutus: Guide = {
         { t: 'h2', x: 'Millele YEL-töötulu mõjub?' },
         { t: 'ul', items: [
           'Pension: igal aastal koguneb 1,5 % aasta töötulust. Samast töötulust olenevad ka töövõimetus- ja toitjakaotuspension.',
-          'Kela haigushüvitis (sairauspäiväraha): ettevõtjal arvestatakse see YEL-töötulust, mitte oma ettevõttest makstud palgast ega äritulust. Kui YEL kehtib haigestumise ajal, on omavastutusaeg ainult haigestumispäev (YEL-päiväraha), muidu haigestumispäev ja 9 tööpäeva.',
+          'Kela haigushüvitis (sairauspäiväraha): ettevõtjal arvestatakse see YEL-töötulust, mitte oma ettevõttest makstud palgast ega äritulust. Üldine omavastutusaeg on haigestumispäev ja sellele järgnevad 9 tööpäeva. Kui YEL kehtib haigestumise ajal, makstakse selle aja eest YEL-päevaraha (YEL-päiväraha), mille enda omavastutusaeg on ainult haigestumispäev.',
           'Vanemahüvitised (rasedus- ja vanemahüvitis) arvestatakse samuti YEL-töötulust. Kehtiva YEL-ita ei arvestata ettevõtlusest Kela aastatulusse midagi, ja see puudutab ka kergettevõtjaid.',
           'Töötus: ettevõtjate töötuskassaga saab liituda, kui YEL-töötulu on vähemalt 15 481 € aastas (2026). Väiksema töötuluga jääb ainult Kela põhikaitse.',
           'Tööõnnetused: YEL ei ole õnnetusjuhtumikindlustus. Ettevõtja võib võtta vabatahtliku tööõnnetus- ja kutsehaiguskindlustuse, mille hüvitised on seotud YEL-töötuluga.',
@@ -503,13 +508,13 @@ export const yelVakuutus: Guide = {
           'Isiklik mahaarvamine säästab sinu teenitud tulu maksumäära ulatuses. Mahaarvatav on ka vabatahtlik YEL alampiirist väiksema töötulu korral.',
         ] },
         { t: 'h2', x: 'Kust kindlustust saab?' },
-        { t: 'p', x: 'YEL-i saab võtta igast töötulupõhise pensioni kindlustusseltsist (Elo, Ilmarinen, Varma, Veritas) või pensionikassast, kui sinu valdkonnas see on olemas (Apteekkien eläkekassa, Eläkekassa Verso). Maksemäär on seadusega kehtestatud ja kõikjal sama; erinevused on teeninduses ja e-teenustes. Kindlustuse saab hiljem viia teise seltsi, kuid töötulu ei muutu üleviimisel ilma erilise põhjuseta.' },
+        { t: 'p', x: 'YEL-i saab võtta igast töötulupõhise pensioni kindlustusseltsist (Elo, Ilmarinen, Varma, Veritas) või pensionikassast, kui sinu valdkonnas see on olemas (Apteekkien eläkekassa, Eläkekassa Verso). Maksemäär on seadusega kehtestatud ja kõikjal sama; erinevused on teeninduses ja e-teenustes. Kindlustuse saab hiljem viia teise seltsi.' },
         { t: 'h2', x: 'Näide eurodes' },
         { t: 'p', x: 'Aila asutab 2026. aastal toiminimi ja töötab täiskohaga koristusteenuste alal. Pensionikindlustusselts kinnitab tema YEL-töötuluks 30 000 € aastas.' },
         { t: 'ul', items: [
           'Tavaline makse oleks 30 000 × 24,4 % = 7 320 € aastas ehk 610 € kuus.',
           'Alustava ettevõtjana maksab Aila 48 kuud 19,032 %: 5 709,60 € aastas ehk 475,80 € kuus. Sääst on 1 610,40 € aastas.',
-          'Pension: 30 000 × 1,5 % = 450 € aastas ehk 37,50 € kuupensioni iga kindlustatud aasta kohta tänases rahas.',
+          'Pension: 30 000 × 1,5 % = 450 € aastas ehk umbes 37,50 € kuupensioni iga kindlustatud aasta kohta tänases rahas ja enne eluea koefitsienti.',
           'Töötulu ületab 15 481 €, nii et Aila saab liituda ettevõtjate töötuskassaga. Kela näites on 20 000 € YEL-töötulu korral haigushüvitis umbes 47 € tööpäeva kohta, 30 000 € korral on see suurem.',
           'Maksed on maksustatavast tulust mahaarvatavad.',
         ] },
@@ -524,7 +529,7 @@ export const yelVakuutus: Guide = {
           'Töötulu ülevaatuse ettepanekule ei vastata kahe nädala jooksul ja töötulu muutub ilma sinu hinnanguta.',
           'YEL-maksed arvatakse maha kaks korda – nii ettevõtluse kui ka isiklikus deklaratsioonis.',
         ] },
-        { t: 'note', x: '2026. aasta arvud: makse 24,4 %, alustaja soodustus 22 % 48 kuu jooksul, töötulu alampiir 9 423,09 €, ülempiir 214 000 € ja töötuskassa piir 15 481 €. 2026. aasta oktoobris andis valitsus parlamendile üle YEL-i reformi eelnõu: alates 2028. aastast võiks ettevõtja valida makse aluseks kas praeguse töötulu või ettevõtluse maksustatava teenitud tulu ning alustaja soodustus kaoks. Eelnõu ei ole veel seadus. Allikad: ettevõtjate pensioniseadus (1272/2006), Eläketurvakeskus, Kela ja Soome maksuamet.' },
+        { t: 'note', x: '2026. aasta arvud: makse 24,4 %, alustaja soodustus 22 % 48 kuu jooksul, töötulu alampiir 9 423,09 €, ülempiir 214 000 € ja töötuskassa piir 15 481 €. 2026. aasta oktoobris andis valitsus parlamendile üle YEL-i reformi eelnõu: alates 2028. aastast võiks ettevõtja valida makse aluseks kas praeguse töötulu või ettevõtluse maksustatava teenitud tulu kusjuures töötulu peaks olema vähemalt 50 % maksustatavast teenitud tulust (üleminekuajal 2028–2032 järk-järgult 30–50 %). Alustaja soodustus kaoks uutel ettevõtjatel, praegused võiksid selle säilitada. Eelnõu ei ole veel seadus ja üksikasjad võivad parlamendis menetlemise käigus muutuda. Allikad: ettevõtjate pensioniseadus (1272/2006), Eläketurvakeskus, Kela ja Soome maksuamet.' },
         { t: 'h2', x: 'Aitame YEL-i õigesti paika panna' },
         { t: 'p', x: 'Tilitoimisto Debit Credit aitab välja selgitada, kas sul on YEL-kohustus, ja vaatab koos sinuga läbi, milline töötulu sobib sinu tööga ja vajaliku kaitsega. Kirjendame YEL-maksed, hoolitseme, et need arvataks maksustamisel maha õigesti ja ainult kord, ning aitame, kui pensionikindlustusseltsi ülevaatuse ettepanek saabub. Teenindame soome ja vene keeles. Võta ühendust ja vaatame sinu YEL-olukorra koos üle.' },
         { t: 'h2', x: 'Ametlikud allikad' },
@@ -542,9 +547,9 @@ export const yelVakuutus: Guide = {
       faq: [
         { q: 'Kas YEL on kohustuslik ka kõrvaltegevusena?', a: 'Jah, kui tingimused on täidetud: oled 18–69-aastane (1962. aastal või hiljem sündinutel kuni 70), töötad ettevõttes, tegevus on kestnud vähemalt neli kuud ja töötulu on vähemalt 9 423,09 € aastas (2026). See, kas töö on põhitöö, ei loe.' },
         { q: 'Kui palju YEL 2026. aastal maksab?', a: '24,4 % kinnitatud töötulust vanusest olenemata. Alustav ettevõtja saab esimesed 48 kuud 22 % soodustust ja makse on 19,032 %. Näiteks 30 000 € töötulu korral on makse 7 320 € aastas, soodustusega 5 709,60 €.' },
-        { q: 'Kas kergettevõtja vajab YEL-i?', a: 'Jah, kui töötulu ületab 9 423,09 € aastas ja muud tingimused on täidetud. Arveldusteenus ei ole tööandja. Ilma YEL-ita ei arvestata kergettevõtja tööd ka Kela hüvitiste puhul.' },
+        { q: 'Kas kergettevõtja vajab YEL-i?', a: 'Jah, kui töötulu on vähemalt 9 423,09 € aastas ja muud tingimused on täidetud. Arveldusteenus ei ole tööandja. Ilma YEL-ita ei arvestata kergettevõtja tööd ka Kela hüvitiste puhul.' },
         { q: 'Millal vajab YEL-i osaühingu osanik?', a: 'Kui ta töötab ühingus juhtival kohal ja talle kuulub üksi üle 30 % osakutest või häältest või koos samas leibkonnas elavate pereliikmetega üle 50 %. Muidu kindlustatakse ühingult saadud palk TyEL-i järgi.' },
-        { q: 'Mis juhtub, kui võtan YEL-i hilinemisega?', a: 'Kindlustus võetakse tagasiulatuvalt ja Riigikassa võib määrata hooletustasu kuni hooletusaja maksete suuruses. Kui meeldetuletuse peale olukorda ei paranda, võtab Eläketurvakeskus kindlustuse sinu eest jooksva ja kolme eelmise aasta eest ning alustaja soodustust siis ei ole.' },
+        { q: 'Mis juhtub, kui võtan YEL-i hilinemisega?', a: 'Kindlustus võetakse tagasiulatuvalt, kuid ka ise hilinemisega võttes kõige rohkem jooksva ja kolme eelmise kalendriaasta eest. Riigikassa võib määrata hooletustasu kuni hooletusaja maksete suuruses. Kui meeldetuletuse peale olukorda ei paranda, võtab Eläketurvakeskus kindlustuse sinu eest jooksva ja kolme eelmise aasta eest ning alustaja soodustust siis ei ole.' },
         { q: 'Kas YEL-makseid saab maksudest maha arvata?', a: 'Jah, täies ulatuses. Toiminimi saab need maha arvata ettevõtluse, oma või abikaasa maksustamisel, kuid ainult üks kord. Osaühingu osanik arvab need maha oma või abikaasa teenitud tulust.' },
       ],
     },
@@ -562,7 +567,7 @@ export const yelVakuutus: Guide = {
           'Вам виповнилося 18 років, і ви ще не досягли верхньої вікової межі: 69 років для народжених у 1958–1961 роках і 70 років для народжених у 1962 році й пізніше.',
           'Ви самі працюєте в бізнесі. Самого володіння недостатньо.',
           'Діяльність триває без перерви щонайменше чотири місяці після 18-річчя.',
-          'Ваш розрахунковий дохід YEL (YEL-työtulo) — не менше 9 423,09 € на рік (2026).',
+          'Ваш розрахунковий дохід YEL (YEL-työtulo) — щонайменше 9 423,09 € на рік (2026).',
           'Ви живете й працюєте у Фінляндії. Якщо ви живете в іншій країні ЄС або ЄЕЗ, країну страхування визначають за правилами ЄС (довідка A1).',
         ] },
         { t: 'p', x: 'Умови однакові для підробітку, сезонної роботи та роботи без Y-tunnus. Оформити страховку треба протягом шести місяців від початку діяльності.' },
@@ -571,10 +576,10 @@ export const yelVakuutus: Guide = {
           'Toiminimi (фізична особа-підприємець): YEL, якщо виконано умови.',
           'Avoin yhtiö і kommandiittiyhtiö: учасники з особистою відповідальністю — підприємці за YEL. «Мовчазного» учасника kommandiittiyhtiö страхують за TyEL, як працівника.',
           'Osakeyhtiö: акціонер на керівній посаді (toimitusjohtaja, член правління чи подібне) — підприємець за YEL, якщо йому одному належить понад 30 % акцій або голосів чи разом із членами сім’ї, які живуть з ним в одному домогосподарстві, — понад 50 %. Ураховується й володіння через іншу компанію.',
-          'Kevytyrittäjä: ті самі правила, що й для всіх. Сервіс виставлення рахунків — не ваш роботодавець, тож у разі перевищення порогу YEL обов’язковий.',
+          'Kevytyrittäjä: ті самі правила, що й для всіх. Сервіс виставлення рахунків — не ваш роботодавець, тож YEL обов’язковий, якщо дохід YEL становить щонайменше 9 423,09 € на рік.',
         ] },
         { t: 'h3', x: 'Члени сім’ї' },
-        { t: 'p', x: 'Членами сім’ї вважаються чоловік чи дружина або партнер, з яким ви живете разом, а також родичі за прямою висхідною та низхідною лінією, які живуть з підприємцем в одному домогосподарстві. Подружжя, що працює в toiminimi, — підприємець за YEL, як і інший член сім’ї, що працює без зарплати. Якщо іншому членові сім’ї (не подружжю) платять зарплату, його страхують за TyEL.' },
+        { t: 'p', x: 'Членами сім’ї вважаються чоловік чи дружина або партнер, з яким ви живете разом, а також родичі за прямою висхідною та низхідною лінією, які живуть з підприємцем в одному домогосподарстві. Чоловік або дружина, які працюють у toiminimi, є підприємцями за YEL, як і інший член сім’ї, що працює без зарплати. Якщо іншому членові сім’ї (не чоловікові чи дружині) платять зарплату, його страхують за TyEL.' },
         { t: 'h3', x: 'Кому YEL не потрібен' },
         { t: 'ul', items: [
           'Якщо дохід YEL менший за 9 423,09 € на рік. Добровільну страховку YEL можна оформити за заявою, але не заднім числом.',
@@ -601,26 +606,26 @@ export const yelVakuutus: Guide = {
         { t: 'h2', x: 'На що впливає дохід YEL' },
         { t: 'ul', items: [
           'Пенсія: щороку накопичується 1,5 % річного доходу YEL. Від нього ж залежать пенсія у зв’язку з непрацездатністю та пенсія у разі втрати годувальника.',
-          'Лікарняна допомога Kela (sairauspäiväraha): у підприємця її рахують від доходу YEL, а не від зарплати з власної фірми й не від прибутку бізнесу. Якщо YEL діє на момент хвороби, період без виплат — лише день захворювання (YEL-päiväraha), а без нього — день захворювання і ще 9 робочих днів.',
+          'Лікарняна допомога Kela (sairauspäiväraha): у підприємця її рахують від доходу YEL, а не від зарплати з власної фірми й не від прибутку бізнесу. Загальний період очікування (omavastuuaika) — день захворювання і ще 9 робочих днів. Якщо YEL діє на момент хвороби, за цей період виплачують YEL-päiväraha, а її власний період очікування — лише день захворювання.',
           'Допомоги у зв’язку з вагітністю та доглядом за дитиною (vanhempainpäivärahat) також рахують від доходу YEL. Без чинного YEL дохід від підприємництва до річного доходу для Kela не потрапляє зовсім — це стосується і kevytyrittäjä.',
-          'Безробіття: вступити до каси з безробіття для підприємців можна за доходу YEL від 15 481 € на рік (2026). З меншим доходом залишається лише базовий захист Kela.',
+          'Безробіття: вступити до каси з безробіття для підприємців можна, якщо дохід YEL становить щонайменше 15 481 € на рік (2026). З меншим доходом залишається лише базовий захист Kela.',
           'Нещасні випадки: YEL не страхує від травм на роботі. Можна оформити добровільне страхування від нещасних випадків і професійних захворювань, виплати за яким прив’язані до доходу YEL.',
         ] },
         { t: 'h2', x: 'YEL і податки' },
         { t: 'ul', items: [
-          'Toiminimi: внески YEL вираховують або в податковій декларації бізнесу (форма 5), або у своїй попередньо заповненій декларації, або в декларації подружжя — але лише один раз. Якщо внески проведено в бухгалтерії як витрати, а вирахування ви робите особисто, у формі 5 їх треба зазначити як невираховувані витрати.',
-          'Акціонер osakeyhtiö зі страховкою YEL: страховка й внески особисті. Їх вираховують зі свого заробленого доходу або доходу подружжя в попередньо заповненій декларації, у пункті YEL- tai MYEL-maksut.',
-          'Особисте вирахування заощаджує суму, що дорівнює вашій ставці податку на зароблений дохід. Добровільний YEL за доходу нижче порогу теж вираховується.',
+          'Toiminimi: внески YEL вираховують або в податковій декларації бізнесу (форма 5), або у своїй попередньо заповненій декларації, або в декларації чоловіка чи дружини — але лише один раз. Якщо внески проведено в бухгалтерії як витрати, а вирахування ви робите особисто, у формі 5 їх треба зазначити як невираховувані витрати.',
+          'Акціонер osakeyhtiö зі страховкою YEL: страховка й внески особисті. Їх вираховують зі свого заробленого доходу або доходу чоловіка чи дружини в попередньо заповненій декларації, у пункті YEL- tai MYEL-maksut.',
+          'Особисте вирахування заощаджує суму, що дорівнює вашій ставці податку на зароблений дохід. Добровільний YEL, якщо дохід нижчий за поріг, теж вираховується.',
         ] },
         { t: 'h2', x: 'Де оформити страховку' },
-        { t: 'p', x: 'YEL можна оформити в будь-якій пенсійній страховій компанії (Elo, Ilmarinen, Varma, Veritas) або в пенсійній касі, якщо така є у вашій галузі (Apteekkien eläkekassa, Eläkekassa Verso). Ставку внеску встановлює закон, і вона скрізь однакова. Різниця — у сервісі та онлайн-кабінеті. Страховку можна згодом перевести до іншої компанії, але дохід YEL під час переведення без особливої причини не змінюється.' },
+        { t: 'p', x: 'YEL можна оформити в будь-якій пенсійній страховій компанії (Elo, Ilmarinen, Varma, Veritas) або в пенсійній касі, якщо така є у вашій галузі (Apteekkien eläkekassa, Eläkekassa Verso). Ставку внеску встановлює закон, і вона скрізь однакова. Різниця — у сервісі та онлайн-кабінеті. Страховку можна згодом перевести до іншої компанії.' },
         { t: 'h2', x: 'Приклад у євро' },
         { t: 'p', x: 'Айла у 2026 році відкриває toiminimi і повний день працює у сфері прибирання. Пенсійна компанія затверджує її дохід YEL — 30 000 € на рік.' },
         { t: 'ul', items: [
           'Звичайний внесок: 30 000 × 24,4 % = 7 320 € на рік, або 610 € на місяць.',
           'Як початківець, Айла 48 місяців платить 19,032 %: 5 709,60 € на рік, або 475,80 € на місяць. Економія — 1 610,40 € на рік.',
-          'Пенсія: 30 000 × 1,5 % = 450 € на рік, тобто 37,50 € щомісячної пенсії за кожен застрахований рік у сьогоднішніх грошах.',
-          'Дохід вищий за 15 481 €, тож Айла може вступити до каси з безробіття для підприємців. У прикладі Kela за доходу YEL 20 000 € лікарняна допомога — близько 47 € за робочий день, за 30 000 € вона буде вищою.',
+          'Пенсія: 30 000 × 1,5 % = 450 € на рік, тобто приблизно 37,50 € щомісячної пенсії за кожен застрахований рік у сьогоднішніх грошах, до застосування коефіцієнта тривалості життя (elinaikakerroin).',
+          'Дохід вищий за 15 481 €, тож Айла може вступити до каси з безробіття для підприємців. У прикладі Kela, якщо дохід YEL становить 20 000 €, лікарняна допомога — близько 47 € за робочий день, а якщо 30 000 € — вона буде вищою.',
           'Внески вираховуються з оподатковуваного доходу.',
         ] },
         { t: 'p', x: 'Якби Айла обрала мінімальний дохід 9 423,09 €, внесок без знижки становив би 2 299,23 € на рік. Зараз вона заощадила б, але пенсії накопичилося б приблизно втричі менше, допомоги Kela теж були б помітно нижчими, а до каси з безробіття вона б не потрапила.' },
@@ -634,7 +639,7 @@ export const yelVakuutus: Guide = {
           'Не відповісти на пропозицію щодо перегляду доходу протягом двох тижнів — дохід змінять без вашої думки.',
           'Вирахувати внески YEL двічі: і в декларації бізнесу, і в особистій.',
         ] },
-        { t: 'note', x: 'Цифри 2026 року: внесок 24,4 %, знижка початківцям 22 % на 48 місяців, нижня межа доходу 9 423,09 €, верхня 214 000 €, поріг для каси з безробіття 15 481 €. У жовтні 2026 року уряд вніс до парламенту законопроєкт про реформу YEL: з 2028 року підприємець міг би обирати основою внеску або нинішній дохід YEL, або оподатковуваний зароблений дохід від бізнесу, а знижка початківцям зникла б. Це ще не закон. Джерела: закон 1272/2006, Eläketurvakeskus, Kela і податкова Verohallinto.' },
+        { t: 'note', x: 'Цифри 2026 року: внесок 24,4 %, знижка початківцям 22 % на 48 місяців, нижня межа доходу 9 423,09 €, верхня 214 000 €, поріг для каси з безробіття 15 481 €. У жовтні 2026 року уряд вніс до парламенту законопроєкт про реформу YEL: з 2028 року підприємець міг би обирати основою внеску або нинішній дохід YEL, або оподатковуваний зароблений дохід від бізнесу, при цьому дохід YEL мав би становити щонайменше 50 % оподатковуваного заробленого доходу (у перехідний період 2028–2032 років — поступово від 30 до 50 %). Знижку початківцям скасували б для нових підприємців, а чинні могли б її зберегти. Це ще не закон, і деталі можуть змінитися під час розгляду в парламенті. Джерела: закон 1272/2006, Eläketurvakeskus, Kela і податкова Verohallinto.' },
         { t: 'h2', x: 'Допоможемо правильно визначити YEL' },
         { t: 'p', x: 'Tilitoimisto Debit Credit допоможе з’ясувати, чи зобов’язані ви оформлювати YEL, і разом з вами розбере, який дохід YEL відповідає вашій роботі та потрібному вам захисту. Ми проводимо внески YEL у бухгалтерії, стежимо, щоб податкове вирахування було зроблено правильно й один раз, і допомагаємо, коли надходить пропозиція пенсійної компанії про перегляд доходу. Працюємо фінською та російською. Зв’яжіться з нами — подивимося вашу ситуацію з YEL.' },
         { t: 'h2', x: 'Офіційні джерела' },
@@ -650,12 +655,12 @@ export const yelVakuutus: Guide = {
         ] },
       ],
       faq: [
-        { q: 'Чи потрібен YEL, якщо бізнес — підробіток?', a: 'Так, якщо виконано умови: вам 18–69 років (для народжених у 1962 році й пізніше — до 70), ви працюєте в бізнесі, діяльність триває щонайменше чотири місяці, а дохід YEL — не менше 9 423,09 € на рік (2026). Основна це робота чи ні, не має значення.' },
-        { q: 'Скільки коштує YEL у 2026 році?', a: '24,4 % від затвердженого доходу незалежно від віку. Підприємець-початківець перші 48 місяців отримує знижку 22 %, і внесок становить 19,032 %. Наприклад, за доходу 30 000 € внесок — 7 320 € на рік, зі знижкою — 5 709,60 €.' },
-        { q: 'Чи потрібен YEL kevytyrittäjä?', a: 'Так, якщо дохід перевищує 9 423,09 € на рік і виконано інші умови. Сервіс виставлення рахунків не є роботодавцем. Без YEL робота kevytyrittäjä не враховується і під час розрахунку допомог Kela.' },
+        { q: 'Чи потрібен YEL, якщо бізнес — підробіток?', a: 'Так, якщо виконано умови: вам 18–69 років (для народжених у 1962 році й пізніше — до 70), ви працюєте в бізнесі, діяльність триває щонайменше чотири місяці, а дохід YEL — щонайменше 9 423,09 € на рік (2026). Основна це робота чи ні, не має значення.' },
+        { q: 'Скільки коштує YEL у 2026 році?', a: '24,4 % від затвердженого доходу незалежно від віку. Підприємець-початківець перші 48 місяців отримує знижку 22 %, і внесок становить 19,032 %. Наприклад, якщо дохід становить 30 000 €, внесок — 7 320 € на рік, зі знижкою — 5 709,60 €.' },
+        { q: 'Чи потрібен YEL kevytyrittäjä?', a: 'Так, якщо дохід становить щонайменше 9 423,09 € на рік і виконано інші умови. Сервіс виставлення рахунків не є роботодавцем. Без YEL робота kevytyrittäjä не враховується і під час розрахунку допомог Kela.' },
         { q: 'Коли YEL потрібен акціонерові osakeyhtiö?', a: 'Коли він працює в компанії на керівній посаді й володіє сам понад 30 % акцій або голосів чи разом із членами сім’ї з одного домогосподарства — понад 50 %. Інакше зарплату від компанії страхують за TyEL.' },
-        { q: 'Що буде, якщо оформити YEL із запізненням?', a: 'Страховку оформлять заднім числом, а Valtiokonttori може призначити штраф до суми внесків за пропущений час. Якщо не виправити ситуацію після вимоги, Eläketurvakeskus сам оформить страховку за поточний і три попередні роки, і знижки початківцю тоді не буде.' },
-        { q: 'Чи можна вирахувати внески YEL з податків?', a: 'Так, повністю. Власник toiminimi вираховує їх в оподаткуванні бізнесу, у своєму або в оподаткуванні подружжя, але лише один раз. Акціонер osakeyhtiö вираховує їх зі свого заробленого доходу або доходу подружжя.' },
+        { q: 'Що буде, якщо оформити YEL із запізненням?', a: 'Страховку оформлять заднім числом, але навіть якщо ви оформлюєте її самі, — не більше ніж за поточний і три попередні календарні роки. Valtiokonttori може призначити штраф до суми внесків за пропущений час. Якщо не виправити ситуацію після вимоги, Eläketurvakeskus сам оформить страховку за поточний і три попередні роки, і знижки початківцю тоді не буде.' },
+        { q: 'Чи можна вирахувати внески YEL з податків?', a: 'Так, повністю. Власник toiminimi вираховує їх у декларації бізнесу, у своїй або в декларації чоловіка чи дружини, але лише один раз. Акціонер osakeyhtiö вираховує їх зі свого заробленого доходу або доходу чоловіка чи дружини.' },
       ],
     },
   },
