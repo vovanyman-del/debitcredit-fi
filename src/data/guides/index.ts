@@ -18,6 +18,7 @@ import { kilometrikorvausPaivaraha2026 } from './kilometrikorvaus-paivaraha-2026
 import { ajopaivakirja } from './ajopaivakirja';
 import { ensimmainenTyontekija } from './ensimmainen-tyontekija';
 import { verotili } from './verotili';
+import { yelVakuutus } from './yel-vakuutus';
 
 export * from './types';
 
@@ -42,6 +43,7 @@ export const guides: Guide[] = [
   ajopaivakirja,
   ensimmainenTyontekija,
   verotili,
+  yelVakuutus,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -72,6 +74,9 @@ export function relatedGuides(slug: string, limit = 3): Guide[] {
   }
   if (slug === verotili.slug) {
     return [alvOpas, ennakkovero, ensimmainenTyontekija].slice(0, limit);
+  }
+  if (slug === yelVakuutus.slug) {
+    return [toiminimenVerotus, starttiraha, toiminimiVaiOy].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
