@@ -19,6 +19,7 @@ import { ajopaivakirja } from './ajopaivakirja';
 import { ensimmainenTyontekija } from './ensimmainen-tyontekija';
 import { verotili } from './verotili';
 import { yelVakuutus } from './yel-vakuutus';
+import { tilinpaatosPienyritykselle } from './tilinpaatos-pienyritykselle';
 
 export * from './types';
 
@@ -44,6 +45,7 @@ export const guides: Guide[] = [
   ensimmainenTyontekija,
   verotili,
   yelVakuutus,
+  tilinpaatosPienyritykselle,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -77,6 +79,9 @@ export function relatedGuides(slug: string, limit = 3): Guide[] {
   }
   if (slug === yelVakuutus.slug) {
     return [toiminimenVerotus, starttiraha, toiminimiVaiOy].slice(0, limit);
+  }
+  if (slug === tilinpaatosPienyritykselle.slug) {
+    return [kirjanpidonHinta, osinkoVaiPalkka, toiminimenVerotus].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
