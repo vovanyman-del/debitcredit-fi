@@ -94,7 +94,7 @@ import type { Guide } from './types';
 //   voidaan määrätä selvitystilaan". Osakeyhtiö ja osuuskunta (18.9.2026): "Ilmoita vahvistettu
 //   tilinpäätös kaupparekisteriin 8 kuukauden kuluessa tilikauden päättymisestä"; "maksutonta 8 kuukauden
 //   ajan". Avoin yhtiö ja kommandiittiyhtiö: "6 kuukauden kuluessa tilikauden päättymisestä vain, kun" an
-//   oy is a (responsible) partner, or "vähintään kaksi seuraavista rajoista: liikevaihto 15 000 000 euroa;
+//   oy is the partnership's responsible partner (KPL 3:9: "jonka vastuunalaisena yhtiömiehenä on osakeyhtiö"), or "vähintään kaksi seuraavista rajoista: liikevaihto 15 000 000 euroa;
 //   taseen loppusumma 7 500 000 euroa; palveluksessa keskimäärin 50 henkilöä". Yksityinen
 //   elinkeinonharjoittaja (1.1.2026): the same two-of-three test, "6 kuukauden kuluessa". Myöhästymismaksu
 //   (29.1.2026) and press release 25.8.2026: "koskee 1.12.2024 ja sen jälkeen päättyvien tilikausien
@@ -170,7 +170,7 @@ export const tilinpaatosPienyritykselle: Guide = {
           'Mikroyritys: taseen loppusumma 450 000 euroa, liikevaihto 900 000 euroa, keskimäärin 10 työntekijää.',
           'Pienyritys: taseen loppusumma 7 500 000 euroa, liikevaihto 15 000 000 euroa, keskimäärin 50 työntekijää.',
         ] },
-        { t: 'p', x: 'Rajoja korotettiin lailla 605/2024. Uusia rajoja sovelletaan 1.1.2025 tai sen jälkeen alkaviin tilikausiin (halutessaan jo 1.1.2024 alkaneeseen tilikauteen), joten ne koskevat 31.12.2026 päättyvää tilikautta.' },
+        { t: 'p', x: 'Rajoja korotettiin lailla 605/2024. Uusia rajoja sovelletaan 1.1.2025 tai sen jälkeen alkaviin tilikausiin (halutessaan jo 1.1.2024 tai sen jälkeen alkaneeseen tilikauteen), joten ne koskevat 31.12.2026 päättyvää tilikautta.' },
         { t: 'h2', x: 'Toiminimi: tarvitaanko tilinpäätöstä?' },
         { t: 'p', x: 'Toiminimiyrittäjä (liikkeen- tai ammatinharjoittaja) on kirjanpitovelvollinen, mutta tilinpäätös on pakollinen vain, jos sekä päättyneellä että sitä edeltäneellä tilikaudella vähintään kaksi mikroyrityksen rajaa ylittyy. Tavallisen toiminimen ei siis tarvitse laatia tilinpäätöstä. Kirjanpito on silti pidettävä niin, että myyntisaamiset, ostovelat ja verotuksessa tarvittavat tiedot saadaan selville.' },
         { t: 'ul', items: [
@@ -180,7 +180,7 @@ export const tilinpaatosPienyritykselle: Guide = {
           'Toiminimi ilmoittaa tilinpäätöksen kaupparekisteriin vain, jos se on pienyritystä suurempi.',
         ] },
         { t: 'h2', x: 'Avoin yhtiö ja kommandiittiyhtiö' },
-        { t: 'p', x: 'Avoimen yhtiön ja kommandiittiyhtiön on laadittava tilinpäätös neljän kuukauden kuluessa tilikauden päättymisestä, ja vastuunalaiset yhtiömiehet allekirjoittavat sen. Huomaa, että veroilmoitus (lomake 6A) on annettava aiemmin: verovuodelta 2025 viimeistään 1.4.2026. Tilinpäätöstä ei liitetä veroilmoitukseen. Kaupparekisteriin tilinpäätös ilmoitetaan kuuden kuukauden kuluessa vain, jos yhtiömiehenä tai vastuunalaisena yhtiömiehenä on osakeyhtiö tai jos yhtiö on pienyritystä suurempi.' },
+        { t: 'p', x: 'Avoimen yhtiön ja kommandiittiyhtiön on laadittava tilinpäätös neljän kuukauden kuluessa tilikauden päättymisestä, ja vastuunalaiset yhtiömiehet allekirjoittavat sen. Huomaa, että veroilmoitus (lomake 6A) on annettava aiemmin: verovuodelta 2025 viimeistään 1.4.2026. Tilinpäätöstä ei liitetä veroilmoitukseen. Kaupparekisteriin tilinpäätös ilmoitetaan kuuden kuukauden kuluessa vain, jos yhtiön vastuunalaisena yhtiömiehenä on osakeyhtiö tai jos yhtiö on pienyritystä suurempi.' },
         { t: 'h2', x: 'Osakeyhtiö: velvollisuudet ja määräajat' },
         { t: 'ul', items: [
           'Tilinpäätös laaditaan neljän kuukauden kuluessa tilikauden päättymisestä, ja hallitus ja toimitusjohtaja allekirjoittavat sen.',
@@ -230,7 +230,7 @@ export const tilinpaatosPienyritykselle: Guide = {
         ] },
         { t: 'note', x: 'Kokorajat koskevat 1.1.2025 tai sen jälkeen alkaneita tilikausia: mikroyritys 450 000 / 900 000 euroa / 10 henkilöä ja pienyritys 7 500 000 / 15 000 000 euroa / 50 henkilöä. Myöhästymismaksut (150, 300 ja 600 euroa) koskevat osakeyhtiöitä ja osuuskuntia, joiden tilikausi on päättynyt 1.12.2024 tai sen jälkeen. Vuoden 2027 veroilmoitusten tarkat määräpäivät julkaistaan OmaVerossa. Lähteet: kirjanpitolaki (1336/1997), PMA (1753/2015), osakeyhtiölaki (624/2006), tilintarkastuslaki (1141/2015), elinkeinoverolaki (360/1968), PRH ja Verohallinto.' },
         { t: 'h2', x: 'Autamme tilinpäätöksessä' },
-        { t: 'p', x: 'Tilitoimisto Debit Credit laatii pienyrityksen tilinpäätöksen ja veroilmoituksen, käy kanssasi läpi poistot, varaston ja jaksotukset sekä valmistelee osakeyhtiön yhtiökokouksen asiakirjat ja voitonjakoehdotuksen. Huolehdimme myös siitä, että tilinpäätös päätyy kaupparekisteriin ajoissa. Asiakkaamme voivat toimittaa kuitit ja tiliotteet Vaavo-sovelluksen kautta. Palvelemme suomeksi ja venäjäksi. Ota yhteyttä hyvissä ajoin ennen vuodenvaihdetta, niin aikataulu ei pääse yllättämään.' },
+        { t: 'p', x: 'Tilitoimisto Debit Credit laatii pienyrityksen tilinpäätöksen ja veroilmoituksen, käy kanssasi läpi poistot, varaston ja jaksotukset sekä valmistelee osakeyhtiön yhtiökokouksen asiakirjat ja voitonjakoehdotuksen. Ilmoitamme vahvistetun tilinpäätöksen kaupparekisteriin puolestasi. Asiakkaamme voivat toimittaa kuitit ja tiliotteet Vaavo-sovelluksen kautta. Palvelemme suomeksi ja venäjäksi. Ota yhteyttä hyvissä ajoin ennen vuodenvaihdetta, niin aikataulu ei pääse yllättämään.' },
         { t: 'h2', x: 'Viranomaislähteet' },
         { t: 'links', items: [
           { label: 'PRH: tilinpäätösilmoitukset kaupparekisteriin', href: SRC.prhHubFi },
@@ -277,7 +277,7 @@ export const tilinpaatosPienyritykselle: Guide = {
           'Микрокомпания: итог баланса 450 000 €, оборот 900 000 €, в среднем 10 работников.',
           'Малая компания: итог баланса 7 500 000 €, оборот 15 000 000 €, в среднем 50 работников.',
         ] },
-        { t: 'p', x: 'Пороги повышены законом 605/2024. Новые значения применяются к финансовым годам, начавшимся 1.1.2025 или позже (по желанию — уже к году, начавшемуся 1.1.2024), то есть и к году, который заканчивается 31.12.2026.' },
+        { t: 'p', x: 'Пороги повышены законом 605/2024. Новые значения применяются к финансовым годам, начавшимся 1.1.2025 или позже (по желанию — уже к годам, начавшимся 1.1.2024 или позже), то есть и к году, который заканчивается 31.12.2026.' },
         { t: 'h2', x: 'Toiminimi: нужен ли tilinpäätös?' },
         { t: 'p', x: 'Индивидуальный предприниматель (toiminimi, liikkeen- tai ammatinharjoittaja) обязан вести бухгалтерию, но tilinpäätös обязателен, только если и в завершившемся, и в предыдущем году превышены как минимум два порога микрокомпании. Обычному toiminimi составлять отчётность не нужно. Учёт всё равно ведут так, чтобы были видны дебиторская и кредиторская задолженность и данные для налогообложения.' },
         { t: 'ul', items: [
@@ -287,7 +287,7 @@ export const tilinpaatosPienyritykselle: Guide = {
           'В торговый реестр toiminimi подаёт отчётность, только если он крупнее малой компании.',
         ] },
         { t: 'h2', x: 'Avoin yhtiö и kommandiittiyhtiö' },
-        { t: 'p', x: 'Полное товарищество (avoin yhtiö) и коммандитное товарищество (kommandiittiyhtiö) должны составить tilinpäätös в течение четырёх месяцев после окончания года; подписывают её полные (ответственные) товарищи. Обратите внимание: налоговую декларацию (форма 6A) подают раньше — за 2025 год до 1.4.2026. Отчётность к декларации не прикладывают. В торговый реестр её подают в течение шести месяцев, только если товарищем или ответственным товарищем является Oy либо товарищество крупнее малой компании.' },
+        { t: 'p', x: 'Полное товарищество (avoin yhtiö) и коммандитное товарищество (kommandiittiyhtiö) должны составить tilinpäätös в течение четырёх месяцев после окончания года; подписывают отчётность полные (ответственные) товарищи. Обратите внимание: налоговую декларацию (форма 6A) подают раньше — за 2025 год до 1.4.2026. Отчётность к декларации не прикладывают. В торговый реестр её подают в течение шести месяцев, только если полным (ответственным) товарищем является Oy либо если товарищество крупнее малой компании.' },
         { t: 'h2', x: 'Osakeyhtiö: обязанности и сроки' },
         { t: 'ul', items: [
           'Tilinpäätös составляют в течение четырёх месяцев после окончания финансового года; подписывают правление и генеральный директор.',
@@ -319,7 +319,7 @@ export const tilinpaatosPienyritykselle: Guide = {
         { t: 'ul', items: [
           'Декабрь–январь: передайте бухгалтеру все документы за год, выписки, список складских остатков и сведения о расходах и доходах года, по которым ещё нет счетов.',
           'Февраль–март: проект отчётности и расчёт амортизации. Декларации toiminimi, avoin yhtiö и kommandiittiyhtiö подают к началу апреля (за 2025 год срок был 1.4.2026). Точную дату проверьте в OmaVero.',
-          'Апрель: tilinpäätös должна быть составлена и подписана не позднее 30.4.2027. Декларацию Oy подают не позднее 30.4.2027.',
+          'Апрель: отчётность (tilinpäätös) должна быть составлена и подписана не позднее 30.4.2027. Декларацию Oy подают не позднее 30.4.2027.',
           'Май–июнь: общее собрание Oy — не позднее 30.6.2027. Если avoin yhtiö или kommandiittiyhtiö обязано подавать отчётность в реестр, срок тоже 30.6.2027.',
           'Июль–август: утверждённая отчётность Oy — в торговый реестр не позднее 31.8.2027.',
         ] },
@@ -337,7 +337,7 @@ export const tilinpaatosPienyritykselle: Guide = {
         ] },
         { t: 'note', x: 'Пороги действуют для финансовых годов, начавшихся 1.1.2025 или позже: микрокомпания 450 000 / 900 000 € / 10 человек, малая компания 7 500 000 / 15 000 000 € / 50 человек. Сборы за опоздание (150, 300 и 600 €) касаются Oy и кооперативов с финансовым годом, закончившимся 1.12.2024 или позже. Точные сроки деклараций 2027 года публикуются в OmaVero. Источники: kirjanpitolaki (1336/1997), PMA (1753/2015), закон об акционерных обществах (624/2006), закон об аудите (1141/2015), закон о налогообложении предпринимательской деятельности (360/1968), PRH и Verohallinto.' },
         { t: 'h2', x: 'Поможем с годовой отчётностью' },
-        { t: 'p', x: 'Tilitoimisto Debit Credit составит tilinpäätös и налоговую декларацию вашей компании, разберёт с вами амортизацию, склад и начисления, подготовит документы для общего собрания Oy и предложение о распределении прибыли. Мы также проследим, чтобы отчётность вовремя попала в торговый реестр. Наши клиенты передают чеки и выписки через приложение Vaavo. Работаем на русском и финском. Свяжитесь с нами заранее, до конца года, — тогда сроки не застанут врасплох.' },
+        { t: 'p', x: 'Tilitoimisto Debit Credit составит tilinpäätös и налоговую декларацию вашей компании, разберёт с вами амортизацию, склад и начисления, подготовит документы для общего собрания Oy и предложение о распределении прибыли. Утверждённую отчётность мы подаём в торговый реестр от вашего имени. Наши клиенты могут передавать чеки и выписки через приложение Vaavo. Работаем на русском и финском. Свяжитесь с нами заранее, до конца года, — тогда сроки не застанут врасплох.' },
         { t: 'h2', x: 'Официальные источники' },
         { t: 'links', items: [
           { label: 'PRH: подача отчётности Oy и кооперативов (на английском)', href: SRC.prhOyEn },
@@ -384,7 +384,7 @@ export const tilinpaatosPienyritykselle: Guide = {
           'Micro company: balance sheet total €450,000, turnover €900,000, an average of 10 employees.',
           'Small company: balance sheet total €7,500,000, turnover €15,000,000, an average of 50 employees.',
         ] },
-        { t: 'p', x: 'The limits were raised by Act 605/2024. The new limits apply to financial years starting on or after 1 January 2025 (optionally already to a year that started on 1 January 2024), so they apply to the year ending 31 December 2026.' },
+        { t: 'p', x: 'The limits were raised by Act 605/2024. The new limits apply to financial years starting on or after 1 January 2025 (optionally already to years starting on or after 1 January 2024), so they apply to the year ending 31 December 2026.' },
         { t: 'h2', x: 'Sole trader (toiminimi): are financial statements required?' },
         { t: 'p', x: 'A sole trader (liikkeen- tai ammatinharjoittaja) must keep accounts, but financial statements are required only if at least two of the micro-company limits are exceeded in both the year just ended and the year before. An ordinary toiminimi therefore does not need to prepare them. The books must still show trade receivables, trade payables and the information needed for taxation.' },
         { t: 'ul', items: [
@@ -394,7 +394,7 @@ export const tilinpaatosPienyritykselle: Guide = {
           'A sole trader files financial statements with the Trade Register only if the business is larger than a small company.',
         ] },
         { t: 'h2', x: 'General and limited partnerships (avoin yhtiö, kommandiittiyhtiö)' },
-        { t: 'p', x: 'A general partnership and a limited partnership must prepare financial statements within four months of the end of the financial year, signed by the partners with unlimited liability. Note that the tax return (Form 6A) is due earlier: for tax year 2025 it was due by 1 April 2026. The financial statements are not attached to the tax return. They are filed with the Trade Register within six months only if a limited company is a partner or a partner with unlimited liability, or if the partnership is larger than a small company.' },
+        { t: 'p', x: 'A general partnership and a limited partnership must prepare financial statements within four months of the end of the financial year, signed by the partners with unlimited liability. Note that the tax return (Form 6A) is due earlier: for tax year 2025 it was due by 1 April 2026. The financial statements are not attached to the tax return. They are filed with the Trade Register within six months only if a limited company is the partnership’s partner with unlimited liability, or if the partnership is larger than a small company.' },
         { t: 'h2', x: 'Limited company (osakeyhtiö): obligations and deadlines' },
         { t: 'ul', items: [
           'The financial statements are prepared within four months of the end of the financial year and signed by the board and the managing director.',
@@ -444,7 +444,7 @@ export const tilinpaatosPienyritykselle: Guide = {
         ] },
         { t: 'note', x: 'The size limits apply to financial years starting on or after 1 January 2025: micro company €450,000 / €900,000 / 10 people and small company €7,500,000 / €15,000,000 / 50 people. The late-filing fees (€150, €300 and €600) apply to limited companies and cooperatives whose financial year ended on or after 1 December 2024. The exact 2027 tax return deadlines are published in MyTax. Sources: Accounting Act (1336/1997), PMA decree (1753/2015), Limited Liability Companies Act (624/2006), Auditing Act (1141/2015), Business Income Tax Act (360/1968), PRH and the Tax Administration.' },
         { t: 'h2', x: 'We help with your financial statements' },
-        { t: 'p', x: 'Tilitoimisto Debit Credit prepares your small company’s financial statements and tax return, goes through depreciation, stock and accruals with you, and prepares the documents for your limited company’s general meeting and the profit distribution proposal. We also make sure your statements reach the Trade Register on time. Our clients send their receipts and bank statements through the Vaavo app. We work in Finnish and Russian. Get in touch well before the year-end so the deadlines do not take you by surprise.' },
+        { t: 'p', x: 'Tilitoimisto Debit Credit prepares your small company’s financial statements and tax return, goes through depreciation, stock and accruals with you, and prepares the documents for your limited company’s general meeting and the profit distribution proposal. We file the adopted financial statements with the Trade Register on your behalf. Our clients can send their receipts and bank statements through the Vaavo app. We work in Finnish and Russian. Get in touch well before the year-end so the deadlines do not take you by surprise.' },
         { t: 'h2', x: 'Official sources' },
         { t: 'links', items: [
           { label: 'PRH: financial statements of limited companies and cooperatives', href: SRC.prhOyEn },
@@ -491,7 +491,7 @@ export const tilinpaatosPienyritykselle: Guide = {
           'Mikroettevõte: bilansimaht 450 000 €, käive 900 000 €, keskmiselt 10 töötajat.',
           'Väikeettevõte: bilansimaht 7 500 000 €, käive 15 000 000 €, keskmiselt 50 töötajat.',
         ] },
-        { t: 'p', x: 'Piire tõsteti seadusega 605/2024. Uusi piire kohaldatakse majandusaastatele, mis algavad 1.1.2025 või hiljem (soovi korral juba 1.1.2024 alanud aastale), seega ka 31.12.2026 lõppevale aastale.' },
+        { t: 'p', x: 'Piire tõsteti seadusega 605/2024. Uusi piire kohaldatakse majandusaastatele, mis algavad 1.1.2025 või hiljem (soovi korral juba 1.1.2024 või hiljem alanud aastatele), seega ka 31.12.2026 lõppevale aastale.' },
         { t: 'h2', x: 'Toiminimi: kas aruannet on vaja?' },
         { t: 'p', x: 'Füüsilisest isikust ettevõtja (toiminimi, liikkeen- tai ammatinharjoittaja) peab pidama raamatupidamist, kuid tilinpäätös on kohustuslik ainult siis, kui nii lõppenud kui ka eelmisel aastal ületatakse vähemalt kaks mikroettevõtte piiri. Tavaline toiminimi ei pea seega aruannet koostama. Raamatupidamine tuleb siiski pidada nii, et nõuded ostjate vastu, võlad tarnijatele ja maksustamiseks vajalikud andmed oleksid selgelt näha.' },
         { t: 'ul', items: [
@@ -501,7 +501,7 @@ export const tilinpaatosPienyritykselle: Guide = {
           'Äriregistrile esitab toiminimi aruande ainult siis, kui ta on väikeettevõttest suurem.',
         ] },
         { t: 'h2', x: 'Täisühing ja usaldusühing' },
-        { t: 'p', x: 'Täisühing (avoin yhtiö) ja usaldusühing (kommandiittiyhtiö) peavad koostama aruande nelja kuu jooksul pärast majandusaasta lõppu; selle allkirjastavad täisosanikud. Pane tähele, et maksudeklaratsioon (vorm 6A) tuleb esitada varem: 2025. aasta eest hiljemalt 1.4.2026. Aruannet deklaratsioonile ei lisata. Äriregistrile esitatakse see kuue kuu jooksul ainult siis, kui osanikuks või täisosanikuks on osaühing või kui ühing on väikeettevõttest suurem.' },
+        { t: 'p', x: 'Täisühing (avoin yhtiö) ja usaldusühing (kommandiittiyhtiö) peavad koostama aruande nelja kuu jooksul pärast majandusaasta lõppu; selle allkirjastavad täisosanikud. Pane tähele, et maksudeklaratsioon (vorm 6A) tuleb esitada varem: 2025. aasta eest hiljemalt 1.4.2026. Aruannet deklaratsioonile ei lisata. Äriregistrile esitatakse see kuue kuu jooksul ainult siis, kui ühingu täisosanikuks on osaühing või kui ühing on väikeettevõttest suurem.' },
         { t: 'h2', x: 'Osaühing (osakeyhtiö): kohustused ja tähtajad' },
         { t: 'ul', items: [
           'Aruanne koostatakse nelja kuu jooksul pärast majandusaasta lõppu ning selle allkirjastavad juhatus ja tegevjuht.',
@@ -551,7 +551,7 @@ export const tilinpaatosPienyritykselle: Guide = {
         ] },
         { t: 'note', x: 'Suuruspiirid kehtivad majandusaastatele, mis algasid 1.1.2025 või hiljem: mikroettevõte 450 000 / 900 000 € / 10 inimest ja väikeettevõte 7 500 000 / 15 000 000 € / 50 inimest. Hilinemistasud (150, 300 ja 600 €) puudutavad osaühinguid ja ühistuid, mille majandusaasta lõppes 1.12.2024 või hiljem. 2027. aasta deklaratsioonide täpsed tähtajad avaldatakse OmaVeros. Allikad: Soome raamatupidamisseadus (1336/1997), PMA (1753/2015), osaühinguseadus (624/2006), auditiseadus (1141/2015), ettevõtlustulu maksustamise seadus (360/1968), PRH ja Soome maksuamet.' },
         { t: 'h2', x: 'Aitame aastaaruandega' },
-        { t: 'p', x: 'Tilitoimisto Debit Credit koostab sinu väikeettevõtte aruande ja maksudeklaratsiooni, vaatab koos sinuga läbi amortisatsiooni, laovarud ja perioodistamised ning valmistab ette osaühingu üldkoosoleku dokumendid ja kasumijaotuse ettepaneku. Hoolitseme ka selle eest, et aruanne jõuaks äriregistrisse õigel ajal. Meie kliendid saadavad kuludokumendid ja pangaväljavõtted Vaavo rakenduse kaudu. Teenindame soome ja vene keeles. Võta ühendust aegsasti enne aastavahetust, siis ei tule tähtajad üllatusena.' },
+        { t: 'p', x: 'Tilitoimisto Debit Credit koostab sinu väikeettevõtte aruande ja maksudeklaratsiooni, vaatab koos sinuga läbi amortisatsiooni, laovarud ja perioodistamised ning valmistab ette osaühingu üldkoosoleku dokumendid ja kasumijaotuse ettepaneku. Kinnitatud aruande esitame äriregistrile sinu eest. Meie kliendid saavad saata kuludokumendid ja pangaväljavõtted Vaavo rakenduse kaudu. Teenindame soome ja vene keeles. Võta ühendust aegsasti enne aastavahetust, siis ei tule tähtajad üllatusena.' },
         { t: 'h2', x: 'Ametlikud allikad' },
         { t: 'links', items: [
           { label: 'PRH: osaühingute ja ühistute aruanded (inglise keeles)', href: SRC.prhOyEn },
@@ -598,17 +598,17 @@ export const tilinpaatosPienyritykselle: Guide = {
           'Мікрокомпанія: підсумок балансу 450 000 €, оборот 900 000 €, у середньому 10 працівників.',
           'Мала компанія: підсумок балансу 7 500 000 €, оборот 15 000 000 €, у середньому 50 працівників.',
         ] },
-        { t: 'p', x: 'Пороги підвищено законом 605/2024. Нові значення застосовуються до фінансових років, що почалися 1.1.2025 або пізніше (за бажанням — уже до року, що почався 1.1.2024), тобто й до року, який закінчується 31.12.2026.' },
+        { t: 'p', x: 'Пороги підвищено законом 605/2024. Нові значення застосовуються до фінансових років, що почалися 1.1.2025 або пізніше (за бажанням — уже до років, що почалися 1.1.2024 або пізніше), тобто й до року, який закінчується 31.12.2026.' },
         { t: 'h2', x: 'Toiminimi: чи потрібна tilinpäätös?' },
         { t: 'p', x: 'Фізична особа-підприємець (toiminimi, liikkeen- tai ammatinharjoittaja) зобов’язана вести бухгалтерію, але tilinpäätös обов’язкова, лише якщо і в завершеному, і в попередньому році перевищено щонайменше два пороги мікрокомпанії. Звичайному toiminimi складати звітність не потрібно. Облік однаково ведуть так, щоб було видно дебіторську й кредиторську заборгованість і дані для оподаткування.' },
         { t: 'ul', items: [
           'Простий (одинарний) облік дозволено, якщо і в завершеному, і в попередньому році перевищено не більше одного з порогів: підсумок балансу 100 000 €, оборот 200 000 €, у середньому три працівники.',
           'Фінансовий рік toiminimi — завжди календарний. За подвійної бухгалтерії він може відрізнятися від календарного.',
           'Податкову декларацію про підприємницьку діяльність (форма 5) подають щороку, навіть якщо діяльності не було. Декларацію за 2025 рік потрібно було подати до 1.4.2026. Строк для декларації за 2026 рік перевірте в OmaVero.',
-          'До торговельного реєстру toiminimi подає звітність, лише якщо він більший за малу компанію.',
+          'До торговельного реєстру фізична особа-підприємець подає звітність, лише якщо її підприємство більше за малу компанію.',
         ] },
         { t: 'h2', x: 'Avoin yhtiö та kommandiittiyhtiö' },
-        { t: 'p', x: 'Повне товариство (avoin yhtiö) і командитне товариство (kommandiittiyhtiö) мають скласти tilinpäätös протягом чотирьох місяців після закінчення року; підписують її повні (відповідальні) учасники. Зверніть увагу: податкову декларацію (форма 6A) подають раніше — за 2025 рік до 1.4.2026. Звітність до декларації не додають. До торговельного реєстру її подають протягом шести місяців, лише якщо учасником або відповідальним учасником є Oy чи товариство більше за малу компанію.' },
+        { t: 'p', x: 'Повне товариство (avoin yhtiö) і командитне товариство (kommandiittiyhtiö) мають скласти tilinpäätös протягом чотирьох місяців після закінчення року; підписують її повні (відповідальні) учасники. Зверніть увагу: податкову декларацію (форма 6A) подають раніше — за 2025 рік до 1.4.2026. Звітність до декларації не додають. До торговельного реєстру її подають протягом шести місяців, лише якщо повним (відповідальним) учасником є Oy або якщо товариство більше за малу компанію.' },
         { t: 'h2', x: 'Osakeyhtiö: обов’язки та строки' },
         { t: 'ul', items: [
           'Tilinpäätös складають протягом чотирьох місяців після закінчення фінансового року; підписують правління та генеральний директор.',
@@ -640,7 +640,7 @@ export const tilinpaatosPienyritykselle: Guide = {
         { t: 'ul', items: [
           'Грудень–січень: передайте бухгалтерові всі документи за рік, виписки, список складських залишків і відомості про доходи й витрати року, за якими ще немає рахунків.',
           'Лютий–березень: проєкт звітності та розрахунок амортизації. Декларації toiminimi, avoin yhtiö і kommandiittiyhtiö подають до початку квітня (за 2025 рік строк був 1.4.2026). Точну дату перевірте в OmaVero.',
-          'Квітень: tilinpäätös має бути складена й підписана не пізніше 30.4.2027. Декларацію Oy подають не пізніше 30.4.2027.',
+          'Квітень: звітність (tilinpäätös) має бути складена й підписана не пізніше 30.4.2027. Декларацію Oy подають не пізніше 30.4.2027.',
           'Травень–червень: загальні збори Oy — не пізніше 30.6.2027. Якщо avoin yhtiö чи kommandiittiyhtiö зобов’язане подавати звітність до реєстру, строк теж 30.6.2027.',
           'Липень–серпень: затверджена звітність Oy — до торговельного реєстру не пізніше 31.8.2027.',
         ] },
@@ -658,7 +658,7 @@ export const tilinpaatosPienyritykselle: Guide = {
         ] },
         { t: 'note', x: 'Пороги діють для фінансових років, що почалися 1.1.2025 або пізніше: мікрокомпанія 450 000 / 900 000 € / 10 осіб, мала компанія 7 500 000 / 15 000 000 € / 50 осіб. Збори за запізнення (150, 300 і 600 €) стосуються Oy та кооперативів, фінансовий рік яких закінчився 1.12.2024 або пізніше. Точні строки декларацій 2027 року публікують в OmaVero. Джерела: kirjanpitolaki (1336/1997), PMA (1753/2015), закон про акціонерні товариства (624/2006), закон про аудит (1141/2015), закон про оподаткування підприємницької діяльності (360/1968), PRH і Verohallinto.' },
         { t: 'h2', x: 'Допоможемо з річною звітністю' },
-        { t: 'p', x: 'Tilitoimisto Debit Credit складе tilinpäätös і податкову декларацію вашої компанії, розбере з вами амортизацію, склад і нарахування, підготує документи для загальних зборів Oy та пропозицію щодо розподілу прибутку. Ми також простежимо, щоб звітність вчасно потрапила до торговельного реєстру. Наші клієнти передають чеки й виписки через застосунок Vaavo. Працюємо фінською та російською. Зв’яжіться з нами заздалегідь, до кінця року, — тоді строки не застануть зненацька.' },
+        { t: 'p', x: 'Tilitoimisto Debit Credit складе tilinpäätös і податкову декларацію вашої компанії, розбере з вами амортизацію, склад і нарахування, підготує документи для загальних зборів Oy та пропозицію щодо розподілу прибутку. Затверджену звітність ми подаємо до торговельного реєстру від вашого імені. Наші клієнти можуть передавати чеки й виписки через застосунок Vaavo. Працюємо фінською та російською. Зв’яжіться з нами заздалегідь, до кінця року, — тоді строки не застануть зненацька.' },
         { t: 'h2', x: 'Офіційні джерела' },
         { t: 'links', items: [
           { label: 'PRH: подання звітності Oy та кооперативів (англійською)', href: SRC.prhOyEn },
@@ -675,7 +675,7 @@ export const tilinpaatosPienyritykselle: Guide = {
         ] },
       ],
       faq: [
-        { q: 'Чи потрібна toiminimi tilinpäätös?', a: 'Як правило, ні. Toiminimi зобов’язаний складати tilinpäätös, лише якщо і в завершеному, і в попередньому році перевищено щонайменше два пороги мікрокомпанії (баланс 450 000 €, оборот 900 000 €, 10 працівників). Бухгалтерію однаково ведуть, а декларацію (форма 5) подають щороку.' },
+        { q: 'Чи потрібна toiminimi tilinpäätös?', a: 'Як правило, ні. Фізична особа-підприємець (toiminimi) зобов’язана складати tilinpäätös, лише якщо і в завершеному, і в попередньому році перевищено щонайменше два пороги мікрокомпанії (баланс 450 000 €, оборот 900 000 €, 10 працівників). Бухгалтерію однаково ведуть, а декларацію (форма 5) подають щороку.' },
         { q: 'До якої дати Oy має підготувати звітність, якщо рік закінчується 31.12.2026?', a: 'Tilinpäätös потрібно скласти й підписати, а податкову декларацію подати не пізніше 30.4.2027. Загальні збори — не пізніше 30.6.2027, затверджену звітність подають до торговельного реєстру не пізніше 31.8.2027.' },
         { q: 'Що буде, якщо подати звітність до PRH із запізненням?', a: 'Для Oy та кооперативів призначають збір: 150 € за запізнення до 2 місяців, 300 € — на 2–4 місяці та 600 € — понад 4 місяці або якщо звітність не подано. За повторних запізнень збір подвоюється, а компанію, яка довго не подає звітність, можуть виключити з реєстру.' },
         { q: 'Чи має невелике Oy складати звіт про діяльність?', a: 'Ні. Малій і мікрокомпанії не потрібні ні toimintakertomus, ні звіт про рух грошових коштів. До звітності входять баланс, звіт про прибутки та збитки й примітки, а також пропозиція правління щодо розподілу прибутку.' },
