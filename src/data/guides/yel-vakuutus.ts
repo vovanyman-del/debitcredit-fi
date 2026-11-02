@@ -110,8 +110,8 @@ const SRC = {
 
 export const yelVakuutus: Guide = {
   slug: 'yel-vakuutus',
-  datePublished: '2026-10-29',
-  dateModified: '2026-10-29',
+  datePublished: '2026-11-02',
+  dateModified: '2026-11-02',
   content: {
     fi: {
       title: 'YEL-vakuutus 2026: kuka tarvitsee, työtulo, maksu ja yleisimmät virheet',
