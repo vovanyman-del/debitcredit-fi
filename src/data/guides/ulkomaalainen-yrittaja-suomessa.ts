@@ -33,7 +33,8 @@ import type { Guide } from './types';
 //   jäsenet asuvat esimerkiksi Venäjällä tai Australiassa" and "Varsinainen jäsen asuu Australiassa,
 //   varajäsen Suomessa (varajäsen ei tarvitse lupaa ja varsinaiselle ei myönnetä lupaa)"; "Hakemus maksaa
 //   150 euroa. Lisäksi peritään laskutuslisä 6,50 euroa / hakemus"; "Jos lupaa haetaan 3 hallituksen
-//   jäsenelle, ... yhteensä 450 euroa"; representative: "Edustajan kotipaikan täytyy olla Suomessa";
+//   jäsenelle, jokaisesta jäsenestä peritään maksu. Maksu on siis silloin yhteensä 450 euroa" (the 6,50 €
+//   invoicing charge is per application, not per person); representative: "Edustajan kotipaikan täytyy olla Suomessa";
 //   "Erillistä edustajaa ei kuitenkaan tarvitse valita, jos osakeyhtiöllä on kaupparekisteriin ilmoitettu
 //   ETA-alueella asuva hallituksen jäsen, hallituksen varajäsen, toimitusjohtaja, edustamiseen oikeutettu
 //   tai prokuristi."
@@ -50,7 +51,13 @@ import type { Guide } from './types';
 //   päätös tilapäisestä suojelusta. He voivat ... ilmoittautua elinkeinonharjoittajaksi joko pelkästään
 //   Verohallinnolle (maksuton) tai myös kaupparekisteriin (maksullinen). Ilmoittautumiseen tarvitaan
 //   suomalainen henkilötunnus, joka tulee Maahanmuuttoviraston päätöksen mukana."; "maksaa 75 euroa".
-//   PRH paperilomakkeet (03.06.2026): toiminimi may still file "Y3-lomake".
+//   PRH paperilomakkeet (03.06.2026): toiminimi may still file "Y3-lomake". PRH, pakollinen sähköinen
+//   asiointi: "Pakollinen sähköinen asiointi ei koske toiminimiyrittäjiä" — the 1.1.2026 e-filing duty
+//   applies to companies (e.g. osakeyhtiö), not to sole traders.
+//   Elinkeinotoimintalaki 3 § 2 mom: PRH "on myönnettävä lupa, jos elinkeinonharjoittaja on annetun
+//   selvityksen perusteella tavoitettavissa ..." (reachable for fulfilling the business's obligations);
+//   PRH's published practice names only Switzerland, other cases are decided case by case, so the guide
+//   neither promises nor rules out a permit for e.g. Russia-resident traders.
 // - PRH, Perustaminen – käsittelymaksut (01.01.2026): "Osakeyhtiön ohjattu perustaminen YTJ-palvelussa
 //   300,00"; "Osakeyhtiön perustamisilmoitus 400,00"; "Yksityisen elinkeinonharjoittajan
 //   (toiminimiyrittäjän) perustamisilmoitus 75,00"; "Käsittelymaksujen arvonlisävero (ALV) on 0 prosenttia".
@@ -77,7 +84,9 @@ import type { Guide } from './types';
 //   "Jos yrityksesi liikevaihto ylittää 20 000 euroa kalenterivuodessa, sinun pitää ilmoittautua
 //   alv-rekisteriin"; "Useimpien tavaroiden ja palveluiden arvonlisävero on 25,5 %"; toiminimi "et voi
 //   maksaa itsellesi palkkaa"; "Älä ilmoittaudu työnantajarekisteriin, jos yrityksessä ei työskentele muita
-//   kuin sinä itse, puolisosi tai alle 15-vuotias lapsesi."
+//   kuin sinä itse, puolisosi tai alle 15-vuotias lapsesi." Vero, työnantajarekisteri: "Olet säännöllinen
+//   työnantaja esimerkiksi silloin, kun maksat palkkaa vakituisesti vähintään kahdelle työntekijälle."
+//   (only regular employers register).
 // - Vero, Alv-rekisteröinti (18.5.2026): "maksettava arvonlisäveroa liikevaihtorajan ylittämisajankohdasta
 //   alkaen"; "yrityksen on rekisteröidyttävä alv-rekisteriin hyvissä ajoin etukäteen".
 // - Vero, Ennakkoperintärekisteri (27.2.2026): "Ennakkoperintärekisteriin kuuluminen ei ole pakollista.
@@ -96,7 +105,8 @@ import type { Guide } from './types';
 //   sinut rekisteröidään oman pyyntösi perusteella Suomen väestötietojärjestelmään. Samalla saat myös
 //   henkilötunnuksen"; "Digi- ja väestötietovirastosta, verotoimistosta, Suomen ulkomaan edustustosta tai
 //   Maahanmuuttovirastosta. Rekisteröinti edellyttää henkilökohtaista käyntiä"; "Pankissa asioitaessa
-//   henkilötunnus on välttämätön, esimerkiksi tiliä avattaessa." Suomi.fi-tunnistus: a foreign EU eID or
+//   henkilötunnus on välttämätön, esimerkiksi tiliä avattaessa." The same page also allows obtaining one
+//   during a short stay in Finland when needed. Suomi.fi-tunnistus: a foreign EU eID or
 //   Finnish Authenticator only where the service allows it, and then "sinua ei voida yhdistää suomalaiseen
 //   henkilötunnukseen".
 // - Rahanpesulaki 444/2017 (https://www.finlex.fi/fi/lainsaadanto/2017/444, ajantasa 2026-09-04), 3 luku
@@ -106,14 +116,19 @@ import type { Guide } from './types';
 //   edunsaajista"; records include "tiedot asiakkaan toiminnasta, liiketoiminnan laadusta ja laajuudesta,
 //   taloudellisesta asemasta, perusteet liiketoimen tai palvelun käytölle ja tiedot varojen alkuperästä".
 // - YEL 1272/2006 1 §: "Suomessa asuvan ja toimivan yrittäjän on vakuutettava itsensä ... Suomessa
-//   asumista ei kuitenkaan edellytetä, jos yrittäjä asuu EU- tai ETA-maassa." Suomi.fi / ETK (30.12.2025):
+//   asumista ei kuitenkaan edellytetä, jos yrittäjä asuu EU- tai ETA-maassa." — applies only when Finnish
+//   social security legislation applies to the person; which country's insurance applies is decided by
+//   the EU coordination rules. Suomi.fi / ETK (30.12.2025):
 //   "Ota eläkevakuutus kuuden kuukauden kuluessa yritystoiminnan alkamisesta."
 // - Migri (research only, not linked; quoted from migri.fi search snippets): EU citizens staying over three
 //   months register their right of residence with Migri; entrepreneur's permit: "Your business must be
 //   profitable. Your means of support must be secured by your income from your business"; "If you are a
 //   freelancer or working through an invoicing service company (in Finnish: kevytyrittäjä), it is not
 //   possible to apply for this permit"; start-up permit: "You must obtain a positive Eligibility Statement
-//   from Business Finland before you can apply for this permit."
+//   from Business Finland before you can apply for this permit." Migri usually requires the business to be
+//   registered (Y-tunnus) before an entrepreneur's permit is granted (a first-time sole trader applying
+//   from abroad may apply without one); a Y-tunnus alone gives no right to reside.
+// - Osakeyhtiö: a managing director is optional, hence "mahdollinen toimitusjohtaja" in the FAQ.
 // Not stated (not reliably verifiable or out of scope): Migri fees, processing times and income limits,
 // which authority assesses profitability after the 2026 regional reform, permit durations, bank names or
 // bank timelines, the YEL euro limits (see our YEL guide).
@@ -173,13 +188,13 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
         { t: 'note', x: 'Oleskelulupien ehdot, maksut ja käsittelyajat muuttuvat, ja ne ratkaistaan aina tapauskohtaisesti. Tarkista oma tilanteesi Maahanmuuttovirastosta ennen kuin teet sitoumuksia, kuten vuokrasopimuksia tai laitehankintoja.' },
         { t: 'h2', x: 'Kun asut ETA:n ulkopuolella: PRH:n luvat' },
         { t: 'h3', x: 'Toiminimi' },
-        { t: 'p', x: 'Jos pysyvä asuinpaikkasi on ETA:n ulkopuolella, tarvitset PRH:n luvan ennen kuin voit tehdä toiminimen perustamisilmoituksen. Hakemus maksaa 150 euroa ja laskutuslisä 6,50 euroa. Tällöin toiminimi on pakko merkitä kaupparekisteriin, ja sillä on oltava Suomessa asuva edustaja, joka voi ottaa vastaan haasteita ja muita tiedoksiantoja. PRH kertoo myöntäneensä lupia käytännössä Sveitsissä pysyvästi asuville Luganon sopimuksen perusteella ja ratkaisevansa muut hakemukset vasta käsittelyssä. Esimerkiksi Venäjällä asuvan ei siis kannata rakentaa suunnitelmaa toiminimen varaan.' },
+        { t: 'p', x: 'Jos pysyvä asuinpaikkasi on ETA:n ulkopuolella, tarvitset PRH:n luvan ennen kuin voit tehdä toiminimen perustamisilmoituksen. Hakemus maksaa 150 euroa ja laskutuslisä 6,50 euroa. Tällöin toiminimi on pakko merkitä kaupparekisteriin, ja sillä on oltava Suomessa asuva edustaja, joka voi ottaa vastaan haasteita ja muita tiedoksiantoja. PRH:n julkaistu käytäntö mainitsee vain Sveitsissä pysyvästi asuvat, joille lupia on myönnetty Luganon sopimuksen perusteella. Muut tapaukset ratkaistaan tapauskohtaisesti. Elinkeinotoimintalain 3 §:n 2 momentin mukaan PRH:n on myönnettävä lupa, jos elinkeinonharjoittaja on antamansa selvityksen perusteella tavoitettavissa yritystoiminnan velvoitteiden täyttämistä varten. Esimerkiksi Venäjällä asuvan kannattaa silti varautua siihen, ettei lupaa myönnetä.' },
         { t: 'h3', x: 'Osakeyhtiö' },
         { t: 'ul', items: [
           'Osakeyhtiölain mukaan vähintään yhdellä hallituksen jäsenellä on oltava asuinpaikka ETA:ssa, jollei PRH myönnä poikkeusta. Jos hallituksessa on alle kolme jäsentä, sillä on oltava varajäsen.',
           'PRH:n käytännössä vähintään yhden varsinaisen jäsenen ja, jos varajäseniä on, myös vähintään yhden varajäsenen on asuttava ETA:ssa. Muuten lupa tarvitaan kaikille varsinaisille jäsenille tai kaikille varajäsenille.',
-          'Toimitusjohtajan ja hänen mahdollisen sijaisensa on asuttava ETA:ssa tai heille on haettava PRH:n lupa.',
-          'Lupahakemus maksaa 150 euroa ja 6,50 euron laskutuslisän henkilöä kohden. Kolmelle hallituksen jäsenelle maksu on siis 450 euroa ja laskutuslisät.',
+          'Jos yhtiöllä on toimitusjohtaja, hänen ja hänen mahdollisen sijaisensa on asuttava ETA:ssa tai heille on haettava PRH:n lupa.',
+          'Lupa maksaa 150 euroa jokaiselta henkilöltä, jolle sitä haetaan, ja lisäksi peritään 6,50 euron laskutuslisä hakemusta kohden. Kolmelle hallituksen jäsenelle maksu on siis 450 euroa ja 6,50 euron laskutuslisä.',
           'PRH ei myönnä lupaa esimerkiksi, jos kaikki hallituksen jäsenet asuvat Venäjällä tai Australiassa, tai jos ainoa varsinainen jäsen asuu Australiassa ja varajäsen Suomessa. Suomessa asuva varajäsen ei siis yksin ratkaise asiaa.',
           'Yhtiöllä on oltava Suomessa asuva edustaja haasteita varten, ellei kaupparekisteriin ole merkitty ETA:ssa asuvaa hallituksen jäsentä, varajäsentä, toimitusjohtajaa, edustamiseen oikeutettua tai prokuristia.',
         ] },
@@ -189,13 +204,13 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'Osakeyhtiö perustetaan aina YTJ-palvelussa, ja vuodesta 2026 alkaen vain sähköisesti. Ohjattu perustaminen maksaa 300 euroa, mutta se edellyttää muun muassa, että kaikilla ilmoitettavilla henkilöillä on suomalainen henkilötunnus. Muuten käytetään tavallista perustamisilmoitusta, joka maksaa 400 euroa. Ilmoitus on tehtävä kolmen kuukauden kuluessa perustamissopimuksen allekirjoittamisesta, muuten perustaminen raukeaa.',
           'Ennakkoperintärekisteri: vapaaehtoinen, mutta ilman sitä asiakkaasi joutuu pidättämään työkorvauksesta veroa (yhtiöltä 13 %, verokortitta toimivalta yksityiseltä elinkeinonharjoittajalta 60 %). Aloittavan yrittäjän voi olla vaikea saada toimeksiantoja ilman rekisteriä.',
           'Arvonlisäverorekisteri: pakollinen, kun liikevaihto ylittää 20 000 euroa kalenterivuodessa. Vero on maksettava rajan ylittymisestä alkaen, joten ilmoittaudu hyvissä ajoin. Yleinen verokanta on 25,5 %. Alle rajan voit hakeutua rekisteriin vapaaehtoisesti.',
-          'Työnantajarekisteri: kun maksat palkkaa säännöllisesti. Älä ilmoittaudu, jos yrityksessä työskentelevät vain sinä, puolisosi tai alle 15-vuotias lapsesi.',
+          'Työnantajarekisteri: vain, jos olet säännöllinen työnantaja, esimerkiksi kun maksat palkkaa vakituisesti vähintään kahdelle työntekijälle. Älä ilmoittaudu, jos yrityksessä työskentelevät vain sinä, puolisosi tai alle 15-vuotias lapsesi.',
         ] },
         { t: 'p', x: 'Sähköisesti tehdyllä ilmoituksella saat Y-tunnuksen heti. Rekisteröinti Verohallinnon rekistereihin kestää noin kolme viikkoa.' },
         { t: 'h2', x: 'Henkilötunnus ja sähköinen tunnistautuminen' },
-        { t: 'p', x: 'Suomalainen henkilötunnus annetaan, kun sinut rekisteröidään väestötietojärjestelmään. Sitä voi pyytää tilanteen mukaan Digi- ja väestötietovirastosta, verotoimistosta, Suomen edustustosta ulkomailla tai Maahanmuuttovirastosta, ja rekisteröinti edellyttää henkilökohtaista käyntiä. Henkilötunnus tarvitaan esimerkiksi pankkitilin avaamiseen, ja suomalaiset vahvat tunnistusvälineet, kuten verkkopankkitunnukset ja mobiilivarmenne, ovat sidoksissa siihen.' },
+        { t: 'p', x: 'Suomalainen henkilötunnus annetaan, kun sinut rekisteröidään väestötietojärjestelmään. Sitä voi pyytää tilanteen mukaan Digi- ja väestötietovirastosta, verotoimistosta, Suomen edustustosta ulkomailla tai Maahanmuuttovirastosta, ja rekisteröinti edellyttää henkilökohtaista käyntiä. Henkilötunnus tarvitaan esimerkiksi pankkitilin avaamiseen, ja suomalaiset vahvat tunnistusvälineet, kuten verkkopankkitunnukset ja mobiilivarmenne, ovat sidoksissa siihen. Suomi.fi:n mukaan henkilötunnuksen voi tarvittaessa saada myös lyhyen Suomessa oleskelun aikana.' },
         { t: 'p', x: 'Ilman suomalaisia tunnistusvälineitä asiointi on rajattua. Toisen EU-maan tunnistusvälineellä voi kirjautua vain palveluihin, jotka sen sallivat, eikä sinua silloin yhdistetä suomalaiseen henkilötunnukseen. OmaVerossa EU-maan tunnisteella voi lähettää yhteydenottopyynnön ja asioida rajatusti.' },
-        { t: 'p', x: 'Kaupparekisteri-ilmoitukset ovat 1.1.2026 alkaen sähköisiä myös silloin, kun kenelläkään vastuuhenkilöllä ei ole suomalaista henkilötunnusta. PRH:n mukaan vaihtoehdot ovat nämä:' },
+        { t: 'p', x: 'Yhtiöiden, kuten osakeyhtiön, kaupparekisteri-ilmoitukset ovat 1.1.2026 alkaen sähköisiä myös silloin, kun kenelläkään vastuuhenkilöllä ei ole suomalaista henkilötunnusta. Pakollinen sähköinen asiointi ei koske toiminimiyrittäjiä. PRH:n mukaan vaihtoehdot ovat nämä:' },
         { t: 'ul', items: [
           'Valtuutettu yhteyshenkilö, jolla on suomalainen henkilötunnus ja Suomi.fi-tunnistus, tekee ilmoituksen verkkolomakkeella. Liitteeksi tarvitaan valtakirja tai vastuuhenkilön allekirjoittama Y-lomake.',
           'Vastuuhenkilö, jolla on tunnistusväline tietystä EU-maasta, käyttää Ulkomaalaisen tunnistustapa -verkkolomaketta. Listalla ovat muun muassa Viro, Latvia, Liettua, Puola, Ruotsi ja Saksa.',
@@ -215,12 +230,12 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'Asut verotuksessa Suomessa, jos sinulla on täällä varsinainen asunto ja koti tai oleskelet täällä jatkuvasti yli kuusi kuukautta. Tilapäinen poissaolo ei katkaise oleskelua. Silloin maksat Suomeen veroa kaikista tuloistasi, myös ulkomaisista. Verosopimus voi vaikuttaa siihen, kumpi valtio saa verottaa.',
           'Toiminimen tulos on henkilökohtaista tuloasi, ja sitä verotetaan progressiivisesti. Itsellesi et voi maksaa palkkaa. Ennakkoveroa et saa automaattisesti, vaan sinun on haettava sitä itse OmaVerossa.',
           'Osakeyhtiö maksaa voitostaan 20 % yhteisöveroa. Henkilökohtaista veroa maksat, kun nostat yhtiöstä palkkaa tai osinkoa.',
-          'YEL-vakuutus on pakollinen Suomessa asuvalle ja toimivalle yrittäjälle, ja myös EU- tai ETA-maassa asuvalle. Se on otettava kuuden kuukauden kuluessa toiminnan alkamisesta. Rajat ja maksut on koottu erilliseen YEL-oppaaseemme.',
+          'YEL-vakuutus on pakollinen Suomessa asuvalle ja toimivalle yrittäjälle, ja myös EU- tai ETA-maassa asuvalle, jos häneen sovelletaan Suomen sosiaaliturvalainsäädäntöä. Sen, minkä maan vakuutus koskee, ratkaisevat EU:n säännöt. Vakuutus on otettava kuuden kuukauden kuluessa toiminnan alkamisesta. Rajat ja maksut on koottu erilliseen YEL-oppaaseemme.',
           'Jos toimit Suomessa virolaisen OÜ:n kautta, verotus ja rekisteröinti menevät toisin. Siitä on oma oppaansa virolaisesta OÜ:sta Suomessa.',
         ] },
         { t: 'h2', x: 'Yleisimmät virheet' },
         { t: 'ul', items: [
-          'Yritys perustetaan ennen kuin oleskeluoikeus on selvillä. Y-tunnus ei anna oikeutta oleskella Suomessa.',
+          'Taloudellisia sitoumuksia, kuten vuokrasopimuksia, hankintoja tai asiakassopimuksia, tehdään ennen kuin oma lupareitti on tarkistettu Maahanmuuttovirastosta. Yritys on yleensä rekisteröitävä ennen yrittäjän oleskeluluvan myöntämistä, mutta pelkkä Y-tunnus ei anna oikeutta oleskella Suomessa.',
           'Oletetaan, että Suomen kansalaisuus tai Suomessa asuva varajäsen riittää. PRH:n luvan tarve määräytyy asuinpaikan ja hallituksen kokoonpanon mukaan.',
           'Ohjattu 300 euron perustaminen valitaan, vaikka jollakulla ei ole suomalaista henkilötunnusta.',
           'Perustamisilmoitus jää tekemättä kolmessa kuukaudessa perustamissopimuksesta, ja perustaminen raukeaa.',
@@ -265,8 +280,8 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
       ],
       faq: [
         { q: 'Tarvitseeko EU-kansalainen oleskeluluvan ollakseen yrittäjä Suomessa?', a: 'Ei tarvitse. Jos oleskelet Suomessa yli kolme kuukautta, rekisteröi oleskeluoikeutesi Maahanmuuttovirastossa. Yrityksen voit perustaa samoin kuin suomalainen, ja ETA:ssa asuva ei tarvitse PRH:n lupaa.' },
-        { q: 'Voinko perustaa toiminimen Suomeen, jos asun Venäjällä?', a: 'Tarvitset ensin PRH:n luvan (150 euroa ja 6,50 euron laskutuslisä), kaupparekisteriin merkinnän ja Suomessa asuvan edustajan. PRH kertoo myöntäneensä lupia käytännössä Sveitsissä asuville ja ratkaisevan muut hakemukset tapauskohtaisesti, joten myönteiseen päätökseen ei kannata luottaa. Suomeen muuttamiseen tarvitset lisäksi oleskeluluvan.' },
-        { q: 'Voiko osakeyhtiön perustaa ilman suomalaista henkilötunnusta?', a: 'Voi, mutta ohjattu 300 euron perustaminen ei silloin käy. Tehdään tavallinen 400 euron perustamisilmoitus, jonka voi PRH:n mukaan tehdä valtuutettu yhteyshenkilö, vastuuhenkilö tietyn EU-maan (esimerkiksi Viron) tunnistusvälineellä tai suomalainen asianajaja. Lisäksi vähintään yhden hallituksen jäsenen ja toimitusjohtajan on asuttava ETA:ssa tai heille tarvitaan PRH:n lupa.' },
+        { q: 'Voinko perustaa toiminimen Suomeen, jos asun Venäjällä?', a: 'Tarvitset ensin PRH:n luvan (150 euroa ja 6,50 euron laskutuslisä), kaupparekisteriin merkinnän ja Suomessa asuvan edustajan. PRH:n julkaistu käytäntö mainitsee vain Sveitsissä asuvat, ja muut tapaukset ratkaistaan tapauskohtaisesti. Lain mukaan lupa on myönnettävä, jos olet selvityksesi perusteella tavoitettavissa yritystoiminnan velvoitteiden täyttämistä varten, mutta varaudu siihen, ettei lupaa myönnetä. Suomeen muuttamiseen tarvitset lisäksi oleskeluluvan.' },
+        { q: 'Voiko osakeyhtiön perustaa ilman suomalaista henkilötunnusta?', a: 'Voi, mutta ohjattu 300 euron perustaminen ei silloin käy. Tehdään tavallinen 400 euron perustamisilmoitus, jonka voi PRH:n mukaan tehdä valtuutettu yhteyshenkilö, vastuuhenkilö tietyn EU-maan (esimerkiksi Viron) tunnistusvälineellä tai suomalainen asianajaja. Lisäksi vähintään yhden hallituksen jäsenen ja mahdollisen toimitusjohtajan on asuttava ETA:ssa tai heille tarvitaan PRH:n lupa.' },
         { q: 'Milloin minun on ilmoittauduttava arvonlisäverorekisteriin?', a: 'Kun liikevaihto ylittää 20 000 euroa kalenterivuodessa. Vero on maksettava rajan ylittymisestä alkaen, joten ilmoittaudu ennen kuin raja ylittyy. Rekisteriin voi hakeutua myös vapaaehtoisesti.' },
         { q: 'Milloin maksan veroa Suomeen kaikista tuloistani?', a: 'Kun sinulla on Suomessa varsinainen asunto ja koti tai oleskelet täällä jatkuvasti yli kuusi kuukautta. Lyhyet matkat ulkomaille eivät katkaise oleskelua. Verosopimus voi rajoittaa Suomen verotusoikeutta.' },
       ],
@@ -291,13 +306,13 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
         { t: 'note', x: 'Условия, сборы и сроки рассмотрения видов на жительство меняются, и решение всегда принимается индивидуально. Проверьте свою ситуацию в Migri до того, как брать на себя обязательства — подписывать договор аренды или покупать оборудование.' },
         { t: 'h2', x: 'Если вы живёте вне ЕЭЗ: разрешения PRH' },
         { t: 'h3', x: 'Toiminimi (индивидуальный предприниматель)' },
-        { t: 'p', x: 'Если ваше постоянное место жительства находится за пределами ЕЭЗ, разрешение PRH нужно получить до подачи заявления о регистрации toiminimi. Заявление стоит 150 € плюс 6,50 € за выставление счёта. В этом случае toiminimi обязательно вносится в торговый реестр, и у него должен быть представитель, живущий в Финляндии, который принимает повестки и другие уведомления. PRH сообщает, что на практике выдавал такие разрешения жителям Швейцарии на основании Луганской конвенции, а остальные заявления решает только при рассмотрении. Поэтому, например, живущему в России не стоит строить планы на toiminimi.' },
+        { t: 'p', x: 'Если ваше постоянное место жительства находится за пределами ЕЭЗ, разрешение PRH нужно получить до подачи заявления о регистрации toiminimi. Заявление стоит 150 € плюс 6,50 € за выставление счёта. В этом случае toiminimi обязательно вносится в торговый реестр, и у него должен быть представитель, живущий в Финляндии, который принимает повестки и другие уведомления. В опубликованной практике PRH упомянуты только постоянные жители Швейцарии, которым разрешения выдавались на основании Луганской конвенции; остальные случаи решаются индивидуально. По закону о предпринимательской деятельности (565/2023, § 3, часть 2) PRH обязано выдать разрешение, если по представленным сведениям с предпринимателем можно связаться для исполнения обязательств бизнеса. Тем не менее, например, живущему в России стоит быть готовым к тому, что разрешение не выдадут.' },
         { t: 'h3', x: 'Osakeyhtiö (Oy)' },
         { t: 'ul', items: [
           'По закону об акционерных обществах хотя бы один член правления должен жить в ЕЭЗ, если PRH не разрешит исключение. Если в правлении меньше трёх членов, в нём должен быть заместитель (varajäsen).',
           'На практике PRH требует, чтобы в ЕЭЗ жил хотя бы один основной член правления и, если есть заместители, хотя бы один заместитель. Иначе разрешение нужно всем основным членам или всем заместителям.',
-          'Управляющий директор (toimitusjohtaja) и его возможный заместитель должны жить в ЕЭЗ, иначе для них нужно разрешение PRH.',
-          'Заявление на разрешение стоит 150 € и 6,50 € за счёт на каждого человека. Для трёх членов правления — 450 € плюс сборы за счета.',
+          'Если в компании есть управляющий директор (toimitusjohtaja), он и его возможный заместитель должны жить в ЕЭЗ, иначе для них нужно разрешение PRH.',
+          'Разрешение стоит 150 € за каждого человека, для которого его запрашивают, плюс 6,50 € за выставление счёта за одно заявление. Для трёх членов правления — 450 € плюс 6,50 €.',
           'PRH не выдаёт разрешение, например, если все члены правления живут в России или Австралии или если единственный основной член живёт в Австралии, а заместитель в Финляндии. Заместитель из Финляндии сам по себе проблему не решает.',
           'У компании должен быть представитель с местом жительства в Финляндии для получения повесток, если в торговом реестре нет живущего в ЕЭЗ члена правления, заместителя, управляющего директора, лица с правом подписи или прокуриста.',
         ] },
@@ -307,18 +322,18 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'Osakeyhtiö всегда регистрируется в YTJ, а с 2026 года — только в электронном виде. Управляемая регистрация стоит 300 €, но требует, среди прочего, чтобы у всех указываемых лиц был финский henkilötunnus. Иначе подаётся обычное заявление за 400 €. Его нужно подать в течение трёх месяцев после подписания учредительного договора, иначе учреждение компании аннулируется.',
           'Реестр предоплаты налогов (ennakkoperintärekisteri): добровольный, но без него заказчик обязан удерживать налог из оплаты работы (у компании — 13 %, у частного предпринимателя без налоговой карточки — 60 %). Начинающему предпринимателю без этого реестра бывает трудно получить заказы.',
           'Реестр НДС (ALV): обязателен, если оборот превышает 20 000 € за календарный год. Налог платится с момента превышения порога, поэтому регистрируйтесь заранее. Общая ставка — 25,5 %. При меньшем обороте можно встать в реестр добровольно.',
-          'Реестр работодателей: если вы регулярно платите зарплату. Не регистрируйтесь, если в фирме работаете только вы, ваш супруг или ребёнок младше 15 лет.',
+          'Реестр работодателей: только если вы регулярный работодатель — например, постоянно платите зарплату как минимум двум работникам. Не регистрируйтесь, если в фирме работаете только вы, ваш супруг или ребёнок младше 15 лет.',
         ] },
         { t: 'p', x: 'При электронной подаче Y-tunnus выдаётся сразу. Внесение в регистры Налоговой занимает около трёх недель.' },
         { t: 'h2', x: 'Henkilötunnus и электронная идентификация' },
-        { t: 'p', x: 'Финский личный код (henkilötunnus) присваивается при внесении в реестр населения. В зависимости от ситуации его можно запросить в Агентстве цифровизации и данных о населении (DVV), в налоговой, в финском представительстве за рубежом или в Migri; нужен личный визит. Henkilötunnus необходим, например, для открытия банковского счёта, а финские средства сильной идентификации — банковские коды и мобильный сертификат — привязаны к нему.' },
+        { t: 'p', x: 'Финский личный код (henkilötunnus) присваивается при внесении в реестр населения. В зависимости от ситуации его можно запросить в Агентстве цифровизации и данных о населении (DVV), в налоговой, в финском представительстве за рубежом или в Migri; нужен личный визит. Henkilötunnus необходим, например, для открытия банковского счёта, а финские средства сильной идентификации — банковские коды и мобильный сертификат — привязаны к нему. По данным Suomi.fi, при необходимости henkilötunnus можно получить и во время короткого пребывания в Финляндии.' },
         { t: 'p', x: 'Без финских средств идентификации возможности ограничены. Электронным удостоверением другой страны ЕС можно войти только в те сервисы, которые это допускают, и вас при этом не свяжут с финским henkilötunnus. В OmaVero с идентификатором страны ЕС можно отправить запрос и пользоваться сервисом в ограниченном объёме.' },
-        { t: 'p', x: 'С 1.1.2026 заявления в торговый реестр подаются только электронно, даже если ни у одного ответственного лица нет финского henkilötunnus. По данным PRH, есть такие варианты:' },
+        { t: 'p', x: 'С 1.1.2026 заявления компаний, например osakeyhtiö, в торговый реестр подаются только электронно, даже если ни у одного ответственного лица нет финского henkilötunnus. На toiminimi обязательная электронная подача не распространяется. По данным PRH, есть такие варианты:' },
         { t: 'ul', items: [
           'Уполномоченное контактное лицо с финским henkilötunnus и идентификацией Suomi.fi подаёт заявление через веб-форму. Прикладывается доверенность или форма Y, подписанная ответственным лицом.',
           'Ответственное лицо со средством идентификации определённой страны ЕС использует веб-форму «Ulkomaalaisen tunnistustapa». В списке, среди прочих, Эстония, Латвия, Литва, Польша, Швеция и Германия.',
           'Член Коллегии адвокатов Финляндии (Suomen Asianajajat) может подписать заявление в YTJ.',
-          'По почте — только если ничего другое невозможно, с объяснением, почему электронная подача недоступна.',
+          'По почте — только если ничего другого невозможно, с объяснением, почему электронная подача недоступна.',
         ] },
         { t: 'h2', x: 'Банковский счёт фирмы' },
         { t: 'p', x: 'По закону о противодействии отмыванию денег (rahanpesulaki 444/2017) банки обязаны знать своих клиентов. Они должны идентифицировать клиента и фактических бенефициаров компании, выяснить характер и масштаб деятельности и происхождение средств. Если у владельцев или денег есть связи с другими странами, проверка обычно тщательнее, и открытие счёта может занять несколько недель.' },
@@ -333,12 +348,12 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'Вы считаетесь налоговым резидентом Финляндии, если у вас здесь постоянное жильё и дом или вы непрерывно находитесь здесь больше шести месяцев. Временные отъезды пребывание не прерывают. Тогда вы платите в Финляндии налог со всех доходов, в том числе зарубежных. Налоговое соглашение может определить, какое государство вправе облагать доход.',
           'Прибыль toiminimi — ваш личный доход, он облагается по прогрессивной шкале. Платить зарплату самому себе нельзя. Авансовый налог (ennakkovero) не назначается автоматически — его нужно запросить самому в OmaVero.',
           'Osakeyhtiö платит с прибыли 20 % налога на прибыль (yhteisövero). Личный налог вы платите, когда получаете из компании зарплату или дивиденды.',
-          'Страхование YEL обязательно для предпринимателя, который живёт и работает в Финляндии, а также для живущего в стране ЕС или ЕЭЗ. Оформить его нужно в течение шести месяцев с начала деятельности. Лимиты и взносы — в нашем отдельном гиде по YEL.',
+          'Страхование YEL обязательно для предпринимателя, который живёт и работает в Финляндии, а также для живущего в стране ЕС или ЕЭЗ, если к нему применяется финское законодательство о социальном обеспечении. Страховка какой страны действует, определяют правила ЕС. Оформить YEL нужно в течение шести месяцев с начала деятельности. Лимиты и взносы — в нашем отдельном гиде по YEL.',
           'Если вы работаете в Финляндии через эстонскую OÜ, налоги и регистрация устроены иначе — об этом у нас есть отдельный гид про эстонскую OÜ в Финляндии.',
         ] },
         { t: 'h2', x: 'Частые ошибки' },
         { t: 'ul', items: [
-          'Фирму открывают до того, как ясно с правом на пребывание. Y-tunnus не даёт права жить в Финляндии.',
+          'Берут на себя финансовые обязательства — аренду, покупки, договоры — до того, как проверили в Migri свой путь к разрешению. Обычно фирму нужно зарегистрировать до выдачи разрешения предпринимателю, но сам по себе Y-tunnus не даёт права жить в Финляндии.',
           'Считают, что достаточно финского гражданства или заместителя в правлении, который живёт в Финляндии. Нужно ли разрешение PRH, зависит от места жительства и состава правления.',
           'Выбирают управляемую регистрацию за 300 €, хотя у кого-то из участников нет финского henkilötunnus.',
           'Не подают заявление в течение трёх месяцев после учредительного договора, и учреждение аннулируется.',
@@ -381,8 +396,8 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
       ],
       faq: [
         { q: 'Нужен ли гражданину ЕС вид на жительство, чтобы быть предпринимателем в Финляндии?', a: 'Нет. Если вы находитесь в Финляндии больше трёх месяцев, зарегистрируйте право на пребывание в Migri. Фирму можно открыть так же, как финну, а живущему в ЕЭЗ разрешение PRH не нужно.' },
-        { q: 'Можно ли открыть toiminimi в Финляндии, если я живу в России?', a: 'Сначала нужно разрешение PRH (150 € и 6,50 € за счёт), внесение в торговый реестр и представитель, живущий в Финляндии. PRH сообщает, что на практике выдавал разрешения жителям Швейцарии, а остальные заявления решает индивидуально, поэтому рассчитывать на положительное решение не стоит. Для переезда в Финляндию нужен ещё и вид на жительство.' },
-        { q: 'Можно ли открыть osakeyhtiö без финского henkilötunnus?', a: 'Можно, но управляемая регистрация за 300 € тогда не подходит. Подаётся обычное заявление за 400 €; по данным PRH, его может подать уполномоченное контактное лицо, ответственное лицо со средством идентификации определённой страны ЕС (например, Эстонии) или финский адвокат. Кроме того, хотя бы один член правления и управляющий директор должны жить в ЕЭЗ, иначе нужно разрешение PRH.' },
+        { q: 'Можно ли открыть toiminimi в Финляндии, если я живу в России?', a: 'Сначала нужно разрешение PRH (150 € и 6,50 € за счёт), внесение в торговый реестр и представитель, живущий в Финляндии. В опубликованной практике PRH упомянуты только жители Швейцарии, остальные случаи решаются индивидуально. По закону разрешение обязаны выдать, если с вами можно связаться для исполнения обязательств бизнеса, но будьте готовы к тому, что его не выдадут. Для переезда в Финляндию нужен ещё и вид на жительство.' },
+        { q: 'Можно ли открыть osakeyhtiö без финского henkilötunnus?', a: 'Можно, но управляемая регистрация за 300 € тогда не подходит. Подаётся обычное заявление за 400 €; по данным PRH, его может подать уполномоченное контактное лицо, ответственное лицо со средством идентификации определённой страны ЕС (например, Эстонии) или финский адвокат. Кроме того, хотя бы один член правления и управляющий директор, если он есть, должны жить в ЕЭЗ, иначе нужно разрешение PRH.' },
         { q: 'Когда нужно вставать в реестр НДС?', a: 'Когда оборот превышает 20 000 € за календарный год. Налог платится с момента превышения порога, поэтому регистрируйтесь заранее. Встать в реестр можно и добровольно.' },
         { q: 'Когда я плачу в Финляндии налог со всех своих доходов?', a: 'Когда у вас в Финляндии постоянное жильё и дом или вы непрерывно находитесь здесь больше шести месяцев. Короткие поездки за границу пребывание не прерывают. Налоговое соглашение может ограничить право Финляндии на налогообложение.' },
       ],
@@ -397,7 +412,7 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
         { t: 'p', x: 'Under the Business Operations Act (elinkeinotoimintalaki 565/2023), the right to carry on a business depends on where you live, not on your citizenship. A natural person resident in the European Economic Area (EEA) may do business without a separate permit. Someone living outside the EEA needs a permit from PRH. The right to stay in Finland is a different matter, decided by Migri.' },
         { t: 'h3', x: 'EU and EEA citizens' },
         { t: 'p', x: 'A citizen of an EU or EEA country does not need a residence permit to work as an entrepreneur in Finland. If you stay in Finland for more than three months, register your right of residence with Migri. If you live in Estonia, for example, and set up a sole trader business (toiminimi) in Finland, your residence is in the EEA: you need no PRH permit and no separate representative in Finland.' },
-        { t: 'h3', x: 'Coming from outside the EU' },
+        { t: 'h3', x: 'Coming from outside the EU/EEA' },
         { t: 'ul', items: [
           'If you move to Finland to be an entrepreneur, you need a residence permit that allows business activity. According to Migri, for the residence permit for a self-employed person the business must be profitable and your livelihood must be secured by income from it. You cannot apply for this permit as a light entrepreneur (kevytyrittäjä) working through an invoicing service.',
           'Growth companies have a separate start-up permit. It first requires a positive eligibility statement from Business Finland.',
@@ -407,13 +422,13 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
         { t: 'note', x: 'Conditions, fees and processing times for residence permits change, and every case is decided individually. Check your own situation with Migri before you commit to anything such as a lease or equipment purchases.' },
         { t: 'h2', x: 'Living outside the EEA: PRH permits' },
         { t: 'h3', x: 'Sole trader (toiminimi)' },
-        { t: 'p', x: 'If your permanent residence is outside the EEA, you need a PRH permit before you can file the start-up notification for a sole trader business. The application costs 150 euros plus a 6.50 euro invoicing charge. The business must then be entered in the Trade Register, and it needs a representative living in Finland who can receive summonses and other notices. PRH says that in practice it has granted these permits to people living permanently in Switzerland, based on the Lugano Convention, and that it decides other applications only when processing them. Someone living in Russia, for example, should not build their plan on a sole trader business.' },
+        { t: 'p', x: 'If your permanent residence is outside the EEA, you need a PRH permit before you can file the start-up notification for a sole trader business. The application costs 150 euros plus a 6.50 euro invoicing charge. The business must then be entered in the Trade Register, and it needs a representative living in Finland who can receive summonses and other notices. PRH’s published practice mentions only people living permanently in Switzerland, who have been granted permits based on the Lugano Convention; other cases are decided case by case. Under section 3(2) of the Business Operations Act, PRH must grant the permit if, based on the information provided, the trader can be reached for fulfilling the obligations of the business. Someone living in Russia, for example, should still be prepared for the permit not being granted.' },
         { t: 'h3', x: 'Limited company (osakeyhtiö, Oy)' },
         { t: 'ul', items: [
           'Under the Limited Liability Companies Act, at least one board member must reside in the EEA unless PRH grants an exemption. A board with fewer than three members must have a deputy member.',
           'In PRH’s practice, at least one ordinary member and, if there are deputies, at least one deputy must live in the EEA. Otherwise a permit is needed for all ordinary members or all deputies.',
-          'The managing director and any substitute must live in the EEA, or a PRH permit must be applied for.',
-          'A permit application costs 150 euros plus a 6.50 euro invoicing charge per person. For three board members that is 450 euros plus the invoicing charges.',
+          'If the company has a managing director, they and any substitute must live in the EEA, or a PRH permit must be applied for.',
+          'The permit costs 150 euros for each person it is applied for, plus a 6.50 euro invoicing charge per application. For three board members that is 450 euros plus 6.50 euros.',
           'PRH does not grant a permit if, for example, all board members live in Russia or Australia, or if the only ordinary member lives in Australia and the deputy in Finland. A deputy living in Finland does not solve the problem on its own.',
           'The company must have a representative living in Finland to receive summonses, unless an EEA-resident board member, deputy, managing director, authorised signatory or procurator is entered in the Trade Register.',
         ] },
@@ -423,13 +438,13 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'A limited company is always set up in the YTJ service, and from 2026 only electronically. The guided set-up costs 300 euros but requires, among other things, that every person named has a Finnish personal identity code. Otherwise you file the regular start-up notification for 400 euros. It must be filed within three months of signing the memorandum of association, or the formation lapses.',
           'Prepayment register: voluntary, but without it your customers must withhold tax from payments for work (13 % from a company, 60 % from a sole trader without a tax card). A new entrepreneur may find it hard to get assignments without it.',
           'VAT register: compulsory when turnover exceeds 20,000 euros in a calendar year. VAT is due from the moment the threshold is exceeded, so register in good time. The general rate is 25.5 %. Below the threshold you can register voluntarily.',
-          'Employer register: when you pay wages regularly. Do not register if the only people working in the business are you, your spouse or your child under 15.',
+          'Employer register: only if you are a regular employer, for example when you pay wages permanently to at least two employees. Do not register if the only people working in the business are you, your spouse or your child under 15.',
         ] },
         { t: 'p', x: 'If you file electronically, you get the Business ID at once. Entry in the Tax Administration’s registers takes about three weeks.' },
         { t: 'h2', x: 'Personal identity code and e-identification' },
-        { t: 'p', x: 'A Finnish personal identity code (henkilötunnus) is issued when you are entered in the Population Information System. Depending on your situation you can request it from the Digital and Population Data Services Agency (DVV), a tax office, a Finnish mission abroad or Migri, and you must visit in person. The code is needed, for example, to open a bank account, and Finnish strong identification methods, such as online banking codes and mobile certificates, are tied to it.' },
+        { t: 'p', x: 'A Finnish personal identity code (henkilötunnus) is issued when you are entered in the Population Information System. Depending on your situation you can request it from the Digital and Population Data Services Agency (DVV), a tax office, a Finnish mission abroad or Migri, and you must visit in person. The code is needed, for example, to open a bank account, and Finnish strong identification methods, such as online banking codes and mobile certificates, are tied to it. According to Suomi.fi, you can also get one during a short stay in Finland if needed.' },
         { t: 'p', x: 'Without Finnish identification your options are limited. An e-ID from another EU country only works in services that accept it, and you are then not linked to a Finnish personal identity code. In MyTax, an EU e-ID lets you send a contact request and use the service in a limited scope.' },
-        { t: 'p', x: 'Since 1 January 2026, Trade Register filings must be electronic even when none of the responsible persons has a Finnish personal identity code. According to PRH, the options are:' },
+        { t: 'p', x: 'Since 1 January 2026, companies’ Trade Register filings, for example those of a limited company, must be electronic even when none of the responsible persons has a Finnish personal identity code. Mandatory e-filing does not apply to sole traders. According to PRH, the options are:' },
         { t: 'ul', items: [
           'An authorised contact person with a Finnish personal identity code and Suomi.fi identification files on the web form, with a power of attorney or a Y form signed by a responsible person attached.',
           'A responsible person with an e-ID from certain EU countries uses the web form for foreign identification (Ulkomaalaisen tunnistustapa). The list includes Estonia, Latvia, Lithuania, Poland, Sweden and Germany, among others.',
@@ -449,12 +464,12 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'You are resident in Finland for tax purposes if you have your actual home here or stay here continuously for more than six months. Temporary absences do not break the stay. You then pay Finnish tax on all your income, including income from abroad. A tax treaty may decide which country has the right to tax.',
           'A sole trader’s profit is your personal income and is taxed progressively. You cannot pay yourself a salary. Prepayment tax is not imposed automatically: you must apply for it yourself in MyTax.',
           'A limited company pays 20 % corporate income tax on its profit. You pay personal tax when you take a salary or dividends from the company.',
-          'YEL pension insurance is compulsory for an entrepreneur who lives and works in Finland, and also for one living in an EU or EEA country. It must be taken out within six months of starting. Limits and contributions are in our separate YEL guide.',
+          'YEL pension insurance is compulsory for an entrepreneur who lives and works in Finland, and also for one living in an EU or EEA country if Finnish social security legislation applies to them. Which country’s insurance applies is determined by EU rules. YEL must be taken out within six months of starting. Limits and contributions are in our separate YEL guide.',
           'If you work in Finland through an Estonian OÜ, registration and taxation work differently. We cover that in a separate guide on Estonian OÜs in Finland.',
         ] },
         { t: 'h2', x: 'Common mistakes' },
         { t: 'ul', items: [
-          'Setting up the business before the right of residence is clear. A Business ID does not give you the right to live in Finland.',
+          'Making financial commitments such as a lease, purchases or contracts before checking your permit route with Migri. The business usually has to be registered before an entrepreneur’s permit is granted, but a Business ID alone gives no right to live in Finland.',
           'Assuming that Finnish citizenship or a deputy board member living in Finland is enough. Whether a PRH permit is needed depends on residence and the composition of the board.',
           'Choosing the 300 euro guided set-up although someone has no Finnish personal identity code.',
           'Missing the three-month deadline after the memorandum of association, so the formation lapses.',
@@ -498,8 +513,8 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
       ],
       faq: [
         { q: 'Does an EU citizen need a residence permit to be an entrepreneur in Finland?', a: 'No. If you stay in Finland for more than three months, register your right of residence with Migri. You can set up a business in the same way as a Finn, and if you live in the EEA you need no PRH permit.' },
-        { q: 'Can I set up a sole trader business in Finland if I live in Russia?', a: 'You first need a PRH permit (150 euros plus a 6.50 euro invoicing charge), an entry in the Trade Register and a representative living in Finland. PRH says it has granted permits in practice to people living in Switzerland and decides other applications case by case, so do not count on a positive decision. To move to Finland you also need a residence permit.' },
-        { q: 'Can I set up a limited company without a Finnish personal identity code?', a: 'Yes, but the 300 euro guided set-up is then not available. You file the regular 400 euro start-up notification, which according to PRH can be done by an authorised contact person, by a responsible person with an e-ID from certain EU countries (such as Estonia) or by a Finnish attorney. In addition, at least one board member and the managing director must live in the EEA, or a PRH permit is needed.' },
+        { q: 'Can I set up a sole trader business in Finland if I live in Russia?', a: 'You first need a PRH permit (150 euros plus a 6.50 euro invoicing charge), an entry in the Trade Register and a representative living in Finland. PRH’s published practice mentions only people living in Switzerland, and other cases are decided case by case. By law the permit must be granted if you can be reached for fulfilling the obligations of the business, but be prepared for it not being granted. To move to Finland you also need a residence permit.' },
+        { q: 'Can I set up a limited company without a Finnish personal identity code?', a: 'Yes, but the 300 euro guided set-up is then not available. You file the regular 400 euro start-up notification, which according to PRH can be done by an authorised contact person, by a responsible person with an e-ID from certain EU countries (such as Estonia) or by a Finnish attorney. In addition, at least one board member and any managing director must live in the EEA, or a PRH permit is needed.' },
         { q: 'When must I register for VAT?', a: 'When turnover exceeds 20,000 euros in a calendar year. VAT is due from the moment the threshold is exceeded, so register before that. You can also register voluntarily.' },
         { q: 'When do I pay Finnish tax on all my income?', a: 'When you have your actual home in Finland or stay here continuously for more than six months. Short trips abroad do not break the stay. A tax treaty may limit Finland’s right to tax.' },
       ],
@@ -524,13 +539,13 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
         { t: 'note', x: 'Elamislubade tingimused, tasud ja menetlusajad muutuvad ning iga juhtum otsustatakse eraldi. Kontrolli oma olukorda Migrist enne, kui võtad kohustusi, näiteks sõlmid üürilepingu või ostad seadmeid.' },
         { t: 'h2', x: 'Kui elad väljaspool EMP-d: PRH load' },
         { t: 'h3', x: 'Toiminimi (füüsilisest isikust ettevõtja)' },
-        { t: 'p', x: 'Kui su alaline elukoht on väljaspool EMP-d, vajad PRH luba enne, kui saad esitada toiminimi asutamisteate. Taotlus maksab 150 eurot ja arvetasu 6,50 eurot. Sellisel juhul tuleb toiminimi kanda äriregistrisse ning tal peab olema Soomes elav esindaja, kes võtab vastu kohtukutseid ja muid teateid. PRH sõnul on ta praktikas andnud lube Šveitsis alaliselt elavatele Lugano konventsiooni alusel ja otsustab muud taotlused alles menetluses. Näiteks Venemaal elaval inimesel ei tasu plaani toiminimi peale üles ehitada.' },
+        { t: 'p', x: 'Kui su alaline elukoht on väljaspool EMP-d, vajad PRH luba enne, kui saad esitada toiminimi asutamisteate. Taotlus maksab 150 eurot ja arvetasu 6,50 eurot. Sellisel juhul tuleb toiminimi kanda äriregistrisse ning tal peab olema Soomes elav esindaja, kes võtab vastu kohtukutseid ja muid teateid. PRH avaldatud praktikas on nimetatud ainult Šveitsis alaliselt elavaid, kellele on lube antud Lugano konventsiooni alusel; muud juhtumid otsustatakse juhtumipõhiselt. Ettevõtlusseaduse 3 § 2. lõike järgi peab PRH loa andma, kui esitatud selgituse põhjal on ettevõtja ettevõtluse kohustuste täitmiseks kättesaadav. Näiteks Venemaal elav inimene peaks siiski arvestama, et luba ei pruugita anda.' },
         { t: 'h3', x: 'Osakeyhtiö (osaühing, Oy)' },
         { t: 'ul', items: [
           'Osaühinguseaduse järgi peab vähemalt üks juhatuse liige elama EMP-s, kui PRH ei luba erandit. Kui juhatuses on alla kolme liikme, peab sel olema asendusliige (varajäsen).',
           'PRH praktikas peab EMP-s elama vähemalt üks põhiliige ja, kui asendusliikmeid on, ka vähemalt üks asendusliige. Muidu on luba vaja kõigile põhiliikmetele või kõigile asendusliikmetele.',
-          'Tegevjuht (toimitusjohtaja) ja tema võimalik asendaja peavad elama EMP-s, muidu tuleb neile taotleda PRH luba.',
-          'Loataotlus maksab 150 eurot ja 6,50 eurot arvetasu inimese kohta. Kolme juhatuse liikme puhul on see 450 eurot pluss arvetasud.',
+          'Kui ühingul on tegevjuht (toimitusjohtaja), peavad tema ja tema võimalik asendaja elama EMP-s, muidu tuleb neile taotleda PRH luba.',
+          'Luba maksab 150 eurot iga inimese kohta, kellele seda taotletakse, ja lisaks võetakse 6,50 eurot arvetasu taotluse kohta. Kolme juhatuse liikme puhul on see 450 eurot pluss 6,50 eurot.',
           'PRH ei anna luba näiteks siis, kui kõik juhatuse liikmed elavad Venemaal või Austraalias või kui ainus põhiliige elab Austraalias ja asendusliige Soomes. Soomes elav asendusliige üksi probleemi ei lahenda.',
           'Ühingul peab olema Soomes elav esindaja kohtukutsete vastuvõtmiseks, kui äriregistrisse pole kantud EMP-s elavat juhatuse liiget, asendusliiget, tegevjuhti, esindusõiguslikku isikut ega prokuristi.',
         ] },
@@ -540,13 +555,13 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'Osaühing asutatakse alati YTJ-teenuses ja alates 2026. aastast ainult elektrooniliselt. Juhendatud asutamine maksab 300 eurot, kuid eeldab muu hulgas, et kõigil märgitud isikutel on Soome isikukood. Muidu esitatakse tavaline asutamisteade, mis maksab 400 eurot. See tuleb esitada kolme kuu jooksul asutamislepingu allkirjastamisest, muidu asutamine aegub.',
           'Ettemaksuregister (ennakkoperintärekisteri): vabatahtlik, kuid ilma selleta peab klient tööeest makstavast tasust maksu kinni pidama (ühingult 13 %, maksukaardita füüsilisest isikust ettevõtjalt 60 %). Alustaval ettevõtjal võib ilma registrita olla raske tellimusi saada.',
           'Käibemaksuregister (ALV): kohustuslik, kui käive ületab kalendriaastas 20 000 eurot. Maks tuleb tasuda piiri ületamise hetkest, seega registreeru aegsasti. Üldmäär on 25,5 %. Alla piiri saab registreeruda vabatahtlikult.',
-          'Tööandjate register: kui maksad palka regulaarselt. Ära registreeru, kui ettevõttes töötavad ainult sina, su abikaasa või alla 15-aastane laps.',
+          'Tööandjate register: ainult siis, kui oled korrapärane tööandja, näiteks maksad püsivalt palka vähemalt kahele töötajale. Ära registreeru, kui ettevõttes töötavad ainult sina, su abikaasa või alla 15-aastane laps.',
         ] },
         { t: 'p', x: 'Elektroonilise teatega saad Y-tunnuse kohe. Maksuameti registritesse kandmine võtab umbes kolm nädalat.' },
         { t: 'h2', x: 'Isikukood ja e-tuvastus' },
-        { t: 'p', x: 'Soome isikukood (henkilötunnus) antakse, kui sind kantakse rahvastikuregistrisse. Olenevalt olukorrast saab seda taotleda Digi- ja rahvastikuandmete ametist (DVV), maksuametist, Soome välisesindusest või Migrist ning kohale tuleb minna isiklikult. Isikukoodi on vaja näiteks pangakonto avamiseks ja Soome tugevad tuvastusvahendid, nagu internetipanga koodid ja mobiilivarmenne, on sellega seotud.' },
+        { t: 'p', x: 'Soome isikukood (henkilötunnus) antakse, kui sind kantakse rahvastikuregistrisse. Olenevalt olukorrast saab seda taotleda Digi- ja rahvastikuandmete ametist (DVV), maksuametist, Soome välisesindusest või Migrist ning kohale tuleb minna isiklikult. Isikukoodi on vaja näiteks pangakonto avamiseks ja Soome tugevad tuvastusvahendid, nagu internetipanga koodid ja mobiilivarmenne, on sellega seotud. Suomi.fi andmetel saab isikukoodi vajadusel ka lühiajalise Soomes viibimise ajal.' },
         { t: 'p', x: 'Ilma Soome tuvastusvahenditeta on võimalused piiratud. Teise EL-i riigi e-identiteediga saab siseneda ainult teenustesse, mis seda lubavad, ja sind ei seota siis Soome isikukoodiga. OmaVeros saab EL-i riigi tuvastusega saata kontaktipäringu ja asju ajada piiratud ulatuses.' },
-        { t: 'p', x: 'Alates 1.1.2026 tuleb äriregistri teated esitada elektrooniliselt ka siis, kui kellelgi vastutavatest isikutest pole Soome isikukoodi. PRH andmetel on võimalused järgmised:' },
+        { t: 'p', x: 'Alates 1.1.2026 tuleb ühingute, näiteks osaühingu, äriregistri teated esitada elektrooniliselt ka siis, kui kellelgi vastutavatest isikutest pole Soome isikukoodi. Toiminimi ettevõtjaid kohustuslik e-asjaajamine ei puuduta. PRH andmetel on võimalused järgmised:' },
         { t: 'ul', items: [
           'Volitatud kontaktisik, kellel on Soome isikukood ja Suomi.fi tuvastus, esitab teate veebivormil. Lisaks on vaja volikirja või vastutava isiku allkirjastatud Y-vormi.',
           'Teatud EL-i riigi tuvastusvahendiga vastutav isik kasutab veebivormi „Ulkomaalaisen tunnistustapa“. Nimekirjas on teiste seas Eesti, Läti, Leedu, Poola, Rootsi ja Saksamaa.',
@@ -566,12 +581,12 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'Oled Soome maksuresident, kui sul on siin tegelik eluase ja kodu või viibid siin järjest üle kuue kuu. Ajutine eemalolek viibimist ei katkesta. Siis maksad Soome tulumaksu kõigilt oma tuludelt, ka välismaistelt. Maksuleping võib määrata, kumb riik tohib maksustada.',
           'Toiminimi kasum on sinu isiklik tulu ja seda maksustatakse progresseeruvalt. Endale palka maksta ei saa. Ettemaksu (ennakkovero) ei määrata automaatselt, vaid pead seda ise OmaVeros taotlema.',
           'Osaühing maksab kasumilt 20 % tulumaksu (yhteisövero). Isiklikku maksu maksad siis, kui võtad ühingust palka või dividendi.',
-          'YEL-pensionikindlustus on kohustuslik Soomes elavale ja tegutsevale ettevõtjale ning ka EL-i või EMP riigis elavale ettevõtjale. See tuleb võtta kuue kuu jooksul tegevuse algusest. Piirid ja maksed on meie eraldi YEL-juhendis.',
+          'YEL-pensionikindlustus on kohustuslik Soomes elavale ja tegutsevale ettevõtjale ning ka EL-i või EMP riigis elavale ettevõtjale, kui tema suhtes kohaldatakse Soome sotsiaalkindlustuse õigusakte. Selle, millise riigi kindlustus kehtib, määravad EL-i reeglid. YEL tuleb võtta kuue kuu jooksul tegevuse algusest. Piirid ja maksed on meie eraldi YEL-juhendis.',
           'Kui tegutsed Soomes Eesti OÜ kaudu, käivad registreerimine ja maksustamine teisiti. Selle kohta on meil eraldi juhend Eesti OÜ-st Soomes.',
         ] },
         { t: 'h2', x: 'Levinumad vead' },
         { t: 'ul', items: [
-          'Ettevõte asutatakse enne, kui õigus Soomes viibida on selge. Y-tunnus ei anna õigust Soomes elada.',
+          'Võetakse rahalisi kohustusi, näiteks üürileping, ostud või lepingud, enne kui oma loa tee on Migriga üle kontrollitud. Ettevõte tuleb tavaliselt registreerida enne ettevõtja elamisloa andmist, kuid Y-tunnus üksi ei anna õigust Soomes elada.',
           'Arvatakse, et piisab Soome kodakondsusest või Soomes elavast asendusliikmest. PRH loa vajadus sõltub elukohast ja juhatuse koosseisust.',
           'Valitakse juhendatud 300-eurone asutamine, kuigi kellelgi pole Soome isikukoodi.',
           'Asutamisteade jääb kolme kuu jooksul asutamislepingust esitamata ja asutamine aegub.',
@@ -614,8 +629,8 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
       ],
       faq: [
         { q: 'Kas EL-i kodanik vajab Soomes ettevõtjaks olemiseks elamisluba?', a: 'Ei vaja. Kui viibid Soomes üle kolme kuu, registreeri oma elamisõigus Migris. Ettevõtte saad asutada samamoodi nagu soomlane ja EMP-s elades pole PRH luba vaja.' },
-        { q: 'Kas saan asutada Soome toiminimi, kui elan Venemaal?', a: 'Esmalt on vaja PRH luba (150 eurot ja 6,50 eurot arvetasu), kannet äriregistris ja Soomes elavat esindajat. PRH sõnul on ta praktikas andnud lube Šveitsis elavatele ja otsustab muud taotlused juhtumipõhiselt, seega positiivsele otsusele ei tasu loota. Soome kolimiseks on vaja ka elamisluba.' },
-        { q: 'Kas osaühingu saab asutada ilma Soome isikukoodita?', a: 'Saab, kuid juhendatud 300-eurone asutamine siis ei sobi. Esitatakse tavaline 400-eurone asutamisteade, mille võib PRH andmetel esitada volitatud kontaktisik, teatud EL-i riigi (näiteks Eesti) tuvastusvahendiga vastutav isik või Soome advokaat. Lisaks peavad vähemalt üks juhatuse liige ja tegevjuht elama EMP-s, muidu on vaja PRH luba.' },
+        { q: 'Kas saan asutada Soome toiminimi, kui elan Venemaal?', a: 'Esmalt on vaja PRH luba (150 eurot ja 6,50 eurot arvetasu), kannet äriregistris ja Soomes elavat esindajat. PRH on oma sõnul praktikas andnud lube Šveitsis elavatele ja muud juhtumid otsustatakse juhtumipõhiselt. Seaduse järgi tuleb luba anda, kui oled ettevõtluse kohustuste täitmiseks kättesaadav, kuid arvesta, et luba ei pruugita anda. Soome kolimiseks on vaja ka elamisluba.' },
+        { q: 'Kas osaühingu saab asutada ilma Soome isikukoodita?', a: 'Saab, kuid juhendatud 300-eurone asutamine siis ei sobi. Esitatakse tavaline 400-eurone asutamisteade, mille võib PRH andmetel esitada volitatud kontaktisik, teatud EL-i riigi (näiteks Eesti) tuvastusvahendiga vastutav isik või Soome advokaat. Lisaks peavad vähemalt üks juhatuse liige ja võimalik tegevjuht elama EMP-s, muidu on vaja PRH luba.' },
         { q: 'Millal pean registreeruma käibemaksukohustuslaseks?', a: 'Kui käive ületab kalendriaastas 20 000 eurot. Maks tuleb tasuda piiri ületamise hetkest, seega registreeru enne seda. Registreeruda saab ka vabatahtlikult.' },
         { q: 'Millal maksan Soome maksu kõigilt oma tuludelt?', a: 'Kui sul on Soomes tegelik eluase ja kodu või viibid siin järjest üle kuue kuu. Lühikesed välisreisid viibimist ei katkesta. Maksuleping võib Soome maksustamisõigust piirata.' },
       ],
@@ -640,13 +655,13 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
         { t: 'note', x: 'Умови, збори й строки розгляду дозволів на проживання змінюються, і рішення завжди ухвалюють індивідуально. Перевірте свою ситуацію в Migri, перш ніж брати на себе зобов’язання — підписувати договір оренди чи купувати обладнання.' },
         { t: 'h2', x: 'Якщо ви живете поза ЄЕЗ: дозволи PRH' },
         { t: 'h3', x: 'Toiminimi (фізична особа-підприємець)' },
-        { t: 'p', x: 'Якщо ваше постійне місце проживання поза ЄЕЗ, дозвіл PRH треба отримати до подання заяви про реєстрацію toiminimi. Заява коштує 150 € плюс 6,50 € за виставлення рахунку. У такому разі toiminimi обов’язково вносять до торговельного реєстру, і в нього має бути представник, який живе у Фінляндії й приймає повістки та інші повідомлення. PRH повідомляє, що на практиці видавав такі дозволи жителям Швейцарії на підставі Луганської конвенції, а інші заяви вирішує лише під час розгляду. Тому, наприклад, тому, хто живе в Росії, не варто будувати плани на toiminimi.' },
+        { t: 'p', x: 'Якщо ваше постійне місце проживання поза ЄЕЗ, дозвіл PRH треба отримати до подання заяви про реєстрацію toiminimi. Заява коштує 150 € плюс 6,50 € за виставлення рахунку. У такому разі toiminimi обов’язково вносять до торговельного реєстру, і в нього має бути представник, який живе у Фінляндії й приймає повістки та інші повідомлення. В опублікованій практиці PRH згадано лише постійних жителів Швейцарії, яким дозволи видавали на підставі Луганської конвенції; інші випадки вирішують індивідуально. За законом про підприємницьку діяльність (565/2023, § 3, частина 2) PRH зобов’язане видати дозвіл, якщо за наданими відомостями з підприємцем можна зв’язатися для виконання зобов’язань бізнесу. Тож, наприклад, людині, яка живе в Росії, варто бути готовою до того, що дозволу не видадуть.' },
         { t: 'h3', x: 'Osakeyhtiö (Oy)' },
         { t: 'ul', items: [
           'За законом про акціонерні товариства щонайменше один член правління має жити в ЄЕЗ, якщо PRH не дозволить виняток. Якщо в правлінні менше трьох членів, у ньому має бути заступник (varajäsen).',
           'На практиці PRH вимагає, щоб у ЄЕЗ жив щонайменше один основний член правління і, якщо є заступники, щонайменше один заступник. Інакше дозвіл потрібен усім основним членам або всім заступникам.',
-          'Керівний директор (toimitusjohtaja) і його можливий заступник мають жити в ЄЕЗ, інакше для них потрібен дозвіл PRH.',
-          'Заява на дозвіл коштує 150 € і 6,50 € за рахунок на кожну особу. Для трьох членів правління — 450 € плюс збори за рахунки.',
+          'Якщо в компанії є керівний директор (toimitusjohtaja), він і його можливий заступник мають жити в ЄЕЗ, інакше для них потрібен дозвіл PRH.',
+          'Дозвіл коштує 150 € за кожну особу, для якої його запитують, плюс 6,50 € за виставлення рахунку за одну заяву. Для трьох членів правління — 450 € плюс 6,50 €.',
           'PRH не видає дозвіл, наприклад, якщо всі члени правління живуть у Росії чи Австралії або якщо єдиний основний член живе в Австралії, а заступник — у Фінляндії. Заступник із Фінляндії сам по собі проблеми не вирішує.',
           'Компанія повинна мати представника з місцем проживання у Фінляндії для отримання повісток, якщо в торговельному реєстрі немає члена правління, заступника, керівного директора, особи з правом підпису чи прокуриста, які живуть у ЄЕЗ.',
         ] },
@@ -656,13 +671,13 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'Osakeyhtiö завжди реєструють у YTJ, а з 2026 року — лише електронно. Керована реєстрація коштує 300 €, але вимагає, зокрема, щоб у всіх зазначених осіб був фінський henkilötunnus. Інакше подають звичайну заяву за 400 €. Її треба подати протягом трьох місяців після підписання установчого договору, інакше заснування компанії втрачає силу.',
           'Реєстр передоплати податків (ennakkoperintärekisteri): добровільний, але без нього замовник мусить утримувати податок з оплати роботи (з компанії — 13 %, з приватного підприємця без податкової картки — 60 %). Підприємцю-початківцю без цього реєстру буває важко отримати замовлення.',
           'Реєстр ПДВ (ALV): обов’язковий, якщо оборот перевищує 20 000 € за календарний рік. Податок сплачують з моменту перевищення порогу, тож реєструйтеся заздалегідь. Загальна ставка — 25,5 %. За меншого обороту можна стати на облік добровільно.',
-          'Реєстр роботодавців: якщо ви регулярно виплачуєте зарплату. Не реєструйтеся, якщо у фірмі працюєте лише ви, ваш чоловік чи дружина або дитина до 15 років.',
+          'Реєстр роботодавців: лише якщо ви регулярний роботодавець — наприклад, постійно виплачуєте зарплату щонайменше двом працівникам. Не реєструйтеся, якщо у фірмі працюєте лише ви, ваш чоловік чи дружина або дитина до 15 років.',
         ] },
         { t: 'p', x: 'У разі електронного подання Y-tunnus видають одразу. Внесення до реєстрів Податкової триває близько трьох тижнів.' },
         { t: 'h2', x: 'Henkilötunnus і електронна ідентифікація' },
-        { t: 'p', x: 'Фінський особистий код (henkilötunnus) присвоюють під час внесення до реєстру населення. Залежно від ситуації його можна запросити в Агентстві цифровізації та даних про населення (DVV), у податковій, у фінському представництві за кордоном або в Migri; потрібен особистий візит. Henkilötunnus необхідний, наприклад, для відкриття банківського рахунку, а фінські засоби сильної ідентифікації — банківські коди й мобільний сертифікат — прив’язані до нього.' },
+        { t: 'p', x: 'Фінський особистий код (henkilötunnus) присвоюють під час внесення до реєстру населення. Залежно від ситуації його можна запросити в Агентстві цифровізації та даних про населення (DVV), у податковій, у фінському представництві за кордоном або в Migri; потрібен особистий візит. Henkilötunnus необхідний, наприклад, для відкриття банківського рахунку, а фінські засоби сильної ідентифікації — банківські коди й мобільний сертифікат — прив’язані до нього. За даними Suomi.fi, за потреби henkilötunnus можна отримати й під час короткого перебування у Фінляндії.' },
         { t: 'p', x: 'Без фінських засобів ідентифікації можливості обмежені. Електронним посвідченням іншої країни ЄС можна увійти лише в ті сервіси, які це дозволяють, і вас тоді не пов’яжуть із фінським henkilötunnus. В OmaVero з ідентифікатором країни ЄС можна надіслати запит і користуватися сервісом в обмеженому обсязі.' },
-        { t: 'p', x: 'З 1.1.2026 заяви до торговельного реєстру подають лише електронно, навіть якщо в жодної відповідальної особи немає фінського henkilötunnus. За даними PRH, є такі варіанти:' },
+        { t: 'p', x: 'З 1.1.2026 заяви компаній, наприклад osakeyhtiö, до торговельного реєстру подають лише електронно, навіть якщо в жодної відповідальної особи немає фінського henkilötunnus. На toiminimi обов’язкове електронне подання не поширюється. За даними PRH, є такі варіанти:' },
         { t: 'ul', items: [
           'Уповноважена контактна особа з фінським henkilötunnus та ідентифікацією Suomi.fi подає заяву через вебформу. Додають довіреність або форму Y, підписану відповідальною особою.',
           'Відповідальна особа із засобом ідентифікації певної країни ЄС користується вебформою «Ulkomaalaisen tunnistustapa». У списку, серед інших, Естонія, Латвія, Литва, Польща, Швеція та Німеччина.',
@@ -682,12 +697,12 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
           'Ви вважаєтеся податковим резидентом Фінляндії, якщо маєте тут постійне житло й дім або безперервно перебуваєте тут понад шість місяців. Тимчасові від’їзди перебування не переривають. Тоді ви сплачуєте у Фінляндії податок з усіх доходів, зокрема закордонних. Податкова угода може визначити, яка держава має право оподатковувати дохід.',
           'Прибуток toiminimi — ваш особистий дохід, він оподатковується за прогресивною шкалою. Виплачувати зарплату самому собі не можна. Авансовий податок (ennakkovero) не призначають автоматично — його треба запросити самостійно в OmaVero.',
           'Osakeyhtiö сплачує з прибутку 20 % податку на прибуток (yhteisövero). Особистий податок ви сплачуєте, коли отримуєте з компанії зарплату або дивіденди.',
-          'Страхування YEL обов’язкове для підприємця, який живе й працює у Фінляндії, а також для того, хто живе в країні ЄС чи ЄЕЗ. Оформити його треба протягом шести місяців від початку діяльності. Ліміти й внески — в нашому окремому посібнику про YEL.',
+          'Страхування YEL обов’язкове для підприємця, який живе й працює у Фінляндії, а також для того, хто живе в країні ЄС чи ЄЕЗ, якщо до нього застосовується фінське законодавство про соціальне забезпечення. Страхування якої країни діє, визначають правила ЄС. Оформити YEL треба протягом шести місяців від початку діяльності. Ліміти й внески — в нашому окремому посібнику про YEL.',
           'Якщо ви працюєте у Фінляндії через естонську OÜ, податки й реєстрація влаштовані інакше — про це в нас є окремий посібник про естонську OÜ у Фінляндії.',
         ] },
         { t: 'h2', x: 'Поширені помилки' },
         { t: 'ul', items: [
-          'Фірму відкривають раніше, ніж з’ясовано право на перебування. Y-tunnus не дає права жити у Фінляндії.',
+          'Беруть на себе фінансові зобов’язання — оренду, покупки, договори — раніше, ніж перевірили в Migri свій шлях до дозволу. Зазвичай фірму треба зареєструвати до видачі дозволу підприємцю, але сам по собі Y-tunnus не дає права жити у Фінляндії.',
           'Вважають, що досить фінського громадянства чи заступника в правлінні, який живе у Фінляндії. Чи потрібен дозвіл PRH, залежить від місця проживання й складу правління.',
           'Обирають керовану реєстрацію за 300 €, хоча в когось із учасників немає фінського henkilötunnus.',
           'Не подають заяву протягом трьох місяців після установчого договору, і заснування втрачає силу.',
@@ -730,8 +745,8 @@ export const ulkomaalainenYrittajaSuomessa: Guide = {
       ],
       faq: [
         { q: 'Чи потрібен громадянину ЄС дозвіл на проживання, щоб бути підприємцем у Фінляндії?', a: 'Ні. Якщо ви перебуваєте у Фінляндії понад три місяці, зареєструйте право на перебування в Migri. Фірму можна відкрити так само, як фінові, а тому, хто живе в ЄЕЗ, дозвіл PRH не потрібен.' },
-        { q: 'Чи можна відкрити toiminimi у Фінляндії, якщо я живу в Росії?', a: 'Спершу потрібні дозвіл PRH (150 € і 6,50 € за рахунок), внесення до торговельного реєстру і представник, який живе у Фінляндії. PRH повідомляє, що на практиці видавав дозволи жителям Швейцарії, а інші заяви вирішує індивідуально, тож розраховувати на позитивне рішення не варто. Для переїзду до Фінляндії потрібен ще й дозвіл на проживання.' },
-        { q: 'Чи можна відкрити osakeyhtiö без фінського henkilötunnus?', a: 'Можна, але керована реєстрація за 300 € тоді не підходить. Подають звичайну заяву за 400 €; за даними PRH, її може подати уповноважена контактна особа, відповідальна особа із засобом ідентифікації певної країни ЄС (наприклад, Естонії) або фінський адвокат. Крім того, щонайменше один член правління і керівний директор мають жити в ЄЕЗ, інакше потрібен дозвіл PRH.' },
+        { q: 'Чи можна відкрити toiminimi у Фінляндії, якщо я живу в Росії?', a: 'Спершу потрібні дозвіл PRH (150 € і 6,50 € за рахунок), внесення до торговельного реєстру і представник, який живе у Фінляндії. В опублікованій практиці PRH згадано лише жителів Швейцарії, інші випадки вирішують індивідуально. За законом дозвіл мають видати, якщо з вами можна зв’язатися для виконання зобов’язань бізнесу, але будьте готові до того, що його не видадуть. Для переїзду до Фінляндії потрібен ще й дозвіл на проживання.' },
+        { q: 'Чи можна відкрити osakeyhtiö без фінського henkilötunnus?', a: 'Можна, але керована реєстрація за 300 € тоді не підходить. Подають звичайну заяву за 400 €; за даними PRH, її може подати уповноважена контактна особа, відповідальна особа із засобом ідентифікації певної країни ЄС (наприклад, Естонії) або фінський адвокат. Крім того, щонайменше один член правління і керівний директор, якщо він є, мають жити в ЄЕЗ, інакше потрібен дозвіл PRH.' },
         { q: 'Коли треба ставати на облік платника ПДВ?', a: 'Коли оборот перевищує 20 000 € за календарний рік. Податок сплачують з моменту перевищення порогу, тож реєструйтеся заздалегідь. Стати на облік можна й добровільно.' },
         { q: 'Коли я сплачую у Фінляндії податок з усіх своїх доходів?', a: 'Коли маєте у Фінляндії постійне житло й дім або безперервно перебуваєте тут понад шість місяців. Короткі поїздки за кордон перебування не переривають. Податкова угода може обмежити право Фінляндії на оподаткування.' },
       ],
