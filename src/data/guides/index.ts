@@ -28,6 +28,7 @@ import { lounasYrityksenKortilla } from './lounas-yrityksen-kortilla';
 import { laskunKorjaaminenHyvityslasku } from './laskun-korjaaminen-hyvityslasku';
 import { alvLaskeminenVerollisestaHinnasta } from './alv-laskeminen-verollisesta-hinnasta';
 import { palkkaItselleTosite } from './palkka-itselle-tosite';
+import { taksiyrittajanKirjanpito } from './taksiyrittajan-kirjanpito';
 
 export * from './types';
 
@@ -62,6 +63,7 @@ export const guides: Guide[] = [
   laskunKorjaaminenHyvityslasku,
   alvLaskeminenVerollisestaHinnasta,
   palkkaItselleTosite,
+  taksiyrittajanKirjanpito,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -119,6 +121,9 @@ export function relatedGuides(slug: string, limit = 3): Guide[] {
   }
   if (slug === palkkaItselleTosite.slug) {
     return [osinkoVaiPalkka, palkkailmoitusTulorekisteriin, toiminimenVerotus].slice(0, limit);
+  }
+  if (slug === taksiyrittajanKirjanpito.slug) {
+    return [alvOpas, ajopaivakirja, toiminimenVerotus].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
