@@ -163,8 +163,8 @@ const SRC = {
 
 export const pikkujoulutJaJoululahjat: Guide = {
   slug: 'pikkujoulut-ja-joululahjat',
-  datePublished: '2026-11-12',
-  dateModified: '2026-11-12',
+  datePublished: '2026-11-16',
+  dateModified: '2026-11-16',
   content: {
     fi: {
       title: 'Pikkujoulut ja joululahjat yrityksessä: verotus, ALV ja kirjanpito',
