@@ -22,6 +22,7 @@ import { yelVakuutus } from './yel-vakuutus';
 import { tilinpaatosPienyritykselle } from './tilinpaatos-pienyritykselle';
 import { ulkomaalainenYrittajaSuomessa } from './ulkomaalainen-yrittaja-suomessa';
 import { pikkujoulutJaJoululahjat } from './pikkujoulut-ja-joululahjat';
+import { taksiyrittajanKirjanpito } from './taksiyrittajan-kirjanpito';
 
 export * from './types';
 
@@ -50,6 +51,7 @@ export const guides: Guide[] = [
   tilinpaatosPienyritykselle,
   ulkomaalainenYrittajaSuomessa,
   pikkujoulutJaJoululahjat,
+  taksiyrittajanKirjanpito,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -92,6 +94,9 @@ export function relatedGuides(slug: string, limit = 3): Guide[] {
   }
   if (slug === pikkujoulutJaJoululahjat.slug) {
     return [yrittajanVahennykset, alvOpas, palkanlaskenta].slice(0, limit);
+  }
+  if (slug === taksiyrittajanKirjanpito.slug) {
+    return [alvOpas, ajopaivakirja, toiminimenVerotus].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
