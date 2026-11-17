@@ -91,7 +91,7 @@ export default function ContactPage() {
                   </select>
                   <p id="contact-source-hint" className="mt-1.5 text-xs text-ink-700/70">{t.contact.form.sourceHint}</p>
                 </div>
-                {/* Referral bonus: the referrer's name tells us who gets the free month. */}
+                {/* Referral bonus: the referrer's name tells us who gets the €100 discount. */}
                 {source === 'referral' && (
                   <div>
                     <label htmlFor="contact-referrer" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.referrerLabel}</label>
