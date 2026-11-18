@@ -23,6 +23,11 @@ import { tilinpaatosPienyritykselle } from './tilinpaatos-pienyritykselle';
 import { ulkomaalainenYrittajaSuomessa } from './ulkomaalainen-yrittaja-suomessa';
 import { pikkujoulutJaJoululahjat } from './pikkujoulut-ja-joululahjat';
 import { venajankielinenTilitoimisto } from './venajankielinen-tilitoimisto';
+import { palkkailmoitusTulorekisteriin } from './palkkailmoitus-tulorekisteriin';
+import { lounasYrityksenKortilla } from './lounas-yrityksen-kortilla';
+import { laskunKorjaaminenHyvityslasku } from './laskun-korjaaminen-hyvityslasku';
+import { alvLaskeminenVerollisestaHinnasta } from './alv-laskeminen-verollisesta-hinnasta';
+import { palkkaItselleTosite } from './palkka-itselle-tosite';
 
 export * from './types';
 
@@ -52,6 +57,11 @@ export const guides: Guide[] = [
   tilinpaatosPienyritykselle,
   ulkomaalainenYrittajaSuomessa,
   pikkujoulutJaJoululahjat,
+  palkkailmoitusTulorekisteriin,
+  lounasYrityksenKortilla,
+  laskunKorjaaminenHyvityslasku,
+  alvLaskeminenVerollisestaHinnasta,
+  palkkaItselleTosite,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -94,6 +104,21 @@ export function relatedGuides(slug: string, limit = 3): Guide[] {
   }
   if (slug === pikkujoulutJaJoululahjat.slug) {
     return [yrittajanVahennykset, alvOpas, palkanlaskenta].slice(0, limit);
+  }
+  if (slug === palkkailmoitusTulorekisteriin.slug) {
+    return [palkanlaskenta, ensimmainenTyontekija, verotili].slice(0, limit);
+  }
+  if (slug === lounasYrityksenKortilla.slug) {
+    return [pikkujoulutJaJoululahjat, kilometrikorvausPaivaraha2026, yrittajanVahennykset].slice(0, limit);
+  }
+  if (slug === laskunKorjaaminenHyvityslasku.slug) {
+    return [alvOpas, alvLaskeminenVerollisestaHinnasta, verotili].slice(0, limit);
+  }
+  if (slug === alvLaskeminenVerollisestaHinnasta.slug) {
+    return [alvOpas, laskunKorjaaminenHyvityslasku, rakennusalanKaannettyArvonlisavero].slice(0, limit);
+  }
+  if (slug === palkkaItselleTosite.slug) {
+    return [osinkoVaiPalkka, palkkailmoitusTulorekisteriin, toiminimenVerotus].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
