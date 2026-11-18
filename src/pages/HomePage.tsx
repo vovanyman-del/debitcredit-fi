@@ -322,6 +322,7 @@ export default function HomePage() {
               {h.finalCta.whatsapp}
             </a>
           </div>
+          <p className="mt-4 text-sm text-white/90">{h.finalCta.whatsappNote}</p>
         </div>
       </section>
     </div>

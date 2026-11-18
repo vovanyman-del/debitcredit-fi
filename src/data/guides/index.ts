@@ -22,11 +22,13 @@ import { yelVakuutus } from './yel-vakuutus';
 import { tilinpaatosPienyritykselle } from './tilinpaatos-pienyritykselle';
 import { ulkomaalainenYrittajaSuomessa } from './ulkomaalainen-yrittaja-suomessa';
 import { pikkujoulutJaJoululahjat } from './pikkujoulut-ja-joululahjat';
+import { venajankielinenTilitoimisto } from './venajankielinen-tilitoimisto';
 
 export * from './types';
 
 // Order shown on the hub; drives routing, prerender and the sitemap.
 export const guides: Guide[] = [
+  venajankielinenTilitoimisto,
   toiminimiVaiOy,
   osakeyhtionPerustaminen,
   kevytyrittajyysVaiToiminimi,

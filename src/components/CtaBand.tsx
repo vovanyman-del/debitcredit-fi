@@ -28,6 +28,7 @@ export default function CtaBand() {
             {c.whatsapp}
           </a>
         </div>
+        <p className="mt-4 text-sm text-white/90">{c.whatsappNote}</p>
       </div>
     </section>
   );

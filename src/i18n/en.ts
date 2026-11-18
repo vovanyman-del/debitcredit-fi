@@ -127,6 +127,7 @@ export const en = {
       subtitle: '15 minutes in Finnish or Russian, no obligations.',
       cta: 'Free consultation',
       whatsapp: 'WhatsApp',
+      whatsappNote: "A question about your company or taxes? Message us on WhatsApp – on weekdays we reply the same day, and the first answer is free.",
     },
   },
   services: {
@@ -594,7 +595,7 @@ export const en = {
       { title: 'Retention periods', content: 'Contact-form data is retained for up to 2 years. Bookkeeping material is retained under the Accounting Act (kirjanpitolaki): financial statements and accounting books for 10 years, and source documents (tositteet) for 6 years from the end of the year. We cannot erase data that we are legally required to retain before the retention period ends.' },
       { title: 'Data security', content: 'We protect personal data with appropriate technical and organisational measures, including access control, encryption of data in transit and the use of trusted processors.' },
       { title: 'Your rights', content: 'You have the right of access, the right to rectification, erasure, restriction of processing, data portability and objection, and the right to withdraw consent. We cannot erase data that we are legally required to keep (for example, bookkeeping material). To exercise your rights, contact vladimir@debitcredit.fi. You also have the right to lodge a complaint with the supervisory authority, the Office of the Data Protection Ombudsman (Tietosuojavaltuutetun toimisto, tietosuoja.fi).' },
-      { title: 'Cookies', content: 'The site uses only technically necessary cookies (for language selection and basic functionality). We do not use analytics or tracking cookies. If this changes, we will ask for your consent.' },
+      { title: 'Cookies', content: 'The site uses only technically necessary cookies (for language selection and basic functionality). We do not use analytics or tracking cookies. To count visits we use Vercel Web Analytics, which works without cookies, does not recognise returning visitors and shows only aggregate figures (pages, countries, referrers). If this changes, we will ask for your consent.' },
     ],
   },
   terms: {

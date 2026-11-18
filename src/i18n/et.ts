@@ -127,6 +127,7 @@ export const et = {
       subtitle: '15 minutit soome või vene keeles, ilma kohustusteta.',
       cta: 'Tasuta konsultatsioon',
       whatsapp: 'WhatsApp',
+      whatsappNote: "Küsimus ettevõtte või maksude kohta? Kirjuta WhatsAppis – tööpäeviti vastame samal päeval, esimene vastus on tasuta.",
     },
   },
   services: {
@@ -594,7 +595,7 @@ export const et = {
       { title: 'Säilitamise aeg', content: 'Kontaktivormi andmeid säilitame kuni 2 aastat. Raamatupidamismaterjali säilitame Soome raamatupidamisseaduse (kirjanpitolaki) järgi: finantsaruandeid (tilinpäätös — majandusaasta aruanne) ja raamatupidamisregistreid 10 aastat ning algdokumente (tositteet) 6 aastat arvestusaasta lõpust. Seadusega nõutud andmeid ei saa sinu taotluse alusel kustutada enne säilitustähtaja lõppu.' },
       { title: 'Andmeturve', content: 'Kaitseme sinu andmeid asjakohaste tehniliste ja korralduslike meetmetega, sealhulgas juurdepääsu kontroll, andmete edastuse krüpteerimine ja üksnes usaldusväärsete volitatud töötlejate kasutamine.' },
       { title: 'Sinu õigused', content: 'Sul on õigus oma andmetega tutvuda, neid parandada ja kustutada, töötlemist piirata, taotleda andmete ülekandmist, esitada töötlemisele vastuväiteid ning nõusolek tagasi võtta. Me ei saa kustutada andmeid, mille säilitamiseks oleme seadusega kohustatud (nt raamatupidamine). Oma õiguste teostamiseks kirjuta aadressil vladimir@debitcredit.fi. Sul on samuti õigus esitada kaebus järelevalveasutusele — Tietosuojavaltuutetun toimisto (Soome andmekaitse ombudsmani büroo, tietosuoja.fi).' },
-      { title: 'Küpsised', content: 'Sait kasutab ainult tehniliselt vajalikke küpsiseid (keelevaliku ja põhifunktsioonide jaoks). Me ei kasuta analüütika- ega jälgimisküpsiseid. Kui see peaks muutuma, küsime selleks sinu nõusolekut.' },
+      { title: 'Küpsised', content: 'Sait kasutab ainult tehniliselt vajalikke küpsiseid (keelevaliku ja põhifunktsioonide jaoks). Me ei kasuta analüütika- ega jälgimisküpsiseid. Külastuste loendamiseks kasutame Vercel Web Analyticsit, mis töötab ilma küpsisteta, ei tunne korduvat külastajat ära ja näitab ainult koondnumbreid (lehed, riigid, viitavad saidid). Kui see peaks muutuma, küsime selleks sinu nõusolekut.' },
     ],
   },
   terms: {

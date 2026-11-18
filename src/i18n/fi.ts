@@ -127,6 +127,7 @@ export const fi = {
       subtitle: '15 minuuttia suomeksi tai venäjäksi, ilman sitoumuksia.',
       cta: 'Ilmainen konsultaatio',
       whatsapp: 'WhatsApp',
+      whatsappNote: "Kysymys yrityksestä tai veroista? Kirjoita WhatsAppissa – arkisin vastaamme samana päivänä, ensimmäinen vastaus on maksuton.",
     },
   },
   services: {
@@ -594,7 +595,7 @@ export const fi = {
       { title: 'Säilytysaika', content: 'Säilytämme yhteydenottotietoja enintään 2 vuotta. Kirjanpitoaineistoa säilytämme kirjanpitolain mukaan: tilinpäätös ja kirjanpitokirjat 10 vuotta sekä tositteet 6 vuotta tilikauden päättymisvuoden lopusta. Lakisääteisesti säilytettäviä tietoja emme voi poistaa pyynnöstä ennen säilytysajan päättymistä.' },
       { title: 'Tietoturva', content: 'Suojaamme tiedot asianmukaisin teknisin ja organisatorisin toimin (pääsynhallinta, siirron salaus, luotetut käsittelijät).' },
       { title: 'Rekisteröidyn oikeudet', content: 'Sinulla on oikeus tarkastaa tietosi sekä oikaista, poistaa ja rajoittaa niiden käsittelyä, oikeus tietojen siirrettävyyteen ja vastustamiseen sekä oikeus peruuttaa suostumus. Emme voi poistaa tietoja, jotka meidän on lain mukaan säilytettävä (esim. kirjanpitoaineisto). Oikeuksien käyttö: vladimir@debitcredit.fi. Sinulla on myös oikeus tehdä valitus valvontaviranomaiselle, Tietosuojavaltuutetun toimistolle (tietosuoja.fi).' },
-      { title: 'Evästeet', content: 'Sivusto käyttää vain teknisesti välttämättömiä evästeitä (kieli ja perustoiminnot). Emme käytä analytiikka- tai seurantaevästeitä. Jos tämä muuttuu, pyydämme suostumuksesi.' },
+      { title: 'Evästeet', content: 'Sivusto käyttää vain teknisesti välttämättömiä evästeitä (kieli ja perustoiminnot). Emme käytä analytiikka- tai seurantaevästeitä. Kävijämäärien laskemiseen käytämme Vercel Web Analyticsia, joka toimii ilman evästeitä, ei tunnista palaavaa kävijää ja näyttää vain koostetut luvut (sivut, maat, viittaavat sivustot). Jos tämä muuttuu, pyydämme suostumuksesi.' },
     ],
   },
   terms: {
