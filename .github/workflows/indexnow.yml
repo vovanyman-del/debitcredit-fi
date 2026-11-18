@@ -1,0 +1,25 @@
+name: IndexNow after publish
+# Every push to main is published by Vercel in ~30 s. Then tell Bing which pages changed.
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Wait for Vercel to publish
+        run: sleep 120
+      - name: Send changed pages to IndexNow
+        run: |
+          BEFORE="${{ github.event.before }}"
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then BEFORE="HEAD~1"; fi
+          node scripts/indexnow-changed.mjs $(git diff --name-only "$BEFORE" "${{ github.sha }}")
