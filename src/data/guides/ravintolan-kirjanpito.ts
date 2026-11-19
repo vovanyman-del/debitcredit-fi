@@ -81,6 +81,8 @@ import type { Guide } from './types';
 //   sähköisesti. Laki koskee kaikilla toimialoilla toimivia elinkeinonharjoittajia, joiden tilikauden
 //   liikevaihto on yli 10 000 euroa."; content: name, contact details and Y-tunnus, date, receipt
 //   number, goods/services, "maksu ja suoritettavan arvonlisäveron määrä verokannoittain";
+//   the law does not apply to "markkina- ja torikauppaan ulkotiloissa, lukuun ottamatta
+//   alkoholijuomien vähittäismyyntiä ja anniskelua" (worded as "may apply" for food trucks);
 //   "Laiminlyöntimaksun määrä on vähintään 300 euroa ja enintään 1 000 euroa." Law: Laki
 //   kuitintarjoamisvelvollisuudesta käteiskaupassa 658/2013 (https://www.finlex.fi/fi/lainsaadanto/2013/658,
 //   amended 450/2025 and 722/2025 in force 1.1.2026; the supervising authorities are therefore not
@@ -106,7 +108,8 @@ import type { Guide } from './types';
 //   välittömistä kustannuksista."; "Käyväksi markkina-arvoksi katsotaan se vastike, joka ei alita
 //   tuloverotuksessa vahvistettavaa ravintoedun raha-arvon vähimmäismäärää."; "Hotelli- ja
 //   ravintola-alan henkilökunnan ... ravintoedun raha-arvo on 7,48 euroa/ateria."; a lower price →
-//   "veron peruste tulee korottaa käypään markkina-arvoon".
+//   "veron peruste tulee korottaa käypään markkina-arvoon". No tolerance is given: any price below the
+//   ravintoetu value is alivastikkeellinen, so the guide does not say "clearly lower".
 // - Verohallinnon päätös vuodelta 2026 toimitettavassa verotuksessa noudatettavista luontoisetujen
 //   laskentaperusteista, VH/6275/00.01.00/2025, antopäivä 13.11.2025, voimassa 1.1.2026
 //   (https://www.vero.fi/syventavat-vero-ohjeet/paatokset/47380/verohallinnon-paatos-vuodelta-2026-toimitettavassa-verotuksessa-noudatettavista-luontoisetujen-laskentaperusteista/;
@@ -143,7 +146,8 @@ import type { Guide } from './types';
 // - Vaavo: the bureau's app for sending receipts; mentioned once, in the closing paragraph.
 // Worked example (2026 rates): 11 350,00 = 10 000,00 + 1 350,00 (13,5 %); 2 510,00 = 2 000,00 +
 // 510,00 (25,5 %); 2 270,00 = 2 000,00 + 270,00; commission 600,00 + 153,00; payout 1 517,00;
-// purchases 4 540,00 = 4 000,00 + 540,00 and 1 255,00 = 1 000,00 + 255,00; payable
+// purchases 4 540,00 = 4 000,00 + 540,00 and alcoholic drinks 1 255,00 = 1 000,00 + 255,00 (soft
+// drinks would be 13,5 %); payable
 // 1 350 + 510 + 270 − 153 − 540 − 255 = 1 182,00. Beer at 13,5 %: 2 510 × 13,5/113,5 = 298,55
 // (211,45 too little). Net payout as base: 1 517 × 13,5/113,5 = 180,44 (89,56 too little).
 // Staff meal: 20 × 7,48 = 149,60; with 3,00 paid per meal 20 × 4,48 = 89,60.
@@ -209,7 +213,7 @@ export const ravintolanKirjanpito: Guide = {
         ] },
         { t: 'p', x: 'Verohallinto aloitti pitserioiden ja kebab-ravintoloiden tehostetun valvonnan keväällä 2023. Reilussa vuodessa se teki 174 verotarkastusta ja rikosilmoituksen noin 40 toimijasta. Havaintoja olivat muun muassa kirjanpidosta puuttuva käteismyynti, kassakoneeseen yhdistämättömät maksupäätteet ja merkittävät määrät kirjaamatonta ruokalähettiyhtiöiden kautta tapahtunutta myyntiä.' },
         { t: 'h2', x: 'Kassa, kuitti ja käteinen' },
-        { t: 'p', x: 'Suomessa ei ole yleistä velvollisuutta käyttää viranomaisen hyväksymää tai sertifioitua kassajärjestelmää. Laki kuitintarjoamisvelvollisuudesta käteiskaupassa (658/2013) velvoittaa kuitenkin yrityksen, jonka tilikauden liikevaihto on yli 10 000 euroa, tarjoamaan asiakkaalle kuitin, kun tämä maksaa käteisellä tai kortilla. Kuitti voi olla myös sähköinen. Laiminlyönnistä voidaan määrätä 300–1 000 euron laiminlyöntimaksu.' },
+        { t: 'p', x: 'Suomessa ei ole yleistä velvollisuutta käyttää viranomaisen hyväksymää tai sertifioitua kassajärjestelmää. Laki kuitintarjoamisvelvollisuudesta käteiskaupassa (658/2013) velvoittaa kuitenkin yrityksen, jonka tilikauden liikevaihto on yli 10 000 euroa, tarjoamaan asiakkaalle kuitin, kun tämä maksaa käteisellä tai kortilla. Kuitti voi olla myös sähköinen. Lakia ei sovelleta markkina- ja torikauppaan ulkotiloissa, lukuun ottamatta alkoholijuomien vähittäismyyntiä ja anniskelua. Poikkeus voi koskea ulkomarkkinoilla myyvää food truckia, joten tarkista se kirjanpitäjäsi kanssa. Laiminlyönnistä voidaan määrätä 300–1 000 euron laiminlyöntimaksu.' },
         { t: 'ul', items: [
           'Kuitissa on oltava yrityksen nimi, yhteystiedot ja Y-tunnus, päivämäärä, kuitin numero tai muu yksilöivä tieto, myydyt tuotteet sekä maksu ja arvonlisävero verokannoittain.',
           'Kirjanpitolain mukaan käteismaksut on kirjattava viipymättä ja päiväkohtaisessa järjestyksessä, ja jokaisen kirjauksen on perustuttava tositteeseen.',
@@ -225,7 +229,7 @@ export const ravintolanKirjanpito: Guide = {
         { t: 'ul', items: [
           'Esimerkki: työntekijä syö kuukaudessa 20 ateriaa ilmaiseksi. Verotettavaa etua syntyy 20 × 7,48 = 149,60 euroa. Jos hän maksaa 3,00 euroa ateriaa kohden, etu on 20 × 4,48 = 89,60 euroa.',
           'Arvonlisävero: ilmaiseksi annetuista aterioista maksetaan oman käytön veroa 13,5 %. Itse valmistetun aterian veron peruste on välittömät ja välilliset kustannukset; välillisiksi kustannuksiksi voi halutessaan laskea 22 % välittömistä kustannuksista.',
-          'Jos työntekijä maksaa vähintään ravintoedun arvon, ateria on tavallista myyntiä, ja arvonlisävero lasketaan hänen maksamastaan hinnasta. Selvästi alempi hinta korotetaan arvonlisäverotuksessa käypään arvoon.',
+          'Jos työntekijä maksaa vähintään ravintoedun arvon, ateria on tavallista myyntiä, ja arvonlisävero lasketaan hänen maksamastaan hinnasta. Jos hinta alittaa ravintoedun arvon, veron peruste korotetaan käypään markkina-arvoon.',
         ] },
         { t: 'h3', x: 'Yrittäjän omat ateriat ja ruoat kotiin' },
         { t: 'p', x: 'Jos toiminimiyrittäjä syö itse ravintolassa tai vie raaka-aineita kotiin, kyse on tavaroiden ottamisesta omaan käyttöön, ja siitä on maksettava arvonlisävero. Verohallinto pitää vähäisen oman käytön rajana noin 850 euroa vuodessa, jonka alittavasta käytöstä ei mene veroa. Huojennus koskee vain luonnollisia henkilöitä, ei osakeyhtiötä. Osakeyhtiössä omistajan ilmaiset ateriat ovat palkkaa tai muuta veronalaista etua.' },
@@ -256,7 +260,7 @@ export const ravintolanKirjanpito: Guide = {
           'Oluet ja viinit 2 510,00 € (sis. alv 25,5 %): myynti 2 000,00 € ja arvonlisävero 510,00 €.',
           'Asiakkaat maksoivat alustan kautta ruoasta 2 270,00 € (sis. alv 13,5 %): myynti 2 000,00 € ja arvonlisävero 270,00 €.',
           'Alusta pidätti palkkion 600,00 € + alv 25,5 % 153,00 € = 753,00 € ja tilitti pankkitilille 1 517,00 €.',
-          'Raaka-aineet tukusta 4 540,00 € (sis. alv 13,5 %): veroton 4 000,00 € ja arvonlisävero 540,00 €. Juomaostot 1 255,00 € (sis. alv 25,5 %): veroton 1 000,00 € ja arvonlisävero 255,00 €.',
+          'Raaka-aineet tukusta 4 540,00 € (sis. alv 13,5 %): veroton 4 000,00 € ja arvonlisävero 540,00 €. Alkoholijuomien ostot 1 255,00 € (sis. alv 25,5 %): veroton 1 000,00 € ja arvonlisävero 255,00 €.',
           'Kuukaudelta maksettava arvonlisävero: 1 350,00 + 510,00 + 270,00 − 153,00 − 540,00 − 255,00 = 1 182,00 €.',
         ] },
         { t: 'p', x: 'Jos oluet ja viinit olisi kirjattu ruoan 13,5 %:n kannalla, niiden veroksi olisi laskettu 298,55 € ja veroa olisi jäänyt maksamatta 211,45 €. Jos alustamyynnin vero olisi laskettu tilitetystä 1 517,00 eurosta, veroksi olisi tullut 180,44 € eli 89,56 € liian vähän.' },
@@ -334,7 +338,7 @@ export const ravintolanKirjanpito: Guide = {
         ] },
         { t: 'p', x: 'Весной 2023 года налоговая начала усиленные проверки пиццерий и кебабных. Чуть больше чем за год она провела 174 налоговые проверки и подала заявления в полицию примерно на 40 предпринимателей. Среди находок — наличная выручка, отсутствующая в бухгалтерии, платёжные терминалы, не подключённые к кассе, и значительные суммы непроведённых продаж через службы доставки еды.' },
         { t: 'h2', x: 'Касса, чек и наличные' },
-        { t: 'p', x: 'В Финляндии нет общей обязанности использовать кассовую систему, утверждённую или сертифицированную властями. Но закон об обязанности предлагать чек при торговле за наличные (Laki kuitintarjoamisvelvollisuudesta käteiskaupassa 658/2013) обязывает предприятие с оборотом за финансовый год более 10 000 евро предлагать клиенту чек, когда тот платит наличными или картой. Чек может быть и электронным. За нарушение может быть назначен штраф (laiminlyöntimaksu) от 300 до 1 000 евро.' },
+        { t: 'p', x: 'В Финляндии нет общей обязанности использовать кассовую систему, утверждённую или сертифицированную властями. Но закон об обязанности предлагать чек при торговле за наличные (Laki kuitintarjoamisvelvollisuudesta käteiskaupassa 658/2013) обязывает предприятие с оборотом за финансовый год более 10 000 евро предлагать клиенту чек, когда тот платит наличными или картой. Чек может быть и электронным. Закон не применяется к торговле на рынках и площадях под открытым небом, за исключением розничной продажи и подачи алкоголя. Это исключение может касаться фудтрака на уличном рынке, поэтому уточните его у своего бухгалтера. За нарушение может быть назначен штраф (laiminlyöntimaksu) от 300 до 1 000 евро.' },
         { t: 'ul', items: [
           'В чеке должны быть название, контактные данные и Y-tunnus предприятия, дата, номер чека или другой идентификатор, проданные товары, а также сумма оплаты и НДС по ставкам.',
           'По закону о бухгалтерском учёте наличные платежи нужно проводить без промедления и в хронологическом порядке по дням, а каждая проводка должна основываться на документе.',
@@ -350,7 +354,7 @@ export const ravintolanKirjanpito: Guide = {
         { t: 'ul', items: [
           'Пример: работник бесплатно ест 20 раз в месяц. Облагаемая льгота составляет 20 × 7,48 = 149,60 евро. Если он платит по 3,00 евро за обед, льгота равна 20 × 4,48 = 89,60 евро.',
           'НДС: с бесплатно выданных обедов уплачивается НДС на собственное потребление по ставке 13,5 %. Для приготовленной самим рестораном еды база — прямые и косвенные расходы; косвенные расходы можно по желанию принять равными 22 % от прямых.',
-          'Если работник платит не меньше стоимости льготы, обед — обычная продажа, и НДС считается с уплаченной им цены. Заметно более низкая цена для целей НДС повышается до рыночной стоимости.',
+          'Если работник платит не меньше стоимости льготы, обед — обычная продажа, и НДС считается с уплаченной им цены. Если цена ниже стоимости льготы, налоговая база НДС повышается до рыночной стоимости.',
         ] },
         { t: 'h3', x: 'Еда самого предпринимателя и продукты домой' },
         { t: 'p', x: 'Если предприниматель toiminimi сам ест в ресторане или забирает продукты домой, это изъятие товаров для собственного потребления, и с него нужно уплатить НДС. Налоговая считает порогом незначительного собственного потребления примерно 850 евро в год: ниже него налог не взимается. Это послабление действует только для физических лиц, не для osakeyhtiö. В osakeyhtiö бесплатная еда владельца — это зарплата или иная облагаемая выгода.' },
@@ -381,7 +385,7 @@ export const ravintolanKirjanpito: Guide = {
           'Пиво и вино 2 510,00 € (вкл. НДС 25,5 %): продажи 2 000,00 € и НДС 510,00 €.',
           'Клиенты заплатили за еду через платформу 2 270,00 € (вкл. НДС 13,5 %): продажи 2 000,00 € и НДС 270,00 €.',
           'Платформа удержала комиссию 600,00 € + НДС 25,5 % 153,00 € = 753,00 € и перечислила на банковский счёт 1 517,00 €.',
-          'Продукты у оптовика 4 540,00 € (вкл. НДС 13,5 %): без НДС 4 000,00 € и НДС 540,00 €. Напитки 1 255,00 € (вкл. НДС 25,5 %): без НДС 1 000,00 € и НДС 255,00 €.',
+          'Продукты у оптовика 4 540,00 € (вкл. НДС 13,5 %): без НДС 4 000,00 € и НДС 540,00 €. Закупки алкогольных напитков 1 255,00 € (вкл. НДС 25,5 %): без НДС 1 000,00 € и НДС 255,00 €.',
           'НДС к уплате за месяц: 1 350,00 + 510,00 + 270,00 − 153,00 − 540,00 − 255,00 = 1 182,00 €.',
         ] },
         { t: 'p', x: 'Если бы пиво и вино провели по ставке еды 13,5 %, налог с них составил бы 298,55 €, и недоплата была бы 211,45 €. Если бы НДС с продаж через платформу посчитали с перечисленных 1 517,00 евро, налог составил бы 180,44 €, то есть на 89,56 € меньше положенного.' },
@@ -459,7 +463,7 @@ export const ravintolanKirjanpito: Guide = {
         ] },
         { t: 'p', x: 'In spring 2023 the Tax Administration started intensified checks on pizzerias and kebab restaurants. In just over a year it carried out 174 tax audits and reported around 40 operators to the police. Findings included cash sales missing from the books, card terminals not connected to the till and significant unrecorded sales made through food delivery companies.' },
         { t: 'h2', x: 'Till, receipts and cash' },
-        { t: 'p', x: 'Finland has no general obligation to use an officially approved or certified cash register system. However, the Act on the obligation to offer a receipt in cash sales (658/2013) requires a business with turnover above €10,000 per financial year to offer the customer a receipt when they pay in cash or by card. The receipt can also be electronic. Failing to do so can lead to a penalty of €300–1,000.' },
+        { t: 'p', x: 'Finland has no general obligation to use an officially approved or certified cash register system. However, the Act on the obligation to offer a receipt in cash sales (658/2013) requires a business with turnover above €10,000 per financial year to offer the customer a receipt when they pay in cash or by card. The receipt can also be electronic. The Act does not apply to market and square trading outdoors, except for the retail sale and serving of alcoholic beverages. This exception may cover a food truck at an outdoor market, so check it with your accountant. Failing to do so can lead to a penalty of €300–1,000.' },
         { t: 'ul', items: [
           'The receipt must show the business’s name, contact details and Business ID, the date, a receipt number or other identifier, the goods sold, and the amount paid and VAT by rate.',
           'Under the Accounting Act, cash payments must be recorded without delay and in day-by-day order, and every entry must be based on a voucher.',
@@ -475,7 +479,7 @@ export const ravintolanKirjanpito: Guide = {
         { t: 'ul', items: [
           'Example: an employee eats 20 free meals a month. The taxable benefit is 20 × €7.48 = €149.60. If they pay €3.00 per meal, the benefit is 20 × €4.48 = €89.60.',
           'VAT: on meals given free of charge, VAT on own use is due at 13.5%. For meals the restaurant makes itself, the tax base is the direct and indirect costs; you may choose to put the indirect costs at 22% of the direct costs.',
-          'If the employee pays at least the benefit value, the meal is an ordinary sale and VAT is calculated on the price they paid. A clearly lower price is raised to market value for VAT.',
+          'If the employee pays at least the benefit value, the meal is an ordinary sale and VAT is calculated on the price they paid. If the price is below the benefit value, the VAT base is raised to fair market value.',
         ] },
         { t: 'h3', x: 'The owner’s own meals and food taken home' },
         { t: 'p', x: 'If a sole trader eats at the restaurant or takes ingredients home, the goods are taken for own use and VAT is due. The Tax Administration treats about €850 a year as minor own use on which no VAT is due. This relief applies only to natural persons, not to a limited company. In a limited company, the owner’s free meals are salary or another taxable benefit.' },
@@ -506,7 +510,7 @@ export const ravintolanKirjanpito: Guide = {
           'Beer and wine €2,510.00 (incl. 25.5% VAT): sales €2,000.00 and VAT €510.00.',
           'Customers paid €2,270.00 for food through the platform (incl. 13.5% VAT): sales €2,000.00 and VAT €270.00.',
           'The platform kept a fee of €600.00 + 25.5% VAT €153.00 = €753.00 and paid €1,517.00 into the bank account.',
-          'Ingredients from the wholesaler €4,540.00 (incl. 13.5% VAT): net €4,000.00 and VAT €540.00. Drinks €1,255.00 (incl. 25.5% VAT): net €1,000.00 and VAT €255.00.',
+          'Ingredients from the wholesaler €4,540.00 (incl. 13.5% VAT): net €4,000.00 and VAT €540.00. Alcoholic drinks purchased €1,255.00 (incl. 25.5% VAT): net €1,000.00 and VAT €255.00.',
           'VAT payable for the month: 1,350.00 + 510.00 + 270.00 − 153.00 − 540.00 − 255.00 = €1,182.00.',
         ] },
         { t: 'p', x: 'Had the beer and wine been put through at the 13.5% food rate, their VAT would have come to €298.55, leaving €211.45 unpaid. Had the platform sales VAT been calculated on the €1,517.00 payout, it would have been €180.44, or €89.56 too little.' },
@@ -554,7 +558,7 @@ export const ravintolanKirjanpito: Guide = {
       lead: 'Pitsabaar, kebabikoht, kohvik või toiduauto alustab Soomes sageli füüsilisest isikust ettevõtjana (toiminimi) või väikese osaühinguna (osakeyhtiö). Raamatupidamises on määravad õiged käibemaksumäärad, iga kassapäeva kirjendamine, toidukulleriplatvormide väljamaksed ja töötajate toitlustus. Kogusime kokku 2026. aasta reeglid, kuu dokumendid, levinumad vead ja näite eurodes.',
       body: [
         { t: 'h2', x: 'Teatised ja load lühidalt' },
-        { t: 'p', x: 'Enne avamist esita asutamisteatis (perustamisilmoitus): saad Y-tunnuse ja saad samas registreeruda ettemaksuregistrisse (ennakkoperintärekisteri) ja käibemaksukohustuslaste registrisse. Käibemaksukohustuslaseks registreerimine on kohustuslik, kui käive ületab kalendriaastas 20 000 eurot. Restoranil ületatakse see piir tavaliselt kiiresti ja paljud registreeruvad kohe algusest, et arvata maha mööbli, seadmete ja toorainete käibemaks.' },
+        { t: 'p', x: 'Enne avamist esita asutamisteatis (perustamisilmoitus): saad Y-tunnuse ja saad samas registreeruda ettemaksuregistrisse (ennakkoperintärekisteri) ja käibemaksukohustuslaste registrisse. Käibemaksukohustuslaseks registreerimine on kohustuslik, kui käive ületab kalendriaastas 20 000 eurot. Restoran ületab selle piiri tavaliselt kiiresti ja paljud registreeruvad kohe algusest, et arvata maha mööbli, seadmete ja toorainete käibemaks.' },
         { t: 'p', x: 'Toiduseaduse (elintarvikelaki 297/2021) järgi tuleb toidualasest tegevusest teatada omavalitsuse toidujärelevalvele (kunnan elintarvikevalvonta) hiljemalt neli nädalat enne tegevuse alustamist või olulist muutmist. Alkoholi serveerimiseks on vaja serveerimisluba (anniskelulupa), mida annab 1.1.2026 alates välja Lupa- ja valvontavirasto (varem regionaalhaldusametid ja Valvira).' },
         { t: 'h2', x: 'Käibemaksumäärad 2026' },
         { t: 'p', x: 'Alates 1.1.2026 langes vähendatud käibemaksumäär 14%-lt 13,5%-le (AVL 85 §). Seda kohaldatakse nii toidukaupade müügile kui ka restorani- ja toitlustusteenustele. Üldine määr on 25,5% (AVL 84 §). Määrav on müügi aeg, nii et 2025. aasta müügile kehtis 14%.' },
@@ -584,7 +588,7 @@ export const ravintolanKirjanpito: Guide = {
         ] },
         { t: 'p', x: 'Maksuamet alustas 2023. aasta kevadel pitsabaaride ja kebabirestoranide tõhustatud kontrolli. Veidi enam kui aastaga tegi ta 174 maksurevisjoni ja esitas kuriteoteate umbes 40 ettevõtja kohta. Leiti muu hulgas raamatupidamisest puuduvat sularahamüüki, kassaga ühendamata makseterminale ja märkimisväärses summas kirjendamata müüki toidukullerifirmade kaudu.' },
         { t: 'h2', x: 'Kassa, tšekk ja sularaha' },
-        { t: 'p', x: 'Soomes ei ole üldist kohustust kasutada ametiasutuse heaks kiidetud või sertifitseeritud kassasüsteemi. Sularahakaubanduses tšeki pakkumise kohustuse seadus (Laki kuitintarjoamisvelvollisuudesta käteiskaupassa 658/2013) kohustab aga ettevõtet, mille majandusaasta käive on üle 10 000 euro, pakkuma kliendile tšekki, kui ta maksab sularahas või kaardiga. Tšekk võib olla ka elektrooniline. Kohustuse rikkumise eest võidakse määrata 300–1000 euro suurune tasu (laiminlyöntimaksu).' },
+        { t: 'p', x: 'Soomes ei ole üldist kohustust kasutada ametiasutuse heaks kiidetud või sertifitseeritud kassasüsteemi. Sularahakaubanduses tšeki pakkumise kohustuse seadus (Laki kuitintarjoamisvelvollisuudesta käteiskaupassa 658/2013) kohustab aga ettevõtet, mille majandusaasta käive on üle 10 000 euro, pakkuma kliendile tšekki, kui ta maksab sularahas või kaardiga. Tšekk võib olla ka elektrooniline. Seadust ei kohaldata turu- ja platsikaubandusele välitingimustes, välja arvatud alkohoolsete jookide jaemüük ja serveerimine. See erand võib puudutada välisturul müüvat toiduautot, seega kontrolli seda oma raamatupidajaga. Kohustuse rikkumise eest võidakse määrata 300–1000 euro suurune tasu (laiminlyöntimaksu).' },
         { t: 'ul', items: [
           'Tšekil peavad olema ettevõtte nimi, kontaktandmed ja Y-tunnus, kuupäev, tšeki number või muu tunnus, müüdud kaubad ning makstud summa ja käibemaks maksumäärade kaupa.',
           'Raamatupidamisseaduse järgi tuleb sularahamaksed kirjendada viivitamata ja päevade kaupa ning iga kanne peab põhinema dokumendil.',
@@ -600,7 +604,7 @@ export const ravintolanKirjanpito: Guide = {
         { t: 'ul', items: [
           'Näide: töötaja sööb kuus 20 korda tasuta. Maksustatav soodustus on 20 × 7,48 = 149,60 eurot. Kui ta maksab 3,00 eurot toidukorra eest, on soodustus 20 × 4,48 = 89,60 eurot.',
           'Käibemaks: tasuta antud toidukordadelt makstakse omatarbe käibemaksu 13,5%. Restorani enda valmistatud toidu puhul on maksustatav väärtus otsesed ja kaudsed kulud; kaudseteks kuludeks võib soovi korral võtta 22% otsestest kuludest.',
-          'Kui töötaja maksab vähemalt soodustuse väärtuse, on toidukord tavaline müük ja käibemaks arvutatakse tema makstud hinnalt. Selgelt madalam hind tõstetakse käibemaksu arvestuses turuväärtuseni.',
+          'Kui töötaja maksab vähemalt soodustuse väärtuse, on toidukord tavaline müük ja käibemaks arvutatakse tema makstud hinnalt. Kui hind jääb alla soodustuse väärtuse, tõstetakse käibemaksu maksustatav väärtus turuväärtuseni.',
         ] },
         { t: 'h3', x: 'Ettevõtja enda söögid ja toit koju' },
         { t: 'p', x: 'Kui toiminimi-ettevõtja sööb ise restoranis või viib tooraineid koju, on tegu kauba omatarbeks võtmisega ja sellelt tuleb maksta käibemaksu. Maksuamet peab väheseks omatarbeks umbes 850 eurot aastas, millelt maksu ei võeta. See leevendus kehtib ainult füüsilistele isikutele, mitte osaühingule. Osaühingus on omaniku tasuta toidukorrad palk või muu maksustatav soodustus.' },
@@ -631,7 +635,7 @@ export const ravintolanKirjanpito: Guide = {
           'Õlled ja veinid 2 510,00 € (sh käibemaks 25,5%): müük 2 000,00 € ja käibemaks 510,00 €.',
           'Kliendid maksid platvormi kaudu toidu eest 2 270,00 € (sh käibemaks 13,5%): müük 2 000,00 € ja käibemaks 270,00 €.',
           'Platvorm pidas kinni tasu 600,00 € + käibemaks 25,5% 153,00 € = 753,00 € ja maksis pangakontole 1 517,00 €.',
-          'Toorained hulgimüüjalt 4 540,00 € (sh käibemaks 13,5%): käibemaksuta 4 000,00 € ja käibemaks 540,00 €. Joogid 1 255,00 € (sh käibemaks 25,5%): käibemaksuta 1 000,00 € ja käibemaks 255,00 €.',
+          'Toorained hulgimüüjalt 4 540,00 € (sh käibemaks 13,5%): käibemaksuta 4 000,00 € ja käibemaks 540,00 €. Alkohoolsete jookide ostud 1 255,00 € (sh käibemaks 25,5%): käibemaksuta 1 000,00 € ja käibemaks 255,00 €.',
           'Kuu tasumisele kuuluv käibemaks: 1 350,00 + 510,00 + 270,00 − 153,00 − 540,00 − 255,00 = 1 182,00 €.',
         ] },
         { t: 'p', x: 'Kui õlled ja veinid oleks kirjendatud toidu 13,5% määraga, oleks nende maksuks arvutatud 298,55 € ja maksmata oleks jäänud 211,45 €. Kui platvormimüügi maks oleks arvutatud välja makstud 1 517,00 eurolt, oleks maks olnud 180,44 € ehk 89,56 € liiga vähe.' },
@@ -639,7 +643,7 @@ export const ravintolanKirjanpito: Guide = {
         { t: 'ul', items: [
           'Õlu ja vein lüüakse kassasse toidu 13,5% määraga või lõuna ja õlle koondhinda ei jagata maksumäärade vahel.',
           '2026. aasta müügil kasutatakse veel 14% määra, sest kassa maksumäärasid ei ole uuendatud.',
-          'Sularahamüüki ei kirjendata iga päev, kassat ei loeta üle või Z-aruandeid puudub.',
+          'Sularahamüüki ei kirjendata iga päev, kassat ei loeta üle või Z-aruanded puuduvad.',
           'Makseterminal ei ole kassaga ühendatud ning kaardimüük ja kassamüük ei klapi.',
           'Toidukulleriplatvormi müük kirjendatakse välja makstud netosummana või jäetakse üldse kirjendamata.',
           'Töötajate tasuta toidukordi ei käsitleta palgaarvestuses soodustusena ega käibemaksus omatarbena.',
@@ -651,7 +655,7 @@ export const ravintolanKirjanpito: Guide = {
         { t: 'p', x: 'Tilitoimisto Debit Credit peab restoranide, kohvikute, pitsabaaride ja kebabikohtade raamatupidamist ja esitab käibemaksudeklaratsioonid: kirjendame Z-aruanded ja toidukulleriplatvormide väljamaksed õigete maksumääradega, võrdleme kassat, makseterminali ja panka ning käsitleme töötajate toitlustust palgaarvestuses. Meie kliendid saavad saata tšekid ja aruanded Vaavo rakenduse kaudu. Teenindame soome ja vene keeles. Võta ühendust juba enne avamist, siis on kassa, maksumäärad ja registreeringud korras esimesest päevast.' },
         { t: 'h2', x: 'Ametlikud allikad' },
         { t: 'links', items: [
-          { label: 'Verohallinto: rates of VAT (inglise keeles)', href: SRC.ratesEn },
+          { label: 'Verohallinto: käibemaksumäärad (inglise keeles)', href: SRC.ratesEn },
           { label: 'Verohallinto: käibemaksukohustuslase juhend — restoraniteenused, pandid, jootraha (soome keeles)', href: SRC.vatGuide },
           { label: 'Verohallinto: komisjonimüügi ja vahendustegevuse käibemaks (soome keeles)', href: SRC.intermediary },
           { label: 'Verohallinto: tšeki andmise kohustus sularahakaubanduses (inglise keeles)', href: SRC.receiptEn },
@@ -682,7 +686,7 @@ export const ravintolanKirjanpito: Guide = {
         { t: 'p', x: 'До відкриття подайте повідомлення про реєстрацію (perustamisilmoitus): ви отримаєте Y-tunnus і зможете одразу стати до реєстру передоплати (ennakkoperintärekisteri) та до реєстру платників ПДВ. Реєстрація платником ПДВ обов’язкова, коли оборот перевищує 20 000 євро за календарний рік. Ресторан зазвичай швидко переходить цей поріг, і багато хто реєструється з самого початку, щоб відраховувати ПДВ із меблів, обладнання та продуктів.' },
         { t: 'p', x: 'За законом про харчові продукти (elintarvikelaki 297/2021) про харчову діяльність потрібно повідомити муніципальний харчовий нагляд (kunnan elintarvikevalvonta) не пізніше ніж за чотири тижні до початку або суттєвої зміни діяльності. Для подачі алкоголю потрібна ліцензія (anniskelulupa), яку з 1.1.2026 видає Lupa- ja valvontavirasto (раніше — регіональні управління AVI та Valvira).' },
         { t: 'h2', x: 'Ставки ПДВ у 2026 році' },
-        { t: 'p', x: 'З 1.1.2026 знижена ставка ПДВ зменшилася з 14 % до 13,5 % (AVL 85 §). Вона застосовується і до продажу харчових продуктів, і до ресторанних послуг та послуг харчування. Загальна ставка — 25,5 % (AVL 84 §). Важить дата продажу: до продажів 2025 року застосовувалася ставка 14 %.' },
+        { t: 'p', x: 'З 1.1.2026 знижена ставка ПДВ зменшилася з 14 % до 13,5 % (AVL 85 §). Вона застосовується і до продажу харчових продуктів, і до ресторанних послуг та послуг харчування. Загальна ставка — 25,5 % (AVL 84 §). Має значення дата продажу: до продажів 2025 року застосовувалася ставка 14 %.' },
         { t: 'ul', items: [
           'Страви, обіди, шведський стіл і продукція кафе: 13,5 %.',
           'Безалкогольні напої, кава, чай, газовані напої, солодощі та морозиво — це харчові продукти: 13,5 %.',
@@ -698,7 +702,7 @@ export const ravintolanKirjanpito: Guide = {
         { t: 'p', x: 'За роз’ясненням податкової (Verohallinto) податковий режим кожного товару в принципі визначається окремо, і єдина ціна цього не змінює (принцип розподілу, jakamisperiaate). Найвищий адміністративний суд у справі KHO 2022:58 вирішив, що до бургера, гарніру й напою в дитячому меню фастфуду застосовується знижена ставка, а до іграшки в цьому меню — загальна.' },
         { t: 'p', x: 'Якщо ви продаєте обід із пивом або меню з вином за однією ціною, її потрібно поділити на частину за 13,5 % і частину за 25,5 %. Обов’язкової формули в роз’ясненні немає. Зрозумілий і обґрунтований спосіб — ділити ціну пропорційно звичайним окремим цінам страв і напоїв та заздалегідь налаштувати цей поділ у касі, щоб Z-звіт показував продажі правильно за ставками. Шведський стіл, до ціни якого входять лише їжа та безалкогольні напої, повністю оподатковується за 13,5 %.' },
         { t: 'h3', x: 'Власна доставка' },
-        { t: 'p', x: 'Коли ресторан продає їжу з доставкою та виставляє клієнтові рахунок і за їжу, і за доставку, увесь продаж оподатковується за ставкою страви — 13,5 %. Так є незалежно від того, чи розвозить їжу власний персонал, чи найнята рестораном транспортна компанія. Транспортна компанія виставляє ресторану рахунок за свою послугу за ставкою 25,5 %.' },
+        { t: 'p', x: 'Коли ресторан продає їжу з доставкою та виставляє клієнтові рахунок і за їжу, і за доставку, увесь продаж оподатковується за ставкою страви — 13,5 %. Це діє незалежно від того, чи розвозить їжу власний персонал, чи найнята рестораном транспортна компанія. Транспортна компанія виставляє ресторану рахунок за свою послугу за ставкою 25,5 %.' },
         { t: 'h2', x: 'Wolt, Foodora та інші платформи доставки' },
         { t: 'p', x: 'Спершу перевірте за умовами платформи й чеком клієнта, хто продає їжу. Якщо продавець — ресторан, а платформа — посередник, ресторан декларує ПДВ з усієї ціни їжі, яку сплатили клієнти, а утримана платформою комісія з продажів не віднімається. Якщо платформа бере з клієнта плату за доставку від свого імені, це власний продаж платформи, і до продажів ресторану він не входить.' },
         { t: 'ul', items: [
@@ -709,7 +713,7 @@ export const ravintolanKirjanpito: Guide = {
         ] },
         { t: 'p', x: 'Навесні 2023 року податкова розпочала посилені перевірки піцерій і кебабних. Трохи більше ніж за рік вона провела 174 податкові перевірки й подала заяви до поліції приблизно щодо 40 підприємців. Серед знахідок — готівкова виручка, якої немає в бухгалтерії, платіжні термінали, не підключені до каси, і значні суми непроведених продажів через служби доставки їжі.' },
         { t: 'h2', x: 'Каса, чек і готівка' },
-        { t: 'p', x: 'У Фінляндії немає загального обов’язку використовувати касову систему, затверджену чи сертифіковану владою. Але закон про обов’язок пропонувати чек у торгівлі за готівку (Laki kuitintarjoamisvelvollisuudesta käteiskaupassa 658/2013) зобов’язує підприємство з оборотом за фінансовий рік понад 10 000 євро пропонувати клієнтові чек, коли той платить готівкою або карткою. Чек може бути й електронним. За порушення можуть призначити штраф (laiminlyöntimaksu) від 300 до 1 000 євро.' },
+        { t: 'p', x: 'У Фінляндії немає загального обов’язку використовувати касову систему, затверджену чи сертифіковану владою. Але закон про обов’язок пропонувати чек у торгівлі за готівку (Laki kuitintarjoamisvelvollisuudesta käteiskaupassa 658/2013) зобов’язує підприємство з оборотом за фінансовий рік понад 10 000 євро пропонувати клієнтові чек, коли той платить готівкою або карткою. Чек може бути й електронним. Закон не застосовується до торгівлі на ринках і площах просто неба, за винятком роздрібного продажу та подачі алкоголю. Цей виняток може стосуватися фудтраку на вуличному ринку, тож уточніть його у свого бухгалтера. За порушення можуть призначити штраф (laiminlyöntimaksu) від 300 до 1 000 євро.' },
         { t: 'ul', items: [
           'У чеку мають бути назва, контактні дані та Y-tunnus підприємства, дата, номер чека або інший ідентифікатор, продані товари, а також сума оплати й ПДВ за ставками.',
           'За законом про бухгалтерський облік готівкові платежі потрібно проводити без зволікання і в хронологічному порядку за днями, а кожна проводка має ґрунтуватися на документі.',
@@ -725,7 +729,7 @@ export const ravintolanKirjanpito: Guide = {
         { t: 'ul', items: [
           'Приклад: працівник безкоштовно їсть 20 разів на місяць. Оподатковувана пільга становить 20 × 7,48 = 149,60 євро. Якщо він платить по 3,00 євро за обід, пільга дорівнює 20 × 4,48 = 89,60 євро.',
           'ПДВ: із безкоштовно виданих обідів сплачується ПДВ на власне споживання за ставкою 13,5 %. Для їжі, приготовленої самим рестораном, база — прямі та непрямі витрати; непрямі витрати можна за бажанням прийняти рівними 22 % від прямих.',
-          'Якщо працівник платить не менше вартості пільги, обід — звичайний продаж, і ПДВ рахують із сплаченої ним ціни. Помітно нижчу ціну для цілей ПДВ підвищують до ринкової вартості.',
+          'Якщо працівник платить не менше вартості пільги, обід — звичайний продаж, і ПДВ рахують із сплаченої ним ціни. Якщо ціна нижча за вартість пільги, базу ПДВ підвищують до ринкової вартості.',
         ] },
         { t: 'h3', x: 'Їжа самого підприємця та продукти додому' },
         { t: 'p', x: 'Якщо підприємець toiminimi сам їсть у ресторані або забирає продукти додому, це вилучення товарів для власного споживання, і з нього потрібно сплатити ПДВ. Податкова вважає порогом незначного власного споживання приблизно 850 євро на рік: нижче нього податок не стягується. Це послаблення діє лише для фізичних осіб, не для osakeyhtiö. В osakeyhtiö безкоштовна їжа власника — це зарплата або інша оподатковувана вигода.' },
@@ -756,7 +760,7 @@ export const ravintolanKirjanpito: Guide = {
           'Пиво та вино 2 510,00 € (з ПДВ 25,5 %): продажі 2 000,00 € і ПДВ 510,00 €.',
           'Клієнти сплатили за їжу через платформу 2 270,00 € (з ПДВ 13,5 %): продажі 2 000,00 € і ПДВ 270,00 €.',
           'Платформа утримала комісію 600,00 € + ПДВ 25,5 % 153,00 € = 753,00 € і перерахувала на банківський рахунок 1 517,00 €.',
-          'Продукти в оптовика 4 540,00 € (з ПДВ 13,5 %): без ПДВ 4 000,00 € і ПДВ 540,00 €. Напої 1 255,00 € (з ПДВ 25,5 %): без ПДВ 1 000,00 € і ПДВ 255,00 €.',
+          'Продукти в оптовика 4 540,00 € (з ПДВ 13,5 %): без ПДВ 4 000,00 € і ПДВ 540,00 €. Закупівлі алкогольних напоїв 1 255,00 € (з ПДВ 25,5 %): без ПДВ 1 000,00 € і ПДВ 255,00 €.',
           'ПДВ до сплати за місяць: 1 350,00 + 510,00 + 270,00 − 153,00 − 540,00 − 255,00 = 1 182,00 €.',
         ] },
         { t: 'p', x: 'Якби пиво та вино провели за ставкою їжі 13,5 %, податок із них становив би 298,55 €, і недоплата була б 211,45 €. Якби ПДВ із продажів через платформу порахували з перерахованих 1 517,00 євро, податок становив би 180,44 €, тобто на 89,56 € менше належного.' },
