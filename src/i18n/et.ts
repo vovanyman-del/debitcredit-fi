@@ -172,6 +172,7 @@ export const et = {
         'Pensioni- ja tööandjaaruanded',
         'Palga- ja töötõendid',
         'Lähetuskulude aruanded',
+        'Tööaja arvestus objektidel telefoniga (Vaavo Workforce)',
         'Valttikortti taotlused',
       ],
     },
@@ -415,6 +416,20 @@ export const et = {
       description: "Kliendiportaal töötab brauseris soome, vene, inglise, eesti ja ukraina keeles. Omarakendus on saadaval iPhone’ile ja iPadile App Store’is ning Android-telefonidele Google Plays. Kasutamine kuulub raamatupidamisteenuse hinna sisse.",
       appStore: "Laadi alla App Store’ist",
       googlePlay: "Laadi alla Google Playst",
+    },
+    workforce: {
+      eyebrow: "Uus: Vaavo Workforce",
+      title: "Tööajad objektidelt telefoniga",
+      body: "Vaavo Workforce märgib töötaja objektile saabumise ja sealt lahkumise automaatselt telefoni asukoha järgi. Tegime rakenduse oma raamatupidamisbüroos, seega on tunnid palgaarvestuseks valmis.",
+      points: [
+        "Juht näeb, kes millisel objektil on",
+        "Tööaja arvestus Soome tööajaseaduse (työaikalaki 872/2019) järgi",
+        "Tunde saab palgaarvestuse jaoks eksportida",
+        "Soome, vene, inglise, ukraina ja eesti keeles",
+      ],
+      trial: "Proovi üks kuu tasuta.",
+      more: "Loe lähemalt",
+      contact: "Võta ühendust",
     },
   },
   about: {

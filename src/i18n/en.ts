@@ -172,6 +172,7 @@ export const en = {
         'Pension and employer reports',
         'Salary and employment certificates',
         'Travel expense reports',
+        'Work-site time tracking by phone (Vaavo Workforce)',
         'Valttikortti applications',
       ],
     },
@@ -415,6 +416,20 @@ export const en = {
       description: "The client portal works in your browser in Finnish, Russian, English, Estonian and Ukrainian. The native app is available for iPhone and iPad in the App Store and for Android phones on Google Play. Access is included in your accounting service at no extra charge.",
       appStore: "Download on the App Store",
       googlePlay: "Get it on Google Play",
+    },
+    workforce: {
+      eyebrow: "New: Vaavo Workforce",
+      title: "Working hours from work sites, by phone",
+      body: "Vaavo Workforce records when a worker arrives at a work site and leaves it, automatically, using the phone’s location. We built it inside our own accounting firm, so the hours come out ready for payroll.",
+      points: [
+        "The manager sees who is on which site",
+        "Working-time records under the Working Hours Act (872/2019)",
+        "Hours can be exported for payroll",
+        "In Finnish, Russian, English, Ukrainian and Estonian",
+      ],
+      trial: "Try one month free.",
+      more: "Read more",
+      contact: "Contact us",
     },
   },
   about: {

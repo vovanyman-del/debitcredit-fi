@@ -1,4 +1,5 @@
 import { type ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
 import PageHeader from '../components/PageHeader';
 import VaavoDemo from '../components/VaavoDemo';
@@ -19,11 +20,12 @@ const featureIcons: Record<string, ReactNode> = {
 };
 
 export default function VaavoPage() {
-  const { t, locale } = useI18n();
+  const { t, locale, localePath } = useI18n();
   const productUrl = `https://vaavo.fi/${locale === 'fi' ? '' : `${locale}/`}`;
   const inv = t.home.invisible;
   const features = Object.entries(t.vaavo.features) as [string, { title: string; desc: string }][];
   const video = t.vaavo.video;
+  const wf = t.vaavo.workforce;
 
   return (
     <div className="bg-canvas text-ink-900">
@@ -89,6 +91,30 @@ export default function VaavoPage() {
             </a>
           </div>
         </div>
+        <section id="workforce" className="mt-6 rounded-2xl border border-ink-900/10 bg-white p-8 sm:p-10" aria-labelledby="vaavo-workforce">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-600">{wf.eyebrow}</p>
+          <h2 id="vaavo-workforce" className="mt-3 text-2xl font-bold">{wf.title}</h2>
+          <p className="mt-4 max-w-3xl text-ink-700/80 leading-relaxed">{wf.body}</p>
+          <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+            {wf.points.map((point) => (
+              <li key={point} className="flex items-start gap-3 text-ink-700/80">
+                <svg aria-hidden="true" className="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-sm leading-relaxed">{point}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 font-semibold text-ink-900">{wf.trial}</p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <a href="https://vaavo-workforce-pilot.vercel.app/product.html" className="inline-flex rounded-xl bg-ink-900 px-6 py-3 font-semibold text-white hover:bg-brand-700">
+              {wf.more}<span aria-hidden="true" className="ml-2">↗</span>
+            </a>
+            <Link to={localePath('/yhteystiedot')} className="inline-flex rounded-xl border border-ink-900/15 px-6 py-3 font-semibold text-ink-900 hover:border-brand-400 hover:text-brand-700">
+              {wf.contact}
+            </Link>
+          </div>
+        </section>
       </section>
 
       {/* Interactive "how it works" demo — snap → recognised → booked → visible */}

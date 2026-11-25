@@ -172,6 +172,7 @@ export const fi = {
         'Eläkevakuutus- ja työnantajaraportit',
         'Palkkatodistukset ja työtodistukset',
         'Matkalaskut',
+        'Työajan kirjaus työmailla puhelimella (Vaavo Workforce)',
         'Valttikorttihakemukset',
       ],
     },
@@ -415,6 +416,20 @@ export const fi = {
       description: "Asiakasportaali toimii selaimessa suomeksi, venäjäksi, englanniksi, viroksi ja ukrainaksi. Natiivi sovellus on saatavilla iPhonelle ja iPadille App Storesta sekä Android-puhelimille Google Playsta. Käyttö sisältyy kirjanpitopalveluun ilman lisämaksua.",
       appStore: "Lataa App Storesta",
       googlePlay: "Lataa Google Playsta",
+    },
+    workforce: {
+      eyebrow: "Uutta: Vaavo Workforce",
+      title: "Työajat työmailta puhelimella",
+      body: "Vaavo Workforce kirjaa työntekijän saapumisen työmaalle ja lähdön sieltä automaattisesti puhelimen sijainnin perusteella. Teimme sovelluksen omassa tilitoimistossamme, joten tunnit ovat valmiina palkanlaskentaa varten.",
+      points: [
+        "Esimies näkee, kuka on millä työmaalla",
+        "Työaikakirjanpito työaikalain (872/2019) mukaan",
+        "Tunnit voi viedä ulos palkanlaskentaa varten",
+        "Suomeksi, venäjäksi, englanniksi, ukrainaksi ja viroksi",
+      ],
+      trial: "Kokeile kuukausi maksutta.",
+      more: "Lue lisää",
+      contact: "Ota yhteyttä",
     },
   },
   about: {
