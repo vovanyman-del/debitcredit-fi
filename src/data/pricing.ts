@@ -139,10 +139,8 @@ export const additionalServices = {
     { name: 'One-time tax report', price: 38.40, unit: 'per report', note: 'monthly/quarterly/annual' },
     { name: 'Other accounting work', price: 65.00, unit: 'per hour' },
     { name: 'Explanatory work', price: 1.09, unit: 'per minute' },
-    { name: 'Additional voucher', price: 3.30, unit: 'per voucher' },
   ],
   annualReports: [
-    { name: 'Annual report \u2014 Toiminimi', price: 82.50, unit: 'from', note: 'financial statements + tax return' },
     { name: 'Annual report \u2014 Oy', price: 86.90, unit: 'per hour', note: 'financial statements + shareholder meeting minutes + tax return + pension/insurance forms + annual salary report' },
     { name: 'Annual report \u2014 Ry/Ky/Osuuskunta', price: 65.00, unit: 'per hour' },
   ],

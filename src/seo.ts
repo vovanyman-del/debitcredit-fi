@@ -10,7 +10,8 @@ import { en } from './i18n/en';
 import { ru } from './i18n/ru';
 import { et } from './i18n/et';
 import { uk } from './i18n/uk';
-import { company, packages } from './data/pricing';
+import { company } from './data/pricing';
+import { PLANS } from './data/pricingV3';
 import { guideSlugs, getGuide } from './data/guides';
 import { vaavoVideo } from './data/vaavoVideos';
 
@@ -332,19 +333,15 @@ function typeNode(t: Translations, locale: Locale, basePath: string, pageUrl: st
         audience: { '@type': 'BusinessAudience', name: t.nav.forAccountants },
       };
     case '/hinnasto': {
-      const names = t.pricing.packageNames as Record<string, string>;
-      const targets = t.pricing.packageTargets as Record<string, string>;
-      const offers = packages
-        .filter((p) => p.price > 0)
-        .map((p) => ({
+      const offers = PLANS.map((p) => ({
           '@type': 'Offer',
-          name: names[p.id] ?? p.id,
-          description: targets[p.id] ?? p.target,
-          price: p.price.toFixed(2),
+          name: t.pricing.v3.plans[p.id].name,
+          description: t.pricing.v3.plans[p.id].target,
+          price: (p.priceCents / 100).toFixed(2),
           priceCurrency: 'EUR',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
-            price: p.price.toFixed(2),
+            price: (p.priceCents / 100).toFixed(2),
             priceCurrency: 'EUR',
             unitCode: 'MON', // per month (UN/CEFACT)
             valueAddedTaxIncluded: false,
