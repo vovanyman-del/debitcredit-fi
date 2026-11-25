@@ -105,7 +105,13 @@ export default function VaavoPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 font-semibold text-ink-900">{wf.trial}</p>
+          <div className="mt-7 max-w-3xl rounded-xl border border-brand-100 bg-brand-50 p-5 sm:p-6">
+            <p className="text-lg font-bold text-ink-900">{wf.price.line}</p>
+            <p className="mt-2 font-semibold text-ink-900">{wf.price.first}</p>
+            <p className="mt-1 text-sm text-ink-700/80 leading-relaxed">{wf.price.usage}</p>
+            <p className="mt-1 text-sm text-ink-700/80 leading-relaxed">{wf.price.yearly}</p>
+            <p className="mt-3 text-xs text-ink-700/70">{wf.price.vat}</p>
+          </div>
           <div className="mt-4 flex flex-wrap gap-3">
             <a href="https://vaavo-workforce-pilot.vercel.app/product.html" className="inline-flex rounded-xl bg-ink-900 px-6 py-3 font-semibold text-white hover:bg-brand-700">
               {wf.more}<span aria-hidden="true" className="ml-2">↗</span>
