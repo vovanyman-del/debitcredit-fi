@@ -133,6 +133,12 @@ export const en = {
   services: {
     title: 'Our Services',
     subtitle: 'Comprehensive financial management services for businesses at every stage.',
+    partner: {
+      eyebrow: 'Our partner Vaavo',
+      title: 'Websites and apps',
+      body: 'Beyond bookkeeping, our partner Vaavo builds websites, website renewals, apps and automation for businesses. The same team built the client portal our clients use every day. Pricing is agreed according to your needs and budget.',
+      cta: 'Explore Vaavo development services',
+    },
     bookkeeping: {
       title: 'Bookkeeping',
       items: [

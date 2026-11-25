@@ -133,6 +133,12 @@ export const et = {
   services: {
     title: 'Meie teenused',
     subtitle: 'Laiaulatuslikud finantsjuhtimise teenused ettevõtetele igas etapis.',
+    partner: {
+      eyebrow: 'Meie partner Vaavo',
+      title: 'Veebilehed ja rakendused',
+      body: 'Lisaks raamatupidamisele teeb meie partner Vaavo ettevõtetele veebilehti, vanade lehtede uuendusi, rakendusi ja automatiseerimist. Sama meeskond ehitas kliendiportaali, mida meie kliendid iga päev kasutavad. Hind lepitakse kokku vajaduse ja eelarve järgi.',
+      cta: 'Tutvu Vaavo arendusteenustega',
+    },
     bookkeeping: {
       title: 'Raamatupidamine',
       items: [

@@ -2,6 +2,14 @@ import { useI18n } from '../i18n/context';
 import PageHeader from '../components/PageHeader';
 import CtaBand from '../components/CtaBand';
 
+const VAAVO_DEV_PATHS: Record<string, string> = {
+  fi: '/kehitys/',
+  ru: '/ru/razrabotka/',
+  en: '/en/development/',
+  et: '/et/arendus/',
+  uk: '/uk/rozrobka/',
+};
+
 const stroke = (d: string) => (
   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
     <path strokeLinecap="round" strokeLinejoin="round" d={d} />
@@ -9,7 +17,8 @@ const stroke = (d: string) => (
 );
 
 export default function ServicesPage() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const devUrl = `https://vaavo.fi${VAAVO_DEV_PATHS[locale]}`;
 
   const sections = [
     { data: t.services.bookkeeping, icon: stroke('M4 5a2 2 0 012-2h11a1 1 0 011 1v14a1 1 0 01-1 1H6a2 2 0 00-2 2V5zM8 7h7M8 11h7') },
@@ -44,6 +53,15 @@ export default function ServicesPage() {
             </div>
           ))}
         </div>
+
+        <section className="mt-6 rounded-2xl border border-brand-100 bg-brand-50 p-6 sm:p-8 lg:p-10" aria-labelledby="vaavo-partner">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-600">{t.services.partner.eyebrow}</p>
+          <h2 id="vaavo-partner" className="mt-3 text-xl sm:text-2xl font-bold text-ink-900">{t.services.partner.title}</h2>
+          <p className="mt-3 max-w-3xl text-ink-700/80 leading-relaxed">{t.services.partner.body}</p>
+          <a href={devUrl} className="mt-5 inline-flex items-center gap-2 text-brand-700 font-semibold hover:underline">
+            {t.services.partner.cta}<span aria-hidden="true"> →</span>
+          </a>
+        </section>
       </div>
 
       <CtaBand />

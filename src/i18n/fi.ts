@@ -133,6 +133,12 @@ export const fi = {
   services: {
     title: 'Palvelumme',
     subtitle: 'Kattavat taloushallinnon palvelut yrityksille kaikissa vaiheissa.',
+    partner: {
+      eyebrow: 'Kumppanimme Vaavo',
+      title: 'Verkkosivut ja sovellukset',
+      body: 'Kirjanpidon lisäksi kumppanimme Vaavo tekee yrityksille verkkosivuja, sivustouudistuksia, sovelluksia ja automaatioita. Sama tiimi rakensi asiakasportaalin, jota asiakkaamme käyttävät joka päivä. Hinta sovitaan tarpeen ja budjetin mukaan.',
+      cta: 'Tutustu Vaavon kehityspalveluihin',
+    },
     bookkeeping: {
       title: 'Kirjanpito',
       items: [
