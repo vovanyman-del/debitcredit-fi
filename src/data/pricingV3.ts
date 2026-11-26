@@ -12,6 +12,8 @@ export interface Plan {
   includedDocs: number;
   /** 0 means the plan carries no payroll: the first employee moves the firm to Basic. */
   includedPayroll: number;
+  /** Price when the firm runs no payroll at all (pricing-v3.md §1, §3: Medium 139, Large 239). */
+  noPayrollPriceCents?: number;
   forms: CompanyForm[];
 }
 
@@ -19,8 +21,8 @@ export const PLANS: Plan[] = [
   { id: 'toiminimi', priceCents: 3990, includedDocs: 15, includedPayroll: 0, forms: ['tmi'] },
   { id: 'start', priceCents: 5990, includedDocs: 15, includedPayroll: 0, forms: ['oy'] },
   { id: 'basic', priceCents: 9350, includedDocs: 20, includedPayroll: 1, forms: ['tmi', 'oy'] },
-  { id: 'medium', priceCents: 16500, includedDocs: 50, includedPayroll: 2, forms: ['tmi', 'oy'] },
-  { id: 'large', priceCents: 29700, includedDocs: 100, includedPayroll: 4, forms: ['tmi', 'oy'] },
+  { id: 'medium', priceCents: 16500, includedDocs: 50, includedPayroll: 2, noPayrollPriceCents: 13900, forms: ['tmi', 'oy'] },
+  { id: 'large', priceCents: 29700, includedDocs: 100, includedPayroll: 4, noPayrollPriceCents: 23900, forms: ['tmi', 'oy'] },
 ];
 
 /** Extra document price by the month's total document count (Toiminimi has its own flat price). */
@@ -50,6 +52,9 @@ export function firstExtraDocCents(plan: Plan): number {
 
 export interface MonthPrice {
   plan: Plan;
+  /** The plan's price this month: the no-payroll price when the month has no payroll. */
+  baseCents: number;
+  noPayroll: boolean;
   docs: number;
   extraDocs: number;
   extraDocCents: number;
@@ -57,10 +62,19 @@ export interface MonthPrice {
   totalCents: number;
 }
 
+/** The plan's own price for a month with this much payroll (the no-payroll price only at zero). */
+export function planPriceCents(plan: Plan, payroll: number): number {
+  return payroll === 0 && plan.noPayrollPriceCents !== undefined ? plan.noPayrollPriceCents : plan.priceCents;
+}
+
 /**
  * The cheapest way to bill one month: every plan the firm may use, with extra documents at the
  * month's rate and extra payroll calculations at 14,90 €. Payroll exists only on Basic, Medium
  * and Large, so the first employee means Basic at least. Returns null above 200 documents.
+ *
+ * OPEN QUESTION (pricing-page-v3-spec.md §7.1): a toiminimi that pays wages follows the v3 grid
+ * here (Basic and up). The signup door prices it as Micro + 14,90 € per payslip; until the founder
+ * decides, the page keeps the grid.
  */
 export function cheapestMonth(form: CompanyForm, docs: number, payroll: number): MonthPrice | null {
   if (docs > MAX_LISTED_DOCS) return null;
@@ -71,9 +85,10 @@ export function cheapestMonth(form: CompanyForm, docs: number, payroll: number):
     const extraDocs = Math.max(0, docs - plan.includedDocs);
     const rate = extraDocCents(plan, docs);
     const extraPayroll = Math.max(0, payroll - plan.includedPayroll);
-    const totalCents = plan.priceCents + extraDocs * rate + extraPayroll * PAYROLL_CENTS;
+    const baseCents = planPriceCents(plan, payroll);
+    const totalCents = baseCents + extraDocs * rate + extraPayroll * PAYROLL_CENTS;
     if (!best || totalCents < best.totalCents) {
-      best = { plan, docs, extraDocs, extraDocCents: rate, extraPayroll, totalCents };
+      best = { plan, baseCents, noPayroll: baseCents !== plan.priceCents, docs, extraDocs, extraDocCents: rate, extraPayroll, totalCents };
     }
   }
   return best;
@@ -84,6 +99,9 @@ export function cheapestMonth(form: CompanyForm, docs: number, payroll: number):
 // points the hours are interpolated and rounded to the nearest half hour.
 const OY_HALF_HOURS: [number, number][] = [[20, 5], [50, 11], [100, 13], [200, 15]];
 
+// OPEN QUESTION (pricing-page-v3-spec.md §7.2): the toiminimi annual report is priced by the hour
+// here (2 h × 86,90 €); the signup door quotes «Tilinpäätös tmi» from 82,50 €. Kept as the grid until
+// the founder decides.
 export function annualReportHalfHours(form: CompanyForm, avgDocs: number): number {
   let oy = OY_HALF_HOURS[OY_HALF_HOURS.length - 1][1];
   if (avgDocs <= OY_HALF_HOURS[0][0]) oy = OY_HALF_HOURS[0][1];

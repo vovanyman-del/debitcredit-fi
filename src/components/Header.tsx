@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
 import LanguageSwitcher from './LanguageSwitcher';
+import { SIGNUP_OPEN, SIGNUP_URL } from '../data/signup';
 
 export default function Header() {
-  const { t, localePath } = useI18n();
+  const { t, locale, localePath } = useI18n();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
@@ -41,6 +42,15 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <LanguageSwitcher />
+            {/* State B of the pricing page (spec §3.4): the signup door gets its own button. Off while SIGNUP_OPEN is false. */}
+            {SIGNUP_OPEN && (
+              <a
+                href={`${SIGNUP_URL}?lang=${locale}`}
+                className="hidden sm:inline-flex items-center px-4 py-2 border border-brand-600 text-brand-700 text-sm font-medium rounded-lg hover:bg-brand-50 transition-colors"
+              >
+                {t.pricing.v3.headerSignup}
+              </a>
+            )}
             <Link
               to={localePath('/yhteystiedot')}
               className="hidden sm:inline-flex items-center px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 transition-colors"

@@ -1,13 +1,94 @@
-import { useState, type FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useSyncExternalStore, type FormEvent } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useI18n } from '../i18n/context';
 import { company } from '../data/pricing';
+import { PLANS, planPriceCents } from '../data/pricingV3';
+import { parseSelection, type Selection } from '../data/signup';
+import { money, fill } from '../data/priceFormat';
 import PageHeader from '../components/PageHeader';
 
 const inputCls =
   'w-full px-4 py-2.5 border border-ink-900/15 rounded-xl bg-white text-ink-900 focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500 outline-none transition-shadow';
 
+const noopSubscribe = () => () => {};
+
+/**
+ * «Valitse tämä paketti» in state A (pricing-page-v3-spec.md §3.4): /yhteystiedot?aloitus=1&plan=…
+ * shows a short start form with the chosen package and price. The pages are prerendered without a
+ * query string, so the choice is read only after hydration (server snapshot = nothing chosen).
+ * DRAFT: the start form never posts — it shows a demo notice instead of calling /api/contact.
+ */
+function StartForm({ sel }: { sel: Selection }) {
+  const { t, locale, localePath } = useI18n();
+  const v3 = t.pricing.v3;
+  const st = v3.start;
+  const [demoShown, setDemoShown] = useState(false);
+  const plan = PLANS.find((p) => p.id === sel.plan)!;
+  const planName = v3.plans[sel.plan].name;
+  const price = money(planPriceCents(plan, sel.payslips), locale);
+  const siteWord = sel.site === 'yes' ? st.siteYes : sel.site === 'no' ? st.siteNo : sel.site === 'have' ? st.siteHave : '';
+  const message = [
+    fill(st.msgPlan, { plan: planName }),
+    sel.form ? fill(st.msgForm, { form: sel.form === 'tmi' ? st.formTmi : st.formOy }) : '',
+    fill(st.msgVolume, { docs: sel.docs2 !== undefined && sel.docs2 !== sel.docs ? `${sel.docs}–${sel.docs2}` : sel.docs, payslips: sel.payslips }),
+    siteWord ? fill(st.msgSite, { site: siteWord }) : '',
+  ].filter(Boolean).join(' ');
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setDemoShown(true);
+  };
+
+  return (
+    <div className="bg-canvas text-ink-900">
+      <PageHeader eyebrow={st.eyebrow} title={fill(st.title, { plan: planName, price })} subtitle={st.text} />
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+        {demoShown ? (
+          <div role="status" data-start-demo className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-amber-900 font-medium">{st.demo}</div>
+        ) : (
+          <form onSubmit={onSubmit} className="space-y-5" data-start-form>
+            <div>
+              <label htmlFor="start-name" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.name}</label>
+              <input id="start-name" name="name" type="text" autoComplete="name" required className={inputCls} />
+            </div>
+            <div>
+              <label htmlFor="start-email" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.email}</label>
+              <input id="start-email" name="email" type="email" autoComplete="email" required className={inputCls} />
+            </div>
+            <div>
+              <label htmlFor="start-phone" className="block text-sm font-medium text-ink-700 mb-1.5">{t.contact.form.phone}</label>
+              <input id="start-phone" name="phone" type="tel" autoComplete="tel" className={inputCls} />
+            </div>
+            <div>
+              <label htmlFor="start-company" className="block text-sm font-medium text-ink-700 mb-1.5">{st.company}</label>
+              <input id="start-company" name="company" type="text" autoComplete="organization" className={inputCls} />
+            </div>
+            <div>
+              <label htmlFor="start-message" className="block text-sm font-medium text-ink-700 mb-1.5">{st.message}</label>
+              <textarea id="start-message" name="message" rows={4} defaultValue={message} className={`${inputCls} resize-none`} />
+            </div>
+            <button type="submit" className="w-full sm:w-auto px-8 py-3 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-colors">{st.submit}</button>
+            <p className="text-xs text-ink-700/70 leading-relaxed">
+              {t.contact.form.privacyNotice}{' '}
+              <Link to={localePath('/tietosuoja')} className="underline hover:text-brand-600">{t.nav.privacy}</Link>
+            </p>
+          </form>
+        )}
+        <Link to={localePath('/hinnasto')} className="mt-8 inline-flex font-semibold text-brand-700 hover:underline">{st.back}</Link>
+      </div>
+    </div>
+  );
+}
+
 export default function ContactPage() {
+  const { search } = useLocation();
+  const hydrated = useSyncExternalStore(noopSubscribe, () => true, () => false);
+  const selection = hydrated ? parseSelection(search) : null;
+  if (selection) return <StartForm key={search} sel={selection} />;
+  return <ContactForm />;
+}
+
+function ContactForm() {
   const { t, localePath } = useI18n();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);

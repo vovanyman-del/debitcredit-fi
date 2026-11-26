@@ -34,6 +34,27 @@ test('Oy, 20 documents, 1 employee: Basic, 1 339,25 € a year', () => {
   assert.equal(q.totalCents, 133925);
 });
 
+test('Oy, 50 documents, no payroll: Medium without payroll 139,00 € a month, 2 145,95 € a year', () => {
+  const q = year('oy', 50, 50, 0);
+  assert.equal(q.low.plan.id, 'medium');
+  assert.equal(q.low.noPayroll, true);
+  assert.equal(q.low.totalCents, 13900);
+  assert.equal(q.totalCents, 214595);
+});
+
+test('Oy, 100 documents, no payroll: Large without payroll 239,00 € a month', () => {
+  const m = cheapestMonth('oy', 100, 0);
+  assert.equal(m.plan.id, 'large');
+  assert.equal(m.totalCents, 23900);
+});
+
+test('the no-payroll price never applies once there is a payslip', () => {
+  const m = cheapestMonth('oy', 50, 1);
+  assert.equal(m.plan.id, 'medium');
+  assert.equal(m.noPayroll, false);
+  assert.equal(m.totalCents, 16500);
+});
+
 test('Oy, 50 documents, 2 employees: Medium, 2 457,95 € a year', () => {
   const q = year('oy', 50, 50, 2);
   assert.equal(q.low.plan.id, 'medium');
