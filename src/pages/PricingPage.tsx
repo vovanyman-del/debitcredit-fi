@@ -203,7 +203,7 @@ export default function PricingPage() {
                 </ul>
                 <div className={`mt-5 pt-4 border-t text-xs leading-relaxed ${popular ? 'border-white/15' : 'border-ink-900/10'} ${muted}`}>
                   <p className={`font-medium ${popular ? 'text-white/85' : 'text-ink-700'}`}>{included}</p>
-                  <p className="mt-2">{v3.quietMonth} {extra}</p>
+                  <p className="mt-2">{v3.extraOnlyBusy} {extra}</p>
                 </div>
                 <Link
                   to={localePath('/yhteystiedot')}
