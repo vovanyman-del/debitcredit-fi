@@ -31,6 +31,8 @@ import { palkkaItselleTosite } from './palkka-itselle-tosite';
 import { taksiyrittajanKirjanpito } from './taksiyrittajan-kirjanpito';
 import { ravintolanKirjanpito } from './ravintolan-kirjanpito';
 import { toiminimenLopettaminen } from './toiminimen-lopettaminen';
+import { tyokalutOsamaksullaOmissaNimissa } from './tyokalut-osamaksulla-omissa-nimissa';
+import { matkalaskuJaKuitit } from './matkalasku-ja-kuitit';
 
 export * from './types';
 
@@ -68,6 +70,8 @@ export const guides: Guide[] = [
   taksiyrittajanKirjanpito,
   ravintolanKirjanpito,
   toiminimenLopettaminen,
+  tyokalutOsamaksullaOmissaNimissa,
+  matkalaskuJaKuitit,
 ];
 
 export const guideSlugs: string[] = guides.map((g) => g.slug);
@@ -134,6 +138,12 @@ export function relatedGuides(slug: string, limit = 3): Guide[] {
   }
   if (slug === toiminimenLopettaminen.slug) {
     return [toiminimenVerotus, yelVakuutus, tilinpaatosPienyritykselle].slice(0, limit);
+  }
+  if (slug === tyokalutOsamaksullaOmissaNimissa.slug) {
+    return [yrittajanVahennykset, palkkaItselleTosite, toiminimenVerotus].slice(0, limit);
+  }
+  if (slug === matkalaskuJaKuitit.slug) {
+    return [kilometrikorvausPaivaraha2026, ajopaivakirja, palkkailmoitusTulorekisteriin].slice(0, limit);
   }
   const i = guides.findIndex((g) => g.slug === slug);
   if (i === -1) return guides.slice(0, limit);
