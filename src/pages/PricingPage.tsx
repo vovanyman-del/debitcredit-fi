@@ -8,6 +8,8 @@ import {
   EXTRA_DOC_TIERS,
   TOIMINIMI_EXTRA_DOC_CENTS,
   PAYROLL_CENTS,
+  START_PAYROLL_CENTS,
+  TMI_ANNUAL_FLAT_CENTS,
   E_INVOICE_CENTS,
   ANNUAL_HOURLY_CENTS,
   SMALL_DIFFERENCE_CENTS,
@@ -21,6 +23,7 @@ import {
 } from '../data/pricingV3';
 import { SIGNUP_OPEN, startHref, type Selection, type SiteAnswer } from '../data/signup';
 import { money, euros, plural, fill, NBSP, type Forms } from '../data/priceFormat';
+import { keepAmountsTogether as keep } from '../data/guides';
 import PageHeader from '../components/PageHeader';
 import CtaBand from '../components/CtaBand';
 
@@ -123,19 +126,22 @@ export default function PricingPage() {
   const [payroll, setPayroll] = useState('1');
   const [current, setCurrent] = useState('');
   const [site, setSite] = useState<'' | SiteAnswer>('');
+  const [tmiOver100k, setTmiOver100k] = useState(false);
+  const limit = euros(100000, locale);
 
   const lowDocs = Math.min(uneven ? parseCount(docsLow) : parseCount(docs), uneven ? parseCount(docsHigh) : parseCount(docs));
   const highDocs = Math.max(uneven ? parseCount(docsLow) : parseCount(docs), uneven ? parseCount(docsHigh) : parseCount(docs));
   const payrollCount = parseCount(payroll);
-  // OPEN QUESTIONS (spec §7.1, §7.2): a toiminimi with wages is priced Basic and up, and its annual
-  // report by the hour — both as in the v3 grid until the founder decides (see pricingV3.ts).
-  const quote = yearQuote({ form, docsLow: lowDocs, docsHigh: highDocs, payroll: payrollCount });
+  // Founder 26.11: a toiminimi with employees stays on Toiminimi (+14,90 € a payslip) and its annual
+  // report is 82,50 € up to 100 000 € turnover; employees in the calculator are a monthly payroll, so
+  // an Oy with them is Basic and up (Start's 24,90 € payslips are for wages paid now and then).
+  const quote = yearQuote({ form, docsLow: lowDocs, docsHigh: highDocs, payroll: payrollCount, tmiTurnoverOver100k: tmiOver100k });
   const currentCents = parseCents(current, locale);
 
   const monthDetail = (mp: MonthPrice) => {
     const parts = [`${v3.plans[mp.plan.id].name} ${m(mp.baseCents)}`];
     if (mp.extraDocs > 0) parts.push(`${count(mp.extraDocs, v3.units.doc)} × ${m(mp.extraDocCents)}`);
-    if (mp.extraPayroll > 0) parts.push(`${count(mp.extraPayroll, v3.units.payroll)} × ${m(PAYROLL_CENTS)}`);
+    if (mp.extraPayroll > 0) parts.push(`${count(mp.extraPayroll, v3.units.payroll)} × ${m(mp.payrollCents)}`);
     return parts.length > 1 ? parts.join(' + ') : '';
   };
 
@@ -176,10 +182,15 @@ export default function PricingPage() {
       { label: cmp.docs, value: String(plan.includedDocs) },
       { label: cmp.payroll, value: plan.includedPayroll > 0 ? String(plan.includedPayroll) : cmp.none },
       { label: cmp.nextDoc, value: m(firstExtraDocCents(plan)) },
-      { label: cmp.nextPayroll, value: plan.includedPayroll > 0 ? m(PAYROLL_CENTS) : cmp.toBasic },
+      { label: cmp.nextPayroll, value: plan.id === 'start' ? fill(cmp.startPayrollValue, { price: m(plan.payrollCents) }) : m(plan.payrollCents) },
       { label: cmp.portal, value: cmp.portalValue },
       { label: cmp.base, value: cmp.baseValue },
-      { label: cmp.annual, value: fill(cmp.annualValue, { rate: m(ANNUAL_HOURLY_CENTS) }) },
+      {
+        label: cmp.annual,
+        value: plan.id === 'toiminimi'
+          ? fill(cmp.annualTmiValue, { flat: m(TMI_ANNUAL_FLAT_CENTS), limit, rate: m(ANNUAL_HOURLY_CENTS) })
+          : fill(cmp.annualValue, { rate: m(ANNUAL_HOURLY_CENTS) }),
+      },
     ];
   };
 
@@ -268,7 +279,8 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                {plan.includedPayroll === 0 && <p className={`mt-3 text-xs ${muted}`}>{v3.toBasic}</p>}
+                {plan.id === 'toiminimi' && <p className={`mt-3 text-xs ${muted}`}>{fill(v3.payrollNoteTmi, { price: m(plan.payrollCents) })}</p>}
+                {plan.id === 'start' && <p className={`mt-3 text-xs ${muted}`}>{fill(v3.payrollNoteStart, { price: m(plan.payrollCents) })}</p>}
                 <a href="#vaavo" className={`mt-3 text-xs font-semibold hover:underline ${popular ? 'text-brand-400' : 'text-brand-700'}`}>{v3.allVaavo}</a>
                 <StartButton
                   sel={sel}
@@ -377,6 +389,23 @@ export default function PricingPage() {
                 </div>
               </fieldset>
 
+              {form === 'tmi' && (
+                <fieldset>
+                  <legend className="block text-sm font-medium text-ink-700 mb-1.5">{c.turnoverLabel}</legend>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[false, true].map((over) => (
+                      <label
+                        key={String(over)}
+                        className={`cursor-pointer rounded-xl border px-4 py-2.5 text-sm font-semibold text-center transition-colors ${tmiOver100k === over ? 'border-brand-600 bg-brand-50 text-brand-700' : 'border-ink-900/15 bg-white text-ink-700 hover:bg-ink-900/[0.03]'}`}
+                      >
+                        <input type="radio" name="calc-turnover" value={over ? 'over' : 'under'} checked={tmiOver100k === over} onChange={() => setTmiOver100k(over)} className="sr-only" />
+                        {fill(over ? c.turnoverOver : c.turnoverUnder, { limit })}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+              )}
+
               {!uneven ? (
                 <div>
                   <label htmlFor="calc-docs" className="block text-sm font-medium text-ink-700 mb-1.5">{c.docsLabel}</label>
@@ -469,7 +498,9 @@ export default function PricingPage() {
                       <dd className="text-sm font-semibold tabular-nums whitespace-nowrap">{m(quote.bookkeepingCents)}</dd>
                     </div>
                     <div className="flex items-start justify-between gap-4 py-2.5">
-                      <dt className="text-sm text-ink-700">{fill(c.rowAnnual, { hours: hoursText(quote.annualHalfHours, c.hoursUnit, locale), rate: m(ANNUAL_HOURLY_CENTS) })}</dt>
+                      <dt className="text-sm text-ink-700">
+                        {quote.annualFlat ? c.rowAnnualFlat : fill(c.rowAnnual, { hours: hoursText(quote.annualHalfHours, c.hoursUnit, locale), rate: m(ANNUAL_HOURLY_CENTS) })}
+                      </dt>
                       <dd className="text-sm font-semibold tabular-nums whitespace-nowrap">{m(quote.annualCents)}</dd>
                     </div>
                     <div className="flex items-start justify-between gap-4 py-2.5">
@@ -553,9 +584,9 @@ export default function PricingPage() {
             <div className="rounded-2xl border border-ink-900/10 bg-white p-6">
               <dl className="divide-y divide-ink-900/8">
                 {[
-                  { title: ex.payrollTitle, price: m(PAYROLL_CENTS), unit: ex.perPiece, text: ex.payrollText },
+                  { title: ex.payrollTitle, price: m(PAYROLL_CENTS), unit: ex.perPiece, text: fill(ex.payrollText, { price: m(PAYROLL_CENTS), startPrice: m(START_PAYROLL_CENTS) }) },
                   { title: ex.eInvoiceTitle, price: m(E_INVOICE_CENTS), unit: ex.perPiece, text: ex.eInvoiceText },
-                  { title: ex.annualTitle, price: m(ANNUAL_HOURLY_CENTS), unit: ex.perHour, text: ex.annualText },
+                  { title: ex.annualTitle, price: m(ANNUAL_HOURLY_CENTS), unit: ex.perHour, text: fill(ex.annualText, { limit, flat: m(TMI_ANNUAL_FLAT_CENTS), rate: m(ANNUAL_HOURLY_CENTS) }) },
                 ].map((row) => (
                   <div key={row.title} className="py-3 first:pt-0 last:pb-0">
                     <div className="flex items-start justify-between gap-4">
@@ -605,7 +636,7 @@ export default function PricingPage() {
             {v3.faq.items.map((item) => (
               <details key={item.q} className="px-6">
                 <summary className="cursor-pointer py-4 font-semibold text-ink-900">{item.q}</summary>
-                <p className="pb-4 text-ink-700 leading-relaxed">{SIGNUP_OPEN && item.aB ? item.aB : item.a}</p>
+                <p className="pb-4 text-ink-700 leading-relaxed">{keep(SIGNUP_OPEN && item.aB ? item.aB : item.a)}</p>
               </details>
             ))}
           </div>

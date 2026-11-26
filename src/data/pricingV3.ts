@@ -10,19 +10,26 @@ export interface Plan {
   id: PlanId;
   priceCents: number;
   includedDocs: number;
-  /** 0 means the plan carries no payroll: the first employee moves the firm to Basic. */
   includedPayroll: number;
+  /** Each payslip above what the plan includes (founder 26.11: Toiminimi 14,90, Start 24,90, others 14,90). */
+  payrollCents: number;
+  /**
+   * Start takes payslips only for an Oy that pays wages now and then (every 3–4 months); an Oy with a
+   * monthly payroll is Basic and up (founder 26.11). False marks that plan.
+   */
+  regularPayroll: boolean;
   /** Price when the firm runs no payroll at all (pricing-v3.md §1, §3: Medium 139, Large 239). */
   noPayrollPriceCents?: number;
   forms: CompanyForm[];
 }
 
 export const PLANS: Plan[] = [
-  { id: 'toiminimi', priceCents: 3990, includedDocs: 15, includedPayroll: 0, forms: ['tmi'] },
-  { id: 'start', priceCents: 5990, includedDocs: 15, includedPayroll: 0, forms: ['oy'] },
-  { id: 'basic', priceCents: 9350, includedDocs: 20, includedPayroll: 1, forms: ['tmi', 'oy'] },
-  { id: 'medium', priceCents: 16500, includedDocs: 50, includedPayroll: 2, noPayrollPriceCents: 13900, forms: ['tmi', 'oy'] },
-  { id: 'large', priceCents: 29700, includedDocs: 100, includedPayroll: 4, noPayrollPriceCents: 23900, forms: ['tmi', 'oy'] },
+  // Founder 26.11: a toiminimi stays on Toiminimi with employees (14,90 € a payslip); Basic and up are Oy only.
+  { id: 'toiminimi', priceCents: 3990, includedDocs: 15, includedPayroll: 0, payrollCents: 1490, regularPayroll: true, forms: ['tmi'] },
+  { id: 'start', priceCents: 5990, includedDocs: 15, includedPayroll: 0, payrollCents: 2490, regularPayroll: false, forms: ['oy'] },
+  { id: 'basic', priceCents: 9350, includedDocs: 20, includedPayroll: 1, payrollCents: 1490, regularPayroll: true, forms: ['oy'] },
+  { id: 'medium', priceCents: 16500, includedDocs: 50, includedPayroll: 2, payrollCents: 1490, regularPayroll: true, noPayrollPriceCents: 13900, forms: ['oy'] },
+  { id: 'large', priceCents: 29700, includedDocs: 100, includedPayroll: 4, payrollCents: 1490, regularPayroll: true, noPayrollPriceCents: 23900, forms: ['oy'] },
 ];
 
 /** Extra document price by the month's total document count (Toiminimi has its own flat price). */
@@ -35,6 +42,9 @@ export const TOIMINIMI_EXTRA_DOC_CENTS = 164;
 /** Above this many documents in a month there is no list price: «pyydä tarjous». */
 export const MAX_LISTED_DOCS = 200;
 export const PAYROLL_CENTS = 1490;
+export const START_PAYROLL_CENTS = 2490;
+/** Toiminimi annual report at a fixed price while turnover is at most 100 000 € a year (founder 26.11). */
+export const TMI_ANNUAL_FLAT_CENTS = 8250;
 export const E_INVOICE_CENTS = 49;
 export const ANNUAL_HOURLY_CENTS = 8690;
 export const ANNUAL_MIN_HOURS = 2;
@@ -59,6 +69,7 @@ export interface MonthPrice {
   extraDocs: number;
   extraDocCents: number;
   extraPayroll: number;
+  payrollCents: number;
   totalCents: number;
 }
 
@@ -69,54 +80,56 @@ export function planPriceCents(plan: Plan, payroll: number): number {
 
 /**
  * The cheapest way to bill one month: every plan the firm may use, with extra documents at the
- * month's rate and extra payroll calculations at 14,90 €. Payroll exists only on Basic, Medium
- * and Large, so the first employee means Basic at least. Returns null above 200 documents.
- *
- * OPEN QUESTION (pricing-page-v3-spec.md §7.1): a toiminimi that pays wages follows the v3 grid
- * here (Basic and up). The signup door prices it as Micro + 14,90 € per payslip; until the founder
- * decides, the page keeps the grid.
+ * month's rate and extra payslips at the plan's payslip price. A toiminimi stays on Toiminimi and
+ * pays 14,90 € a payslip. An Oy pays 24,90 € a payslip on Start only when the payroll is irregular
+ * (`irregularPayroll`); then Start competes with Basic and the cheaper one is billed — 20 documents
+ * and 1 payslip: 59,90 + 12,50 + 24,90 = 97,30 > 93,50, so Basic. A monthly payroll is Basic and up.
+ * Returns null above 200 documents.
  */
-export function cheapestMonth(form: CompanyForm, docs: number, payroll: number): MonthPrice | null {
+export function cheapestMonth(
+  form: CompanyForm,
+  docs: number,
+  payroll: number,
+  opts: { irregularPayroll?: boolean } = {},
+): MonthPrice | null {
   if (docs > MAX_LISTED_DOCS) return null;
   let best: MonthPrice | null = null;
   for (const plan of PLANS) {
     if (!plan.forms.includes(form)) continue;
-    if (payroll > 0 && plan.includedPayroll === 0) continue;
+    if (payroll > 0 && !plan.regularPayroll && !opts.irregularPayroll) continue;
     const extraDocs = Math.max(0, docs - plan.includedDocs);
     const rate = extraDocCents(plan, docs);
     const extraPayroll = Math.max(0, payroll - plan.includedPayroll);
     const baseCents = planPriceCents(plan, payroll);
-    const totalCents = baseCents + extraDocs * rate + extraPayroll * PAYROLL_CENTS;
+    const totalCents = baseCents + extraDocs * rate + extraPayroll * plan.payrollCents;
     if (!best || totalCents < best.totalCents) {
-      best = { plan, baseCents, noPayroll: baseCents !== plan.priceCents, docs, extraDocs, extraDocCents: rate, extraPayroll, totalCents };
+      best = { plan, baseCents, noPayroll: baseCents !== plan.priceCents, docs, extraDocs, extraDocCents: rate, extraPayroll, payrollCents: plan.payrollCents, totalCents };
     }
   }
   return best;
 }
 
-// Annual report hours by average documents a month, in half hours (like-for-like-comparison.md §1:
-// Oy 20 docs 2,5 h, 50 docs 5,5 h, 100 docs 6,5 h, 200 docs 7,5 h; toiminimi 2 h). Between the
-// points the hours are interpolated and rounded to the nearest half hour.
-const OY_HALF_HOURS: [number, number][] = [[20, 5], [50, 11], [100, 13], [200, 15]];
+// Annual report (founder 26.11): a toiminimi with turnover at most 100 000 € pays 82,50 €; a larger
+// toiminimi and every Oy pay 86,90 € an hour — small Oy 2–3 h, medium 3–5 h, large 5–8 h. The calculator
+// estimates the hours from the average documents a month, in half hours: 20 docs 2,5 h (small),
+// 50 docs 4 h (medium), 100 docs 6,5 h and 200 docs 8 h (large); interpolated between the points and
+// rounded to the nearest half hour, so every estimate stays inside the founder's ranges.
+const OY_HALF_HOURS: [number, number][] = [[20, 5], [50, 8], [100, 13], [200, 16]];
 
-// OPEN QUESTION (pricing-page-v3-spec.md §7.2): the toiminimi annual report is priced by the hour
-// here (2 h × 86,90 €); the signup door quotes «Tilinpäätös tmi» from 82,50 €. Kept as the grid until
-// the founder decides.
-export function annualReportHalfHours(form: CompanyForm, avgDocs: number): number {
-  let oy = OY_HALF_HOURS[OY_HALF_HOURS.length - 1][1];
-  if (avgDocs <= OY_HALF_HOURS[0][0]) oy = OY_HALF_HOURS[0][1];
+export function annualReportHalfHours(avgDocs: number): number {
+  let hh = OY_HALF_HOURS[OY_HALF_HOURS.length - 1][1];
+  if (avgDocs <= OY_HALF_HOURS[0][0]) hh = OY_HALF_HOURS[0][1];
   else {
     for (let i = 1; i < OY_HALF_HOURS.length; i++) {
       const [d0, h0] = OY_HALF_HOURS[i - 1];
       const [d1, h1] = OY_HALF_HOURS[i];
       if (avgDocs <= d1) {
-        oy = Math.round(h0 + ((avgDocs - d0) * (h1 - h0)) / (d1 - d0));
+        hh = Math.round(h0 + ((avgDocs - d0) * (h1 - h0)) / (d1 - d0));
         break;
       }
     }
   }
-  const halfHours = form === 'tmi' ? oy - 1 : oy;
-  return Math.max(ANNUAL_MIN_HOURS * 2, halfHours);
+  return Math.max(ANNUAL_MIN_HOURS * 2, hh);
 }
 
 export interface YearInput {
@@ -125,6 +138,10 @@ export interface YearInput {
   docsLow: number;
   docsHigh: number;
   payroll: number;
+  /** Toiminimi only: turnover above 100 000 € a year moves the annual report to the hourly price. */
+  tmiTurnoverOver100k?: boolean;
+  /** Oy only: wages paid now and then, so Start with 24,90 € payslips may be the cheaper month. */
+  irregularPayroll?: boolean;
 }
 
 export type YearQuote =
@@ -135,6 +152,8 @@ export type YearQuote =
       low: MonthPrice;
       high: MonthPrice;
       bookkeepingCents: number;
+      /** True for the toiminimi fixed price (82,50 €); then annualHalfHours is 0. */
+      annualFlat: boolean;
       annualHalfHours: number;
       annualCents: number;
       totalCents: number;
@@ -144,18 +163,21 @@ export type YearQuote =
 export function yearQuote(input: YearInput): YearQuote {
   const lowDocs = Math.min(input.docsLow, input.docsHigh);
   const highDocs = Math.max(input.docsLow, input.docsHigh);
-  const low = cheapestMonth(input.form, lowDocs, input.payroll);
-  const high = cheapestMonth(input.form, highDocs, input.payroll);
+  const opts = { irregularPayroll: input.irregularPayroll };
+  const low = cheapestMonth(input.form, lowDocs, input.payroll, opts);
+  const high = cheapestMonth(input.form, highDocs, input.payroll, opts);
   if (!low || !high) return { kind: 'quote' };
   const bookkeepingCents = 6 * low.totalCents + 6 * high.totalCents;
-  const annualHalfHours = annualReportHalfHours(input.form, (lowDocs + highDocs) / 2);
-  const annualCents = (annualHalfHours * ANNUAL_HOURLY_CENTS) / 2;
+  const annualFlat = input.form === 'tmi' && !input.tmiTurnoverOver100k;
+  const annualHalfHours = annualFlat ? 0 : annualReportHalfHours((lowDocs + highDocs) / 2);
+  const annualCents = annualFlat ? TMI_ANNUAL_FLAT_CENTS : (annualHalfHours * ANNUAL_HOURLY_CENTS) / 2;
   return {
     kind: 'price',
     uneven: lowDocs !== highDocs,
     low,
     high,
     bookkeepingCents,
+    annualFlat,
     annualHalfHours,
     annualCents,
     totalCents: bookkeepingCents + annualCents,
