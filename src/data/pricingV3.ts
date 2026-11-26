@@ -192,3 +192,12 @@ export function nearestMarketProfile(form: CompanyForm, avgDocs: number, payroll
 
 /** Below this yearly difference the calculator says the price alone is no reason to switch. */
 export const SMALL_DIFFERENCE_CENTS = 12000;
+
+/**
+ * Business bundles shown as «coming in 2027» (beyond-per-document.md §8.3): indicative starting prices,
+ * not offers, and never part of the calculator's total.
+ */
+export const BUNDLES = [
+  { id: 'start', fromEur: 19, months: 12 },
+  { id: 'grow', fromEur: 39, months: 12 },
+] as const;

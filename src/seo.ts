@@ -336,7 +336,7 @@ function typeNode(t: Translations, locale: Locale, basePath: string, pageUrl: st
       const offers = PLANS.map((p) => ({
           '@type': 'Offer',
           name: t.pricing.v3.plans[p.id].name,
-          description: t.pricing.v3.plans[p.id].target,
+          description: t.pricing.v3.plans[p.id].headline,
           price: (p.priceCents / 100).toFixed(2),
           priceCurrency: 'EUR',
           priceSpecification: {

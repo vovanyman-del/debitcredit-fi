@@ -10,6 +10,7 @@ import {
   E_INVOICE_CENTS,
   ANNUAL_HOURLY_CENTS,
   SMALL_DIFFERENCE_CENTS,
+  BUNDLES,
   firstExtraDocCents,
   yearQuote,
   nearestMarketProfile,
@@ -108,6 +109,7 @@ export default function PricingPage() {
   const v3 = t.pricing.v3;
   const ex = v3.extras;
   const c = v3.calculator;
+  const bu = v3.bundles;
   const m = (cents: number) => money(cents, locale);
   const count = (n: number, forms: Forms) => `${n} ${plural(n, forms, locale)}`;
 
@@ -126,6 +128,7 @@ export default function PricingPage() {
   const [docsHigh, setDocsHigh] = useState('40');
   const [payroll, setPayroll] = useState('1');
   const [current, setCurrent] = useState('');
+  const [site, setSite] = useState<'' | 'yes' | 'no' | 'have'>('');
 
   const lowDocs = uneven ? parseCount(docsLow) : parseCount(docs);
   const highDocs = uneven ? parseCount(docsHigh) : parseCount(docs);
@@ -163,8 +166,9 @@ export default function PricingPage() {
           {PLANS.map((plan) => {
             const p = v3.plans[plan.id];
             const popular = plan.id === 'basic';
-            const items = [count(plan.includedDocs, v3.units.doc)];
-            if (plan.includedPayroll > 0) items.push(count(plan.includedPayroll, v3.units.payroll));
+            const included = plan.includedPayroll > 0
+              ? fill(v3.includedWithPayroll, { docs: count(plan.includedDocs, v3.units.doc), payroll: count(plan.includedPayroll, v3.units.payroll) })
+              : fill(v3.included, { docs: count(plan.includedDocs, v3.units.doc) });
             // The dash stays with the word before it, so a wrapped line never starts with «—».
             const extra = (plan.includedPayroll > 0
               ? fill(v3.extraLine, { doc: m(firstExtraDocCents(plan)), payroll: m(PAYROLL_CENTS) })
@@ -181,26 +185,26 @@ export default function PricingPage() {
                   </div>
                 )}
                 <h3 className={`text-lg font-bold ${popular ? 'text-white' : 'text-ink-900'}`}>{p.name}</h3>
-                <p className={`mt-1 text-xs ${muted}`}>{p.target}</p>
+                <p className={`mt-1 text-sm font-semibold leading-snug lg:min-h-[3.75em] ${popular ? 'text-brand-400' : 'text-brand-700'}`}>{p.headline}</p>
                 <p className={`mt-4 text-xs font-medium ${muted}`}>{v3.from}</p>
                 <div className="flex flex-wrap items-baseline gap-x-1">
                   <span className="text-2xl xl:text-3xl font-extrabold font-mono tracking-tight whitespace-nowrap">{m(plan.priceCents)}</span>
                   <span className={`text-sm ${muted}`}>{t.pricing.perMonth}</span>
                 </div>
-                <p className={`mt-3 text-sm font-semibold ${popular ? 'text-brand-400' : 'text-brand-700'}`}>
-                  {fill(v3.included, { items: items.join(` ${v3.and} `) })}
-                </p>
-                <p className={`mt-2 text-xs leading-relaxed ${muted}`}>{extra}</p>
                 <ul className="mt-4 space-y-2 flex-1">
-                  {p.features.map((feat) => (
-                    <li key={feat} className={`flex items-start gap-2 text-sm ${popular ? 'text-white/80' : 'text-ink-700/80'}`}>
+                  {p.portal.map((line) => (
+                    <li key={line} className={`flex items-start gap-2 text-sm ${popular ? 'text-white/85' : 'text-ink-700/85'}`}>
                       <svg className="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span>{feat}</span>
+                      <span>{line}</span>
                     </li>
                   ))}
                 </ul>
+                <div className={`mt-5 pt-4 border-t text-xs leading-relaxed ${popular ? 'border-white/15' : 'border-ink-900/10'} ${muted}`}>
+                  <p className={`font-medium ${popular ? 'text-white/85' : 'text-ink-700'}`}>{included}</p>
+                  <p className="mt-2">{v3.quietMonth} {extra}</p>
+                </div>
                 <Link
                   to={localePath('/yhteystiedot')}
                   className={`mt-5 block text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${popular ? 'bg-brand-600 text-white hover:bg-brand-700' : 'bg-ink-900/5 text-ink-900 hover:bg-ink-900/10'}`}
@@ -212,7 +216,11 @@ export default function PricingPage() {
           })}
         </div>
 
-        <p className="mt-6 text-sm text-ink-700/75">{t.pricing.note}</p>
+        <div data-shot="below-cards" className="mt-6 space-y-2 text-sm text-ink-700 max-w-5xl">
+          <p>{v3.everyPackage}</p>
+          <p><span className="font-semibold">{v3.toseDefinition.split('?')[0]}?</span>{v3.toseDefinition.slice(v3.toseDefinition.indexOf('?') + 1)}</p>
+          <p className="text-ink-700/75">{t.pricing.note}</p>
+        </div>
 
         {/* Beyond the package */}
         <section data-shot="extras" className="mt-14">
@@ -285,6 +293,38 @@ export default function PricingPage() {
           </ul>
         </section>
 
+        {/* Business bundles: shown as coming, prices indicative, never in the calculator total */}
+        <section id="yrityspaketit" data-shot="bundles" className="mt-16">
+          <div className="flex flex-wrap items-center gap-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-ink-900">{bu.title}</h2>
+            <span className="rounded-full bg-amber-100 text-amber-900 text-xs font-semibold px-3 py-1">{bu.badge}</span>
+          </div>
+          <p className="mt-2 text-ink-700/80 max-w-3xl">{bu.lead}</p>
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+            {BUNDLES.map((b) => {
+              const text = bu[b.id];
+              return (
+                <div key={b.id} className="rounded-2xl border border-dashed border-ink-900/20 bg-white p-6 flex flex-col">
+                  <h3 className="text-lg font-bold text-ink-900">{text.name}</h3>
+                  <p className="mt-1 text-sm font-semibold text-brand-700">{text.audience}</p>
+                  <p className="mt-3 text-sm text-ink-700/80">{fill(bu.price, { price: euros(b.fromEur, locale), months: b.months })}</p>
+                  <ul className="mt-4 space-y-2 flex-1">
+                    {text.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-ink-700/85">
+                        <svg className="w-4 h-4 text-brand-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to={localePath('/yhteystiedot')} className="mt-5 inline-flex font-semibold text-brand-700 hover:underline">{bu.cta} →</Link>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
         {/* Calculator: everything is computed in the browser */}
         <section id="laskuri" data-shot="calc" className="mt-16 rounded-3xl border border-ink-900/10 bg-white p-5 sm:p-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-ink-900">{c.title}</h2>
@@ -353,6 +393,21 @@ export default function PricingPage() {
                 <input id="calc-current" type="text" inputMode="decimal" value={current} onChange={(e) => setCurrent(e.target.value)} aria-describedby="calc-current-hint" className={inputCls} />
                 <p id="calc-current-hint" className="mt-1.5 text-xs text-ink-700/70">{c.currentHint}</p>
               </div>
+
+              <fieldset>
+                <legend className="block text-sm font-medium text-ink-700 mb-1.5">{c.siteLabel}</legend>
+                <div className="grid grid-cols-3 gap-2">
+                  {([['yes', c.siteYes], ['no', c.siteNo], ['have', c.siteHave]] as const).map(([value, label]) => (
+                    <label
+                      key={value}
+                      className={`cursor-pointer rounded-xl border px-3 py-2.5 text-sm font-semibold text-center transition-colors ${site === value ? 'border-brand-600 bg-brand-50 text-brand-700' : 'border-ink-900/15 bg-white text-ink-700 hover:bg-ink-900/[0.03]'}`}
+                    >
+                      <input type="radio" name="calc-site" value={value} checked={site === value} onChange={() => setSite(value)} className="sr-only" />
+                      {label}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
             </form>
 
             <section aria-live="polite" className="rounded-2xl border border-ink-900/10 bg-canvas p-5 sm:p-6 self-start">
@@ -416,6 +471,9 @@ export default function PricingPage() {
                     <p className="mt-4 text-sm text-ink-700/80">{c.marketNone}</p>
                   )}
                 </>
+              )}
+              {site === 'yes' && (
+                <a href="#yrityspaketit" data-calc-site className="mt-4 block text-sm font-semibold text-brand-700 hover:underline">{c.siteResult} →</a>
               )}
               <Link to={localePath('/yhteystiedot')} className="mt-4 inline-flex font-semibold text-brand-700 hover:underline">{c.cta} →</Link>
             </section>
